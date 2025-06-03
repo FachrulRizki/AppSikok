@@ -1,159 +1,206 @@
-<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-    <div class="sb-sidenav-menu">
-        <div class="nav">
-            <div class="sb-sidenav-menu-heading">Menu</div>
-            <a class="nav-link" href={{('/')}}>
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Dashboard
+<aside class="left-sidebar with-vertical">
+    <div><!-- ---------------------------------- -->
+        <!-- Start Vertical Layout Sidebar -->
+        <!-- ---------------------------------- -->
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+            <a href="../dark/index.html" class="text-nowrap logo-img">
+                <img src="{{ asset('assets/images/logos/dark-logo.png') }}" class="dark-logo" width="180" alt="Logo-Dark" />
+                <img src="{{ asset('assets/images/logos/light-logo.png') }}" class="light-logo" width="180" alt="Logo-light" />
             </a>
+            <a href="javascript:void(0)" class="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none">
+                <i class="ti ti-x"></i>
+            </a>
+        </div>
 
-            {{-- <div class="sb-sidenav-menu-heading">Interface</div> --}}
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-                aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                Aktifitas Harian
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href={{ route ("aktivitas_keperawatan")}}>Aktivitas Keperawatan</a>
-                    {{-- <a class="nav-link" href="kehadiran.html">Statistik kehadiran (Opsional) </a> --}}
-                </nav>
-            </div>
-
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                aria-expanded="false" aria-controls="collapsePages">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Refleksi Harian
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href={{ route ("refleksi")}}>Form Tulis Refleksi</a>
-                    {{-- <a class="nav-link" href="komentar.html">Komentar Kepala Ruang </a> --}}
-                </nav>
-            </div>
-
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Supervisi
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="collapseExample" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href={{ route ("spv_kepru")}}>Form Supervisi Kepala Ruang</a>
-                    {{-- <a class="nav-link" href="komentar.html">Daftar Supervisi Perawat</a> --}}
-                </nav>
-            </div>
-
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample1"
-                aria-expanded="false" aria-controls="multiCollapseExample1">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Data Mutu <br>(Tahap Development)
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="multiCollapseExample1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="#">5R</a>
-                    <a class="nav-link" href="#">Insiden</a>
-                    <a class="nav-link" href="#">Cuci Tangan</a>
-                </nav>
-            </div>
-
-            {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
-                aria-expanded="false" aria-controls="multiCollapseExample2">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Soft Skill (360°) <br>(Tahap Development)
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="multiCollapseExample2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="#">Penilaian oleh rekan sejawat dan atasan</a>
-                    <a class="nav-link" href="#">Form penilaian komunikasi, kerja tim, kolaborasi</a>
-                </nav>
-            </div> --}}
-
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3"
-                aria-expanded="false" aria-controls="multiCollapseExample3">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Pelatihan Mikrolearning <br>(Tahap Development)
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="multiCollapseExample3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="#">Daftar materi video / PDF</a>
-                    <a class="nav-link" href="#">Kuis</a>
-                </nav>
-            </div>
-
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample4"
-                aria-expanded="false" aria-controls="multiCollapseExample4">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Evaluasi <br>(Tahap Development)
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="multiCollapseExample4" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="#">Ruang, Perawat, Bulan</a>
-                    <a class="nav-link" href="#">Unduh PDF/Excel</a>
-                    <a class="nav-link" href="#">Kebutuhan SDM dan Akreditasi</a>
-                </nav>
-            </div>
-
-            {{-- 
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                aria-expanded="false" aria-controls="collapsePages">
-                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                Refleksi Harian
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            
-            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                        Form Tulis Refleksi
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar>
+            <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">Home</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-home"></i>
+                        </span>
+                        <span class="hide-menu">Beranda</span>
                     </a>
+                </li>
 
-                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordionPages">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="login.html">Login</a>
-                            <a class="nav-link" href="register.html">Register</a>
-                            <a class="nav-link" href="password.html">Forgot Password</a>
-                        </nav>
-                    </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                        Error
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-checkup-list"></i>
+                        </span>
+                        <span class="hide-menu">Aktifitas Harian</span>
                     </a>
-                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordionPages">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="401.html">401 Page</a>
-                            <a class="nav-link" href="404.html">404 Page</a>
-                            <a class="nav-link" href="500.html">500 Page</a>
-                        </nav>
-                    </div>
-                </nav>
-            </div> --}}
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ route('aktivitas_keperawatan') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Keperawatan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-            {{-- <div class="sb-sidenav-menu-heading">Addons</div>
-            <a class="nav-link" href="charts.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                Charts
-            </a>
-            <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Tables
-            </a> --}}
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-notebook"></i>
+                        </span>
+                        <span class="hide-menu">Refleksi Harian</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ route('refleksi') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Tulis Refleksi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-eye-check"></i>
+                        </span>
+                        <span class="hide-menu">Supervisi</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ route('spv_kepru') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Kepala Ruang</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-gauge"></i>
+                        </span>
+                        <span class="hide-menu">Data Mutu (Dev)</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">5R</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Insiden</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Cuci Tangan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-school"></i>
+                        </span>
+                        <span class="hide-menu">Mikrolearning (Dev)</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Materi Video/PDF</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Kuis</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-chart-bar"></i>
+                        </span>
+                        <span class="hide-menu">Evaluasi (Dev)</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Ruang, Perawat, Bulanan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Unduh PDF/Excel</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">SDM dan Akreditasi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="fixed-profile p-3 mx-4 mb-2 bg-secondary-subtle rounded mt-3">
+            <div class="hstack gap-3">
+                <div class="john-img">
+                    <img src="{{ asset('assets/images/profile/user-1.jpg') }}" class="rounded-circle"
+                        width="40" height="40" alt="modernize-img" />
+                </div>
+                <div class="john-title">
+                    <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->name }}</h6>
+                    <span class="fs-2">{{ Auth::user()->getRoleNames()->first() }}</span>
+                </div>
+                <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="submit" form="logout-form"
+                    aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
+                    <i class="ti ti-power fs-6"></i>
+                </button>
+                <form action="{{ route('logout') }}" method="post" id="logout-form" hidden>
+                    @csrf
+                </form>
+            </div>
         </div>
     </div>
-    <div class="sb-sidenav-footer">
-        <div class="small">Product By:</div>
-        asisten_spaceX
-    </div>
-</nav>
+</aside>

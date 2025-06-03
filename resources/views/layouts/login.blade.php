@@ -1,92 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Cyan_Theme" data-layout="vertical">
 
 <head>
-    <meta charset="utf-8" />
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="website" />
-    <title>Login</title>
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.ico') }}" />
+
+    <!-- Core Css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
+
+    <title>{{ config('app.name') }} - Login</title>
 </head>
 
-<body class="bg-primary">
-    <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <main>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5">
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="{{ asset('assets/images/logos/favicon.ico') }}" alt="loader" class="lds-ripple img-fluid" />
+    </div>
 
-                            @if ($message = Session::get('error'))
-                                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+    <div id="main-wrapper" class="auth-customizer-none">
+        <div
+            class="position-relative overflow-hidden radial-gradient min-vh-100 w-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6 col-xxl-3 auth-card">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <a href="/"
+                                        class="text-nowrap logo-img text-center d-block w-100 mb-2">
+                                        <img src="{{ asset('assets/images/logos/dark-logo.png') }}" width="180"
+                                            class="dark-logo" alt="Logo-Dark" />
+                                        <img src="{{ asset('assets/images/logos/light-logo.png') }}" width="180"
+                                            class="light-logo" alt="Logo-light" />
+                                    </a>
+                                    <p class="text-center mb-0">Sistem Integratif Kompetensi dan Kolaborasi Keperawatan Holistik</p>
                                 </div>
-                            @endif
 
-                            <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <h1 class="text-center font-weight-light my-4">LOGIN</h1>
-                                <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Sistem Integratif Kompetensi dan
-                                        Kolaborasi Keperawatan Holistik</h3>
-                                </div>
-                                <div class="card-body">
-                                    <form action="{{ route('authenticate') }}" method="POST">
-                                        @csrf
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputUsername" type="text"
-                                                name="username" placeholder="your username" />
-                                            <label for="inputUsername">Username</label>
-                                        </div>
+                                @if ($message = Session::get('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
+
+                                <form action="{{ route('login') }}" method="POST">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" class="form-control @error('username') is-invalid @enderror" name="username">
                                         @error('username')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
-
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password"
-                                                name="password" placeholder="Password" />
-                                            <label for="inputPassword">Password</label>
-                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
                                         @error('password')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
-
-                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button type="submit" class="btn btn-primary">Login</button>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input primary" type="checkbox" value=""
+                                                id="flexCheckChecked" checked>
+                                            <label class="form-check-label text-dark" for="flexCheckChecked">
+                                                Remember me
+                                            </label>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 rounded-2">Sign In</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-        <div id="layoutAuthentication_footer">
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2025</div>
-                        {{-- <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div> --}}
-                    </div>
-                </div>
-            </footer>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('js/scripts.js') }}"></script>
+    <div class="dark-transparent sidebartoggler"></div>
+    <!-- Import Js Files -->
+    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/app.init.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/theme.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/app.min.js') }}"></script>
+
+    <!-- solar icons -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>

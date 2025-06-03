@@ -22,7 +22,7 @@ use Illuminate\Auth\Events\Logout;
 
 Route::get('/', function () {
     return view('dashboard');
-})->middleware('auth');
+})->middleware('auth')->name('dashboard');
 
 /*
 |--------------------------------------------------------------------------
