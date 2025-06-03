@@ -8,7 +8,7 @@
     <!-- Masukkan isi konten halaman di sini -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-white p-4 rounded shadow">
-            <div class="text-gray-500">Capaian SLK</div>
+            <div class="text-gray-500">Capaian SLKI</div>
             <div class="text-2xl font-bold" id="slki-score">85%</div>
             <div class="text-sm text-green-600">Baik</div>
         </div>
