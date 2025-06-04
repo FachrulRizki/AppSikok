@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Logout;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KncController;
+use App\Http\Controllers\KpcController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\InsidenController;
 use App\Http\Controllers\RefleksiController;
-use App\Http\Controllers\AktivitasKeperawatanController;
 use App\Http\Controllers\SpvKeperuController;
 use App\Http\Controllers\SupervisiKepruController;
-use Illuminate\Auth\Events\Logout;
+use App\Http\Controllers\AktivitasKeperawatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +51,18 @@ Route::resource('aktivitas_keperawatan', AktivitasKeperawatanController::class);
 
 Route::get('/spvkepru', [SupervisiKepruController::class, 'index'])->name('spv_kepru');
 Route::resource('spv_kepru', SupervisiKepruController::class);
+
+
+
+
+//Data Mutu
+Route::get('/mutuinsiden', InsidenController::class)->name('insiden');
+// Route::resource('insiden', InsidenController::class);
+
+Route::prefix('insiden')->name('insiden.')->group(function () {
+    Route::resource('kpc', KpcController::class)->except(['insiden.kpc.show']);
+    Route::resource('knc', KncController::class)->except(['insiden.knc.show']);
+    // Route::resource('ktc', KtcController::class)->except(['show']);
+    // Route::resource('ktd', KtdController::class)->except(['show']);
+    // Route::resource('sentinel', SentinelController::class)->except(['show']);
+});

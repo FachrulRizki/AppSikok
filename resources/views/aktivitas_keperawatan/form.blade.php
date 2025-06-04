@@ -37,7 +37,7 @@
                     value="{{ old('unit_kerja', $aktivitas_keperawatan->unit_kerja ?? '') }}">
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label class="form-label">Aktivitas</label>
                 @php
                     $list = [
@@ -57,6 +57,46 @@
                         <label class="form-check-label" for="{{ $label }}">{{ $label }}</label>
                     </div>
                 @endforeach
+            </div> --}}
+
+            <div class="row">
+                <!-- Kolom kiri: daftar aktivitas -->
+                <div class="col-md-3 border-end">
+                    <h5 class="text-center">AKTIVITAS KEPERAWATAN</h5>
+                    <hr>
+                    {{-- <div class="px-3">
+                        @foreach ($aktivitasUtama as $key => $item)
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input aktivitas-checkbox"
+                                    id="aktivitas_{{ $key }}" value="{{ $key }}" name="aktivitas[]"
+                                    onchange="toggleSubAktivitas()">
+                                <label class="form-check-label"
+                                    for="aktivitas_{{ $key }}">{{ $item['label'] }}</label>
+                            </div>
+                        @endforeach
+                    </div> --}}
+                </div>
+
+                <!-- Kolom tengah kiri: sub aktivitas -->
+                <div class="col-md-3 border-end">
+                    <h5 class="text-center">DETAIL AKTIVITAS</h5>
+                    <hr>
+                    <div id="detailAktivitas" class="px-3"></div>
+                </div>
+
+                <!-- Kolom tengah kanan: jenis kegiatan -->
+                <div class="col-md-3 border-end">
+                    <h5 class="text-center">JENIS KEGIATAN</h5>
+                    <hr>
+                    <div id="jenisKegiatan" class="px-3"></div>
+                </div>
+
+                <!-- Kolom kanan: catatan aktivitas -->
+                <div class="col-md-3">
+                    <h5 class="text-center">CATATAN AKTIVITAS</h5>
+                    <hr>
+                    <div id="catatanAktivitas" class="px-3"></div>
+                </div>
             </div>
 
             <div class="mb-3">

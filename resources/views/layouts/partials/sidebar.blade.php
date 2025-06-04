@@ -101,7 +101,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                            <a href="{{ route('insiden') }}" class="sidebar-link">
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
@@ -114,6 +114,14 @@
                                     <i class="ti ti-circle"></i>
                                 </div>
                                 <span class="hide-menu">Cuci Tangan</span>
+                            </a>
+                        </li>
+                         <li class="sidebar-item">
+                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Kepuasan Pasien</span>
                             </a>
                         </li>
                     </ul>
