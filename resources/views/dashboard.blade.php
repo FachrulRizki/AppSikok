@@ -10,67 +10,44 @@
                     <div class="card-body position-relative">
                         <div class="row">
                             <div class="col-sm-7">
-                                <div class="d-flex align-items-center mb-7">
-                                    <div class="rounded-circle overflow-hidden me-6">
-                                        <img src="../assets/images/profile/user-1.jpg" alt="modernize-img" width="40"
-                                            height="40">
-                                    </div>
-                                    <h5 class="fw-semibold mb-0 fs-5">Selamat datang {{ Auth::user()->name }}!</h5>
+                                <div class="mb-4">
+                                    <p class="fw-semibold mb-2 fs-3">Selamat Pagi,</p>
+                                    <h3 class="fw-semibold mb-0">{{ Auth::user()->name }}</h3>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="border-end pe-4 border-muted border-opacity-10">
-                                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">$2,340<i
-                                                class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
-                                        </h3>
-                                        <p class="mb-0 text-dark">Today’s Sales</p>
+                                        <h3 class="mb-1 fw-semibold fs-8">85%<sub class="fs-1">Baik</sub></h3>
+                                        <p class="mb-0 text-dark fs-2">Capaian SLKI</p>
                                     </div>
                                     <div class="ps-4">
-                                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">35%<i
-                                                class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
-                                        </h3>
-                                        <p class="mb-0 text-dark">Overall Performance</p>
+                                        <h3 class="mb-1 fw-semibold fs-8">78%<sub class="fs-1">Cukup</sub></h3>
+                                        <p class="mb-0 text-dark fs-2">Kepatuhan Dokumentasi SIKI/SDKI</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="welcome-bg-img mb-n7 text-end">
-                                    <img src="../assets/images/backgrounds/welcome-bg.svg" alt="modernize-img"
-                                        class="img-fluid">
+                                    <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="doctor-img"
+                                        class="w-100">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 border-primary border">
-                    <div class="card-body p-4">
-                        <h2 class="fw-semibold">85% <sub class="fs-1">Baik</sub></h2>
-                        <p class="mb-2 fs-2">Capaian SLKI</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 border-primary border">
-                    <div class="card-body p-4">
-                        <h2 class="fw-semibold">78% <sub class="fs-1">Cukup</sub></h4>
-                            <p class="mb-1 fs-2">Kepatuhan Dokumentasi SIKI/SDKI</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
+            <div class="col-sm-6 col-lg-6 d-flex align-items-stretch">
                 <div class="card w-100 border-primary border">
                     <div class="card-body p-4">
                         <h2 class="fw-semibold">95% <sub class="fs-1">Sangat Baik</sub></h2>
-                        <p class="mb-2 fs-2">Kepatuhan Jam Visite Perawat</p>
+                        <p class="mb-0 fs-2">Kepatuhan Jam Visite Perawat</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
+            <div class="col-sm-6 col-lg-6 d-flex align-items-stretch">
                 <div class="card w-100 border-primary border">
                     <div class="card-body p-4">
                         <h2 class="fw-semibold">82%</h4>
-                            <p class="mb-1 fs-2">Kepatuhan SOP Keperawatan</p>
+                        <p class="mb-0 fs-2">Kepatuhan SOP Keperawatan</p>
                     </div>
                 </div>
             </div>
@@ -102,16 +79,16 @@
         var options = {
             series: [{
                 name: "Kinerja",
-                data: [30, 45, 60, 75, 90],
-            }, ],
+                data: [40, 30, 60, 75, 90],
+            }],
             chart: {
                 toolbar: {
                     show: false,
                 },
-                type: "line",
+                type: "area",
                 fontFamily: "inherit",
                 foreColor: "#adb0bb",
-                height: 270,
+                height: 350,
             },
             colors: ["var(--bs-primary)"],
             stroke: {
@@ -154,6 +131,26 @@
                     show: false,
                 }
             },
+            fill: {
+                type: "gradient",
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0,
+                    colorStops: [
+                        {
+                            offset: 0,
+                            color: "var(--bs-primary)",
+                            opacity: 0.7
+                        },
+                        {
+                            offset: 100,
+                            color: "#ffffff",
+                            opacity: 0
+                        }
+                    ]
+                }
+            },
             tooltip: {
                 theme: "dark",
                 y: {
@@ -180,6 +177,8 @@
                 type: "donut",
                 fontFamily: "inherit",
                 foreColor: "#adb0bb",
+                width: '100%',
+                height: 350,
             },
             plotOptions: {
                 pie: {
@@ -215,6 +214,7 @@
 
             legend: {
                 show: true,
+                position: 'bottom',
             },
             colors: ["var(--bs-primary)", "var(--bs-secondary)", "var(--bs-success)", "var(--bs-warning)"],
 
@@ -222,6 +222,17 @@
                 theme: "dark",
                 fillSeriesColor: false,
             },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        height: 400,
+                    },
+                    legend: {
+                        position: 'bottom',
+                    },
+                },
+            }],
         };
 
         var chart = new ApexCharts(document.querySelector("#distribusi"), options);
