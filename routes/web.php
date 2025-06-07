@@ -13,6 +13,7 @@ use App\Http\Controllers\RefleksiController;
 use App\Http\Controllers\SentinelController;
 use App\Http\Controllers\SpvKeperuController;
 use App\Http\Controllers\SupervisiKepruController;
+use App\Http\Controllers\KuisonerKepuasanController;
 use App\Http\Controllers\AktivitasKeperawatanController;
 
 /*
@@ -55,7 +56,8 @@ Route::resource('aktivitas_keperawatan', AktivitasKeperawatanController::class);
 Route::get('/spvkepru', [SupervisiKepruController::class, 'index'])->name('spv_kepru');
 Route::resource('spv_kepru', SupervisiKepruController::class);
 
-
+Route::get('/kepuasan_pasien', [KuisonerKepuasanController::class, 'create'])->name('kuisoner');
+Route::resource('kuisoner', KuisonerKepuasanController::class);
 
 
 //Data Mutu
