@@ -1,9 +1,16 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Logout;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KncController;
+use App\Http\Controllers\KpcController;
+use App\Http\Controllers\KtcController;
+use App\Http\Controllers\KtdController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\InsidenController;
 use App\Http\Controllers\RefleksiController;
+<<<<<<< HEAD
 use App\Http\Controllers\AktivitasKeperawatanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupController;
@@ -13,6 +20,13 @@ use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\UserController;
 use App\Models\AktivitasKeperawatan;
 use Illuminate\Auth\Events\Logout;
+=======
+use App\Http\Controllers\SentinelController;
+use App\Http\Controllers\SpvKeperuController;
+use App\Http\Controllers\SupervisiKepruController;
+use App\Http\Controllers\KuisonerKepuasanController;
+use App\Http\Controllers\AktivitasKeperawatanController;
+>>>>>>> 46fdb3063e0ba53ddc7b55b698573bc2198f115b
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +60,28 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('spv_kepru', SupervisiKepruController::class)->names('spv_kepru');
 
+<<<<<<< HEAD
     Route::resource('permissions', PermissionController::class)->names('permissions');
     Route::resource('groups', GroupController::class)->names('groups');
     Route::resource('users', UserController::class)->names('users');
 });
+=======
+Route::get('/spvkepru', [SupervisiKepruController::class, 'index'])->name('spv_kepru');
+Route::resource('spv_kepru', SupervisiKepruController::class);
+
+Route::get('/kepuasan_pasien', [KuisonerKepuasanController::class, 'create'])->name('kuisoner');
+Route::resource('kuisoner', KuisonerKepuasanController::class);
+
+
+//Data Mutu
+Route::get('/mutuinsiden', InsidenController::class)->name('insiden');
+// Route::resource('insiden', InsidenController::class);
+
+Route::prefix('insiden')->name('insiden.')->group(function () {
+    Route::resource('kpc', KpcController::class)->except(['insiden.kpc.show']);
+    Route::resource('knc', KncController::class)->except(['insiden.knc.show']);
+    Route::resource('ktc', KtcController::class)->except(['insiden.ktc.show']);
+    Route::resource('ktd', KtdController::class)->except(['insiden.ktd.show']);
+    Route::resource('sentinel', SentinelController::class)->except(['insiden.sentinel.show']);
+});
+>>>>>>> 46fdb3063e0ba53ddc7b55b698573bc2198f115b
