@@ -7,15 +7,15 @@
         <div class="card-body">
             <div class="row mb-3">
                 <div class="col">
-                    <label class="form-label">Tanggal</label>
+                    <label class="form-label">Tanggal & Waktu</label>
                     <input type="datetime-local" name="waktu" class="form-control"
                         value="{{ old('waktu', isset($spv_kepru) ? $spv_kepru->waktu->format('Y-m-d\TH:i') : '') }}">
                 </div>
 
                 <div class="col">
-                    <label class="form-label">Nama Kepala Ruangan</label>
-                    <input type="text" name="nm_kepru" class="form-control"
-                        value="{{ old('nm_kepru', $spv_kepru->nm_kepru ?? '') }}">
+                    <label class="form-label">Ruangan</label>
+                    <input type="text" name="ruangan" class="form-control"
+                        value="{{ old('ruangan', $spv_kepru->ruangan ?? '') }}">
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                         <option value="">Pilih Shift</option>
                         @foreach (['Pagi', 'Sore', 'Malam'] as $s)
                             <option value="{{ $s }}"
-                                {{ old('shift', $aktivitas_keperawatan->shift ?? '') == $s ? 'selected' : '' }}>
+                                {{ old('shift', $spv_kepru->shift ?? '') == $s ? 'selected' : '' }}>
                                 {{ $s }}</option>
                         @endforeach
                     </select>
@@ -60,13 +60,13 @@
 
                 <div class="col">
                     <label class="form-label">Saran Perbaikan</label>
-                    <textarea name="perbaikan" class="form-control" rows="3">{{ old('tindakan', $spv_kepru->tindakan ?? '') }}</textarea>
+                    <textarea name="perbaikan" class="form-control" rows="3">{{ old('perbaikan', $spv_kepru->perbaikan ?? '') }}</textarea>
                 </div>
             </div>
 
             <div class="d-flex gap-3 mt-4">
                 <button class="btn btn-primary" type="submit">Simpan</button>
-                <a href="{{ route('spv_kepru') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
+                <a href="{{ route('spv_kepru.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
             </div>
         </div>
     </div>

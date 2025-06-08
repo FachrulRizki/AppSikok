@@ -17,10 +17,9 @@ class CreateAktivitasKeperawatanTable extends Migration
             $table->id()->unique();
             $table->dateTime('waktu');
             $table->enum('shift', ['Pagi', 'Sore', 'Malam']);
-            $table->string('nama_perawat');
-            $table->string('unit_kerja');
-            $table->text('aktivitas');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->text('catatan')->nullable();
+            $table->integer('nilai')->default(0);
             $table->timestamps();
         });
     }

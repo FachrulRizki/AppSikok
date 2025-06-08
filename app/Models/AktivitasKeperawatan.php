@@ -12,20 +12,22 @@ class AktivitasKeperawatan extends Model
     protected $fillable = [
         'waktu',
         'shift',
-        'nama_perawat',
-        'unit_kerja',
-        'aktivitas',
-        'catatan'
+        'user_id',
+        'catatan',
+        'nilai'
     ];
 
     protected $casts = [
-        'aktivitas' => 'array',
         'waktu' => 'datetime'
     ];
 
-    //helper
-    public function getAktivitasListAttribute()
+    public function user()
     {
-        return is_array($this->aktivitas) ? implode(', ', $this->aktivitas) : $this->aktivitas;
+        return $this->belongsTo(User::class);
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(AktivitasKeperawatanLog::class);
     }
 }

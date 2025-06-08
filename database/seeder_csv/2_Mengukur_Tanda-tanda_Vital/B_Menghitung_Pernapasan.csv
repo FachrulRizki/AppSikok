@@ -1,0 +1,23 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Arloji atau stopwatch (dengan detik)
+Alat dan Bahan,2,Buku catatan/form pengkajian
+Alat dan Bahan,3,Pulpen
+Persiapan,1,Cuci tangan sesuai prosedur.
+Persiapan,2,Jelaskan secara singkat kepada pasien (tanpa menyebut bahwa pernapasan sedang diamati agar hasil tidak terpengaruh).
+Persiapan,3,Pastikan pasien dalam posisi nyaman, biasanya duduk atau berbaring rileks.
+Pelaksanaan,1,Amati gerakan naik-turun dada atau perut pasien.
+Pelaksanaan,2,Hitung jumlah napas (inspirasi dan ekspirasi dihitung sebagai 1 kali pernapasan).
+Pelaksanaan,3,Hitung selama 60 detik penuh untuk hasil paling akurat. Jangan gunakan metode penggandaan dari 15 atau 30 detik karena ritme napas bisa bervariasi.
+Pelaksanaan,4,Kualitas pernapasan Irama (teratur/tidak)
+Pelaksanaan,5,Kedalaman pernapasan (dangkal/normal/dalam)
+Pelaksanaan,6,Bunyi napas (jika terdengar, misalnya mengi)
+Dokumentasi,1,Catat jumlah pernapasan per menit.
+Dokumentasi,2,Catat irama, kedalaman, dan adanya kelainan bunyi bila ditemukan.
+Dokumentasi,3,Catat waktu dan posisi saat pengukuran dilakukan.
+Hal yang Perlu Diperhatikan,1,Jangan beri tahu pasien bahwa pernapasan sedang dihitung, karena bisa mengubah ritmenya.
+Hal yang Perlu Diperhatikan,2,Pastikan kondisi lingkungan mendukung (tenang, cukup cahaya).
+Hal yang Perlu Diperhatikan,3,Jika ritme pernapasan tidak teratur, perpanjang waktu pengamatan.
+Hal yang Perlu Diperhatikan,4,Pada bayi, dapat dihitung dengan meletakkan tangan di perut untuk merasakan gerakan.
+Penutup,1,Cuci tangan setelah pengukuran.
+Penutup,2,Laporkan hasil yang abnormal atau mencurigakan (misalnya frekuensi terlalu cepat/lambat atau napas tidak teratur).
+Penutup,3,Simpan catatan di rekam medis pasien.

@@ -1,0 +1,33 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan
+Persiapan Alat,2,Handuk
+Persiapan Alat,3,Bengkok
+Persiapan Alat,4,Sikat gigi
+Persiapan Alat,5,Pasta gigi
+Persiapan Alat,6,Gelas plastik berisi air bersih
+Persiapan Alat,7,Gelas plastik kosong
+Persiapan Alat,8,Tissu
+Persiapan Alat,9,Sedotan bila perlu
+Fase Persiapan,1,Lakukan kebersihan tangan dan gunakan sarung tangan bersih
+Fase Persiapan,2,Instruksikan pasien untuk tidak menggigit
+Fase Persiapan,3,Periksa integritas bibir, gigi, mukosa bukal, gusi, langit-langit, dan lidah
+Fase Persiapan,4,Identifikasi adanya masalah mulut yang umum
+Fase Persiapan,5,Kaji risiko aspirasi pasien
+Fase Persiapan,6,Kaji kemampuan pasien untuk memegang dan memanipulasi sikat gigi
+Prosedur,1,Identifikasi pasien
+Prosedur,2,Jelaskan prosedur kepada pasien dan diskusikan preferensi mengenai penggunaan alat bantu kebersihan
+Prosedur,3,Gunakan sarung tangan bersih
+Prosedur,4,Oleskan pasta gigi ke sikat. Pegang sikat di atas baskom emesis, tuangkan sedikit air di atas pasta gigi
+Prosedur,5,Pegang bulu sikat gigi pada sudut 45 derajat hingga garis gusi dan sikat permukaan gigi dengan benar
+Prosedur,6,Minta pasien memegang sikat pada sudut 45 derajat dan sikat ringan pada permukaan dan sisi lidah. Hindari memicu refleks muntah
+Prosedur,7,Biarkan pasien membilas mulut dengan mengambil beberapa teguk air, berkumur dan meludah ke bak
+Prosedur,8,Biarkan pasien berkumur menggunakan chlorhexidine mouthwash
+Prosedur,9,Membantu menyeka mulut pasien
+Prosedur,10,Biarkan pasien membersihkan gigi dengan benang gigi di antara semua gigi dan di bawah garis gusi
+Prosedur,11,Biarkan pasien membilas mulut secara menyeluruh dengan air dingin dan meludahkannya ke baskom
+Prosedur,12,Membantu membersihkan mulut pasien
+Prosedur,13,Oleskan madu pada bagian mulut yang mengalami luka
+Prosedur,14,Rapihkan alat, lepaskan sarung tangan yang kotor dan lakukan kebersihan tangan
+Prosedur,15,Atur kembali posisi pasien senyaman mungkin
+Prosedur,16,Perawat mencuci tangan setelah melakukan tindakan
+Prosedur,17,Perawat mendokumentasikan tindakan yang telah dilakukan ke dalam status dan buku laporan

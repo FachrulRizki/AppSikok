@@ -1,0 +1,28 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat dan Bahan,1,Handuk bersih
+Persiapan Alat dan Bahan,2,Cape/pelindung bahu
+Persiapan Alat dan Bahan,3,Shampo sesuai jenis rambut
+Persiapan Alat dan Bahan,4,Kondisioner (opsional, sesuai kebutuhan)
+Persiapan Alat dan Bahan,5,Air bersuhu hangat (tidak terlalu panas atau dingin)
+Persiapan Alat dan Bahan,6,Sikat rambut (jika diperlukan)
+Persiapan Alat dan Bahan,7,Hair dryer (opsional)
+Persiapan Klien,1,Sambut klien dengan ramah
+Persiapan Klien,2,Tanyakan kondisi kulit kepala/rambut (berminyak, kering, ketombe, rontok, dll.)
+Persiapan Klien,3,Minta izin untuk memulai proses cuci rambut
+Persiapan Klien,4,Pasang cape dan handuk di leher klien agar pakaian tidak basah
+Persiapan Klien,5,Posisikan klien dengan nyaman di kursi keramas
+Proses Pencucian,1,Basahi rambut dengan air hangat dan pastikan seluruh rambut basah merata
+Proses Pencucian,2,Aplikasikan shampoo dengan menuang secukupnya ke tangan
+Proses Pencucian,3,Usapkan ke rambut mulai dari kulit kepala hingga ujung rambut
+Proses Pencucian,4,Pijat kulit kepala perlahan selama 3–5 menit
+Proses Pencucian,5,Bilas rambut hingga bersih tanpa sisa shampo
+Proses Pencucian,6,Gunakan kondisioner (opsional) di batang hingga ujung rambut
+Proses Pencucian,7,Diamkan kondisioner selama 1–3 menit
+Proses Pencucian,8,Bilas rambut hingga bersih kembali
+Pengeringan,1,Peras lembut rambut untuk mengurangi air berlebih
+Pengeringan,2,Bungkus rambut dengan handuk bersih
+Pengeringan,3,Keringkan rambut menggunakan hair dryer atau biarkan kering alami
+Finishing,1,Sikat rambut dengan lembut
+Finishing,2,Tawarkan layanan tambahan (blow, styling, perawatan lanjutan)
+Finishing,3,Beri saran perawatan sesuai jenis rambut klien (jika diperlukan)
+Finishing,4,Ucapkan terima kasih dan persilakan klien kembali

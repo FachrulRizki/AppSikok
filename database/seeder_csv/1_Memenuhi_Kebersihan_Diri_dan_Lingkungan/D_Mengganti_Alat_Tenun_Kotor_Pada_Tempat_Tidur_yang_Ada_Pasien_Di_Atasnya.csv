@@ -1,0 +1,33 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Seprai bersih (alas bawah & atas)
+Persiapan Alat,2,Perlak / alas anti air
+Persiapan Alat,3,Selimut bersih
+Persiapan Alat,4,Sarung bantal bersih
+Persiapan Alat,5,Sarung tangan bersih
+Persiapan Alat,6,Tempat linen kotor dan bersih
+Persiapan Alat,7,Tisu basah/handuk bila perlu (untuk membersihkan pasien)
+Persiapan Alat,8,Pengalas (draw sheet) bila digunakan
+Persiapan,1,Cuci tangan dengan benar sesuai protokol
+Persiapan,2,Gunakan sarung tangan bersih
+Persiapan,3,Jelaskan prosedur kepada pasien (meskipun tidak sadar)
+Persiapan,4,Jaga privasi pasien dengan menutup tirai atau pintu ruangan
+Persiapan,5,Siapkan alat dan linen bersih di dekat tempat tidur
+Pelaksanaan,1,Miringkan pasien perlahan ke satu sisi (bisa dibantu 2 petugas)
+Pelaksanaan,2,Pastikan tubuh pasien aman dan tidak tergelincir
+Pelaksanaan,3,Lepaskan seprai, perlak, dan draw sheet dari sisi terbuka
+Pelaksanaan,4,Gulung linen kotor ke arah punggung pasien (tengah tempat tidur)
+Pelaksanaan,5,Letakkan linen kotor di sisi tengah (di bawah pasien)
+Pelaksanaan,6,Ambil seprai dan draw sheet bersih, pasang di sisi kosong
+Pelaksanaan,7,Gulung ke arah tengah (di bawah pasien), berdampingan dengan linen kotor
+Pelaksanaan,8,Miringkan pasien ke sisi berlawanan (atas linen bersih)
+Pelaksanaan,9,Tarik keluar linen kotor dan singkirkan ke tempat linen kotor
+Pelaksanaan,10,Bentangkan linen bersih hingga rata di sisi baru terbuka
+Pelaksanaan,11,Pastikan seprai rata tanpa lipatan tajam
+Pelaksanaan,12,Ganti sarung bantal dan selimut jika perlu
+Pelaksanaan,13,Kembalikan posisi pasien nyaman dan aman
+Penutup,1,Buang linen kotor ke tempat yang sesuai
+Penutup,2,Lepaskan sarung tangan dan cuci tangan kembali
+Penutup,3,Dokumentasikan tindakan di catatan perawatan pasien
+Catatan Penting,1,Jika pasien luka tekan, gunakan alas tambahan seperti egg crate atau kasa lembut
+Catatan Penting,2,Perhatikan tanda vital pasien selama prosedur berlangsung
+Catatan Penting,3,Jika pasien menggunakan alat bantu medis (infus, kateter), pastikan tidak tertarik atau tertindih

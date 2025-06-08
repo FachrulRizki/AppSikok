@@ -3,7 +3,7 @@
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="../dark/index.html" class="text-nowrap logo-img">
+            <a href="{{ route('dashboard') }}" class="text-nowrap logo-img">
                 <img src="{{ asset('assets/images/logos/dark-logo.png') }}" class="dark-logo" width="180" alt="Logo-Dark" />
                 <img src="{{ asset('assets/images/logos/light-logo.png') }}" class="light-logo" width="180" alt="Logo-light" />
             </a>
@@ -20,75 +20,65 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-home"></i>
-                        </span>
+                        <span><i class="ti ti-home"></i></span>
                         <span class="hide-menu">Beranda</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-checkup-list"></i>
-                        </span>
-                        <span class="hide-menu">Aktifitas Harian</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('aktivitas_keperawatan') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Keperawatan</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @canany(['aktivitas_keperawatan.list'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <span class="d-flex"><i class="ti ti-checkup-list"></i></span>
+                            <span class="hide-menu">Aktifitas Harian</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('aktivitas_keperawatan.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('aktivitas_keperawatan.index') }}" class="sidebar-link {{ request()->routeIs('aktivitas_keperawatan.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Keperawatan</span>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcanany
+
+                @can('refleksi.list')
+                    <li class="sidebar-item">
+                        <a class="sidebar-link {{ request()->routeIs('refleksi.*') ? 'active' : '' }}" href="{{ route('refleksi.index') }}">
+                            <span><i class="ti ti-notebook"></i></span>
+                            <span class="hide-menu">Refleksi Harian</span>
+                        </a>
+                    </li>
+                @endcan
+
+                @canany(['supervisi_kepru.list'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <span class="d-flex"><i class="ti ti-eye-check"></i></span>
+                            <span class="hide-menu">Supervisi</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('supervisi_kepru.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('spv_kepru.index') }}" class="sidebar-link {{ request()->routeIs('spv_kepru.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Kepala Ruang</span>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcanany
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-notebook"></i>
-                        </span>
-                        <span class="hide-menu">Refleksi Harian</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('refleksi') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Tulis Refleksi</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-eye-check"></i>
-                        </span>
-                        <span class="hide-menu">Supervisi</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('spv_kepru') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Kepala Ruang</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-gauge"></i>
-                        </span>
+                        <span class="d-flex"><i class="ti ti-gauge"></i></span>
                         <span class="hide-menu">Data Mutu (Dev)</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
@@ -180,6 +170,43 @@
                         </li>
                     </ul>
                 </li>
+
+                @role('Super Admin')
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <span class="d-flex">
+                                <i class="ti ti-users"></i>
+                            </span>
+                            <span class="hide-menu">Pengguna</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{ route('users.index') }}" class="sidebar-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Data Pengguna</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('permissions.index') }}" class="sidebar-link {{ request()->routeIs('permissions.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Permissions</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('groups.index') }}" class="sidebar-link {{ request()->routeIs('groups.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Grup Pengguna</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endrole
             </ul>
         </nav>
 

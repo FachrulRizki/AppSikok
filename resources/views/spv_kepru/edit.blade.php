@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Edit Aktivitas Supervisi')
+@section('title', 'Edit Supervisi')
 
 @section('content')
 <div class="container-fluid">
@@ -8,16 +8,16 @@
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8">Edit Aktifitas Supervisi</h4>
-                    <nav aria-label="breadcrumb">
+                    <h4 class="fw-semibold mb-8">Edit Supervisi</h4>
+                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a class="text-muted text-decoration-none" href="{{ route('refleksi') }}">Supervisi Kepala Ruang</a>
+                                <a class="text-muted text-decoration-none" href="{{ route('spv_kepru.index') }}">Supervisi Kepala Ruang</a>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Edit Aktifitas Supervisi</li>
+                            <li class="breadcrumb-item" aria-current="page">Edit Supervisi</li>
                         </ol>
                     </nav>
                 </div>

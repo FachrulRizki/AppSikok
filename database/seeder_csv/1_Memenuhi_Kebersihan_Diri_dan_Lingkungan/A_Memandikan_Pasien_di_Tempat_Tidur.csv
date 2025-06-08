@@ -1,0 +1,27 @@
+Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan
+Persiapan Alat,2,Apron
+Persiapan Alat,3,Pakaian bersih
+Persiapan Alat,4,Tempat pakaian kotor / kantong plastik
+Persiapan Alat,5,Baskom mandi 2 buah berisi air hangat
+Persiapan Alat,6,Handuk bersih satu atau dua
+Persiapan Alat,7,Kain penutup / selimut
+Persiapan Alat,8,Urinal/pispot (bila perlu)
+Persiapan Alat,9,Waslap dua buah
+Persiapan Alat,10,Sabun mandi pada tempatnya
+Persiapan Alat,11,Masker
+Pelaksanaan,1,Perawat mencuci tangan sebelum melakukan tindakan
+Pelaksanaan,2,Pasien dan keluarga pasien diberi penjelasan bahwa perawat akan memandikan pasien di tempat tidur dan bila perlu libatkan keluarganya
+Pelaksanaan,3,Perawat menggunakan sarung tangan, apron dan masker sebelum melakukan tindakan
+Pelaksanaan,4,Jaga privasi pasien
+Pelaksanaan,5,Pintu/jendela/horden ditutup. Bila perlu selimut dan bantal dipindahkan dari tempat tidur
+Pelaksanaan,6,Lepaskan pakaian atas pasien, bila ekstremitas ada luka maka pelepasan pakaian dimulai dari bagian yang tidak ada luka. Bila pasien terpasang infus, lepaskan pakaian dari lengan yang tidak terpasang infus terlebih dahulu
+Pelaksanaan,7,Pasien dan keluarga pasien diberi tahu bahwa tindakan sudah selesai
+Pelaksanaan,8,Peralatan mandi dirapikan. Bila ada sisa air cuci rambut tumpah, dikeringkan dengan kain pel dan peralatan diletakkan pada tempatnya
+Pelaksanaan,9,Sarung tangan dan apron dibuka dan dibuang (diletakkan) di tempat yang telah disiapkan
+Pelaksanaan,10,Perawat mencuci tangan setelah melakukan tindakan
+Pelaksanaan,11,Perawat mendokumentasikan tindakan yang telah dilakukan ke dalam status dan buku laporan
+Pelaksanaan,12,Tutup bagian tubuh pasien yang terbuka dengan selimut atau kain penutup
+Pelaksanaan,13,Periksa kembali kelancaran tetesan infus
+Pelaksanaan,14,Bila memungkinkan atur posisi pasien dengan semi fowler
+Pelaksanaan,15,Letakkan handuk di atas dada pasien, masukkan tangan perawat ke dalam waslap

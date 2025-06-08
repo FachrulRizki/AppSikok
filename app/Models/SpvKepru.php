@@ -10,11 +10,12 @@ class SpvKepru extends Model
 
     protected $fillable = [
         'waktu',
-        'nm_kepru',
+        'ruangan',
         'shift',
         'aktivitas',
         'observasi',
-        'perbaikan'
+        'perbaikan',
+        'user_id'
     ];
 
     protected $casts = [
@@ -26,5 +27,10 @@ class SpvKepru extends Model
     public function getAktivitasListAttribute()
     {
         return is_array($this->aktivitas) ? implode(', ', $this->aktivitas) : $this->aktivitas;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

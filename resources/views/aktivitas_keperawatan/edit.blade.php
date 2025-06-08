@@ -15,7 +15,7 @@
                                 <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a class="text-muted text-decoration-none" href="{{ route('aktivitas_keperawatan') }}">Aktifitas Keperawatan</a>
+                                <a class="text-muted text-decoration-none" href="{{ route('aktivitas_keperawatan.index') }}">Aktifitas Keperawatan</a>
                             </li>
                             <li class="breadcrumb-item" aria-current="page">Edit Aktifitas Keperawatan</li>
                         </ol>
@@ -29,6 +29,10 @@
             </div>
         </div>
     </div>
+
+    @if ($errors->has('aktivitas'))
+        <div class="alert alert-danger">{{ $errors->first('aktivitas') }}</div>
+    @endif
 
     @include('aktivitas_keperawatan.form', [
         'route' => route('aktivitas_keperawatan.update', $aktivitas_keperawatan->id),

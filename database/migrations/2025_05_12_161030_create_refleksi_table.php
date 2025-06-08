@@ -12,11 +12,13 @@ class CreateRefleksiTable extends Migration
             $table->id();
             $table->dateTime('waktu');
             $table->string('jdl_kegiatan');
-            $table->string('unit_kerja');
-            $table->string('nm_peserta');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->text('poin_materi')->nullable();
             $table->text('pribadi')->nullable();
             $table->text('tindakan')->nullable();
+            $table->enum('approvement', ['waiting', 'approved', 'rejected'])->default('waiting');
+            $table->integer('nilai')->default(0);
+            $table->text('feedback')->nullable();
             $table->timestamps();
         });
     }

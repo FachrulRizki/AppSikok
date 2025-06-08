@@ -9,13 +9,13 @@
             <div class="row align-items-center">
                 <div class="col-9">
                     <h4 class="fw-semibold mb-8">Tambah Aktifitas Keperawatan</h4>
-                    <nav aria-label="breadcrumb">
+                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a class="text-muted text-decoration-none" href="{{ route('aktivitas_keperawatan') }}">Aktifitas Keperawatan</a>
+                                <a class="text-muted text-decoration-none" href="{{ route('aktivitas_keperawatan.index') }}">Aktifitas Keperawatan</a>
                             </li>
                             <li class="breadcrumb-item" aria-current="page">Tambah Aktifitas Keperawatan</li>
                         </ol>
@@ -30,10 +30,15 @@
         </div>
     </div>
 
+    @if ($errors->has('aktivitas'))
+        <div class="alert alert-danger">{{ $errors->first('aktivitas') }}</div>
+    @endif
+
     {{-- Menyisipkan form --}}
     @include('aktivitas_keperawatan.form', [
         'route' => route('aktivitas_keperawatan.store'),
-        'method' => 'POST'
+        'method' => 'POST',
+        'activities' => $activities
     ])
 </div>
 @endsection

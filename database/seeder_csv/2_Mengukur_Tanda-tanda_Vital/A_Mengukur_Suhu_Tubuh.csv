@@ -1,0 +1,38 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Termometer (digital, air raksa, atau infrared)
+Alat dan Bahan,2,Tisu atau kapas alkohol (jika diperlukan)
+Alat dan Bahan,3,Buku catatan/form pengkajian
+Alat dan Bahan,4,Pulpen
+Lokasi Pengukuran,1,Oral (mulut)
+Lokasi Pengukuran,2,Aksila (ketiak)
+Lokasi Pengukuran,3,Rektal (anus) – lebih jarang, untuk kondisi khusus
+Lokasi Pengukuran,4,Tympanik (telinga)
+Lokasi Pengukuran,5,Temporal (dahi, menggunakan infrared)
+Persiapan,1,Cuci tangan sesuai prosedur.
+Persiapan,2,Jelaskan prosedur kepada pasien dan pastikan pasien dalam kondisi tenang.
+Persiapan,3,Siapkan termometer sesuai jenis yang digunakan dan pastikan dalam kondisi bersih serta berfungsi dengan baik.
+Pengukuran Suhu Oral,1,Pastikan pasien tidak makan/minum 15 menit sebelumnya.
+Pengukuran Suhu Oral,2,Tempatkan ujung termometer di bawah lidah.
+Pengukuran Suhu Oral,3,Tutup mulut pasien dan biarkan selama ±1 menit (digital) atau sesuai petunjuk alat.
+Pengukuran Suhu Oral,4,Baca hasil dan catat.
+Pengukuran Suhu Aksila,1,Keringkan ketiak pasien terlebih dahulu.
+Pengukuran Suhu Aksila,2,Letakkan termometer di tengah ketiak, pastikan menempel dengan baik.
+Pengukuran Suhu Aksila,3,Rapatkan lengan pasien.
+Pengukuran Suhu Aksila,4,Tunggu ±3–5 menit (atau sesuai jenis alat).
+Pengukuran Suhu Aksila,5,Baca dan catat hasil.
+Pengukuran Suhu Rektal,1,Digunakan untuk bayi atau pasien tidak sadar (dengan persetujuan dan SOP khusus).
+Pengukuran Suhu Rektal,2,Lumasi ujung termometer.
+Pengukuran Suhu Rektal,3,Masukkan secara perlahan ±2–3 cm ke rektum.
+Pengukuran Suhu Rektal,4,Tunggu sesuai waktu alat, kemudian baca dan catat.
+Pengukuran Suhu Tympanik/Temporal,1,Arahkan termometer ke telinga atau dahi sesuai petunjuk alat.
+Pengukuran Suhu Tympanik/Temporal,2,Tekan tombol pengukur dan tunggu hasil muncul (±1–2 detik).
+Pengukuran Suhu Tympanik/Temporal,3,Catat hasil.
+Dokumentasi,1,Catat suhu tubuh (dalam °C), waktu, dan lokasi pengukuran.
+Dokumentasi,2,Catat jika ditemukan suhu abnormal.
+Hal yang Perlu Diperhatikan,1,Jangan gunakan termometer oral pada pasien yang tidak sadar atau anak kecil.
+Hal yang Perlu Diperhatikan,2,Bersihkan termometer sebelum dan sesudah digunakan.
+Hal yang Perlu Diperhatikan,3,Hindari pengukuran suhu segera setelah aktivitas fisik berat.
+Hal yang Perlu Diperhatikan,4,Suhu bisa sedikit berbeda tergantung lokasi pengukuran.
+Penutup,1,Cuci tangan setelah pengukuran selesai.
+Penutup,2,Laporkan hasil kepada tenaga medis jika suhu di luar batas normal.
+Penutup,3,Simpan alat sesuai standar kebersihan dan tempat yang aman.

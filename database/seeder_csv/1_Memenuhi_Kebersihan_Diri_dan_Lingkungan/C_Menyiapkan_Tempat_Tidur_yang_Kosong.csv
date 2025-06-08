@@ -1,0 +1,62 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Handscoon
+Persiapan Alat,2,Laken
+Persiapan Alat,3,Stiklaken
+Persiapan Alat,4,Alas/perlak
+Persiapan Alat,5,Selimut
+Persiapan Alat,6,Sarung Bantal
+Tahap Persiapan,1,Identitas klien
+Tahap Persiapan,2,Menyiapkan peralatan
+Tahap Persiapan,3,Mencuci tangan
+Komunikasi Terapeutik,1,Memperkenalkan diri
+Komunikasi Terapeutik,2,Menjelaskan pada klien tujuan tindakan yang akan dilakukan
+Komunikasi Terapeutik,3,Mendapatkan persetujuan klien
+Komunikasi Terapeutik,4,Mengatur lingkungan sekitar klien
+Komunikasi Terapeutik,5,Membantu klien mendapatkan posisi yang nyaman
+Merapikan Tempat Tidur Yang Dipakai,1,Memakai sarung tangan dan mendekatkan alat-alat pada klien
+Merapikan Tempat Tidur Yang Dipakai,2,Turunkan penghalang tempat tidur. Atur tinggi tempat tidur pada posisi yang memudahkan perawat bekerja. Atur posisi klien, bila perlu angkat bantal
+Merapikan Tempat Tidur Yang Dipakai,3,Miringkan klien ke arah yang berlawanan dengan posisi perawat
+Merapikan Tempat Tidur Yang Dipakai,4,Lepaskan lipatan alat tenun yang terdapat di bawah kasur dari kepala ke kaki tempat tidur. Lipat alat tenun tersebut ke arah klien, pertama stik, perlak kemudian laken besar. Lipat sampai ke bawah bokong klien, punggung dan bahunya. Bila perlak akan dipakai kembali, jangan melipatnya
+Merapikan Tempat Tidur Yang Dipakai,5,Letakkan alat tenun bersih ditengah kasur, arah memanjang
+Merapikan Tempat Tidur Yang Dipakai,6,Bentuk sudut pada kepala tempat tidur dan kaki tempat tidur
+Merapikan Tempat Tidur Yang Dipakai,7,Buka lipatan perlak dan stik laken ke arah perawat berdiri kemudian lipat bagian yang menjuntai ke lantai ke bawah kasur. Lakukan dengan rapi
+Merapikan Tempat Tidur Yang Dipakai,8,Pasang penghalang tepat tidur dan pindah ke sisi lain kemudian turunkan penghalang tempat tidur tersebut
+Merapikan Tempat Tidur Yang Dipakai,9,Bantu klien bergeser ke posisi lain
+Merapikan Tempat Tidur Yang Dipakai,10,Lepas alat tenun yang kotor di bawah kasur dengan cara menggulung dengan permukaan kotor di dalam. Masukan ke dalam bak alat tenun kotor
+Merapikan Tempat Tidur Yang Dipakai,11,Buka lipatan alat tenun yang bersih dari kepala ke kaki
+Merapikan Tempat Tidur Yang Dipakai,12,Bentuk sudut laken seperti nomor 6
+Merapikan Tempat Tidur Yang Dipakai,13,Buka lipatan perlak seperti nomor 7
+Merapikan Tempat Tidur Yang Dipakai,14,Pasang selimut pada dada klien, beritahu klien untuk memegang ujung selimut yang kotor. Kemudian perawat menarik lipatan selimut ke arah kaki tempat tidur dan klien menahan pegangan di ujung selimut
+Merapikan Tempat Tidur Yang Dipakai,15,Masukan sisi selimut di kaki tempat tidur ke bawah kasur
+Merapikan Tempat Tidur Yang Dipakai,16,Ganti sarung bantal
+Merapikan Tempat Tidur Yang Dipakai,17,Angkat kepala klien dan letakkan bantal di bawahnya
+Merapikan Tempat Tidur Yang Dipakai,18,Kembalikan klien pada posisi semula dan pasang side rail kembali
+Merapikan Tempat Tidur Yang Dipakai,19,Buka tirai
+Merapikan Tempat Tidur Yang Dipakai,20,Membantu klien pada posisi yang nyaman
+Merapikan Tempat Tidur Yang Tidak Dipakai,1,Cuci tangan dan pakai sarung tangan, selanjutnya lakukan prosedur pengendalian infeksi lainnya yang sesuai
+Merapikan Tempat Tidur Yang Tidak Dipakai,2,Atur ketinggian tempat tidur pada tingkat tertentu yang dirasa nyaman oleh perawat. Rendahkan rel samping tempat tidur di sisi perawat
+Merapikan Tempat Tidur Yang Tidak Dipakai,3,Buka linen tempat tidur
+Merapikan Tempat Tidur Yang Tidak Dipakai,4,Periksa bagian atas linen, apakah masih ada barang milik klien dan singkirkan bel pengambil dan selang dari tempat tidur
+Merapikan Tempat Tidur Yang Tidak Dipakai,5,Lepaskan alas tempat tidur secara sistematis, mulai dari sisi terjauh dan bergerak mengelilingi tempat tidur ke arah kepala tempat tidur pada sisi terdekat
+Merapikan Tempat Tidur Yang Tidak Dipakai,6,Lepaskan sarung bantal jika kotor dan letakkan bantal pada kursi
+Merapikan Tempat Tidur Yang Tidak Dipakai,7,Lipat linen yang masih dapat digunakan seperti alas penutup tempat tidur dan alas bagian tempat tidur ke dalam 4 bagian
+Merapikan Tempat Tidur Yang Tidak Dipakai,8,Lepaskan perlak yang kotor
+Merapikan Tempat Tidur Yang Tidak Dipakai,9,Gulung semua linen yang kotor ke arah bagian dalam, pegang menjauh dari seragam perawat dan langsung letakkan ke dalam keranjang linen kotor
+Merapikan Tempat Tidur Yang Tidak Dipakai,10,Pasang linen besar, linen kecil dan perlak
+Merapikan Tempat Tidur Yang Tidak Dipakai,11,Letakkan lipatan linen besar di atas tempat tidur. Pastikan sisi jahitan kain ke dalam untuk mendapatkan dasar yang halus. Lebarkan kain di atas matras dan atur sehingga kain cukup untuk dilipat ke bawah kasur dengan garis tengah lipatan tepat di bawah kasur/tempat tidur. Biarkan linen yang tersisa menggantung di sepanjang tepi tempat tidur dan jangan dilipat. Lipat ujung linen pada sisi yang terdekat dengan perawat membentuk sudut 90º dan masukkan linen ke bawah matras, lakukan dari bagian kepala tempat tidur menuju bagian kaki tempat tidur
+Merapikan Tempat Tidur Yang Tidak Dipakai,12,Jika perlak digunakan, letakkan di atas linen alas matras yaitu pada bagian-bagian tempat tidur dan bagian atas serta bawah linen pelapis terbentangkan melapisi area punggung. Buka setelah lipatan perlak atau bagian pinggir yang terjauh dari tempat tidur dan selipkan
+Merapikan Tempat Tidur Yang Tidak Dipakai,13,Letakkan linen kecil di atas perlak dengan cara yang sama
+Merapikan Tempat Tidur Yang Tidak Dipakai,14,Naikkan rel samping pada sisi perawat
+Merapikan Tempat Tidur Yang Tidak Dipakai,15,Bergerak ke sisi lain dan fiksasi bagian dasar linen
+Merapikan Tempat Tidur Yang Tidak Dipakai,16,Selesaikan menata selimut tempat tidur
+Merapikan Tempat Tidur Yang Tidak Dipakai,17,Lipatkan selimut menjadi 4 secara terbalik dan pasang bagian bawah (atur sekitar 15cm dari kepala tempat tidur), ujung selimut masukkan ke dalam bawah kasur
+Merapikan Tempat Tidur Yang Tidak Dipakai,18,Pasang bantal bersih pada bantal sesuai dengan kebutuhan
+Merapikan Tempat Tidur Yang Tidak Dipakai,19,Pegang bagian tengah sarung bantal yang tertutup dengan 1 tangan
+Merapikan Tempat Tidur Yang Tidak Dipakai,20,Kumpulkan sisi sarung bantal dan letakkan di sekitar tangan yang memegang bagian tengah sarung bantal
+Merapikan Tempat Tidur Yang Tidak Dipakai,21,Dengan tangan lain yang tidak memegang bantal tarik sarung bantal menutupi bantal
+Merapikan Tempat Tidur Yang Tidak Dipakai,22,Atur sarung bantal dan tempatkan bantal secara tepat di bagian kepala tempat tidur
+Merapikan Tempat Tidur Yang Tidak Dipakai,23,Berikan klien rasa nyaman dan aman
+Tahap Terminasi,1,Membersihkan dan menyimpan kembali peralatan pada tempatnya
+Tahap Terminasi,2,Mencuci tangan
+Tahap Terminasi,3,Melakukan evaluasi terhadap klien tentang kegiatan yang telah dilakukan
+Tahap Terminasi,4,Dokumentasi

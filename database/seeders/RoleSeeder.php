@@ -29,30 +29,34 @@ class RoleSeeder extends Seeder
         }
 
         $superAdmin = User::firstOrCreate([
-            'name' => 'Pak Admin',
-            'username' => 'superadmin',
-            'password' => bcrypt('superadmin123')
+            'name' => 'dr. Diyanti',
+            'username' => 'drdiyanti',
+            'password' => bcrypt('drdiyanti123'),
+            'unit' => 'Direktur'
         ]);
         $superAdmin->assignRole('Super Admin');
 
         $perawat = User::firstOrCreate([
-            'name' => 'Pak Perawat',
-            'username' => 'perawat',
-            'password' => bcrypt('perawat123')
+            'name' => 'dr. Andi',
+            'username' => 'drandi',
+            'password' => bcrypt('drandi123'),
+            'unit' => 'Ruang Rawat Inap'
         ]);
         $perawat->assignRole('Perawat');
 
         $menajemen = User::firstOrCreate([
-            'name' => 'Pak Menajemen',
-            'username' => 'menajemen',
-            'password' => bcrypt('menajemen123')
+            'name' => 'dr. Prayogi',
+            'username' => 'drprayogi',
+            'password' => bcrypt('drprayogi123'),
+            'unit' => 'Dokter Spesialis'
         ]);
         $menajemen->assignRole('Menajemen');
 
         $kepalaRuang = User::firstOrCreate([
-            'name' => 'Pak Kepala Ruang',
-            'username' => 'kepalaruang',
-            'password' => bcrypt('kepalaruang123')
+            'name' => 'dr. Fachrul',
+            'username' => 'drfachrul',
+            'password' => bcrypt('drfachrul123'),
+            'unit' => 'Manajer Keperawatan'
         ]);
         $kepalaRuang->assignRole('Kepala Ruang');
     }

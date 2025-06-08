@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RefleksiRequest;
 use App\Models\Refleksi;
 use Illuminate\Http\Request;
 use App\Services\RefleksiService;
@@ -15,51 +16,81 @@ class RefleksiController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $data = $this->service->listRefleksi();
+        if (!auth()->user()->can('refleksi.list')) return abort(403);
+
+        $data = $this->service->listRefleksi($request);
         return view('refleksi.index', compact('data'));
     }
 
     public function create()
     {
+        if (!auth()->user()->can('refleksi.buat')) return abort(403);
+
         return view('refleksi.create');
     }
 
-    public function store(Request $request)
+    public function store(RefleksiRequest $request)
     {
-        $request->validate([
-            'waktu' => 'required|date',
-            'jdl_kegiatan' => 'required|string',
-            'unit_kerja' => 'required|string',
-            'nm_peserta' => 'required|string',
-        ]);
+        if (!auth()->user()->can('refleksi.buat')) return abort(403);
 
+        $request->validated();
         $this->service->simpanRefleksi($request);
-        return redirect()->route('refleksi.index')->with('success', 'Data berhasil disimpan');
+        return redirect()->route('refleksi.index')->with('success', 'Aktivitas berhasil disimpan');
     }
 
-    public function edit(Refleksi $refleksi)
+    public function show(Refleksi $refleksi_harian)
     {
-        return view('refleksi.edit', compact('refleksi'));
+        return view('refleksi.show', [
+            'refleksi' => $refleksi_harian
+        ]);
     }
 
-    public function update(Request $request, Refleksi $refleksi)
+    public function edit(Refleksi $refleksi_harian)
     {
+        if (!auth()->user()->can('refleksi.edit')) return abort(403);
+
+        return view('refleksi.edit', [
+            'refleksi' => $refleksi_harian
+        ]);
+    }
+
+    public function update(RefleksiRequest $request, Refleksi $refleksi_harian)
+    {
+        if (!auth()->user()->can('refleksi.edit')) return abort(403);
+
+        $request->validated();
+        $this->service->updateRefleksi($refleksi_harian, $request);
+        return redirect()->route('refleksi.index')->with('success', 'Aktivitas berhasil diperbarui');
+    }
+
+    public function destroy(Refleksi $refleksi_harian)
+    {
+        if (!auth()->user()->can('refleksi.hapus')) return abort(403);
+
+        $this->service->hapusRefleksi($refleksi_harian);
+        return redirect()->route('refleksi.index')->with('success', 'Aktivitas berhasil dihapus');
+    }
+
+    public function updateApprovement(Request $request, Refleksi $refleksi_harian)
+    {
+        if (!auth()->user()->hasAnyPermission('refleksi.beri.approvement', 'refleksi.beri.nilai')) return abort(403);
+
         $request->validate([
-            'waktu' => 'required|date',
-            'jdl_kegiatan' => 'required|string',
-            'unit_kerja' => 'required|string',
-            'nm_peserta' => 'required|string',
+            'approvement' => 'in:waiting,approved,rejected',
+            'nilai' => 'nullable|numeric|min:0|max:100',
+            'feedback' => 'nullable|string'
         ]);
 
-        $this->service->updateRefleksi($refleksi, $request);
-        return redirect()->route('refleksi.index')->with('success', 'Data berhasil diperbarui');
-    }
+        $this->service->updateApprovement($refleksi_harian, $request);
 
-    public function destroy(Refleksi $refleksi)
-    {
-        $this->service->hapusRefleksi($refleksi);
-        return redirect()->route('refleksi.index')->with('success', 'Data berhasil dihapus');
+        if ($request->exists('nilai')) {
+            $message = 'Nilai berhasil diperbarui';
+        } else {
+            $message = 'Status persetujuan berhasil diperbarui';
+        }
+
+        return redirect()->route('refleksi.show', $refleksi_harian->id)->with('success', $message);
     }
 }

@@ -1,0 +1,24 @@
+﻿Tipe,Urutan,Nama
+Persiapan,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Persiapan,2,Jelaskan tujuan dan langkah-langkah prosedur
+Persiapan,3,Lakukan kebersihan tangan 6 langkah
+Persiapan,4,Posisikan pasien baring
+Periksa respons mata (eye),1,Membuka mata spontan, skor 4
+Periksa respons mata (eye),2,Membuka mata dengan perintah, skor 3
+Periksa respons mata (eye),3,Membuka mata terhadap rangsang nyeri, skor 2
+Periksa respons mata (eye),4,Tidak berespons, skor 1
+Periksa respons suara (verbal),1,Orientasi baik, skor 5
+Periksa respons suara (verbal),2,Mengucapkan kalimat tapi tidak sesuai, skor 4
+Periksa respons suara (verbal),3,Mengucapkan kata-kata kacau, skor 3
+Periksa respons suara (verbal),4,Bersuara tanpa arti, skor 2
+Periksa respons suara (verbal),5,Tidak berespons, skor 1
+Periksa respons motorik (motoric),1,Mengikuti perintah, skor 6
+Periksa respons motorik (motoric),2,Melokalisasi nyeri, skor 5
+Periksa respons motorik (motoric),3,Menolak rangsangan nyeri pada anggota gerak, skor 4
+Periksa respons motorik (motoric),4,Flexi abnormal, skor 2
+Periksa respons motorik (motoric),5,Ekstensi abnormal, skor 2
+Periksa respons motorik (motoric),6,Tidak ada respons, skor 1
+Penutup,1,Tuliskan total skor dan masing-masing komponen skor GCS, seperti GCS 15 (E4V5M6)
+Penutup,2,Atur interval pemantauan sesuai dengan kondisi pasien
+Penutup,3,Lakukan kebersihan tangan 6 langkah
+Penutup,4,Dokumentasikan hasil pemantauan

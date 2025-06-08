@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SpvKepruRequest;
 use App\Models\SpvKepru;
 use Illuminate\Http\Request;
 use App\Services\SpvKepruService;
@@ -16,9 +17,10 @@ class SupervisiKepruController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $data = $this->service->getAll();
+        $data = $this->service->getAll($request);
+
         return view('spv_kepru.index', compact('data'));
     }
 
@@ -30,19 +32,18 @@ class SupervisiKepruController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(SpvKepruRequest $request)
     {
-        $validated = $request->validate([
-            'waktu' => 'required|date',
-            'nm_kepru' => 'required|string',
-            'shift' => 'required|string',
-            'aktivitas' => 'array',
-            'observasi' => 'nullable|string',
-            'perbaikan' => 'nullable|string',
-        ]);
+        $request->validated();
 
-        $this->service->store($validated);
-        return redirect()->route('spv_kepru.index')->with('success', 'Data berhasil disimpan.');
+        $this->service->store($request);
+
+        return redirect()->route('spv_kepru.index')->with('success', 'Supervisi berhasil disimpan.');
+    }
+
+    public function show(SpvKepru $spv_kepru)
+    {
+        return view('spv_kepru.show', compact('spv_kepru'));
     }
 
     public function edit(SpvKepru $spv_kepru)
@@ -54,24 +55,18 @@ class SupervisiKepruController extends Controller
         ]);
     }
 
-    public function update(Request $request, SpvKepru $spv_kepru)
+    public function update(SpvKepruRequest $request, SpvKepru $spv_kepru)
     {
-        $validated = $request->validate([
-            'waktu' => 'required|date',
-            'nm_kepru' => 'required|string',
-            'shift' => 'required|string',
-            'aktivitas' => 'array',
-            'observasi' => 'nullable|string',
-            'perbaikan' => 'nullable|string',
-        ]);
+        $request->validated();
 
-        $this->service->update($spv_kepru, $validated);
-        return redirect()->route('spv_kepru.index')->with('success', 'Data berhasil diperbarui.');
+        $this->service->update($spv_kepru, $request);
+
+        return redirect()->route('spv_kepru.index')->with('success', 'Supervisi berhasil diperbarui.');
     }
 
     public function destroy(SpvKepru $spv_kepru)
     {
         $this->service->delete($spv_kepru);
-        return redirect()->route('spv_kepru.index')->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('spv_kepru.index')->with('success', 'Supervisi berhasil dihapus.');
     }
 }

@@ -9,7 +9,7 @@
                 <div class="row align-items-center">
                     <div class="col-9">
                         <h4 class="fw-semibold mb-8">Supervisi Kepala Ruang</h4>
-                        <nav aria-label="breadcrumb">
+                        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
@@ -27,7 +27,9 @@
             </div>
         </div>
 
-        <a href="{{ route('spv_kepru.create') }}" class="btn btn-primary mb-4">Tambah Supervisi</a>
+        @can('supervisi_kepru.buat')
+            <a href="{{ route('spv_kepru.create') }}" class="btn btn-primary mb-4">Tambah Supervisi</a>
+        @endcan
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -35,50 +37,82 @@
 
         <div class="card">
             <div class="card-body">
-                <table class="table w-100">
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Nama Kepala Ruang</th>
-                            <th>Shift</th>
-                            <th>Fokus Supervisi</th>
-                            <th>Catatan Observasi</th>
-                            <th>Saran Perbaikan</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($data as $item)
-                            <tr>
-                                <td>{{ $item->waktu->format('d-m-Y H:i') }}</td>
-                                <td>{{ $item->nm_kepru }}</td>
-                                <td>{{ $item->shift }}</td>
-                                <td>{{ $item->aktivitas_list }}</td>
-                                <td>{{ $item->observasi }}</td>
-                                <td>{{ $item->perbaikan }}</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route('spv_kepru.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                                            <i class="bi bi-pencil-square"></i> Edit
-                                        </a>
-                                        <form action="{{ route('spv_kepru.destroy', $item->id) }}" method="POST"
-                                            onsubmit="return confirm('Yakin hapus?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="bi bi-trash"></i> Hapus
-                                            </button>
-                                        </form>
+                @can('supervisi_kepru.lihat.semua')
+                    <form action="" method="get">
+                        <div class="row border-bottom">
+                            <div class="col-md-4 mb-4">
+                                <div class="form-group">
+                                    <label class="form-label">Pencarian</label>
+                                    <div class="input-group">
+                                        <input type="search" value="{{ request('search') }}" name="search" class="form-control" placeholder="Masukkan kata kunci pencarian">
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                     </div>
-                                </td>
-                            </tr>
-                        @empty
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                @endcan
+                <div class="table-responsive">
+                    <table class="table w-100">
+                        <thead>
                             <tr>
-                                <td class="text-center" colspan="7">Tidak ada data</td>
+                                <th class="text-center">#</th>
+                                @can('supervisi_kepru.lihat.semua')
+                                <th>Nama Kepala Ruang</th>
+                                @endcan
+                                <th>Ruangan</th>
+                                <th>Shift</th>
+                                <th>Tanggal & Waktu</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($data as $item)
+                                <tr>
+                                    <td class="text-center">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
+                                    @can('supervisi_kepru.lihat.semua')
+                                    <td>{{ $item->user->name }}</td>
+                                    @endcan
+                                    <td>{{ $item->ruangan }}</td>
+                                    <td>{{ $item->shift }}</td>
+                                    <td>{{ $item->waktu->format('d-m-Y, H:i') }} WIB</td>
+                                    <td>
+                                        <div class="d-flex gap-2 justify-content-center">
+                                            <a href="{{ route('spv_kepru.show', $item->id) }}"
+                                                class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
+                                                <i class="ti ti-eye"></i>
+                                            </a>
+                                            @can('supervisi_kepru.edit')
+                                                <a href="{{ route('spv_kepru.edit', $item->id) }}" class="btn btn-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                    <i class="ti ti-edit"></i>
+                                                </a>
+                                            @endcan
+                                            @can('supervisi_kepru.hapus')
+                                                <form action="{{ route('spv_kepru.destroy', $item->id) }}" method="POST"
+                                                    onsubmit="return confirm('Yakin hapus?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+                                                        <i class="ti ti-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endcan
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td class="text-center" colspan="6">Tidak ada data</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                @if ($data->hasPages())
+                    <div class="mt-2 d-flex justify-content-center">
+                        {{ $data->appends(['search' => request('search')])->links('vendor.pagination.bootstrap-4') }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

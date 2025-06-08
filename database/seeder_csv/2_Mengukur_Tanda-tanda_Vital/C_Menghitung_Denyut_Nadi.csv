@@ -1,0 +1,24 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Arloji/jam tangan dengan jarum detik atau stopwatch
+Alat dan Bahan,2,Buku catatan/form pencatatan data pasien
+Alat dan Bahan,3,Pulpen
+Persiapan,1,Cuci tangan dengan benar.
+Persiapan,2,Jelaskan prosedur kepada pasien untuk mendapatkan persetujuan dan kenyamanan.
+Persiapan,3,Pastikan pasien dalam posisi yang rileks (duduk atau berbaring tenang selama 5 menit sebelumnya).
+Lokasi Pengukuran denyut nadi,1,Nadi Radialis (umumnya digunakan): terletak di pergelangan tangan, sisi ibu jari.
+Lokasi Pengukuran denyut nadi,2,Lokasi alternatif: Nadi Karotis, Nadi Brachialis, atau Nadi Dorsalis Pedis.
+Teknik Pengukuran,1,Gunakan ujung jari telunjuk dan jari tengah (jangan gunakan ibu jari karena memiliki denyut sendiri).
+Teknik Pengukuran,2,Raba denyut nadi hingga terasa jelas dan stabil.
+Teknik Pengukuran,3,Hitung denyut selama 60 detik (disarankan untuk hasil paling akurat)
+Teknik Pengukuran,4,Hitung denyut selama 30 detik, lalu dikalikan 2 (jika denyut teratur)
+Teknik Pengukuran,5,Hitung denyut selama 15 detik, lalu dikalikan 4 (jika sangat terbatas waktu, tidak disarankan pada kondisi tidak stabil)
+Teknik Pengukuran,6,Amati ritme dan kekuatan denyut (apakah teratur atau tidak, kuat atau lemah).
+Dokumentasi,1,Catat jumlah denyut per menit.
+Dokumentasi,2,Catat ritme (teratur/tidak teratur) dan kekuatan (kuat/lemah).
+Dokumentasi,3,Tulis waktu dan tanggal pemeriksaan.
+Hal yang Perlu Diperhatikan,1,Jangan menekan terlalu kuat karena bisa menghilangkan denyut.
+Hal yang Perlu Diperhatikan,2,Periksa kedua sisi tubuh bila perlu untuk mendeteksi adanya perbedaan.
+Hal yang Perlu Diperhatikan,3,Jika denyut tidak teratur, sebaiknya hitung selama 60 detik penuh.
+Penutup,1,Cuci tangan setelah selesai.
+Penutup,2,Sampaikan hasil kepada pasien bila diperlukan.
+Penutup,3,Laporkan kepada tenaga medis jika ditemukan denyut abnormal (terlalu cepat, lambat, atau tidak teratur).

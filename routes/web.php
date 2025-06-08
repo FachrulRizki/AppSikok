@@ -5,8 +5,13 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\RefleksiController;
 use App\Http\Controllers\AktivitasKeperawatanController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SpvKeperuController;
 use App\Http\Controllers\SupervisiKepruController;
+use App\Http\Controllers\UserController;
+use App\Models\AktivitasKeperawatan;
 use Illuminate\Auth\Events\Logout;
 
 /*
@@ -20,16 +25,6 @@ use Illuminate\Auth\Events\Logout;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
-
-/*
-|--------------------------------------------------------------------------
-| API Routes for SIKOK-App
-|--------------------------------------------------------------------------
-*/
-
 // Public route for login
 Route::controller(AuthController::class)->group(function () {
     Route::middleware('guest')->group(function () {
@@ -40,11 +35,18 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout')->name('logout');
 });
 
-Route::get('/aktivitas-refleksi', [RefleksiController::class, 'index'])->name('refleksi');
-Route::resource('refleksi', RefleksiController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    
+    Route::resource('refleksi-harian', RefleksiController::class)->names('refleksi');
+    Route::put('refleksi-harian/{refleksi_harian}/approve', [RefleksiController::class, 'updateApprovement'])->name('refleksi.update_approvement');
+    
+    Route::resource('aktivitas-keperawatan', AktivitasKeperawatanController::class)->names('aktivitas_keperawatan');
+    Route::put('aktivitas-keperawatan/{aktivitas_keperawatan}/nilai', [AktivitasKeperawatanController::class, 'updateNilai'])->name('aktivitas_keperawatan.update_nilai');
 
-Route::get('/aktivitas-keperawatan', [AktivitasKeperawatanController::class, 'index'])->name('aktivitas_keperawatan');
-Route::resource('aktivitas_keperawatan', AktivitasKeperawatanController::class);
+    Route::resource('spv_kepru', SupervisiKepruController::class)->names('spv_kepru');
 
-Route::get('/spvkepru', [SupervisiKepruController::class, 'index'])->name('spv_kepru');
-Route::resource('spv_kepru', SupervisiKepruController::class);
+    Route::resource('permissions', PermissionController::class)->names('permissions');
+    Route::resource('groups', GroupController::class)->names('groups');
+    Route::resource('users', UserController::class)->names('users');
+});

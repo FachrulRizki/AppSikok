@@ -1,0 +1,24 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat dan Bahan,1,Alat pengukur tekanan darah (sphygmomanometer manual atau digital)
+Persiapan Alat dan Bahan,2,Stetoskop (jika menggunakan sphygmomanometer manual)
+Persiapan Alat dan Bahan,3,Alkohol atau antiseptik untuk membersihkan alat
+Persiapan Alat dan Bahan,4,Kursi dan meja yang nyaman untuk pasien
+Persiapan Alat dan Bahan,5,Catatan atau buku rekam medis untuk mencatat hasil
+Persiapan Pasien,1,Pastikan pasien dalam kondisi tenang dan rileks, duduk dengan posisi nyaman.
+Persiapan Pasien,2,Pasien sebaiknya tidak merokok, minum kafein, atau melakukan aktivitas fisik berat minimal 30 menit sebelum pengukuran.
+Persiapan Pasien,3,Pasien duduk dengan posisi punggung tegak dan kaki menapak di lantai (tidak menyilangkan kaki).
+Persiapan Pasien,4,Lengan yang akan diukur diletakkan di atas meja setinggi jantung, dengan telapak tangan menghadap ke atas.
+Pasang manset,1,Pilih ukuran manset yang sesuai dengan lingkar lengan pasien.
+Pasang manset,2,Pasang manset di lengan atas, kira-kira 2–3 cm di atas lekukan siku.
+Pasang manset,3,Pastikan manset terpasang tidak terlalu ketat atau longgar.
+Mengukur tekanan darah,1,Jika menggunakan sphygmomanometer manual Letakkan stetoskop pada arteri brakialis (di lekukan siku).
+Mengukur tekanan darah,2,Jika menggunakan sphygmomanometer manual Pompa manset hingga tekanan melebihi perkiraan tekanan sistolik pasien.
+Mengukur tekanan darah,3,Jika menggunakan sphygmomanometer manual Lepaskan katup perlahan, dengarkan suara Korotkoff pertama (tekanan sistolik).
+Mengukur tekanan darah,4,Jika menggunakan sphygmomanometer manual Terus lepaskan katup sampai suara hilang (tekanan diastolik).
+Mengukur tekanan darah,5,Jika menggunakan alat digital Nyalakan alat dan ikuti instruksi perangkat untuk mengukur secara otomatis.
+Catat hasil pengukuran,1,Tuliskan angka tekanan sistolik dan diastolik (misalnya 120/80 mmHg).
+Catat hasil pengukuran,2,Catat juga posisi pengukuran dan waktu pengukuran.
+Setelah Pengukuran,1,Lepaskan manset dari lengan pasien.
+Setelah Pengukuran,2,Bersihkan manset dan stetoskop dengan alkohol.
+Setelah Pengukuran,3,Beri tahu pasien hasil pengukuran dan saran jika diperlukan.
+Setelah Pengukuran,4,Simpan hasil pengukuran di rekam medis pasien.

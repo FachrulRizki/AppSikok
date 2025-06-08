@@ -19,8 +19,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'username',
         'password',
+        'unit',
     ];
 
     /**
@@ -32,4 +34,14 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function aktivitasKeperawatan()
+    {
+        return $this->hasMany(AktivitasKeperawatan::class);
+    }
+
+    public function refleksiHarian()
+    {
+        return $this->hasMany(Refleksi::class);
+    }
 }

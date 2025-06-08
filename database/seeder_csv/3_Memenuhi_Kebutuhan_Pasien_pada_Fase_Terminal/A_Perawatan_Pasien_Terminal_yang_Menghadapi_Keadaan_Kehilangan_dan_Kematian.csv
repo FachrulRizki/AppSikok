@@ -1,0 +1,30 @@
+﻿Tipe,Urutan,Nama
+Peralatan dan Bahan,1,Alat pemantauan vital (tensimeter, termometer, oksimeter)
+Peralatan dan Bahan,2,Obat simptomatik (analgesik, antiemetik, antikejang, dll.)
+Peralatan dan Bahan,3,Alat kebersihan diri pasien (waslap, sarung tangan, dll.)
+Peralatan dan Bahan,4,Formulir komunikasi atau dokumentasi keperawatan
+Persiapan,1,Identifikasi pasien terminal melalui diagnosis medis dan prognosis dari dokter.
+Persiapan,2,Lakukan pendekatan secara personal dan empatik kepada pasien dan keluarga.
+Persiapan,3,Jelaskan tujuan perawatan paliatif, termasuk manajemen nyeri dan kenyamanan.
+Perawatan Fisik,1,Lakukan manajemen nyeri secara berkala sesuai panduan WHO (analgesik ringan hingga kuat).
+Perawatan Fisik,2,Bantu pasien dalam aktivitas dasar seperti makan, minum, kebersihan diri, dan posisi tubuh.
+Perawatan Fisik,3,Atasi gejala umum seperti sesak, mual, gelisah, dan kejang sesuai protokol.
+Perawatan Fisik,4,Pantau tanda vital sesuai kebutuhan klinis dan kenyamanan pasien (tidak harus intensif).
+Perawatan Psikososial dan Spiritual,1,Beri dukungan emosional kepada pasien: dengarkan keluhan, berikan kenyamanan.
+Perawatan Psikososial dan Spiritual,2,Fasilitasi pasien untuk mengekspresikan rasa takut, marah, sedih, atau penyesalan.
+Perawatan Psikososial dan Spiritual,3,Libatkan keluarga dalam proses perawatan, termasuk waktu berkualitas di akhir hayat.
+Perawatan Psikososial dan Spiritual,4,Fasilitasi kebutuhan spiritual: panggil pemuka agama jika diminta oleh pasien atau keluarga.
+Persiapan Menghadapi Kematian,1,Informasikan kepada keluarga jika tanda-tanda kematian sudah dekat (misalnya, perubahan pernapasan, ekstremitas dingin, kesadaran menurun).
+Persiapan Menghadapi Kematian,2,Biarkan keluarga menemani pasien selama mungkin.
+Persiapan Menghadapi Kematian,3,Pastikan suasana tenang, pencahayaan nyaman, dan privasi terjaga.
+Penanganan Setelah Kematian,1,Konfirmasi kematian secara medis sesuai prosedur.
+Penanganan Setelah Kematian,2,Berikan waktu kepada keluarga untuk berduka sebelum memulai penatalaksanaan jenazah.
+Penanganan Setelah Kematian,3,Lakukan perawatan jenazah sesuai SOP rumah sakit dan budaya/agama pasien.
+Penanganan Setelah Kematian,4,Dokumentasikan waktu kematian dan tindakan yang dilakukan secara lengkap.
+Dokumentasi,1,Catat semua tindakan keperawatan, keluhan pasien, dan komunikasi dengan keluarga.
+Dokumentasi,2,Dokumentasikan tanda-tanda fisik menjelang kematian dan waktu kematian.
+Evaluasi dan Tindak Lanjut,1,Evaluasi kebutuhan dukungan psikososial keluarga pasca kematian (grief support).
+Evaluasi dan Tindak Lanjut,2,Rujuk keluarga ke layanan konseling bila diperlukan.
+Etika dan Keselamatan,1,Jaga kerahasiaan informasi medis pasien.
+Etika dan Keselamatan,2,Perlakukan pasien dengan hormat dan martabat hingga akhir hayat.
+Etika dan Keselamatan,3,Hindari tindakan medis yang invasif atau tidak bermanfaat (futility).
