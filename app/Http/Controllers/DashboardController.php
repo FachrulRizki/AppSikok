@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Knc;
+use App\Models\Kpc;
+use App\Models\Ktc;
+use App\Models\Ktd;
+use App\Models\Sentinel;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -34,6 +39,22 @@ class DashboardController extends Controller
         $avgPersenAktivitas = round($perawat->avg(fn($u) => $u->aktivitasKeperawatan->where('nilai', '>', 0)->avg('nilai') ?? 0), 2);
         $avgPersenRefleksi  = round($perawat->avg(fn($u) => $u->refleksiHarian->where('nilai', '>', 0)->avg('nilai') ?? 0), 2);
 
-        return view('dashboard', compact('topPerawat', 'avgPersenAktivitas', 'avgPersenRefleksi'));
+        $kncCount = Knc::count();
+        $ktcCount = Ktc::count();
+        $ktdCount = Ktd::count();
+        $kpcCount = Kpc::count();
+        $sentinelCount = Sentinel::count();
+        
+        $chartInsidenData = [
+            'labels' => ['KNC', 'KTC', 'KTD', 'KPC', 'Sentinel'],
+            'data' => [$kncCount, $ktcCount, $ktdCount, $kpcCount, $sentinelCount],
+        ];
+
+        return view('dashboard', compact(
+            'topPerawat', 
+            'avgPersenAktivitas', 
+            'avgPersenRefleksi',
+            'chartInsidenData'
+        ));
     }
 }

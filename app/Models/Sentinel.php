@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 
 class Sentinel extends Model
 {
@@ -38,4 +39,15 @@ class Sentinel extends Model
         'waktu_insiden' => 'datetime',
         'foto' => 'array', // jika disimpan sebagai array json
     ];
+
+    protected static function booted()
+    {
+        static::deleting(function ($sentinel) {
+            if (is_array($sentinel->foto)) {
+                foreach ($sentinel->foto as $file) {
+                    Storage::delete('public/' . $file);
+                }
+            }
+        });
+    }
 }

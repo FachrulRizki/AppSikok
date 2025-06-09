@@ -1,106 +1,174 @@
 @extends('layouts.main')
 
+@section('title', 'Detail Laporan KTD')
+
 @section('content')
-    <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow">
-        <h2 class="text-2xl font-bold mb-4">Detail KTD (Kejadian Tidak Diharapkan)</h2>
+<div class="container-fluid">
+        <div class="card bg-primary-subtle shadow-none position-relative overflow-hidden mb-4">
+            <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h4 class="fw-semibold mb-1">Laporan Insiden Kejadian Tidak Diinginkan (KTD)</h4>
+                        <p class="mb-3 text-muted">
+                            Merupakan insiden yang sudah terjadi yang mengakibatkan cedera.
+                        </p>
+                        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="text-muted text-decoration-none" href="{{ route('insiden') }}">Insiden
+                                        Keselamatan Pasien</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="text-muted text-decoration-none"
+                                        href="{{ route('insiden.ktd.index') }}">KTD</a>
+                                </li>
+                                <li class="breadcrumb-item" aria-current="page">Detail Laporan</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-3">
+                        <div class="text-center mb-n5">
+                            <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="modernize-img"
+                                class="img-fluid mb-n4" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <table class="table-auto w-full border border-gray-300 text-sm">
-            <tbody>
-                <tr>
-                    <th class="text-left p-2 border">No RM</th>
-                    <td class="p-2 border">{{ $ktd->no_rm }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Nama Pasien</th>
-                    <td class="p-2 border">{{ $ktd->nama_pasien }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Umur</th>
-                    <td class="p-2 border">{{ $ktd->umur }} tahun</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Jenis Kelamin</th>
-                    <td class="p-2 border">{{ $ktd->jk }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Waktu Masuk RS</th>
-                    <td class="p-2 border">{{ $ktd->waktu_mskrs ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Waktu Insiden</th>
-                    <td class="p-2 border">{{ $ktd->waktu_insiden ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Temuan</th>
-                    <td class="p-2 border">{{ $ktd->temuan }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Kronologis</th>
-                    <td class="p-2 border">{{ $ktd->kronologis }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Unit Terkait</th>
-                    <td class="p-2 border">{{ $ktd->unit_terkait }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Sumber</th>
-                    <td class="p-2 border">{{ $ktd->sumber }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Rawat</th>
-                    <td class="p-2 border">{{ $ktd->rawat }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Poli</th>
-                    <td class="p-2 border">{{ $ktd->poli }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Lokasi</th>
-                    <td class="p-2 border">{{ $ktd->lokasi }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Tindakan Segera</th>
-                    <td class="p-2 border">{{ $ktd->tindakan_segera }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Pelaksana</th>
-                    <td class="p-2 border">{{ $ktd->pelaksana }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Akibat</th>
-                    <td class="p-2 border">{{ $ktd->akibat }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Nama Inisial</th>
-                    <td class="p-2 border">{{ $ktd->nama_inisial }}</td>
-                </tr>
-                <tr>
-                    <th class="text-left p-2 border">Ruangan Pelapor</th>
-                    <td class="p-2 border">{{ $ktd->ruangan_pelapor }}</td>
-                </tr>
+        <div class="d-flex gap-2 mb-4">
+            <a href="{{ route('insiden.ktd.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
+        </div>
 
-                <tr>
-                    <th class="border px-4 py-2 text-left">Foto</th>
-                    <td class="border px-4 py-2">
-                        @if ($ktd->foto)
-                            <div class="row">
-                                @foreach (json_decode($ktd->foto) as $img)
-                                    <div class="col-md-3">
-                                        <a href="{{ asset('storage/' . $img) }}" target="_blank" rel="noopener">
-                                            <img src="{{ asset('storage/' . $img) }}" alt="Foto"
-                                                style="max-width: 150px; cursor: pointer;">
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="mt-6">
-            <a href="{{ route('insiden.ktd.index') }}" class="btn btn-secondary">Kembali</a>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Detail Pasien</h4>
+                        <div class="table-responsive">
+                            <table class="w-100 text-nowrap">
+                                <tbody>
+                                    <tr>
+                                        <th class="pb-2 text-start">No. RM</th>
+                                        <td class="pb-2 text-end">{{ $ktd->no_rm }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Nama Pasien</th>
+                                        <td class="py-2 text-end">{{ $ktd->nama_pasien }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Umur</th>
+                                        <td class="py-2 text-end">{{ $ktd->umur }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Jenis Kelamin</th>
+                                        <td class="py-2 text-end">{{ $ktd->jk }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 text-start">Waktu Masuk RS</th>
+                                        <td class="pt-2 text-end">
+                                            {{ $ktd->waktu_mskrs ? $ktd->waktu_mskrs->format('d-m-Y H:i') . ' WIB' : '-' }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Detail Insiden</h4>
+                        <div class="table-responsive">
+                            <table class="w-100 text-nowrap">
+                                <tbody>
+                                    <tr>
+                                        <th class="pb-2 text-start">Tanggal & Waktu Insiden</th>
+                                        <td class="pb-2 text-end">
+                                            {{ $ktd->waktu_insiden ? $ktd->waktu_insiden->format('d-m-Y H:i') . ' WIB' : '-' }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Insiden Terjadi Pada</th>
+                                        <td class="py-2 text-end">{{ $ktd->unit_terkait }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Sumber Informasi</th>
+                                        <td class="py-2 text-end">{{ $ktd->sumber }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Rawat</th>
+                                        <td class="py-2 text-end">{{ $ktd->rawat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Poli</th>
+                                        <td class="py-2 text-end">{{ $ktd->poli }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Akibat</th>
+                                        <td class="py-2 text-end">{{ $ktd->akibat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Unit Terkait</th>
+                                        <td class="py-2 text-end">{{ $ktd->lokasi }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Pelaksana</th>
+                                        <td class="py-2 text-end">{{ $ktd->pelaksana }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 text-start">Nama Inisial Pelapor</th>
+                                        <td class="py-2 text-end">{{ $ktd->nama_inisial }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 text-start">Ruangan Pelapor</th>
+                                        <td class="pt-2 text-end">{{ $ktd->ruangan_pelapor }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Isi Insiden</h4>
+                        <div class="pb-3 border-bottom">
+                            <label class="form-label">Temuan</label>
+                            <div>{!! nl2br(e($ktd->temuan)) !!}</div>
+                        </div>
+                        <div class="pb-3 mt-3 border-bottom">
+                            <label class="form-label">Kronologi</label>
+                            <div>{!! nl2br(e($ktd->kronologis)) !!}</div>
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label">Tindakan Segera</label>
+                            <div>{!! nl2br(e($ktd->tindakan_segera)) !!}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Lampiran Foto</h4>
+                        <div class="row">
+                            @forelse ($ktd->foto as $img)
+                                <div class="col-md-3 mb-3">
+                                    <a href="{{ asset('storage/' . $img) }}" target="_blank"
+                                        class="ratio ratio-1x1 overflow-hidden">
+                                        <img src="{{ asset('storage/' . $img) }}" alt="Foto"
+                                            style="cursor: pointer; object-fit: cover;" class="rounded">
+                                    </a>
+                                </div>
+                            @empty
+                                <p class="text-center mb-0">Tidak ada lampiran foto</p>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -135,9 +135,9 @@
 
                     <div class="row mb-3">
                         <div class="col-md-3">
-                            <label class="form-label">Insiden Terjadi Pada Unit<span class="text-danger">*</span></label>
-                            <input type="text" name="unit_terkait" class="form-control @error('unit_terkait') is-invalid @enderror" value="{{ old('unit_terkait', $knc->unit_terkait ?? '') }}">
-                            @error('unit_terkait')
+                            <label class="form-label">Insiden Terjadi Pada<span class="text-danger">*</span></label>
+                            <input type="text" name="insiden_pada" class="form-control @error('insiden_pada') is-invalid @enderror" value="{{ old('insiden_pada', $knc->insiden_pada ?? '') }}">
+                            @error('insiden_pada')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -232,18 +232,18 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label">Unit Terkait KNC<span class="text-danger">*</span></label>
-                            <textarea name="temuan" class="form-control @error('temuan') is-invalid @enderror" rows="4">{{ old('temuan', $knc->temuan ?? '') }}</textarea>
-                            @error('temuan')
+                            <textarea name="unit_terkait" class="form-control @error('unit_terkait') is-invalid @enderror" rows="4">{{ old('unit_terkait', $knc->unit_terkait ?? '') }}</textarea>
+                            @error('unit_terkait')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Tindakan yang dilakukan segera setelah kesalahan /error terjadi
-                                dan hasilnya *</label>
-                            <textarea name="kronologis" class="form-control @error('kronologis') is-invalid @enderror" rows="4">{{ old('kronologis', $knc->kronologis ?? '') }}</textarea>
-                            @error('kronologis')
+                            <label class="form-label">Tindakan yang dilakukan segera setelah kesalahan/error terjadi
+                                dan hasilnya<span class="text-danger">*</span></label>
+                            <textarea name="tindakan_segera" class="form-control @error('tindakan_segera') is-invalid @enderror" rows="4">{{ old('tindakan_segera', $knc->tindakan_segera ?? '') }}</textarea>
+                            @error('tindakan_segera')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -294,13 +294,18 @@
 
                     <div class="mb-3">
                         <label class="form-label">Lampiran Foto (opsional)</label>
-                        <input type="file" name="foto[]" class="form-control" multiple accept="image/*">
+                        <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
                         <div class="form-text">Maksimal 5 file. Ukuran maks 100 MB per file.</div>
+                        @error('foto')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <div class="d-flex gap-3 mt-4">
                         <button class="btn btn-primary" type="submit">Simpan</button>
-                        <a href="{{ route('insiden.kpc.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
+                        <a href="{{ route('insiden.knc.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
                     </div>
                 </form>
             </div>

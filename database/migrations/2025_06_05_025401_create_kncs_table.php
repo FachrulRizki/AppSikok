@@ -18,6 +18,8 @@ class CreateKncsTable extends Migration
             $table->dateTime('waktu_insiden')->nullable();
             $table->text('temuan');
             $table->text('kronologis');
+            $table->text('tindakan_segera');
+            $table->string('insiden_pada');
             $table->string('unit_terkait', 255);
             $table->string('sumber');
             $table->string('rawat');

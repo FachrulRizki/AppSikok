@@ -109,10 +109,12 @@
 @push('scripts')
     <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script>
+        const dataMutu = @json($chartInsidenData);
+
         var options = {
             series: [{
                 name: "Jumlah",
-                data: [40, 30, 60, 75, 90],
+                data: dataMutu.data,
             }],
             chart: {
                 toolbar: {
@@ -156,13 +158,7 @@
                 tickAmount: 5,
             },
             xaxis: {
-                categories: [
-                    "KNC",
-                    "KPC",
-                    "KTC",
-                    "KTD",
-                    "Sentinel",
-                ],
+                categories: dataMutu.labels,
                 show: false,
                 axisTicks: {
                     show: false,

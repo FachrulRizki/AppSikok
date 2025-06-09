@@ -28,30 +28,7 @@
             </div>
         </div>
 		{{-- Cards for Each Insiden --}}
-        @php
-            $insidenTypes = ['kpc', 'knc', 'ktc', 'ktd', 'sentinel'];
-        @endphp
-
-        <div class="row">
-            @foreach ($insidenTypes as $type)
-                @php
-                    $routeName = 'insiden.' . $type . '.create';
-                    $label = strtoupper($type);
-                @endphp
-                @if (Route::has($routeName))
-                    <div class="col">
-                        <a href="{{ route($routeName) }}">
-                            <div class="card bg-primary-subtle shadow-none" style="cursor: pointer;">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-primary fw-semibold">{{ $label }}</h5>
-                                    <p class="card-text">Input Form kategori {{ $label }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endif
-            @endforeach
-        </div>
+        
         <div class="card">
             <div class="card-body">
 				<h1 class="fs-7 fw-semibold text-center mb-4">Jenis Insiden Keselamatan Pasien</h1>
@@ -125,6 +102,31 @@
 					</li>
 				</ul>
 			</div>
+        </div>
+
+		@php
+            $insidenTypes = ['kpc', 'knc', 'ktc', 'ktd', 'sentinel'];
+        @endphp
+
+        <div class="row mb-4">
+            @foreach ($insidenTypes as $type)
+                @php
+                    $routeName = 'insiden.' . $type . '.create';
+                    $label = strtoupper($type);
+                @endphp
+                @if (Route::has($routeName))
+                    <div class="col">
+                        <a href="{{ route($routeName) }}">
+                            <div class="card bg-primary-subtle shadow-none" style="cursor: pointer;">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-primary fw-semibold">{{ $label }}</h5>
+                                    <p class="card-text">Input Form kategori {{ $label }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 @endsection

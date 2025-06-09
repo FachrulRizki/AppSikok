@@ -3,250 +3,331 @@
 @section('title', 'Laporan Insiden KTC')
 
 @section('content')
-    <div class="container">
-        <form action="{{ route('insiden.ktc.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-
-            <div class="container-fluid">
-                <div class="card bg-primary-subtle shadow-none position-relative overflow-hidden mb-4">
-                    <div class="card-body px-4 py-3">
-                        <div class="row align-items-center">
-                            <div class="col-9">
-                                <h4 class="fw-semibold mb-2">Kejadian Tidak Cedera (KTC)</h4>
-                                <p class="mb-0 text-muted">
-                                    Merupakan kondisi yang sangat berpotensi menimbulkan insiden, namun belum terjadi.
-                                </p>
-                                <nav aria-label="breadcrumb" class="mt-2">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item">
-                                            <a href="{{ route('dashboard') }}">Beranda</a>
-                                        </li>
-                                        <li class="breadcrumb-item">
-                                            <a href="{{ route('insiden') }}">Data Mutu Insiden</a>
-                                        </li>
-                                        <li class="breadcrumb-item active" aria-current="page">KTC</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                            <div class="col-3 text-end">
-                                <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="doctor"
-                                    class="img-fluid" style="max-height: 100px;">
-                            </div>
+    <div class="container-fluid">
+        <div class="card bg-primary-subtle shadow-none position-relative overflow-hidden mb-4">
+            <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h4 class="fw-semibold mb-1">Laporan Insiden Kejadian Tidak Cedera (KTC)</h4>
+                        <p class="mb-3 text-muted">
+                            Merupakan kondisi yang sangat berpotensi menimbulkan insiden, namun belum terjadi.
+                        </p>
+                        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="text-muted text-decoration-none" href="{{ route('insiden') }}">Insiden Keselamatan Pasien</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="text-muted text-decoration-none" href="{{ route('insiden.ktc.index') }}">KTC</a>
+                                </li>
+                                <li class="breadcrumb-item" aria-current="page">Tambah Laporan</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-3">
+                        <div class="text-center mb-n5">
+                            <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="modernize-img"
+                                class="img-fluid mb-n4" />
                         </div>
                     </div>
-                </div>
-
-                {{-- FORM START --}}
-                <div class="card mb-4">
-                    <div class="card-body">
-
-                        {{-- No RM & Nama Pasien --}}
-                        <h4>Data Pasien</h4><br>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label">No RM</label>
-                                <input type="text" name="no_rm" class="form-control" required
-                                    value="{{ old('no_rm', $ktc->no_rm ?? '') }}">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Nama Pasien</label>
-                                <input type="text" name="nama_pasien" class="form-control" required
-                                    value="{{ old('nama_pasien', $ktc->nama_pasien ?? '') }}">
-                            </div>
-                        </div>
-
-                        {{-- Umur & JK --}}
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label class="form-label">Umur</label>
-                                <input type="text" name="umur" class="form-control" required
-                                    value="{{ old('umur', $ktc->umur ?? '') }}">
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Jenis Kelamin</label>
-                                <select name="jk" class="form-control" required>
-                                    <option value="">-- Pilih --</option>
-                                    <option value="Laki-Laki"
-                                        {{ old('jk', $ktc->jk ?? '') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                    <option value="Perempuan"
-                                        {{ old('jk', $ktc->jk ?? '') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Tanggal dan Waktu Masuk RS</label>
-                                <input type="datetime-local" name="waktu_mskrs" class="form-control"
-                                    value="{{ old('waktu_mskrs', isset($ktc) ? $ktc->waktu_mskrs->format('Y-m-d\TH:i') : '') }}">
-                            </div>
-                        </div>
-                        <hr>
-
-                        {{-- Tanggal dan Waktu Insiden --}}
-                        <h4>Rincian Kejadian</h4><br>
-                        <div class="mb-3">
-                            <label class="form-label">Tanggal dan Waktu Insiden</label>
-                            <input type="datetime-local" name="waktu_insiden" class="form-control"
-                                value="{{ old('waktu_insiden', isset($ktc) ? $ktc->waktu_insiden->format('Y-m-d\TH:i') : '') }}">
-                        </div>
-
-                        {{-- Temuan Kejadian & Kronologis --}}
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Temuan Kejadian/Insiden *</label>
-                                <textarea name="temuan" class="form-control" rows="4" required>{{ old('temuan', $ktc->temuan ?? '') }}</textarea>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Kronologis Insiden *</label>
-                                <textarea name="kronologis" class="form-control" rows="4" required>{{ old('kronologis', $ktc->kronologis ?? '') }}</textarea>
-                            </div>
-                        </div>
-
-                        {{-- Unit & Ruangan --}}
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <label class="form-label">Insiden Terjadi Pada *</label>
-                                <input type="text" name="unit_terkait" class="form-control" required
-                                    value="{{ old('unit_terkait', $ktc->unit_terkait ?? '') }}">
-                            </div>
-                            <div class="col-md-2">
-                                <label class="form-label">Sumber Informasi *</label>
-                                <select name="sumber" class="form-control" required>
-                                    <option value="">-- Pilih --</option>
-                                    <option value="Karyawan"
-                                        {{ old('sumber', $ktc->sumber ?? '') == 'Karyawan' ? 'selected' : '' }}>
-                                        Karyawan</option>
-                                    <option value="Pasien/Keluarga"
-                                        {{ old('sumber', $ktc->sumber ?? '') == 'Pasien/Keluarga' ? 'selected' : '' }}>
-                                        Pasien/Keluarga</option>
-                                    <option value="Pengunjung"
-                                        {{ old('sumber', $ktc->sumber ?? '') == 'Pengunjung' ? 'selected' : '' }}>
-                                        Pengunjung</option>
-                                    <option value="Melihat Sendiri"
-                                        {{ old('sumber', $ktc->sumber ?? '') == 'Melihat Sendiri' ? 'selected' : '' }}>
-                                        Melihat Sendiri</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-3">
-                                <label class="form-label">Insiden Menyangkut Pasien *</label>
-                                <select name="rawat" class="form-control" required>
-                                    <option value="">-- Pilih --</option>
-                                    <option value="Pasien Rawat Inap"
-                                        {{ old('rawat', $ktc->rawat ?? '') == 'Pasien Rawat Inap' ? 'selected' : '' }}>
-                                        Pasien Rawat Inap</option>
-                                    <option value="Pasien Rawat Jalan"
-                                        {{ old('rawat', $ktc->rawat ?? '') == 'Pasien Rawat Jalan' ? 'selected' : '' }}>
-                                        Pasien Rawat Jalan</option>
-                                    <option value="Pasien IGD"
-                                        {{ old('rawat', $ktc->rawat ?? '') == 'Pasien IGD' ? 'selected' : '' }}>
-                                        Pasien IGD</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Insiden Terjadi Pada Pasien: ( Sesuai Kasus Penyakit )*</label>
-                                <select name="poli" class="form-control" required>
-                                    <option value="">-- Pilih --</option>
-                                    <option value="Penyakit Dalam"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Penyakit Dalam' ? 'selected' : '' }}>
-                                        Penyakit Dalam</option>
-                                    <option value="Anak"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Anak' ? 'selected' : '' }}>
-                                        Anak</option>
-                                    <option value="Bedah"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Bedah' ? 'selected' : '' }}>
-                                        Bedah</option>
-                                    <option value="OBGYN"
-                                        {{ old('poli', $ktc->poli ?? '') == 'OBGYN' ? 'selected' : '' }}>
-                                        OBGYN</option>
-                                    <option value="THT" {{ old('poli', $ktc->poli ?? '') == 'THT' ? 'selected' : '' }}>
-                                        THT</option>
-                                    <option value="Mata"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Mata' ? 'selected' : '' }}>
-                                        Mata</option>
-                                    <option value="Saraf"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Saraf' ? 'selected' : '' }}>
-                                        Saraf</option>
-                                    <option value="Anastesi"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Anastesi' ? 'selected' : '' }}>
-                                        Anastesi</option>
-                                    <option value="Kulit dan Kelamin"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Kulit dan Kelamin' ? 'selected' : '' }}>
-                                        Kulit dan Kelamin</option>
-                                    <option value="Jantung"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Jantung' ? 'selected' : '' }}>
-                                        Jantung</option>
-                                    <option value="Paru"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Paru' ? 'selected' : '' }}>
-                                        Paru</option>
-                                    <option value="Jiwa"
-                                        {{ old('poli', $ktc->poli ?? '') == 'Jiwa' ? 'selected' : '' }}>
-                                        Jiwa</option>
-                                    <option value="MCU" {{ old('poli', $ktc->poli ?? '') == 'MCU' ? 'selected' : '' }}>
-                                        MCU</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        {{-- Unit Terkait ktc --}}
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <label class="form-label">Lokasi Kejadian *</label>
-                                <textarea name="lokasi" class="form-control" rows="4" required>{{ old('lokasi', $ktc->lokasi ?? '') }}</textarea>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Unit Terkait Yang Menyebabkan Insiden *</label>
-                                <textarea name="unit" class="form-control" rows="4" required>{{ old('unit', $ktc->unit ?? '') }}</textarea>
-                            </div>
-                            <div class="col-md-5">
-                                <label class="form-label">Tindakan Yang Dilakukan Segera Setelah Kejadian & Hasilnya *</label>
-                                <textarea name="tindakan_segera" class="form-control" rows="4" required>{{ old('tindakan_segera', $ktc->tindakan_segera ?? '') }}</textarea>
-                            </div>
-                        </div>
-
-                        {{-- Tindakan oleh --}}
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label class="form-label">Tindakan Dilakukan Oleh *</label>
-                                <select name="pelaksana" class="form-control" required>
-                                    <option value="">-- Pilih --</option>
-                                    <option value="Tim"
-                                        {{ old('pelaksana', $ktc->pelaksana ?? '') == 'Tim' ? 'selected' : '' }}>
-                                        Tim</option>
-                                    <option value="Dokter"
-                                        {{ old('pelaksana', $ktc->pelaksana ?? '') == 'Dokter' ? 'selected' : '' }}>
-                                        Dokter</option>
-                                    <option value="Perawat"
-                                        {{ old('pelaksana', $ktc->pelaksana ?? '') == 'Perawat' ? 'selected' : '' }}>
-                                        Perawat</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Nama Inisial Pelapor *</label>
-                                <input type="text" name="nama_inisial" class="form-control" required
-                                    value="{{ old('nama_inisial', $ktc->nama_inisial ?? '') }}">
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Ruangan Pelapor *</label>
-                                <input type="text" name="ruangan_pelapor" class="form-control" required
-                                    value="{{ old('ruangan_pelapor', $ktc->ruangan_pelapor ?? '') }}">
-                            </div>
-                        </div>
-
-                        {{-- Upload --}}
-                        <div class="mb-3">
-                            <label class="form-label">Lampiran Foto (opsional)</label>
-                            <input type="file" name="foto[]" class="form-control" multiple accept="image/*">
-                            <div class="form-text">Maksimal 5 file. Ukuran maks 100 MB per file.</div>
-                        </div>
-                    </div>
-                </div>
-                {{-- FORM END --}}
-
-                {{-- Tombol --}}
-                <div class="mb-5">
-                    <button type="submit" class="btn btn-success">Simpan</button>
-                    <a href="{{ route('insiden.ktc.index') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
-        </form>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ route('insiden.ktc.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <h4 class="fw-semibold mb-4 fs-6">Data Pasien</h4>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">No. RM<span class="text-danger">*</span></label>
+                            <input type="text" name="no_rm" class="form-control @error('no_rm') is-invalid @enderror" value="{{ old('no_rm', $ktc->no_rm ?? '') }}">
+                            @error('no_rm')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Pasien<span class="text-danger">*</span></label>
+                            <input type="text" name="nama_pasien" class="form-control @error('nama_pasien') is-invalid @enderror" value="{{ old('nama_pasien', $ktc->nama_pasien ?? '') }}">
+                            @error('nama_pasien')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Umur<span class="text-danger">*</span></label>
+                            <input type="number" min="0" name="umur" class="form-control @error('umur') is-invalid @enderror" value="{{ old('umur', $ktc->umur ?? '') }}">
+                            @error('umur')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Jenis Kelamin<span class="text-danger">*</span></label>
+                            <select name="jk" class="form-control @error('jk') is-invalid @enderror">
+                                <option value="">-- Pilih --</option>
+                                <option value="Laki-Laki"
+                                    {{ old('jk', $ktc->jk ?? '') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                <option value="Perempuan"
+                                    {{ old('jk', $ktc->jk ?? '') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                            </select>
+                            @error('jk')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Tanggal & Waktu Masuk RS</label>
+                            <input type="datetime-local" name="waktu_mskrs" class="form-control @error('waktu_mskrs') is-invalid @enderror" value="{{ old('waktu_mskrs', isset($ktc) ? $ktc->waktu_mskrs->format('Y-m-d\TH:i') : '') }}">
+                            @error('waktu_mskrs')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h4 class="fs-6 fw-semibold mb-4">Rincian Kejadian</h4>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tanggal dan Waktu Insiden</label>
+                        <input type="datetime-local" name="waktu_insiden" class="form-control @error('waktu_insiden') is-invalid @enderror" value="{{ old('waktu_insiden', isset($ktc) ? $ktc->waktu_insiden->format('Y-m-d\TH:i') : '') }}">
+                        @error('waktu_insiden')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Temuan Kejadian/Insiden<span class="text-danger">*</span></label>
+                            <textarea name="temuan" class="form-control @error('temuan') is-invalid @enderror" rows="4">{{ old('temuan', $ktc->temuan ?? '') }}</textarea>
+                            @error('temuan')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Kronologis Insiden<span class="text-danger">*</span></label>
+                            <textarea name="kronologis" class="form-control @error('kronologis') is-invalid @enderror" rows="4">{{ old('kronologis', $ktc->kronologis ?? '') }}</textarea>
+                            @error('kronologis')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Insiden Terjadi Pada<span class="text-danger">*</span></label>
+                            <input type="text" name="unit_terkait" class="form-control @error('unit_terkait') is-invalid @enderror" value="{{ old('unit_terkait', $ktc->unit_terkait ?? '') }}">
+                            @error('unit_terkait')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Sumber Informasi<span class="text-danger">*</span></label>
+                            <select name="sumber" class="form-control @error('sumber') is-invalid @enderror">
+                                <option value="">-- Pilih --</option>
+                                <option value="Karyawan"
+                                    {{ old('sumber', $ktc->sumber ?? '') == 'Karyawan' ? 'selected' : '' }}>
+                                    Karyawan</option>
+                                <option value="Pasien/Keluarga"
+                                    {{ old('sumber', $ktc->sumber ?? '') == 'Pasien/Keluarga' ? 'selected' : '' }}>
+                                    Pasien/Keluarga</option>
+                                <option value="Pengunjung"
+                                    {{ old('sumber', $ktc->sumber ?? '') == 'Pengunjung' ? 'selected' : '' }}>
+                                    Pengunjung</option>
+                                <option value="Melihat Sendiri"
+                                    {{ old('sumber', $ktc->sumber ?? '') == 'Melihat Sendiri' ? 'selected' : '' }}>
+                                    Melihat Sendiri</option>
+                            </select>
+                            @error('sumber')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Insiden Menyangkut Pasien<span class="text-danger">*</span></label>
+                            <select name="rawat" class="form-control @error('rawat') is-invalid @enderror">
+                                <option value="">-- Pilih --</option>
+                                <option value="Pasien Rawat Inap"
+                                    {{ old('rawat', $ktc->rawat ?? '') == 'Pasien Rawat Inap' ? 'selected' : '' }}>
+                                    Pasien Rawat Inap</option>
+                                <option value="Pasien Rawat Jalan"
+                                    {{ old('rawat', $ktc->rawat ?? '') == 'Pasien Rawat Jalan' ? 'selected' : '' }}>
+                                    Pasien Rawat Jalan</option>
+                                <option value="Pasien IGD"
+                                    {{ old('rawat', $ktc->rawat ?? '') == 'Pasien IGD' ? 'selected' : '' }}>
+                                    Pasien IGD</option>
+                            </select>
+                            @error('rawat')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Insiden Terjadi Pada Pasien<span class="text-danger">*</span></label>
+                            <select name="poli" class="form-control @error('poli') is-invalid @enderror">
+                                <option value="">-- Pilih --</option>
+                                <option value="Penyakit Dalam"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Penyakit Dalam' ? 'selected' : '' }}>
+                                    Penyakit Dalam</option>
+                                <option value="Anak"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Anak' ? 'selected' : '' }}>
+                                    Anak</option>
+                                <option value="Bedah"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Bedah' ? 'selected' : '' }}>
+                                    Bedah</option>
+                                <option value="OBGYN"
+                                    {{ old('poli', $ktc->poli ?? '') == 'OBGYN' ? 'selected' : '' }}>
+                                    OBGYN</option>
+                                <option value="THT" {{ old('poli', $ktc->poli ?? '') == 'THT' ? 'selected' : '' }}>
+                                    THT</option>
+                                <option value="Mata"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Mata' ? 'selected' : '' }}>
+                                    Mata</option>
+                                <option value="Saraf"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Saraf' ? 'selected' : '' }}>
+                                    Saraf</option>
+                                <option value="Anastesi"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Anastesi' ? 'selected' : '' }}>
+                                    Anastesi</option>
+                                <option value="Kulit dan Kelamin"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Kulit dan Kelamin' ? 'selected' : '' }}>
+                                    Kulit dan Kelamin</option>
+                                <option value="Jantung"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Jantung' ? 'selected' : '' }}>
+                                    Jantung</option>
+                                <option value="Paru"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Paru' ? 'selected' : '' }}>
+                                    Paru</option>
+                                <option value="Jiwa"
+                                    {{ old('poli', $ktc->poli ?? '') == 'Jiwa' ? 'selected' : '' }}>
+                                    Jiwa</option>
+                                <option value="MCU" {{ old('poli', $ktc->poli ?? '') == 'MCU' ? 'selected' : '' }}>
+                                    MCU</option>
+                            </select>
+                            <small class="form-text">Sesuai kasus penyakit</small>
+                            @error('poli')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Lokasi Kejadian<span class="text-danger">*</span></label>
+                            <textarea name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" rows="4">{{ old('lokasi', $ktc->lokasi ?? '') }}</textarea>
+                            @error('lokasi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Unit Terkait Yang Menyebabkan Insiden<span class="text-danger">*</span></label>
+                            <textarea name="unit" class="form-control @error('unit') is-invalid @enderror" rows="4">{{ old('unit', $ktc->unit ?? '') }}</textarea>
+                            @error('unit')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label">Tindakan Yang Dilakukan Segera Setelah Kejadian & Hasilnya<span class="text-danger">*</span></label>
+                            <textarea name="tindakan_segera" class="form-control @error('tindakan_segera') is-invalid @enderror" rows="4">{{ old('tindakan_segera', $ktc->tindakan_segera ?? '') }}</textarea>
+                            @error('tindakan_segera')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Tindakan Dilakukan Oleh<span class="text-danger">*</span></label>
+                            <select name="pelaksana" class="form-control @error('pelaksana') is-invalid @enderror">
+                                <option value="">-- Pilih --</option>
+                                <option value="Tim"
+                                    {{ old('pelaksana', $ktc->pelaksana ?? '') == 'Tim' ? 'selected' : '' }}>
+                                    Tim</option>
+                                <option value="Dokter"
+                                    {{ old('pelaksana', $ktc->pelaksana ?? '') == 'Dokter' ? 'selected' : '' }}>
+                                    Dokter</option>
+                                <option value="Perawat"
+                                    {{ old('pelaksana', $ktc->pelaksana ?? '') == 'Perawat' ? 'selected' : '' }}>
+                                    Perawat</option>
+                            </select>
+                            @error('pelaksana')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Nama Inisial Pelapor<span class="text-danger">*</span></label>
+                            <input type="text" name="nama_inisial" class="form-control @error('nama_inisial') is-invalid @enderror" value="{{ old('nama_inisial', $ktc->nama_inisial ?? '') }}">
+                            @error('nama_inisial')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Ruangan Pelapor<span class="text-danger">*</span></label>
+                            <input type="text" name="ruangan_pelapor" class="form-control @error('ruangan_pelapor') is-invalid @enderror" value="{{ old('ruangan_pelapor', $ktc->ruangan_pelapor ?? '') }}">
+                            @error('ruangan_pelapor')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Lampiran Foto (opsional)</label>
+                        <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
+                        <div class="form-text">Maksimal 5 file. Ukuran maks 100 MB per file.</div>
+                        @error('foto')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="d-flex gap-3 mt-4">
+                        <button class="btn btn-primary" type="submit">Simpan</button>
+                        <a href="{{ route('insiden.ktc.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

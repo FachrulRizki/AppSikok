@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 
 class Ktd extends Model
 {
@@ -30,12 +31,23 @@ class Ktd extends Model
         'akibat',
         'nama_inisial',
         'ruangan_pelapor',
-        'foto', // bisa berupa JSON string array jika multiple
+        'foto',
     ];
 
     protected $casts = [
         'waktu_mskrs' => 'datetime',
         'waktu_insiden' => 'datetime',
-        'foto' => 'array', // jika disimpan sebagai array json
+        'foto' => 'array',
     ];
+
+    protected static function booted()
+    {
+        static::deleting(function ($ktd) {
+            if (is_array($ktd->foto)) {
+                foreach ($ktd->foto as $file) {
+                    Storage::delete('public/' . $file);
+                }
+            }
+        });
+    }
 }

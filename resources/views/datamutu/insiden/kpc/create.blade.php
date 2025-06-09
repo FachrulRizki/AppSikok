@@ -148,9 +148,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Tindakan yang dilakukan<span class="text-danger">*</span></label>
-                        <textarea name="tindakan" class="form-control @error('tindakan') is-invalid @enderror" rows="3">
-                            {{ old('tindakan', $kpc->tindakan ?? '') }}
-                        </textarea>
+                        <textarea name="tindakan" class="form-control @error('tindakan') is-invalid @enderror" rows="3">{{ old('tindakan', $kpc->tindakan ?? '') }}</textarea>
                         @error('tindakan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

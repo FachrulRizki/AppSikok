@@ -10,7 +10,8 @@ class SentinelController extends Controller
 {
     public function index()
     {
-        $sentinels = Sentinel::latest()->get();
+        $sentinels = Sentinel::latest()->paginate(10);
+
         return view('datamutu.insiden.sentinel.index', compact('sentinels'));
     }
 
@@ -40,7 +41,7 @@ class SentinelController extends Controller
             'akibat' => 'required|string',
             'nama_inisial' => 'required|string',
             'ruangan_pelapor' => 'required|string',
-            'foto.*' => 'nullable|image|max:2048'
+            'foto.*' => 'nullable|image|max:102400|mimetypes:image/jpeg,image/png',
         ]);
 
         $fotoPaths = [];
@@ -70,9 +71,8 @@ class SentinelController extends Controller
             'akibat' => $validated['akibat'],
             'nama_inisial' => $validated['nama_inisial'],
             'ruangan_pelapor' => $validated['ruangan_pelapor'],
-            'foto' => json_encode($fotoPaths),
+            'foto' => $fotoPaths,
         ]);
-
 
         return redirect()->route('insiden.sentinel.index')->with('success', 'Data sentinel berhasil disimpan.');
     }

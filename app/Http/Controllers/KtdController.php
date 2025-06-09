@@ -10,7 +10,8 @@ class KtdController extends Controller
 {
     public function index()
     {
-        $ktds = Ktd::latest()->get();
+        $ktds = Ktd::latest()->paginate(10);
+
         return view('datamutu.insiden.ktd.index', compact('ktds'));
     }
 
@@ -40,7 +41,7 @@ class KtdController extends Controller
             'akibat' => 'required|string',
             'nama_inisial' => 'required|string',
             'ruangan_pelapor' => 'required|string',
-            'foto.*' => 'nullable|image|max:2048'
+            'foto.*' => 'nullable|image|max:102400|mimetypes:image/jpeg,image/png',
         ]);
 
         $fotoPaths = [];
@@ -70,11 +71,10 @@ class KtdController extends Controller
             'akibat' => $validated['akibat'],
             'nama_inisial' => $validated['nama_inisial'],
             'ruangan_pelapor' => $validated['ruangan_pelapor'],
-            'foto' => json_encode($fotoPaths),
+            'foto' => $fotoPaths,
         ]);
 
-
-        return redirect()->route('insiden.ktd.index')->with('success', 'Data KTD berhasil disimpan.');
+        return redirect()->route('insiden.ktd.index')->with('success', 'Data Laporan KTD berhasil disimpan.');
     }
 
     public function show($id)
@@ -86,6 +86,6 @@ class KtdController extends Controller
     public function destroy(Ktd $ktd)
     {
         $ktd->delete();
-        return redirect()->route('insiden.ktd.index')->with('success', 'Data KTD berhasil dihapus.');
+        return redirect()->route('insiden.ktd.index')->with('success', 'Data Laporan KTD berhasil dihapus.');
     }
 }

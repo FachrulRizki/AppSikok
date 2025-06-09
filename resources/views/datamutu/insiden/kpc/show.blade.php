@@ -88,7 +88,7 @@
                     <h4 class="card-title mb-4">Lampiran Foto</h4>
                         <div class="row">
                             @forelse ($kpc->foto as $img)
-                                <div class="col-md-6">
+                                <div class="col-md-4 mb-3">
                                     <a href="{{ asset('storage/' . $img) }}" target="_blank" class="ratio ratio-1x1 overflow-hidden">
                                         <img src="{{ asset('storage/' . $img) }}" alt="Foto" style="cursor: pointer; object-fit: cover;" class="rounded">
                                     </a>

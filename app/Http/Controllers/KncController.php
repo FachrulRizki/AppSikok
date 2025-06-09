@@ -30,6 +30,8 @@ class KncController extends Controller
             'waktu_insiden' => 'nullable|date',
             'temuan' => 'required|string',
             'kronologis' => 'required|string',
+            'tindakan_segera' => 'required|string', 
+            'insiden_pada' => 'required|string|max:255',
             'unit_terkait' => 'required|string|max:255',
             'sumber' => 'required|string',
             'rawat' => 'required|string',
@@ -57,6 +59,8 @@ class KncController extends Controller
             'waktu_insiden' => $validated['waktu_insiden'] ?? null,
             'temuan' => $validated['temuan'],
             'kronologis' => $validated['kronologis'],
+            'tindakan_segera' => $validated['tindakan_segera'],
+            'insiden_pada' => $validated['insiden_pada'],
             'unit_terkait' => $validated['unit_terkait'],
             'sumber' => $validated['sumber'],
             'rawat' => $validated['rawat'],
@@ -73,6 +77,7 @@ class KncController extends Controller
     public function show($id)
     {
         $knc = knc::findOrFail($id);
+        
         return view('datamutu.insiden.knc.show', compact('knc'));
     }
 
