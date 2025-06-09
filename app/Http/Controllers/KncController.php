@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Knc;
-use App\Services\KncService;
 
 class KncController extends Controller
 {
     public function index()
     {
-        $kncs = Knc::latest()->get();
+        $kncs = Knc::latest()->paginate(10);
+        
         return view('datamutu.insiden.knc.index', compact('kncs'));
     }
 
@@ -37,7 +37,7 @@ class KncController extends Controller
             'pelaksana' => 'required|string',
             'nama_inisial' => 'required|string',
             'ruangan_pelapor' => 'required|string',
-            'foto.*' => 'nullable|image|max:2048'
+            'foto.*' => 'nullable|image|max:102400|mimetypes:image/jpeg,image/png',
         ]);
 
         $fotoPaths = [];
@@ -64,12 +64,11 @@ class KncController extends Controller
             'pelaksana' => $validated['pelaksana'],
             'nama_inisial' => $validated['nama_inisial'],
             'ruangan_pelapor' => $validated['ruangan_pelapor'],
-            'foto' => json_encode($fotoPaths)
+            'foto' => $fotoPaths
         ]);
 
-        return redirect()->route('insiden.knc.index')->with('success', 'Laporan KNC berhasil disimpan.');
+        return redirect()->route('insiden.knc.index')->with('success', 'Data Laporan KNC berhasil disimpan.');
     }
-
 
     public function show($id)
     {
@@ -81,6 +80,6 @@ class KncController extends Controller
     {
         $knc = knc::findOrFail($id);
         $knc->delete();
-        return redirect()->route('insiden.knc.index')->with('success', 'Data knc berhasil dihapus.');
+        return redirect()->route('insiden.knc.index')->with('success', 'Data Laporan KNC berhasil dihapus.');
     }
 }

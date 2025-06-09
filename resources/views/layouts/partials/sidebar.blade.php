@@ -91,7 +91,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('insiden') }}" class="sidebar-link">
+                            <a href="{{ route('insiden') }}" class="sidebar-link {{ request()->routeIs('insiden.*') ? 'active' : '' }}">
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>

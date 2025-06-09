@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\KpcService;
 use App\Models\Kpc;
 
 class KpcController extends Controller
 {
     public function index()
     {
-        $kpcs = Kpc::latest()->get();
+        $kpcs = Kpc::latest()->paginate(10);
+        
         return view('datamutu.insiden.kpc.index', compact('kpcs'));
     }
 
@@ -31,7 +31,7 @@ class KpcController extends Controller
             'tindakan' => 'required|string',
             'pelaksana' => 'required|string',
             'nama_inisial' => 'required|string',
-            'foto.*' => 'nullable|image|max:102400',
+            'foto.*' => 'nullable|image|max:102400|mimetypes:image/jpeg,image/png',
         ]);
 
         // Upload dan simpan path foto
@@ -53,10 +53,10 @@ class KpcController extends Controller
             'tindakan' => $request->tindakan,
             'pelaksana' => $request->pelaksana,
             'nama_inisial' => $request->nama_inisial,
-            'foto' => json_encode($fotoPaths),
+            'foto' => $fotoPaths,
         ]);
 
-        return redirect()->route('insiden.kpc.index')->with('success', 'Data insiden KPC berhasil disimpan.');
+        return redirect()->route('insiden.kpc.index')->with('success', 'Data insiden KPC berhasil disimpan');
     }
 
     public function show($id)
@@ -69,6 +69,6 @@ class KpcController extends Controller
     {
         $kpc = Kpc::findOrFail($id);
         $kpc->delete();
-        return redirect()->route('insiden.kpc.index')->with('success', 'Data KPC berhasil dihapus.');
+        return redirect()->route('insiden.kpc.index')->with('success', 'Data Insiden KPC berhasil dihapus');
     }
 }

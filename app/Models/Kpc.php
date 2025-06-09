@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Kpc extends Model
 {
@@ -22,12 +23,19 @@ class Kpc extends Model
         'foto',
     ];
 
-    /**
-     * Relasi ke model LampiranFoto
-     * Satu KPC bisa memiliki banyak lampiran foto
-     */
-    // public function lampiran_foto()
-    // {
-    //     return $this->hasMany(LampiranFotoKpc::class, 'kpc_id');
-    // }
+    protected $casts = [
+        'waktu' => 'datetime',
+        'foto' => 'array'
+    ];
+
+    protected static function booted()
+    {
+        static::deleting(function ($kpc) {
+            if (is_array($kpc->foto)) {
+                foreach ($kpc->foto as $file) {
+                    Storage::delete('public/' . $file);
+                }
+            }
+        });
+    }
 }
