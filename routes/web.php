@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('ktd', KtdController::class)->except(['insiden.ktd.show']);
         Route::resource('sentinel', SentinelController::class)->except(['insiden.sentinel.show']);
     });
-});
 
-Route::get('/kepuasan_pasien', [KuisonerKepuasanController::class, 'create'])->name('kuisoner');
-Route::resource('kuisoner', KuisonerKepuasanController::class);
+    Route::get('kepuasan-pasien/print', [KuisonerKepuasanController::class, 'printPDF'])->name('kuesioner.print');
+    Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
+});

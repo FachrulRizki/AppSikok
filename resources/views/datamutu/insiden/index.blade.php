@@ -111,7 +111,8 @@
         <div class="row mb-4">
             @foreach ($insidenTypes as $type)
                 @php
-                    $routeName = 'insiden.' . $type . '.create';
+					$action = auth()->user()->can('insiden.buat') ? 'create' : 'index';
+                    $routeName = 'insiden.' . $type . '.' . $action;
                     $label = strtoupper($type);
                 @endphp
                 @if (Route::has($routeName))

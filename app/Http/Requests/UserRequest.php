@@ -23,13 +23,13 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('user');
+        $id = $this->route('user')?->id;
 
         return [
             'name' => 'required|max:255',
             'username' => 'required|max:255|unique:users,username,' . $id,
             'password' => $this->isMethod('post') ? 'required|min:8|confirmed' : 'nullable|min:8|confirmed',
-            'unit' => 'required|max:255',
+            'unit' => 'nullable|max:255',
             'role' => 'required',
         ];
     }

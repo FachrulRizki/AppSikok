@@ -64,7 +64,7 @@
                                 <tr>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->username }}</td>
-                                    <td>{{ $item->unit }}</td>
+                                    <td>{{ $item->unit ?? '-' }}</td>
                                     <td>
                                         <span class="badge bg-primary-subtle text-primary fs-2">
                                             {{ $item->getRoleNames() ? $item->getRoleNames()->first() : '' }}

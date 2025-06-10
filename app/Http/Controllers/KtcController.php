@@ -10,6 +10,8 @@ class KtcController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->can('insiden.list')) return abort(403);
+
         $ktcs = Ktc::latest()->paginate(10);
 
         return view('datamutu.insiden.ktc.index', compact('ktcs'));
@@ -17,11 +19,15 @@ class KtcController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         return view('datamutu.insiden.ktc.create');
     }
 
     public function store(Request $request)
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         $validated = $request->validate([
             'no_rm' => 'required|string|max:100',
             'nama_pasien' => 'required|string|max:255',
@@ -85,6 +91,8 @@ class KtcController extends Controller
 
     public function destroy($id)
     {
+        if (!auth()->user()->can('insiden.hapus')) return abort(403);
+
         $ktc = ktc::findOrFail($id);
         $ktc->delete();
         return redirect()->route('insiden.ktc.index')->with('success', 'Data Laporan KTC berhasil dihapus.');

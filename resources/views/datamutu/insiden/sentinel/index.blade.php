@@ -35,7 +35,9 @@
             </div>
         </div>
 
-        <a href="{{ route('insiden.sentinel.create') }}" class="btn btn-primary mb-4">Tambah Insiden</a>
+        @can('insiden.buat')
+            <a href="{{ route('insiden.sentinel.create') }}" class="btn btn-primary mb-4">Tambah Insiden</a>
+        @endcan
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -68,12 +70,14 @@
                                             <a href="{{ route('insiden.sentinel.show', $sentinel->id) }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                 <i class="ti ti-eye"></i>
                                             </a>
-                                            <form action="{{ route('insiden.sentinel.destroy', $sentinel->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button onclick="return confirm('Yakin ingin menghapus?')"
-                                                    class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
-                                            </form>
+                                            @can('insiden.hapus')
+                                                <form action="{{ route('insiden.sentinel.destroy', $sentinel->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button onclick="return confirm('Yakin ingin menghapus?')"
+                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>

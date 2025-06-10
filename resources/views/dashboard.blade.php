@@ -103,6 +103,24 @@
                 </div>
             </div>
         </div>
+        <div class="card w-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="card-title fw-semibold">Tren Kepuasan Pasien Per Hari ini</h4>
+                        <p class="card-subtitle">Indeks kepuasan masyarakan per unsur pertanyaan per hari ini</p>
+                    </div>
+                    <div class="d-flex">
+                        <span class="mt-1">IKM</span>
+                        <div class="d-flex align-items-end">
+                            <h1 class="mb-0">{{ $kepuasanPelanggan['ikm'] }}</h1>
+                            <p class="mb-1">/100</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="kepuasan-pasien" class="revenue-chart mx-n3 mt-4"></div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -173,6 +191,78 @@
         };
 
         var chart = new ApexCharts(document.querySelector("#data-mutu"), options);
+        chart.render();
+
+        const kepuasan = @json($kepuasanPelanggan);
+
+        var options = {
+            series: [{
+                name: "NRR Tertimbang",
+                data: kepuasan.series,
+            }],
+            chart: {
+                toolbar: {
+                    show: false,
+                },
+                type: "area",
+                fontFamily: "inherit",
+                foreColor: "#adb0bb",
+                height: 350,
+            },
+            colors: ["var(--bs-primary)"],
+            fill: {
+                type: "gradient",
+                gradient: {
+                    shade: 'light',
+                    type: "vertical",
+                    shadeIntensity: 0.4,
+                    gradientToColors: ["#ffffff"],
+                    inverseColors: false,
+                    opacityFrom: 0.7,
+                    opacityTo: 0,
+                    stops: [0, 100],
+                },
+            },
+            stroke: {
+                width: 5,
+                curve: 'smooth',
+                dashArray: [0],
+            },
+            dataLabels: {
+                enabled: true,
+            },
+            legend: {
+                show: false,
+            },
+            grid: {
+                borderColor: "rgba(0,0,0,0.1)",
+                strokeDashArray: 3,
+                xaxis: {
+                    lines: {
+                    show: false,
+                    },
+                },
+            },
+            yaxis: {
+                min: 0,
+                tickAmount: 5,
+            },
+            xaxis: {
+                categories: kepuasan.categories,
+                show: false,
+                axisTicks: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                }
+            },
+            tooltip: {
+                theme: "dark",
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#kepuasan-pasien"), options);
         chart.render();
     </script>
 @endpush

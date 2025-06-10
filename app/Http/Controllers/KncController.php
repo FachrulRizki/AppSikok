@@ -9,6 +9,8 @@ class KncController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->can('insiden.list')) return abort(403);
+
         $kncs = Knc::latest()->paginate(10);
         
         return view('datamutu.insiden.knc.index', compact('kncs'));
@@ -16,11 +18,15 @@ class KncController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         return view('datamutu.insiden.knc.create');
     }
 
     public function store(Request $request)
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         $validated = $request->validate([
             'no_rm' => 'required|string|max:100',
             'nama_pasien' => 'required|string|max:255',
@@ -83,6 +89,8 @@ class KncController extends Controller
 
     public function destroy($id)
     {
+        if (!auth()->user()->can('insiden.hapus')) return abort(403);
+
         $knc = knc::findOrFail($id);
         $knc->delete();
         return redirect()->route('insiden.knc.index')->with('success', 'Data Laporan KNC berhasil dihapus.');

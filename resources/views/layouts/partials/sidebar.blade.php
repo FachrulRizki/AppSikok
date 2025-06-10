@@ -79,7 +79,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                         <span class="d-flex"><i class="ti ti-gauge"></i></span>
-                        <span class="hide-menu">Data Mutu (Dev)</span>
+                        <span class="hide-menu">Data Mutu</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
@@ -87,33 +87,37 @@
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
-                                <span class="hide-menu">5R</span>
+                                <span class="hide-menu">5R (Dev)</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a href="{{ route('insiden') }}" class="sidebar-link {{ request()->routeIs('insiden.*') ? 'active' : '' }}">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Insiden</span>
-                            </a>
-                        </li>
+                        @can('insiden.list')
+                            <li class="sidebar-item">
+                                <a href="{{ route('insiden') }}" class="sidebar-link {{ request()->routeIs('insiden.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Insiden</span>
+                                </a>
+                            </li>
+                        @endcan
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link">
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
-                                <span class="hide-menu">Cuci Tangan</span>
+                                <span class="hide-menu">Cuci Tangan (Dev)</span>
                             </a>
                         </li>
-                         <li class="sidebar-item">
-                            <a href="{{ route('kuisoner') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Kepuasan Pasien</span>
-                            </a>
-                        </li>
+                        @canany(['kuesioner.list', 'kuesioner.buat'])
+                            <li class="sidebar-item">
+                                <a href="{{ auth()->user()->can('kuesioner.list') ? route('kuesioner.index') : route('kuesioner.create') }}" class="sidebar-link {{ request()->routeIs('kuesioner.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Kepuasan Pasien</span>
+                                </a>
+                            </li>
+                        @endcanany
                     </ul>
                 </li>
 
@@ -224,7 +228,7 @@
                     <img src="{{ asset('assets/images/profile/user-1.jpg') }}" class="rounded-circle"
                         width="40" height="40" alt="modernize-img" />
                 </div>
-                <div class="john-title">
+                <div class="john-title text-nowrap text-truncate">
                     <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->name }}</h6>
                     <span class="fs-2">{{ Auth::user()->getRoleNames()->first() }}</span>
                 </div>

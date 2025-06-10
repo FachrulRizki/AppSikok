@@ -9,6 +9,8 @@ class KpcController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->can('insiden.list')) return abort(403);
+
         $kpcs = Kpc::latest()->paginate(10);
         
         return view('datamutu.insiden.kpc.index', compact('kpcs'));
@@ -16,11 +18,15 @@ class KpcController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         return view('datamutu.insiden.kpc.create');
     }
 
     public function store(Request $request)
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         $request->validate([
             'waktu' => 'required|date',
             'temuan' => 'required|string',
@@ -67,6 +73,8 @@ class KpcController extends Controller
 
     public function destroy($id)
     {
+        if (!auth()->user()->can('insiden.hapus')) return abort(403);
+
         $kpc = Kpc::findOrFail($id);
         $kpc->delete();
         return redirect()->route('insiden.kpc.index')->with('success', 'Data Insiden KPC berhasil dihapus');

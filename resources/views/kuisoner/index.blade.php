@@ -9,12 +9,12 @@
                 <div class="row align-items-center">
                     <div class="col-9">
                         <h4 class="fw-semibold mb-8">Kuesioner Survei Kepuasan Pasien/Keluarga</h4>
-                        <nav aria-label="breadcrumb">
+                        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item" aria-current="page">Kuesioner Survei Kepuasan Pasien/Keluarga</li>
+                                <li class="breadcrumb-item" aria-current="page">Kepuasan Pasien</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,48 +27,84 @@
             </div>
         </div>
 
-        <a href="{{ route('kuisoner.create') }}" class="btn btn-primary mb-4">Tambah Kuesioner Survei Kepuasan Pasien/Keluarga</a>
-
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
         <div class="card">
             <div class="card-body">
-                <table class="table w-100">
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($data as $item)
+                <form action="" method="get">
+                    <div class="row border-bottom align-items-end">
+                        <div class="col-md-5 mb-4">
+                            <div class="form-group">
+                                <label class="form-label">Filter Bulan</label>
+                                <div class="input-group">
+                                    <select name="bulan" class="form-select">
+                                        <option value="">Pilih Bulan</option>
+                                        @foreach($availablePeriods as $p)
+                                            <option value="{{ $p->bulan }}" {{ request('bulan') == $p->bulan ? 'selected' : '' }}>{{ \Carbon\Carbon::create()->month($p->bulan)->locale('id')->monthName }}</option>
+                                        @endforeach
+                                    </select>
+                                    <select name="tahun" class="form-select">
+                                        <option value="">Pilih Tahun</option>
+                                        @foreach($availablePeriods->unique('tahun') as $p)
+                                            <option value="{{ $p->tahun }}" {{ request('tahun') == $p->tahun ? 'selected' : '' }}>{{ $p->tahun }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 mb-4">
+                            <a href="{{ route('kuesioner.print', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}" class="btn btn-primary float-end"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive">
+                    <table class="table w-100">
+                        <thead>
                             <tr>
-                                <td>{{ $item->waktu->format('d-m-Y H:i') }}</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route('kuisoner.show', $item->id) }}" class="btn btn-warning btn-sm">
-                                            <i class="bi bi-pencil-square"></i> Lihat
-                                        </a>
-                                        <form action="{{ route('kuisoner.destroy', $item->id) }}" method="POST"
-                                            onsubmit="return confirm('Yakin hapus?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="bi bi-trash"></i> Hapus
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
+                                <th class="text-center">#</th>
+                                <th>Tanggal</th>
+                                <th>Hubungan dengan Pasien</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td class="text-center" colspan="7">Tidak ada data</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($data as $item)
+                                <tr>
+                                    <td class="text-center">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
+                                    <td>{{ $item->waktu_survei->format('d-m-Y') }}</td>
+                                    <td>{{ $item->hubungan_pasien }}</td>
+                                    <td>
+                                        <div class="d-flex gap-2 justify-content-center">
+                                            <a href="{{ route('kuesioner.show', $item->id) }}" class="btn btn-warning btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
+                                                <i class="ti ti-eye"></i>
+                                            </a>
+                                            <form action="{{ route('kuesioner.destroy', $item->id) }}" method="POST"
+                                                onsubmit="return confirm('Yakin hapus?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+                                                    <i class="ti ti-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td class="text-center" colspan="4">Tidak ada data</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                @if ($data->hasPages())
+                    <div class="mt-2 d-flex justify-content-center">
+                        {{ $data->links('vendor.pagination.bootstrap-4') }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

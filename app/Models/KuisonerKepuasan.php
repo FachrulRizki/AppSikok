@@ -31,6 +31,6 @@ class KuisonerKepuasan extends Model
     ];
 
     protected $casts = [
-        'waktu_survei' => 'datetime',
+        'waktu_survei' => 'date',
     ];
 }

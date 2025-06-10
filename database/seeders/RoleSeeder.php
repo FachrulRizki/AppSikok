@@ -19,7 +19,9 @@ class RoleSeeder extends Seeder
             'Super Admin',
             'Menajemen',
             'Kepala Ruang',
-            'Perawat'
+            'Perawat',
+            'Tim Mutu',
+            'Keluarga Pasien'
         ];
 
         foreach ($roles as $role) {
@@ -59,5 +61,21 @@ class RoleSeeder extends Seeder
             'unit' => 'Manajer Keperawatan'
         ]);
         $kepalaRuang->assignRole('Kepala Ruang');
+
+        $timMutu = User::firstOrCreate([
+            'name' => 'Rama Wijaya',
+            'username' => 'ramawijaya',
+            'password' => bcrypt('ramawijaya123'),
+            'unit' => 'Tim Mutu'
+        ]);
+        $timMutu->assignRole('Tim Mutu');
+
+        $keluargaPasien = User::firstOrCreate([
+            'name' => 'Bahrudin',
+            'username' => 'bahrudin',
+            'password' => bcrypt('bahrudin123'),
+            'unit' => 'Keluarga Pasien'
+        ]);
+        $keluargaPasien->assignRole('Keluarga Pasien');
     }
 }

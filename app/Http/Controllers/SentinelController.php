@@ -10,6 +10,8 @@ class SentinelController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->can('insiden.list')) return abort(403);
+
         $sentinels = Sentinel::latest()->paginate(10);
 
         return view('datamutu.insiden.sentinel.index', compact('sentinels'));
@@ -17,11 +19,15 @@ class SentinelController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         return view('datamutu.insiden.sentinel.create');
     }
 
     public function store(Request $request)
     {
+        if (!auth()->user()->can('insiden.buat')) return abort(403);
+
         $validated = $request->validate([
             'no_rm' => 'required|string',
             'nama_pasien' => 'required|string',
@@ -85,6 +91,8 @@ class SentinelController extends Controller
 
     public function destroy(sentinel $sentinel)
     {
+        if (!auth()->user()->can('insiden.hapus')) return abort(403);
+
         $sentinel->delete();
         return redirect()->route('insiden.sentinel.index')->with('success', 'Data sentinel berhasil dihapus.');
     }

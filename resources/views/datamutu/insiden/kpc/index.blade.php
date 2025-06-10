@@ -35,7 +35,9 @@
             </div>
         </div>
 
-        <a href="{{ route('insiden.kpc.create') }}" class="btn btn-primary mb-4">Tambah Laporan</a>
+        @can('insiden.buat')
+            <a href="{{ route('insiden.kpc.create') }}" class="btn btn-primary mb-4">Tambah Laporan</a>
+        @endcan
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -64,12 +66,14 @@
                                             <a href="{{ route('insiden.kpc.show', $kpc->id) }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                 <i class="ti ti-eye"></i>
                                             </a>
-                                            <form action="{{ route('insiden.kpc.destroy', $kpc->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button onclick="return confirm('Yakin ingin menghapus?')"
-                                                    class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
-                                            </form>
+                                            @can('insiden.hapus')
+                                                <form action="{{ route('insiden.kpc.destroy', $kpc->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button onclick="return confirm('Yakin ingin menghapus?')"
+                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>

@@ -4,22 +4,47 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KuisonerKepuasan;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class KuisonerKepuasanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = KuisonerKepuasan::latest()->paginate(10);
-        return view('kuisoner.index', compact('data'));
+        if (!auth()->user()->can('kuesioner.list')) return abort(403);
+
+        $bulan = $request->get('bulan');
+        $tahun = $request->get('tahun');
+
+        $data = KuisonerKepuasan::query();
+
+        if ($bulan && $tahun) {
+            $data = $data->whereMonth('waktu_survei', $bulan)->whereYear('waktu_survei', $tahun);
+        }
+
+        $data = $data->latest()->paginate(10);
+
+        $availablePeriods = DB::table('kuisoner_kepuasan')
+            ->selectRaw('MONTH(waktu_survei) as bulan, YEAR(waktu_survei) as tahun')
+            ->groupBy('bulan', 'tahun')
+            ->orderBy('tahun', 'desc')
+            ->orderBy('bulan', 'desc')
+            ->get();
+
+        return view('kuisoner.index', compact('data', 'availablePeriods'));
     }
 
     public function create()
     {
+        if (!auth()->user()->can('kuesioner.buat')) return abort(403);
+
         return view('kuisoner.create');
     }
 
     public function store(Request $request)
     {
+        if (!auth()->user()->can('kuesioner.buat')) return abort(403);
+
         $request->validate([
             'waktu_survei' => 'required|date',
             'jk' => 'required',
@@ -27,46 +52,75 @@ class KuisonerKepuasanController extends Controller
             'pendidikan' => 'required',
             'pekerjaan' => 'required',
             'hubungan_pasien' => 'required',
-            'p1' => 'required|array|min:9', // 9 pertanyaan minimal
+            'p1' => 'required',
+            'p2' => 'required',
+            'p3' => 'required',
+            'p4' => 'required',
+            'p5' => 'required',
+            'p6' => 'required',
+            'p7' => 'required',
+            'p8' => 'required',
+            'p9' => 'required',
             'saran' => 'nullable|string',
         ]);
 
-        // Simpan data
-        $kuesioner = new KuisonerKepuasan();
-        $kuesioner->waktu_survei = $request->waktu_survei;
-        $kuesioner->jk = $request->jk;
-        $kuesioner->usia = $request->usia;
-        $kuesioner->pendidikan = $request->pendidikan;
-        $kuesioner->pekerjaan = $request->pekerjaan;
-        $kuesioner->hubungan_pasien = $request->hubungan_pasien;
-        $kuesioner->p1 = $request->p1[0] ?? null;
-        $kuesioner->p2 = $request->p1[1] ?? null;
-        $kuesioner->p3 = $request->p1[2] ?? null;
-        $kuesioner->p4 = $request->p1[3] ?? null;
-        $kuesioner->p5 = $request->p1[4] ?? null;
-        $kuesioner->p6 = $request->p1[5] ?? null;
-        $kuesioner->p7 = $request->p1[6] ?? null;
-        $kuesioner->p8 = $request->p1[7] ?? null;
-        $kuesioner->p9 = $request->p1[8] ?? null;
-        $kuesioner->saran = $request->saran;
-        // $kuesioner->save();
+        $data = KuisonerKepuasan::create($request->all());
 
-        KuisonerKepuasan::create($request->all());
-        return redirect()->back()->with('success', 'Terima kasih atas partisipasi Anda!');
+        return redirect()->route('kuesioner.show', $data->id)->with('success', 'Terima kasih atas partisipasi Anda!');
     }
 
     public function show($id)
     {
-        $data = KuisonerKepuasan::findOrFail($id);
-        return view('kuisoner.show', compact('data'));
+        $kuesioner = KuisonerKepuasan::findOrFail($id);
+        return view('kuisoner.show', compact('kuesioner'));
     }
 
 
     public function destroy($id)
     {
+        if (!auth()->user()->can('kuesioner.hapus')) return abort(403);
+
         $data = KuisonerKepuasan::findOrFail($id);
         $data->delete();
 
-        return redirect()->route('kuisoner.index')->with('success', 'kuisoner berhasil dihapus.');
+        return redirect()->route('kuesioner.index')->with('success', 'Kuesioner berhasil dihapus.');
+    }
+
+    public function printPDF(Request $request)
+    {
+        $bulan = $request->get('bulan');
+        $tahun = $request->get('tahun');
+
+        $data = KuisonerKepuasan::query();
+
+        if ($bulan) {
+            $data = $data->whereMonth('waktu_survei', $bulan)->whereYear('waktu_survei', $tahun);   
+        }
+
+        $data = $data->latest()->get();
+
+        $jumlahPerUnsur = array_fill(1, 9, 0);
+        $totalData = $data->count();
+
+        foreach ($data as $item) {
+            for ($i = 1; $i <= 9; $i++) {
+                $jumlahPerUnsur[$i] += $item["p$i"];
+            }
+        }
+
+        $nrrTertimbang = [];
+        for ($i = 1; $i <= 9; $i++) {
+            $rata = $totalData > 0 ? $jumlahPerUnsur[$i] / $totalData : 0;
+            $nrrTertimbang[$i] = round($rata * 0.11, 2);
+        }
+
+        $ikm = round(array_sum($nrrTertimbang) * 25, 2);
+
+        return view('kuisoner.print', compact(
+            'data',
+            'jumlahPerUnsur',
+            'nrrTertimbang',
+            'ikm'
+        ));
     }
 }

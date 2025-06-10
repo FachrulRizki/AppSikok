@@ -56,5 +56,25 @@ class PermissionSeeder extends Seeder
         foreach ($supervisiKepalaRuangPermissions as $permission) {
             Permission::create(['name' => $permission]);
         }
+
+        $insiden = [
+            'insiden.list',
+            'insiden.buat',
+            'insiden.hapus',
+        ];
+
+        foreach ($insiden as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        $kuesioner = [
+            'kuesioner.list',
+            'kuesioner.buat',
+            'kuesioner.hapus',
+        ];
+
+        foreach ($kuesioner as $permission) {
+            Permission::create(['name' => $permission]);
+        }
     }
 }

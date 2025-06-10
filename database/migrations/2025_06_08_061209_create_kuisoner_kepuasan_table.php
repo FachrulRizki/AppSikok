@@ -22,7 +22,6 @@ class CreateKuisonerKepuasanTable extends Migration
             $table->string('pekerjaan');
             $table->string('hubungan_pasien');
 
-            // Pertanyaan p1 s/d p9 (skala 1–4)
             $table->tinyInteger('p1');
             $table->tinyInteger('p2');
             $table->tinyInteger('p3');
