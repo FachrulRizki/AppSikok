@@ -17,7 +17,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $perawat = User::whereHas('roles', fn ($q) => $q->where('name', 'perawat'))
+        $perawat = User::whereHas('roles', fn($q) => $q->where('name', 'perawat'))
             ->with(['aktivitasKeperawatan', 'refleksiHarian'])
             ->get();
 
@@ -26,7 +26,7 @@ class DashboardController extends Controller
             ->map(function ($user) {
                 $avgAktivitas = $user->aktivitasKeperawatan->where('nilai', '>', 0)->avg('nilai') ?? 0;
                 $avgRefleksi = $user->refleksiHarian->where('nilai', '>', 0)->avg('nilai') ?? 0;
-                
+
                 $nilai = collect([$avgAktivitas, $avgRefleksi])->filter();
                 $score = $nilai->isNotEmpty() ? $nilai->avg() : 0;
 
@@ -39,7 +39,7 @@ class DashboardController extends Controller
             })
             ->sortByDesc('score')
             ->take(5);
-        
+
         // Rata-rata persentase aktivitas dan refleksi
         $avgPersenAktivitas = round($perawat->avg(fn($u) => $u->aktivitasKeperawatan->where('nilai', '>', 0)->avg('nilai') ?? 0), 2);
         $avgPersenRefleksi  = round($perawat->avg(fn($u) => $u->refleksiHarian->where('nilai', '>', 0)->avg('nilai') ?? 0), 2);
@@ -50,7 +50,7 @@ class DashboardController extends Controller
         $ktdCount = Ktd::count();
         $kpcCount = Kpc::count();
         $sentinelCount = Sentinel::count();
-        
+
         $chartInsidenData = [
             'labels' => ['KNC', 'KTC', 'KTD', 'KPC', 'Sentinel'],
             'data' => [$kncCount, $ktcCount, $ktdCount, $kpcCount, $sentinelCount],
@@ -60,8 +60,8 @@ class DashboardController extends Controller
         $kepuasanPelanggan = $this->chartIKMHarian();
 
         return view('dashboard', compact(
-            'topPerawat', 
-            'avgPersenAktivitas', 
+            'topPerawat',
+            'avgPersenAktivitas',
             'avgPersenRefleksi',
             'chartInsidenData',
             'kepuasanPelanggan'
@@ -80,16 +80,23 @@ class DashboardController extends Controller
 
         for ($i = 1; $i <= 9; $i++) {
             $totalNilai = $kuisionerHariIni->sum("p$i");
-            $nilaiRata = $totalNilai / $jumlah;
+
+            if ($jumlah != 0) {
+                $nilaiRata = $totalNilai / $jumlah;
+            } else {
+                $nilaiRata = 0; // atau null tergantung kebutuhan
+            }
+
             $nrr[] = round($nilaiRata, 2);
             $nrrTertimbang[] = round($nilaiRata * 0.11, 2);
         }
+
 
         $ikm = round(array_sum($nrrTertimbang) * 25, 2);
 
         return [
             'series' => $nrrTertimbang,
-            'categories' => ['U1','U2','U3','U4','U5','U6','U7','U8','U9'],
+            'categories' => ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'U7', 'U8', 'U9'],
             'ikm' => $ikm
         ];
     }

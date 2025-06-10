@@ -1,6 +1,8 @@
 <div>
     <h2 style="margin-bottom: .8rem">Rekap Bulanan Kuesioner Kepuasan Pasien</h2>
-    <h3 style="margin-top: 0">{{ \Carbon\Carbon::create()->month(request('bulan'))->locale('id')->monthName }} {{ request('tahun') }}</h3>
+    <h3 style="margin-top: 0">
+        {{ \Carbon\Carbon::createFromDate(request('tahun'), request('bulan'), 1)->locale('id')->translatedFormat('F Y') }}
+    </h3>
 </div>
 <table border="1" cellspacing="0" cellpadding="4" style="width: 100%">
     <thead bgcolor="#D9D9D9">
@@ -10,7 +12,7 @@
             <th colspan="9">Nilai Per Unsur Pelayanan</th>
         </tr>
         <tr>
-            @for($i = 1; $i <= 9; $i++)
+            @for ($i = 1; $i <= 9; $i++)
                 <th>U{{ $i }}</th>
             @endfor
         </tr>
@@ -39,13 +41,13 @@
     <tfoot bgcolor="#D9D9D9">
         <tr style="text-align: center">
             <th colspan="2">Jumlah Nilai Perunsur</th>
-            @for($i = 1; $i <= 9; $i++)
+            @for ($i = 1; $i <= 9; $i++)
                 <td><strong>{{ $jumlahPerUnsur[$i] }}</strong></td>
             @endfor
         </tr>
         <tr style="text-align: center">
             <th colspan="2">NRR Tertimbang Unsur</th>
-             @for($i = 1; $i <= 9; $i++)
+            @for ($i = 1; $i <= 9; $i++)
                 <td><strong>{{ $nrrTertimbang[$i] }}</strong></td>
             @endfor
         </tr>

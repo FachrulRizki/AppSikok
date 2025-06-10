@@ -153,7 +153,7 @@
                         <span class="d-flex">
                             <i class="ti ti-chart-bar"></i>
                         </span>
-                        <span class="hide-menu">Evaluasi (Dev)</span>
+                        <span class="hide-menu">Sertifikat (Dev)</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
@@ -161,23 +161,7 @@
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
-                                <span class="hide-menu">Ruang, Perawat, Bulanan</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Unduh PDF/Excel</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">SDM dan Akreditasi</span>
+                                <span class="hide-menu">Unduh Sertifikat</span>
                             </a>
                         </li>
                     </ul>
