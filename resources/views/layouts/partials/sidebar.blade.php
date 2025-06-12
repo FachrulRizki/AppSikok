@@ -83,11 +83,11 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="{{ route('lima_r.create') }}" class="sidebar-link {{ request()->routeIs('lima_r.*') ? 'active' : '' }}">
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
-                                <span class="hide-menu">5R (Dev)</span>
+                                <span class="hide-menu">5R</span>
                             </a>
                         </li>
                         @can('insiden.list')
