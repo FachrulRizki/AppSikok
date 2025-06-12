@@ -1,0 +1,36 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Spuit 1 mL (insulin syringe atau tuberkulin syringe)
+Alat dan Bahan,2,Jarum kecil ukuran 26–27 G
+Alat dan Bahan,3,Obat yang akan disuntikkan (misal: PPD, alergen, vaksin)
+Alat dan Bahan,4,Kapas alkohol / antiseptik
+Alat dan Bahan,5,Sarung tangan bersih
+Alat dan Bahan,6,Bengkok/tempat limbah medis tajam
+Alat dan Bahan,7,Plester kecil (jika perlu)
+Persiapan,1,Cuci tangan dan gunakan sarung tangan bersih.
+Persiapan,2,Siapkan alat dan obat sesuai resep atau instruksi dokter.
+Persiapan,3,Verifikasi identitas pasien.
+Persiapan,4,Jelaskan prosedur singkat kepada pasien.
+Persiapan,5,Pilih lokasi penyuntikan.
+Persiapan,6,Bagian volar (dalam) lengan bawah kiri biasanya dipilih.
+Persiapan,7,Kulit harus bebas luka, iritasi, dan bersih.
+Persiapan,8,Bersihkan area dengan kapas alkohol, biarkan mengering.
+Teknik Penyuntikan,1,Isi spuit dengan 0,1 mL larutan (tergantung indikasi).
+Teknik Penyuntikan,2,Pegang kulit pasien, regangkan sedikit.
+Teknik Penyuntikan,3,Masukkan jarum datar (5–15°) hampir sejajar dengan permukaan kulit, bevel menghadap ke atas.
+Teknik Penyuntikan,4,Suntikkan larutan secara perlahan hingga muncul benjolan kecil (wheal).
+Teknik Penyuntikan,5,Cabut jarum dengan cepat dan aman tanpa menekan area suntik.
+Teknik Penyuntikan,6,Jangan dipijat atau ditekan. Jika perlu, beri plester kecil.
+Setelah Tindakan,1,Buang jarum dan spuit ke dalam safety box.
+Setelah Tindakan,2,Lepas sarung tangan dan cuci tangan.
+Setelah Tindakan,3,Catat waktu penyuntikan dan lokasi.
+Setelah Tindakan,4,Instruksikan pasien agar tidak menggaruk/memijat area suntikan.
+Setelah Tindakan,5,Lakukan observasi atau pembacaan reaksi (contoh: pembacaan Mantoux setelah 48–72 jam).
+Dokumentasi,1,Tanggal dan jam penyuntikan
+Dokumentasi,2,Nama dan dosis obat yang diberikan
+Dokumentasi,3,Lokasi penyuntikan
+Dokumentasi,4,Reaksi lokal (jika langsung muncul)
+Dokumentasi,5,Petugas pelaksana
+Etika dan Keselamatan,1,Gunakan teknik aseptik untuk mencegah infeksi
+Etika dan Keselamatan,2,Hindari penyuntikan jika area kulit sedang iritasi/terinfeksi
+Etika dan Keselamatan,3,Laporkan segera jika muncul reaksi alergi berat
+Etika dan Keselamatan,4,Amankan semua limbah tajam sesuai prosedur

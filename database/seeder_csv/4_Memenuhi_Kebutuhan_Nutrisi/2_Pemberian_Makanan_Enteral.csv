@@ -1,0 +1,26 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Catheter tip atau spuit 20-50 cc, sesuai kebutuhan
+Persiapan Alat,2,Sarung tangan bersih
+Persiapan Alat,3,Stetoskop
+Persiapan Alat,4,Makanan cair
+Persiapan Alat,5,Air minum
+Persiapan Alat,6,Tisu
+Persiapan Alat,7,Pengalas
+Prosedur,1,Identifkasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pakai sarung tangan bersih
+Prosedur,5,Posisikan semi-Fowier
+Prosedur,6,Letakkan pengalas di dada pasien
+Prosedur,7,Periksa posisi dan kepatenan NGT serta residu lambung
+Prosedur,8,Tunda pemberian makanan jika residu lebih dari 50 cc
+Prosedur,9,Buka penutup ujung NGT dan sambungkan dengan catheter tip atau spuit
+Prosedur,10,Masukkan makanan cairan ke dalam catheter tip
+Prosedur,11,Alirkan makanan perlahan tanpa mendorong
+Prosedur,12,Bilas selang dengan air minum
+Prosedur,13,Tutup kembali ujung selang
+Prosedur,14,Pertahankan posisi semi-Fowler selama 30 menit setelah makan
+Prosedur,15,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,16,Lepaskan sarung tangan
+Prosedur,17,Lakukan kebersihan tangan 6 langkah
+Prosedur,18,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

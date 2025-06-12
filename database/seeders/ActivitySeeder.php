@@ -18,6 +18,8 @@ class ActivitySeeder extends Seeder
      */
     public function run()
     {
+        Activity::query()->delete();
+        
         $basePath = database_path('seeder_csv');
         $activityDirs = File::directories($basePath);
 

@@ -1,0 +1,42 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Spuit steril atau vacutainer + holder
+Persiapan Alat,2,Needle (jarum pengambilan darah)
+Persiapan Alat,3,Tabung vakum/EDTA/sesuai jenis pemeriksaan
+Persiapan Alat,4,Sarung tangan bersih
+Persiapan Alat,5,Alkohol swab 70%
+Persiapan Alat,6,Kasa steril dan plester
+Persiapan Alat,7,Torniquet (tali pengikat)
+Persiapan Alat,8,Label identitas tabung
+Persiapan Alat,9,Wadah sampah medis (safety box dan limbah B3)
+Persiapan Alat,10,Formulir permintaan pemeriksaan laboratorium
+Persiapan,1,Cuci tangan dan gunakan sarung tangan
+Persiapan,2,Verifikasi identitas pasien dan jenis pemeriksaan yang diminta
+Persiapan,3,Jelaskan prosedur untuk menenangkan pasien
+Persiapan,4,Minta pasien duduk atau berbaring dengan posisi nyaman
+Persiapan,5,Pilih lokasi vena (biasanya vena mediana cubiti/lengan bawah)
+Persiapan,6,Pasang torniquet ± 7–10 cm di atas lokasi vena, jangan lebih dari 1 menit
+Persiapan,7,Minta pasien menggenggam tangan untuk membantu vena menonjol
+Persiapan,8,Bersihkan kulit dengan alkohol swab, biarkan mengering
+Pengambilan Sampel,1,Pegang vena dengan tangan non-dominan dan tusukkan jarum bevel menghadap atas pada sudut 15–30°
+Pengambilan Sampel,2,Setelah darah keluar, ambil sesuai kebutuhan:
+Pengambilan Sampel,3,Dengan spuit → masukkan darah ke tabung
+Pengambilan Sampel,4,Dengan vacutainer → pasang tabung ke holder satu per satu
+Pengambilan Sampel,5,Lepas torniquet segera setelah darah mengalir
+Pengambilan Sampel,6,Setelah selesai, tarik jarum, tekan bekas tusukan dengan kasa, dan plester
+Pengambilan Sampel,7,Balik tabung (jika menggunakan EDTA) 8–10 kali secara perlahan
+Setelah Tindakan,1,Beri label pada tabung darah (nama, tanggal, waktu)
+Setelah Tindakan,2,Cuci tangan kembali
+Setelah Tindakan,3,Kirim sampel darah ke laboratorium segera
+Setelah Tindakan,4,Dokumentasikan tindakan dan kondisi pasien
+Dokumentasi,1,Waktu dan lokasi pengambilan
+Dokumentasi,2,Volume darah diambil
+Dokumentasi,3,Jenis tabung dan pemeriksaan
+Dokumentasi,4,Tanda-tanda reaksi (pusing, hematoma)
+Dokumentasi,5,Nama dan tanda tangan petugas
+Etika dan Keselamatan,1,Gunakan teknik aseptik ketat
+Etika dan Keselamatan,2,Gunakan jarum sekali pakai dan buang ke safety box
+Etika dan Keselamatan,3,Hindari pengambilan darah berulang di tempat yang sama
+Etika dan Keselamatan,4,Jika terjadi kegagalan, beri jeda sebelum percobaan berikutnya
+Etika dan Keselamatan,5,Jaga kenyamanan dan privasi pasien
+Catatan Tambahan,1,Jika pasien memiliki vena sulit, pertimbangkan bantuan vena transiluminator atau petugas berpengalaman
+Catatan Tambahan,2,Perhatikan urutan tabung saat pengambilan (jika menggunakan lebih dari satu)

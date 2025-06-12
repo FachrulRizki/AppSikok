@@ -1,0 +1,31 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Sarung tangan bersih dan steril
+Alat dan Bahan,2,Kasa steril
+Alat dan Bahan,3,Plester
+Alat dan Bahan,4,Gunting perban
+Alat dan Bahan,5,Wadah limbah medis
+Alat dan Bahan,6,Cairan antiseptik (mis. povidone iodine/chlorhexidine)
+Alat dan Bahan,7,Penutup luka steril
+Alat dan Bahan,8,Dokumentasi keperawatan
+Persiapan,1,Cuci tangan sesuai protokol WHO (7 langkah).
+Persiapan,2,Jelaskan prosedur kepada pasien dan beri kesempatan bertanya.
+Persiapan,3,Siapkan semua alat yang diperlukan di dekat pasien.
+Persiapan,4,Posisikan pasien dengan nyaman dan buka area drain.
+Pelaksanaan,1,Pakai sarung tangan bersih.
+Pelaksanaan,2,Lepaskan balutan atau perban yang menutupi area drain.
+Pelaksanaan,3,Observasi kondisi kulit dan eksudat di sekitar drain.
+Pelaksanaan,4,Ganti sarung tangan dengan yang steril.
+Pelaksanaan,5,Pegang drain di dekat kulit, tarik perlahan dan mantap searah keluar.
+Pelaksanaan,6,Segera tekan area bekas drain dengan kasa steril.
+Pelaksanaan,7,Balut bekas drain dengan kasa steril dan plester dengan baik.
+Setelah Tindakan,1,Rapikan alat, buang limbah ke tempat yang sesuai.
+Setelah Tindakan,2,Cuci tangan kembali.
+Setelah Tindakan,3,Dokumentasikan Tanggal dan waktu pelepasan
+Setelah Tindakan,4,Dokumentasikan Jumlah dan jenis cairan terakhir
+Setelah Tindakan,5,Dokumentasikan Respon pasien
+Setelah Tindakan,6,Dokumentasikan Kondisi area luka
+Kewaspadaan,1,Gunakan teknik aseptik selama prosedur.
+Kewaspadaan,2,Waspadai reaksi nyeri hebat, perdarahan, atau tanda infeksi.
+Kewaspadaan,3,Jangan menarik drain jika ada tahanan kuat tanpa instruksi dokter.
+Dokumentasi,1,Laporan keperawatan harian
+Dokumentasi,2,Formulir prosedur pelepasan drain (jika ada)

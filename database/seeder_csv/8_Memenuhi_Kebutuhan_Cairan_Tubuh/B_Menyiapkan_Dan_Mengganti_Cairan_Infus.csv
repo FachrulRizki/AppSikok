@@ -1,0 +1,34 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Cairan infus sesuai instruksi dokter (NaCl 0.9%, RL, D5%, dll)
+Persiapan Alat,2,Set infus steril (jika perlu diganti)
+Persiapan Alat,3,Gunting/plester
+Persiapan Alat,4,Sarung tangan bersih
+Persiapan Alat,5,Kasa alkohol 70%
+Persiapan Alat,6,Tempat sampah medis
+Persiapan Alat,7,Label identitas infus
+Persiapan Alat,8,Dudukan infus (infus stand)
+Persiapan,1,Cuci tangan dan kenakan sarung tangan bersih.
+Persiapan,2,Verifikasi identitas pasien dan instruksi cairan (periksa 6 benar: obat, dosis, pasien, waktu, cara, dan dokumentasi).
+Persiapan,3,Jelaskan prosedur kepada pasien untuk mengurangi kecemasan.
+Persiapan,4,Siapkan cairan infus baru dan periksa: Kemasan utuh, Tanggal kedaluwarsa, Warna dan kejernihan cairan
+Penggantian Cairan,1,Jepit (clamp) selang infus pada bagian drip chamber.
+Penggantian Cairan,2,Cabut selang dari botol/cairan infus lama secara aseptik.
+Penggantian Cairan,3,Bersihkan port pada botol baru dengan kasa alkohol.
+Penggantian Cairan,4,Tusukkan spike (ujung tajam selang infus) ke cairan baru dengan teknik aseptik.
+Penggantian Cairan,5,Gantung botol infus baru pada infus stand.
+Penggantian Cairan,6,Buka klem, isi drip chamber hingga 1/3 penuh.
+Penggantian Cairan,7,Periksa aliran tetesan infus (set sesuai instruksi atau kecepatan sebelumnya).
+Penggantian Cairan,8,Observasi tempat penusukan (IV site) dari tanda infiltrasi, bengkak, atau kemerahan.
+Setelah Tindakan,1,Tempelkan label baru berisi: Nama pasien, Jenis cairan, Jam pemasangan dan rencana jam habis, Nama dan tanda tangan petugas
+Setelah Tindakan,2,Rapikan alat dan buang bahan bekas ke tempat sampah medis.
+Setelah Tindakan,3,Cuci tangan kembali.
+Setelah Tindakan,4,Edukasi pasien untuk melaporkan jika terasa nyeri, bengkak, atau tidak nyaman di area infus.
+Dokumentasi,1,Tanggal dan waktu penggantian
+Dokumentasi,2,Jenis dan volume cairan
+Dokumentasi,3,Laju/tetesan infus
+Dokumentasi,4,Tanda-tanda reaksi lokal (jika ada)
+Dokumentasi,5,Nama dan tanda tangan petugas
+Etika dan Keselamatan,1,Gunakan teknik aseptik setiap saat
+Etika dan Keselamatan,2,Jangan menyentuh bagian ujung spike atau port cairan
+Etika dan Keselamatan,3,Lakukan pemeriksaan IV site secara berkala
+Etika dan Keselamatan,4,Ganti set infus sesuai protokol (biasanya tiap 24–72 jam)

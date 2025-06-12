@@ -1,0 +1,28 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Spuit, sesuai kebutuhan
+Persiapan Alat,3,Obat intramuskuler
+Persiapan Alat,4,Alcohol swab
+Persiapan Alat,5,Plester
+Persiapan Alat,6,Safety box
+Persiapan Pasien,1,Cek instruksi dokter. Identifikasi pasien sesuai dengan nama pasien, tanggal lahir, dan nomor rekam medis.
+Persiapan Pasien,2,Membuat persetujuan tindakan medis (informed consent) oleh dokter yang menjelaskan tentang obat, fungsi obat, dan efek samping pemberian obat, serta tujuan diberikan obat IM.
+Persiapan Pasien,3,Persiapkan posisi klien dengan tepat dan nyaman.
+Prosedur,1,Cuci tangan 6 langkah sebelum tindakan.
+Prosedur,2,Pasang sarung tangan.
+Prosedur,3,Lakukan prinsip 6 benar (pasien, obat, dosis, waktu, rute dan dokumentasi).
+Prosedur,4,Tarik obat ke dalam spuit dari ampul/vial.
+Prosedur,5,Pilih area injeksi yang sesuai (seperti vastus lateralis, ventrogluteal, deltoid).
+Prosedur,6,Hindari area yang mengalami memar, radang, edema, lesi, atau perubahan warna.
+Prosedur,7,Desinfeksi area injeksi dengan alcohol swab.
+Prosedur,8,Gunakan teknik z-track untuk mencegah obat keluar ke jaringan subkutan dan kulit.
+Prosedur,9,Tusukan jarum dengan sudut 90 derajat.
+Prosedur,10,Lakukan aspirasi dan pastikan tidak ada darah.
+Prosedur,11,Injeksi obat secara perlahan.
+Prosedur,12,Cabut jarum.
+Prosedur,13,Hindari melakukan masase pada area penusukan.
+Prosedur,14,Tutup area penusukan dengan plester.
+Prosedur,15,Rapikan pasien dan alat-alat yang digunakan.
+Prosedur,16,Lepaskan sarung tangan.
+Prosedur,17,Lakukan kebersihan tangan 6 langkah.
+Prosedur,18,Dokumentasikan prosedur yang telah dilakukan.

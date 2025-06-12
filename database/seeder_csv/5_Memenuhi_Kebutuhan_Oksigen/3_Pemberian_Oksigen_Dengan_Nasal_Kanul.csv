@@ -1,0 +1,23 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sumber oksigen (tabung oksigen atau oksigen sentral)
+Persiapan Alat,2,Selang nasal kanul
+Persiapan Alat,3,Flowmeter oksigen
+Persiapan Alat,4,Humidifier
+Persiapan Alat,5,Cairan steril
+Persiapan Alat,6,Stetoskop
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dn langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Tuangkan cairan steril ke humidifier sesuai batas
+Prosedur,5,Pasang Flowmeter dan Humidifier Ke sumber oksigen
+Prosedur,6,Sambungkan selang nasal kanul ke humidifier 
+Prosedur,7,Atur aliran oksigen 2-4L/menit, sesuai kebutuhan
+Prosedur,8,Pastikan oksigen mengalir melalui selang nasal kanul
+Prosedur,9,Tempatkan cabang kanul pada lubang hidung
+Prosedur,10,Lingkarkan selang mengitari belakang telinga dan atur pengikatnya
+Prosedur,11,Monitor cuping, septum, dan hidung liar terhadap adanya gangguan integritasmukosa/kulit hidung setiap 8 jam
+Prosedur,12,Monitor kecepatan oksigen dan status pernapasan (frekuensi napas, upaya napas, bunyi paru, saturasi oksigen) setiap 8 jam atau sesuai indikasi
+Prosedur,13,Pasang tanda OKSIGEN SEDANG DIGUNAKAN di dinding di belakang tempat tidur dan dipintu masuk kamar jika perlu
+Prosedur,14,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,15,Lakukan kebersihan tangan 6 langkah
+Prosedur,16,Dokumentasikan prosedur yang telah dilakukan dan respon pasien,Metode pemberian oksigen,Kecepatan oksigen,Respons pasien,Efek samping/merugikan yang terjadi

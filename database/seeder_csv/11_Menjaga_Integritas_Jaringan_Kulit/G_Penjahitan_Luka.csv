@@ -1,0 +1,23 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Hecting set
+Persiapan Alat,2,Sarung tangan bersih
+Persiapan Alat,3,Sarung tangan steril
+Persiapan Alat,4,Cairan antiseptik
+Persiapan Alat,5,Obat anestesi lokal
+Persiapan Alat,6,Spuit 3 cc
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang sarung tangan bersih
+Prosedur,5,Bersihkan area luka dengan cairan antiseptik
+Prosedur,6,Berikan anestesi lokal di area luka
+Prosedur,7,Lepas sarung tangan bersih dan pasang sarung tangan steril
+Prosedur,8,Jahit luka dengan memasukkan jarum tegak lurus terhadap permukaan kulit
+Prosedur,9,Tarik jahitan cukup kencang sampai kulit tidak tertekuk
+Prosedur,10,Kunci jahitan dengan simpul
+Prosedur,11,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,12,Lepas sarung tangan
+Prosedur,13,Informasikan cara merawat jahitan
+Prosedur,14,Informasikan tentang waktu pelepasan jahitan
+Prosedur,15,Lakukan kebersihan tangan 6 langkah
+Prosedur,16,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

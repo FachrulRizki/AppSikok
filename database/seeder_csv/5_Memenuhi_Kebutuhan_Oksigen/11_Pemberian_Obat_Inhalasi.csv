@@ -1,0 +1,25 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Mesin nebulizer
+Persiapan Alat,2,Masker dan selang nebulizer sesuai ukuran
+Persiapan Alat,3,Obat inhalasi sesuai program
+Persiapan Alat,4,Cairan NaCl sebagai pengencer jika perlu
+Persiapan Alat,5,Sumber oksigen jika tidak menggunakan mesin nebulizer
+Persiapan Alat,6,Sarung tangan
+Persiapan Alat,7,Tisu
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan prinsip 6 benar (pasien, obat, dosis, waktu, rute, dokumentasi)
+Prosedur,4,Lakukan kebersihan tangan 6 langkah
+Prosedur,5,Pasang sarung tangan bersih
+Prosedur,6,Posisikan pasien senyaman mungkin dengan posisi semi-Fowler atau Fowler
+Prosedur,7,Masukkan obat ke dalam chamber nebulizer
+Prosedur,8,Hubungkan selang ke mesin nebulizer atau sumber oksigen
+Prosedur,9,Pasang masker menutupi hidung dan mulut
+Prosedur,10,Anjurkan untuk melakukan napas dalam saat inhalasi dilakukan
+Prosedur,11,Mulai lakukan inhalasi dengan menyalakan mesin nebulizer atau mengalirkan oksigen 6–8 L/menit
+Prosedur,12,Monitor respons pasien hingga obat habis
+Prosedur,13,Bersihkan daerah mulut dan hidung dengan tisu
+Prosedur,14,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,15,Lepaskan sarung tangan
+Prosedur,16,Lakukan kebersihan tangan 6 langkah
+Prosedur,17,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

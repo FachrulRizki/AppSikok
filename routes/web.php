@@ -16,6 +16,7 @@ use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SentinelController;
 use App\Http\Controllers\KuisonerKepuasanController;
+use App\Http\Controllers\MaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,4 +65,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('kepuasan-pasien/print', [KuisonerKepuasanController::class, 'printPDF'])->name('kuesioner.print');
     Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
+
+    // Materi
+    Route::resource('materi', MaterialController::class)->names('materi');
 });

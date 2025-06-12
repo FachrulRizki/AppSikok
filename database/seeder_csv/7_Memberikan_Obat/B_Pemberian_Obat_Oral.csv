@@ -1,0 +1,40 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Obat oral sesuai resep (tablet, kapsul, sirup, dll)
+Alat dan Bahan,2,Wadah obat bersih (cawan obat)
+Alat dan Bahan,3,Sendok takar/oral syringe (untuk obat cair)
+Alat dan Bahan,4,Air minum matang
+Alat dan Bahan,5,Sarung tangan bersih (jika diperlukan)
+Alat dan Bahan,6,Label identitas pasien (gelang/rekam medis)
+Alat dan Bahan,7,Daftar pemberian obat (lembar/kartu pengawasan)
+Persiapan,1,Cuci tangan dan siapkan APD bila perlu
+Persiapan,2,Periksa resep dokter (nama obat, dosis, waktu, rute, dan frekuensi)
+Persiapan,3,Siapkan obat sesuai resep dan cek 6 benar
+Persiapan,4,Benar pasien
+Persiapan,5,Benar obat
+Persiapan,6,Benar dosis
+Persiapan,7,Benar waktu
+Persiapan,8,Benar cara pemberian
+Persiapan,9,Benar dokumentasi
+Persiapan,10,Verifikasi identitas pasien (minimal 2 identifikasi: nama lengkap dan tanggal lahir atau nomor RM)
+Persiapan,11,Jelaskan kepada pasien jenis obat, fungsi, dan cara pemberiannya
+Persiapan,12,Pastikan pasien sadar, mampu menelan, dan tidak muntah
+Pemberian Obat,1,Berikan obat sesuai jenis
+Pemberian Obat,2,Tablet/kapsul: Berikan dengan air putih, bantu jika pasien kesulitan menelan
+Pemberian Obat,3,Sirup/suspensi: Kocok dahulu, ukur dengan sendok takar atau oral syringe
+Pemberian Obat,4,Puyer: Larutkan dulu dalam sedikit air putih jika belum dicampur
+Pemberian Obat,5,Drops (tetes): Digunakan untuk anak/bayi, berikan dengan pipet/oral dropper
+Pemberian Obat,6,Awasi pasien sampai obat benar-benar tertelan
+Pemberian Obat,7,Beri air putih setelah minum obat (kecuali ada instruksi khusus)
+Pemberian Obat,8,Bersihkan alat yang digunakan
+Pemberian Obat,9,Cuci tangan kembali
+Dokumentasi,1,Catat di lembar/format pemberian obat
+Dokumentasi,2,Tanggal dan jam pemberian
+Dokumentasi,3,Nama dan dosis obat
+Dokumentasi,4,Rute pemberian
+Dokumentasi,5,Respon atau keluhan pasien (jika ada)
+Dokumentasi,6,Paraf petugas pemberi obat
+Etika dan Keselamatan,1,Jaga privasi dan kenyamanan pasien
+Etika dan Keselamatan,2,Jangan memaksa pasien menelan jika menolak atau ada kontraindikasi
+Etika dan Keselamatan,3,Laporkan segera jika ada reaksi alergi atau efek samping
+Etika dan Keselamatan,4,Pastikan obat tidak diberikan lewat jalur yang salah
+Etika dan Keselamatan,5,Jangan mencampur obat ke makanan/minuman tanpa instruksi medis

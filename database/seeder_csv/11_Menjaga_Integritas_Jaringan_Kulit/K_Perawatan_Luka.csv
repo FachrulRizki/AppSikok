@@ -1,0 +1,27 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Sarung tangan steril
+Persiapan Alat,3,Cairan antiseptik
+Persiapan Alat,4,Alat cukur rambut, jika perlu
+Persiapan Alat,5,Set perawatan luka
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang sarung tangan bersih
+Prosedur,5,Monitor karakteristik luka (meliputi drainase, warna, ukuran, dan bau)
+Prosedur,6,Monitor tanda-tanda infeksi
+Prosedur,7,Lepaskan balutan dan plester secara perlahan
+Prosedur,8,Cukur rambut sekitar daerah luka, jika perlu
+Prosedur,9,Lepaskan sarung tangan bersih dan pasang sarung tangan steril
+Prosedur,10,Bersihkan luka dengan NaCl atau pembersih nontoksik, sesuai kebutuhan
+Prosedur,11,Bersihkan jaringan nekrotik, jika ada
+Prosedur,12,Berikan salep yang sesuai dengan kondisi luka, jika perlu
+Prosedur,13,Pasang balutan sesuai jenis luka
+Prosedur,14,Ganti balutan sesuai jumlah eksudat dan drainase
+Prosedur,15,Jelaskan tanda dan gejala infeksi
+Prosedur,16,Anjurkan konsumsi makanan tinggi kalori dan protein
+Prosedur,17,Ajarkan prosedur perawatan luka secara mandiri
+Prosedur,18,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,19,Lepaskan sarung tangan
+Prosedur,20,Lakukan kebersihan tangan 6 langkah
+Prosedur,21,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

@@ -1,0 +1,30 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Produk darah, sesuai kebutuhan
+Persiapan Alat,2,Sarung tangan bersih
+Persiapan Alat,3,Set transfusi (blood set)
+Persiapan Alat,4,Cairan NaCl 0,9%
+Persiapan Alat,5,Kateter IV
+Persiapan Alat,6,Spuit 3 cc
+Persiapan Alat,7,Alcohol swab
+Persiapan Alat,8,Pengalas
+Persiapan Alat,9,Bengkok
+Persiapan Alat,10,Plester
+Persiapan Alat,11,Gunting
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang sarung tangan bersih
+Prosedur,5,Lakukan pengecekan ganda (double check) pada label darah (golongan darah, rhesus, tanggal kadaluwarsa, nomor seri, jumlah dan identitas pasien)
+Prosedur,6,Pasang akses intravena, jika belum terpasang
+Prosedur,7,Periksa kepatenan akses intravena, flebitis dan tanda infeksi lokal
+Prosedur,8,Berikan NaCl 0,9% 50-100 ml sebelum transfusi dilakukan
+Prosedur,9,Sambungkan kantung darah dengan set transfusi
+Prosedur,10,Atur kecepatan transfusi 2mL/menit pada 15 menit pertama dan jika tidak terjadi respons alergi maka transfusi dapat dipercepat sesuai target dan kondisi pasien
+Prosedur,11,Berikan transfusi dalam waktu maksimal 4 jam (untuk WB, PRC, PRC-LD, WE) 2 jam (untuk TC), atau 6 jam (untuk FFP dan cryoprecitipitate)
+Prosedur,12,Bilas selang dengan mengalirkan cairan NaCl 50-100 ml
+Prosedur,13,Monitor TTV dan adanya tanda/gejala respons alergi (saat transfusi dimulai, 15 menit setelah transfusi dimulai, saat transfusi selesai, 4 jam setelah transfusi selesai)
+Prosedur,14,Hentikan transfusi jika terdapat reaksi transfusi
+Prosedur,15,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,16,Lepaskan sarung tangan
+Prosedur,17,Lakukan kebersihan tangan 6 langkah
+Prosedur,18,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

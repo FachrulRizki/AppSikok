@@ -1,0 +1,38 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan, masker, apron (APD)
+Persiapan Alat,2,Bag Valve Mask (BVM) dan oksigen
+Persiapan Alat,3,AED/defibrillator pediatrik (jika tersedia)
+Persiapan Alat,4,Alat airway (OPA/NPA)
+Persiapan Alat,5,Monitor tanda vital (jika tersedia)
+Persiapan Alat,6,Papan CPR (jika di tempat tidur)
+Identifikasi dan Aktivasi,1,Pastikan keamanan lokasi.
+Identifikasi dan Aktivasi,2,Periksa respons anak, panggil dan goyangkan perlahan.
+Identifikasi dan Aktivasi,3,Jika tidak responsif maka cek napas dan denyut nadi (maks. 10 detik).
+Identifikasi dan Aktivasi,4,Cek nadi karotis atau femoralis.
+Identifikasi dan Aktivasi,5,Bila tidak ada napas atau hanya gasping dan denyut nadi <60 x/menit dengan tanda perfusi buruk, segera mulai RJP.
+Identifikasi dan Aktivasi,6,Aktifkan sistem gawat darurat dan minta AED.
+Kompresi Dada,1,Posisi pasien terlentang pada permukaan keras.
+Kompresi Dada,2,Teknik kompresi untuk Anak 1 tahun sampai pubertas: 1 penolong 1 atau 2 tangan di tengah dada
+Kompresi Dada,3,2 penolong tetap boleh pakai 2 tangan
+Kompresi Dada,4,Kedalaman 5 cm (sekitar 1/3 dari diameter anterior-posterior dada)
+Kompresi Dada,5,Kecepatan 100–120 kali/menit
+Kompresi Dada,6,Rasio 30:2 (1 penolong)
+Kompresi Dada,7,Rasio 15:2 (2 penolong)
+Ventilasi / Bantuan Napas,1,Gunakan BVM yang sesuai ukuran anak, pastikan seal masker rapat.
+Ventilasi / Bantuan Napas,2,Ventilasi 1 napas setiap 2–3 detik (20–30 napas/menit jika pasien memiliki jalan napas terbuka/intubasi).
+Ventilasi / Bantuan Napas,3,Setiap napas diberikan selama 1 detik, cukup untuk membuat dada naik.
+AED / Defibrillator,1,Segera pasang AED pediatrik (jika tersedia).
+AED / Defibrillator,2,Jika ritme syok (VF/pVT) maka defibrilasi awal 2 Joule/kg lanjutkan dengan RJP 2 menit lalu evaluasi ulang.
+AED / Defibrillator,3,Tingkatkan dosis defibrilasi jika perlu (maks 10 J/kg atau batas alat).
+Lanjutan,1,Lanjutkan siklus RJP (kompresi & ventilasi) dan evaluasi setiap 2 menit.
+Lanjutan,2,Bila denyut kembali maka masuk ke fase pasca-resusitasi (monitor, dukungan sirkulasi, kontrol suhu).
+Lanjutan,3,Bila tersedia, ikuti algoritma PALS lengkap (obat, intubasi, pemantauan lanjutan).
+Dokumentasi,1,Waktu mulai RJP
+Dokumentasi,2,Waktu aktivasi bantuan medis
+Dokumentasi,3,Tindakan yang dilakukan (kompresi, ventilasi, AED)
+Dokumentasi,4,Respon pasien
+Dokumentasi,5,Waktu ROSC (return of spontaneous circulation) jika berhasil
+Etika dan Keselamatan,1,Gunakan APD sesuai standar.
+Etika dan Keselamatan,2,Lakukan prosedur dengan tenang dan komunikatif, terutama saat bersama tim.
+Etika dan Keselamatan,3,Jaga privasi pasien dan keluarga.
+Etika dan Keselamatan,4,Pastikan alat bersih dan steril.

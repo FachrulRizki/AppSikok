@@ -1,0 +1,32 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Buku/lembar instruksi medis (manual atau SIMRS)
+Persiapan Alat,2,Alat tulis atau perangkat komputer
+Persiapan Alat,3,Form laporan perkembangan pasien
+Persiapan Alat,4,Alat ukur vital sign (jika dibutuhkan)
+Persiapan Alat,5,Buku rekam medis pasien (jika sistem manual)
+Persiapan,1,Cuci tangan sesuai standar.
+Persiapan,2,Persiapkan dokumentasi perkembangan terakhir pasien.
+Persiapan,3,Pastikan catatan tanda vital, intake-output, observasi luka, dll., telah diperbarui.
+Persiapan,4,Siapkan form catatan instruksi dokter (manual/SIMRS).
+Persiapan,5,Temani dokter saat visit di ruang perawatan pasien sesuai jadwal visit.
+Pelaksanaan Visit,1,Perawat menyampaikan ringkasan kondisi pasien, meliputi: Keluhan terkini pasien, Perubahan tanda vital, Respon terhadap terapi, Masalah keperawatan atau kebutuhan lain
+Pelaksanaan Visit,2,Dengarkan dan catat instruksi medis yang diberikan dokter: Obat baru atau penghentian, Rencana pemeriksaan penunjang, Tindakan lanjutan (operasi, rujukan, dll)
+Pelaksanaan Visit,3,Bila ada hal yang kurang jelas, perawat wajib mengklarifikasi langsung saat visit.
+Pelaksanaan Visit,4,Lakukan komunikasi dua arah secara profesional dan fokus pada kondisi pasien.
+Dokumentasi,1,Catat semua instruksi dokter secara lengkap, jelas, dan tepat waktu.
+Dokumentasi,2,Masukkan instruksi ke dalam sistem (SIMRS atau lembar instruksi medis).
+Dokumentasi,3,Paraf dan beri waktu pada setiap catatan instruksi.
+Dokumentasi,4,Sampaikan instruksi yang memerlukan tindakan segera ke perawat shift berikutnya.
+Tindak Lanjut,1,Lakukan tindakan keperawatan atau medis sesuai instruksi yang diberikan.
+Tindak Lanjut,2,Koordinasikan dengan unit lain (farmasi, laboratorium, radiologi) bila ada permintaan pemeriksaan atau terapi lanjutan.
+Tindak Lanjut,3,Evaluasi dampak dari perubahan terapi atau instruksi yang diberikan.
+Kewaspadaan,1,Jangan menunda mencatat atau melaksanakan instruksi dokter.
+Kewaspadaan,2,Gunakan komunikasi SBAR (Situation, Background, Assessment, Recommendation) saat melapor.
+Kewaspadaan,3,Pastikan identitas pasien benar sebelum melaksanakan instruksi.
+Kewaspadaan,4,Dokumentasi harus rapi dan tidak mengandung singkatan yang tidak baku.
+Evaluasi,1,Kepala ruang melakukan supervisi dan mengevaluasi keterlibatan perawat dalam setiap visit.
+Evaluasi,2,Audit instruksi medis dilakukan rutin untuk menjamin tindak lanjut dan dokumentasi telah lengkap.
+Dokumentasi yang Wajib Disimpan,1,Catatan instruksi medis
+Dokumentasi yang Wajib Disimpan,2,Catatan pelaksanaan keperawatan
+Dokumentasi yang Wajib Disimpan,3,Form evaluasi tindak lanjut visit
+Dokumentasi yang Wajib Disimpan,4,Laporan komunikasi antar profesi

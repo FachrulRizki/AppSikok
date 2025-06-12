@@ -1,0 +1,39 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Rekam medis pasien
+Alat dan Bahan,2,Formulir asuhan keperawatan (manual/SIMRS)
+Alat dan Bahan,3,Buku NANDA, NIC, NOC (jika diperlukan)
+Alat dan Bahan,4,Alat tulis
+Alat dan Bahan,5,Form pencatatan evaluasi harian
+Analisa Data dan Diagnosa Keperawatan,1,Kelompokkan data hasil pengkajian menjadi data objektif dan subjektif.
+Analisa Data dan Diagnosa Keperawatan,2,Bandingkan data pasien dengan referensi klinis atau buku NANDA.
+Analisa Data dan Diagnosa Keperawatan,3,Tentukan diagnosa keperawatan aktual, risiko, atau potensial.
+Analisa Data dan Diagnosa Keperawatan,4,Catat diagnosa keperawatan secara jelas di format yang tersedia. Contoh: Gangguan pertukaran gas berhubungan dengan sekret berlebih ditandai dengan sesak napas dan SpO2 < 90%.
+Perencanaan (Planning),1,Buat tujuan jangka pendek dan panjang berdasarkan diagnosa.
+Perencanaan (Planning),2,Rancang intervensi keperawatan menggunakan pendekatan NIC (Nursing Interventions Classification) jika tersedia.
+Perencanaan (Planning),3,Tulis indikator hasil berdasarkan NOC (Nursing Outcomes Classification).
+Perencanaan (Planning),4,Pastikan rencana realistis, terukur, dan sesuai prioritas.
+Implementasi,1,Lakukan tindakan keperawatan sesuai intervensi yang telah direncanakan.
+Implementasi,2,Catat waktu dan jenis tindakan yang dilakukan di lembar implementasi/intervensi.
+Implementasi,3,Jika terdapat perubahan rencana, dokumentasikan alasan dan modifikasi rencana.
+Evaluasi,1,Evaluasi hasil asuhan keperawatan setiap shift atau sesuai perubahan kondisi pasien.
+Evaluasi,2,Bandingkan hasil aktual dengan indikator yang telah ditetapkan dalam rencana.
+Evaluasi,3,Catat apakah tujuan tercapai, sebagian, atau tidak tercapai.
+Evaluasi,4,Tulis tindakan lanjut - Melanjutkan rencana
+Evaluasi,5,Tulis tindakan lanjut - Mengubah rencana
+Evaluasi,6,Tulis tindakan lanjut - Menyusun diagnosa baru (jika perlu)
+Dokumentasi Lengkap,1,Gunakan metode SOAP/SOAPIER/DAR untuk pencatatan proses keperawatan jika diminta oleh unit.
+Dokumentasi Lengkap,2,Pastikan dokumentasi lengkap, jelas, tidak menggunakan singkatan yang tidak baku, dan sesuai waktu kejadian.
+Dokumentasi Lengkap,3,Semua dokumentasi ditandatangani dan dibubuhi nama jelas serta NIP/NIK perawat.
+Dokumentasi Lengkap,4,Masukkan ke SIMRS atau rekam medis manual sesuai kebijakan rumah sakit.
+Kewaspadaan,1,Dokumentasi harus ditulis segera setelah tindakan dilakukan, hindari penundaan.
+Kewaspadaan,2,Jangan menghapus atau mengoreksi dengan tipe-x, gunakan garis lurus dan paraf.
+Kewaspadaan,3,Jaga kerahasiaan informasi pasien selama proses dokumentasi.
+Evaluasi,1,Kepala ruangan melakukan audit rutin terhadap kelengkapan dan kualitas dokumentasi.
+Evaluasi,2,Tim mutu rumah sakit melakukan evaluasi dan telaah berkas medis secara berkala.
+Evaluasi,3,Dokumentasi yang tidak lengkap akan dikenakan teguran dan pembinaan.
+Dokumentasi yang Wajib Ada,1,Diagnosa keperawatan
+Dokumentasi yang Wajib Ada,2,Tujuan dan rencana tindakan
+Dokumentasi yang Wajib Ada,3,Catatan implementasi
+Dokumentasi yang Wajib Ada,4,Hasil evaluasi
+Dokumentasi yang Wajib Ada,5,Form edukasi (jika dilakukan)
+Dokumentasi yang Wajib Ada,6,Komunikasi antar profesi (jika ada)

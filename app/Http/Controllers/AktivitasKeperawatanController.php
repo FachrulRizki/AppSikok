@@ -35,7 +35,7 @@ class AktivitasKeperawatanController extends Controller
 
         $route = route('aktivitas_keperawatan.store');
         $method = 'POST';
-        $activities = Activity::with('activity_details.activity_tasks')->get();
+        $activities = Activity::with('activity_details.activity_tasks')->orderByRaw('CAST(kode AS UNSIGNED) ASC')->get();
         return view('aktivitas_keperawatan.create', compact('route', 'method', 'activities'));
     }
 

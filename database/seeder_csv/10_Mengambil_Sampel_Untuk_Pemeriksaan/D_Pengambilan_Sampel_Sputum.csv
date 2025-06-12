@@ -1,0 +1,38 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Wadah sputum steril dan bertutup (leher lebar, transparan)
+Persiapan Alat,2,Masker medis (untuk pasien dan petugas)
+Persiapan Alat,3,Sarung tangan bersih
+Persiapan Alat,4,Tissue dan air minum hangat (jika diperlukan)
+Persiapan Alat,5,Label identitas pasien
+Persiapan Alat,6,Formulir permintaan pemeriksaan laboratorium
+Persiapan Alat,7,Alat pelindung diri (APD) lengkap jika risiko infeksi tinggi (mis. TB)
+Persiapan,1,Cuci tangan, pakai masker dan sarung tangan
+Persiapan,2,Verifikasi identitas pasien dan jenis pemeriksaan
+Persiapan,3,Jelaskan prosedur kepada pasien dengan bahasa sederhana
+Persiapan,4,Ingatkan bahwa sputum bukan air liur dan harus berasal dari paru-paru
+Persiapan,5,Saran pengambilan: pagi hari sebelum makan dan minum
+Persiapan,6,Siapkan tempat pengambilan sputum yang terbuka/berventilasi baik
+Persiapan,7,Pastikan pasien tidak berkumur dengan antiseptik sebelum pengambilan
+Pengambilan Sputum,1,Minta pasien cuci tangan dan bilas mulut dengan air bersih
+Pengambilan Sputum,2,Instruksikan pasien ambil napas dalam 2–3 kali
+Pengambilan Sputum,3,Instruksikan pasien tahan sebentar
+Pengambilan Sputum,4,Instruksikan batuk kuat dari paru-paru, bukan dari tenggorokan
+Pengambilan Sputum,5,Buka wadah sputum hanya saat akan digunakan
+Pengambilan Sputum,6,Arahkan pasien meludah sputum langsung ke dalam wadah (±5–10 mL)
+Pengambilan Sputum,7,Tutup kembali wadah dengan rapat
+Pengambilan Sputum,8,Jika tidak berhasil, lakukan nebulisasi dengan NaCl 0,9%, lalu ulangi
+Setelah Tindakan,1,Bersihkan tangan dan alat
+Setelah Tindakan,2,Beri label pada wadah sputum (nama, tanggal, waktu)
+Setelah Tindakan,3,Kirim sputum ke laboratorium sesegera mungkin (maksimal 1–2 jam)
+Setelah Tindakan,4,Buang limbah sesuai prosedur infeksius
+Setelah Tindakan,5,Dokumentasikan tindakan dan kondisi pasien
+Dokumentasi,1,Waktu dan metode pengambilan
+Dokumentasi,2,Volume sputum yang berhasil dikumpulkan
+Dokumentasi,3,Tanda tangan petugas
+Dokumentasi,4,Tanda-tanda reaksi tidak nyaman jika ada (batuk darah, sesak, dll)
+Etika dan Keselamatan,1,Gunakan APD sesuai risiko infeksi (masker N95 untuk kasus TB aktif)
+Etika dan Keselamatan,2,Jangan biarkan pasien membuang sputum di sembarang tempat
+Etika dan Keselamatan,3,Edukasi pentingnya kebersihan dan etika batuk
+Etika dan Keselamatan,4,Hindari pengambilan sputum di ruang tertutup tanpa ventilasi
+Catatan Tambahan,1,Idealnya diambil 3 spesimen berturut-turut, 1 per hari (pagi hari) untuk pemeriksaan TB BTA
+Catatan Tambahan,2,Untuk kultur dan tes molekuler (seperti Tes Cepat Molekuler TB), hanya satu sampel pagi hari bisa cukup

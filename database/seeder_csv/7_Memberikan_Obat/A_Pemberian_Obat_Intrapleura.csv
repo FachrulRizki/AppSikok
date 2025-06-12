@@ -1,0 +1,24 @@
+﻿Tipe,Urutan,Nama
+Persiapan alat,1,Obat Interpleura sesuai program
+Persiapan alat,2,Spuit sesuai kebutuhan
+Persiapan alat,3,Mesin pompa (seperti Syringe pump), jika perlu
+Persiapan alat,4,Alcohol swab
+Persiapan alat,5,Sarung tangan steril
+Persiapan alat,6,Bengkok
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan prinsip 6 benar (pasien, obat, dosis, waktu, rute, dokumentasi)
+Prosedur,4,Lakukan kebersihan tangan 6 langkah
+Prosedur,5,Pasang sarung tangan
+Prosedur,6,Posisikan pasien senyaman mungkin dengan posisi semi-fowler atau fowler
+Prosedur,7,Pastikan ketepatan posisi kateter intrapleura dengan X-ray, jika perlu
+Prosedur,8,Desinfeksi ujung kateter dengan alcohol swab
+Prosedur,9,Aspirasi cairan intrapleura sebelum pemberian obat
+Prosedur,10,Periksa tidak adanya darah balik sebelum pemberian obat
+Prosedur,11,Tunda pemberian obat jika terdapat >2 cc cairan balik saat pengecekan kateter intrapleura
+Prosedur,12,Berikan obat melalui kateter intrapleura secara intermitten atau kontinu, sesuai kebutuhan
+Prosedur,13,Sambungkan kateter intrapleura dengan mesin pompa, jika perlu
+Prosedur,14,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,15,Lepaskan sarung tangan
+Prosedur,16,Lakukan kebersihan tangan 6 langkah
+Prosedur,17,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

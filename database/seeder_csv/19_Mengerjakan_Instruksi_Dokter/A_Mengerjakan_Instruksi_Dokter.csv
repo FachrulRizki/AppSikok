@@ -1,0 +1,35 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Buku instruksi medis atau SIMRS
+Alat dan Bahan,2,Formulir pelaksanaan instruksi dokter
+Alat dan Bahan,3,Alat dan bahan sesuai jenis tindakan (infus, obat, peralatan medis, dll.)
+Alat dan Bahan,4,Alat tulis / komputer
+Persiapan,1,Cuci tangan sesuai prosedur.
+Persiapan,2,Pastikan instruksi dokter ditulis secara jelas, lengkap, dan terbaca.
+Persiapan,3,Periksa identitas pasien (menggunakan gelang identitas).
+Persiapan,4,Siapkan alat dan bahan yang diperlukan sesuai jenis tindakan.
+Verifikasi Instruksi,1,Verifikasi 5 benar dalam pemberian obat atau tindakan
+Verifikasi Instruksi,2,Pasien benar
+Verifikasi Instruksi,3,Obat benar
+Verifikasi Instruksi,4,Dosis benar
+Verifikasi Instruksi,5,Waktu benar
+Verifikasi Instruksi,6,Cara pemberian benar
+Verifikasi Instruksi,7,Bila instruksi tidak jelas/tidak terbaca/tidak sesuai, segera klarifikasi ke dokter yang bersangkutan sebelum melaksanakan.
+Verifikasi Instruksi,8,Untuk instruksi lisan, wajib dicatat dan dikonfirmasi ulang oleh dokter sesegera mungkin (prinsip read back).
+Pelaksanaan Tindakan,1,Lakukan tindakan sesuai dengan isi instruksi.
+Pelaksanaan Tindakan,2,Lakukan pengawasan selama dan setelah tindakan bila dibutuhkan.
+Pelaksanaan Tindakan,3,Berikan edukasi singkat kepada pasien bila diperlukan.
+Dokumentasi,1,Catat waktu pelaksanaan dan nama perawat pelaksana pada kolom pelaksanaan instruksi dokter (baik manual maupun digital/SIMRS).
+Dokumentasi,2,Catat juga respons atau reaksi pasien bila ada.
+Dokumentasi,3,Beri paraf dan nama terang sesuai aturan dokumentasi.
+Tindak Lanjut,1,Laporkan hasil atau perubahan kondisi pasien kepada dokter bila ada.
+Tindak Lanjut,2,Koordinasikan dengan unit lain jika ada tindak lanjut (lab, radiologi, farmasi).
+Tindak Lanjut,3,Serahkan informasi lengkap saat serah terima shift.
+Kewaspadaan,1,Jangan mengerjakan instruksi dokter yang tidak jelas atau tidak sah secara hukum.
+Kewaspadaan,2,Jangan menunda pelaksanaan instruksi yang bersifat mendesak.
+Kewaspadaan,3,Pastikan tindakan sesuai dengan kompetensi dan wewenang perawat.
+Kewaspadaan,4,Selalu jaga prinsip keselamatan pasien dan komunikasi efektif.
+Evaluasi,1,Kepala ruang melakukan supervisi dan audit terhadap pelaksanaan instruksi dokter.
+Evaluasi,2,Evaluasi kepatuhan dokumentasi dan tindak lanjut dilakukan secara rutin.
+Dokumentasi Wajib,1,Lembar instruksi dokter (manual/digital)
+Dokumentasi Wajib,2,Catatan pelaksanaan tindakan keperawatan
+Dokumentasi Wajib,3,Form laporan kejadian jika terjadi insiden

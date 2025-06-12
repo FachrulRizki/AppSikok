@@ -1,0 +1,35 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Selang nasogastrik sesuai ukuran
+Persiapan Alat,3,Jely
+Persiapan Alat,4,Catheter tip atau spuit sesuai kebutuhan
+Persiapan Alat,5,Steteskop
+Persiapan Alat,6,Plester
+Persiapan Alat,7,Tisu
+Persiapan Alat,8,Bengkok
+Persiapan Alat,9,Pengalas
+Persiapan Alat,10,Kertas pH, jika perlu
+Persiapan Alat,11,Kasa steril dan kapas lidi steril
+Persiapan Alat,12,Set ganti balutan steril
+Persiapan Alat,13,Kom steril dan cairan steril
+Persiapan Alat,14,Kasa gulung atau tali trakeostomi
+Persiapan Alat,15,Gulung
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah – langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang masker dan sarung tangan bersih
+Prosedur,5,Posisikan semi - fowler
+Prosedur,6,Letakan pengalas didada pasien
+Prosedur,7,Tentukan panjang selang nasogastrik dengan mengukur dari ujung hidung ke telinga lalu ke prosesus xiphoideus
+Prosedur,8,Tandai panjang selang yang telah diukur
+Prosedur,9,Periksa kepatenan lubang hidung
+Prosedur,10,Lumasi ujung selang nasogastrik sekitar 10 cm dengan jelly
+Prosedur,11,Masukan selang perlahan tapi tegas melalui lubang hidung sampai batas yang telah diukur
+Prosedur,12,Anjurkan menundukan kepala saat selang nasogastrik mencapai nasofaring
+Prosedur,13,Anjurkan menelan saat selang nasogastrik dimasukan
+Prosedur,14,Periksa posisi ujung selang dengan cara Memasukan sekitar 10 ml udara ke dalam selang dan auskultasi bunyi udara pada lambung, Aspirasi cairan lambung, Cek keasaman cairan lambung dengan kertas Ph
+Prosedur,15,Fiksasi selang nasogastrik pada hidung dengan plester
+Prosedur,16,Rapikan pasien dan alat-alat yang telah digunakan
+Prosedur,17,Lepaskan sarung tangan
+Prosedur,18,Lakukan kebersihan tangan 6 langkah
+Prosedur,19,Dokumentasi ukuran NGT, panjang NGT yang dimasukan, lubang hidung yang digunakan, pemeriksaan posisi NGT yang dilakukan dan respons pasien selama prosedur

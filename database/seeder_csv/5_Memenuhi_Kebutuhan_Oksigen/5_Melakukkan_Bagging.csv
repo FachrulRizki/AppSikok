@@ -1,0 +1,36 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Bag valve mask (BVM) sesuai ukuran (dewasa, anak, bayi)
+Persiapan Alat,2,Masker wajah sesuai ukuran
+Persiapan Alat,3,Oksigen dengan flowmeter (10–15 L/menit)
+Persiapan Alat,4,Airway adjunct (OPA/NPA jika diperlukan)
+Persiapan Alat,5,Sarung tangan, masker, apron (APD)
+Persiapan Alat,6,Monitor saturasi oksigen (jika tersedia)
+Persiapan Alat,7,Tisu atau perlak
+Persiapan,1,Cuci tangan dan kenakan APD (masker, sarung tangan, apron)
+Persiapan,2,Periksa respon pasien jika tidak responsif dan tidak bernapas maka segera lakukan bagging.
+Persiapan,3,Posisikan pasien pada posisi terlentang dengan head tilt–chin lift atau jaw thrust jika dicurigai trauma leher.
+Persiapan,4,Pasang OPA (oropharyngeal airway) atau NPA (nasopharyngeal airway) bila perlu.
+Persiapan,5,Pasang masker BVM ke wajah pasien secara rapat, gunakan teknik CE grip.
+Pelaksanaan Bagging,1,Hubungkan BVM dengan oksigen aliran tinggi (10–15 L/menit).
+Pelaksanaan Bagging,2,Berikan ventilasi Dewasa 1 kali setiap 5–6 detik (sekitar 10–12 kali/menit)
+Pelaksanaan Bagging,3,Berikan ventilasi Anak/bayi 1 kali setiap 3–5 detik (sekitar 12–20 kali/menit)
+Pelaksanaan Bagging,4,Pastikan dada pasien terangkat dengan setiap ventilasi (indikasi ventilasi efektif).
+Pelaksanaan Bagging,5,Evaluasi Pergerakan dada
+Pelaksanaan Bagging,6,Evaluasi Warna kulit/mukosa
+Pelaksanaan Bagging,7,Evaluasi Saturasi oksigen (SpO₂ jika tersedia)
+Pelaksanaan Bagging,8,Bila ventilasi tidak efektif, periksa Posisi masker, Obstruksi jalan napas, Perlu atau tidaknya bantuan 2 orang (satu menahan masker, satu melakukan bagging)
+Setelah Tindakan,1,Hentikan bagging bila pasien mulai bernapas spontan dan adekuat.
+Setelah Tindakan,2,Lepaskan alat dengan hati-hati.
+Setelah Tindakan,3,Bersihkan area wajah pasien jika perlu.
+Setelah Tindakan,4,Buang alat sekali pakai sesuai prosedur.
+Setelah Tindakan,5,Cuci tangan dan lakukan desinfeksi alat reusable (jika ada).
+Setelah Tindakan,6,Lanjutkan observasi atau serahkan ke tim medis lanjutan
+Dokumentasi,1,Waktu mulai dan durasi bagging
+Dokumentasi,2,Frekuensi dan efektivitas ventilasi
+Dokumentasi,3,Tanda vital pasien (RR, SpO₂, HR, dll)
+Dokumentasi,4,Respon terhadap tindakan
+Dokumentasi,5,Tindakan lanjutan (intubasi, transport, dsb.)
+Etika dan Keselamatan,1,Pastikan tindakan dilakukan dengan cepat, tenang, dan profesional.
+Etika dan Keselamatan,2,Jaga privasi pasien.
+Etika dan Keselamatan,3,Gunakan APD sesuai protokol infeksi.
+Etika dan Keselamatan,4,Hindari hiperventilasi (ventilasi terlalu cepat atau terlalu kuat).

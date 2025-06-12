@@ -1,0 +1,29 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Tempat tidur pasien (dapat diatur posisi sandaran kepala)
+Alat dan Bahan,2,Bantal penyangga kepala, punggung, lutut, atau lengan
+Alat dan Bahan,3,Selimut, bed sheet
+Alat dan Bahan,4,Alat pengaman samping tempat tidur (side rail)
+Alat dan Bahan,5,Alat bantu pernapasan (jika perlu)
+Alat dan Bahan,6,Alat monitoring vital sign
+Persiapan,1,Cuci tangan sesuai protokol.
+Persiapan,2,Jelaskan prosedur kepada pasien atau keluarga (jika sadar).
+Persiapan,3,Pastikan tempat tidur dalam posisi aman dan roda terkunci.
+Persiapan,4,Lepaskan penghalang yang dapat mengganggu pemindahan.
+Pelaksanaan,1,Atur posisi tempat tidur ke posisi semi-Fowler (30–45°) atau sesuai instruksi medis.
+Pelaksanaan,2,Posisikan kepala, leher, dan tulang belakang lurus untuk mencegah hiperekstensi atau fleksi berlebihan.
+Pelaksanaan,3,Pasang bantal di bawah kepala dan lutut untuk kenyamanan dan mengurangi tekanan.
+Pelaksanaan,4,Pastikan alat bantu (infus, oksigen, drain, kateter) tidak tertarik dan berada di tempat yang aman.
+Pelaksanaan,5,Pasang pengaman tempat tidur (side rail) terutama pada pasien tidak sadar atau gelisah.
+Pelaksanaan,6,Lakukan pemeriksaan tanda vital dan kenyamanan pasien setelah posisi diatur.
+Setelah Tindakan,1,Cuci tangan kembali.
+Setelah Tindakan,2,Dokumentasikan Posisi akhir pasien (misalnya: semi-Fowler 30°)
+Setelah Tindakan,3,Dokumentasikan Respon pasien terhadap pengaturan posisi
+Setelah Tindakan,4,Dokumentasikan Kondisi alat medis terkait (infus, drain, selang oksigen)
+Setelah Tindakan,5,Dokumentasikan Tanda vital pasca penyesuaian posisi
+Kewaspadaan,1,Hindari posisi terlalu rebah pada pasien risiko aspirasi.
+Kewaspadaan,2,Waspadai tekanan pada tulang-tulang penonjolan (bony prominence).
+Kewaspadaan,3,Reposisi pasien minimal setiap 2 jam jika tirah baring total.
+Kewaspadaan,4,Selalu periksa sirkulasi ekstremitas bila menggunakan bantal atau pengganjal.
+Dokumentasi,1,Formulir asuhan keperawatan harian
+Dokumentasi,2,Lembar observasi posisi pasien
+Dokumentasi,3,Catatan intervensi pada rekam medis

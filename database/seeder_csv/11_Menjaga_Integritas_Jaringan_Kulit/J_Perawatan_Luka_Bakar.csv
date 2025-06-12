@@ -1,0 +1,27 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan steril
+Persiapan Alat,2,Cairan antiseptik
+Persiapan Alat,3,Kasa
+Persiapan Alat,4,Plester
+Persiapan Alat,5,Set perawatan luka
+Persiapan Alat,6,Obat-obat premedikasi, jika perlu
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan dengan 6 langkah
+Prosedur,4,Pasang sarung tangan steril
+Prosedur,5,Identifikasi penyebab luka bakar
+Prosedur,6,Identifikasi durasi terkena luka bakar dan riwayat penanganan luka sebelumnya
+Prosedur,7,Monitor kondisi luka (meliputi presentasi ukuran luka, derajat luka, perdarahan, warna dasar luka, infeksi, eksudat, bau luka, kondisi tepi luka)
+Prosedur,8,Gunakan teknik aseptik selama merawat luka
+Prosedur,9,Lepaskan balutan lama dengan menghindari nyeri dan perdarahan
+Prosedur,10,Rendam dengan air steril, jika balutan lengket pada luka
+Prosedur,11,Bersihkan luka dengan cairan steril (seperti NaCl 0.9%, cairan antiseptik)
+Prosedur,12,Gunakan balutan sesuai dengan kondisi luka (seperti hydrocolloid, polymer, crystalline cellulose)
+Prosedur,13,Jelaskan tanda dan gejala infeksi
+Prosedur,14,Anjurkan mengkonsumsi makanan tinggi kalori dan protein
+Prosedur,15,Kolaborasi prosedur debridemen (enzimatik, biologis, mekanis, autolitik), jika perlu
+Prosedur,16,Berikan antibiotik, jika diprogramkan
+Prosedur,17,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,18,Lepaskan sarung tangan
+Prosedur,19,Lakukan kebersihan tangan 6 langkah
+Prosedur,20,Dokumentasikan tindakan yang telah dilakukan dan respons pasien

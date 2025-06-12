@@ -1,0 +1,28 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Sarung tangan bersih
+Alat dan Bahan,2,Tisu atau perlak
+Alat dan Bahan,3,Tempat sampah medis
+Alat dan Bahan,4,Spuit 20–50 mL (untuk memeriksa residu jika perlu)
+Alat dan Bahan,5,Kain kasa atau tisu bersih
+Alat dan Bahan,6,Alat pelindung diri (masker, apron jika diperlukan)
+Alat dan Bahan,7,Wadah untuk membuang NGT
+Persiapan,1,Jelaskan prosedur kepada pasien untuk mengurangi kecemasan
+Persiapan,2,Cuci tangan dan gunakan sarung tangan bersih
+Persiapan,3,Posisikan pasien dalam posisi semi-Fowler atau duduk 45–90°
+Persiapan,4,Siapkan tisu/kain di bawah dagu pasien untuk menampung cairan jika ada
+Prosedur Melepas NGT,1,Lepaskan plester atau perekat yang menahan NGT di hidung atau pipi pasien secara perlahan
+Prosedur Melepas NGT,2,Periksa isi lambung jika perlu, menggunakan spuit. Buang isi sesuai prosedur jika berlebihan
+Prosedur Melepas NGT,3,Jepit atau tutup ujung NGT untuk mencegah cairan keluar saat dilepas
+Prosedur Melepas NGT,4,Minta pasien untuk menarik napas dalam atau menelan (jika mampu), lalu tarik NGT perlahan dan mantap sepanjang jalur hidung
+Prosedur Melepas NGT,5,Segera buang NGT ke tempat sampah medis
+Prosedur Melepas NGT,6,Bersihkan area hidung pasien dan beri kenyamanan
+Setelah Pelepasan,1,Observasi pasien untuk memastikan tidak ada tanda ketidaknyamanan, mual, muntah, atau kesulitan menelan
+Setelah Pelepasan,2,Dokumentasikan waktu pelepasan, kondisi pasien, dan respon terhadap tindakan
+Dokumentasi,1,Waktu pelepasan NGT
+Dokumentasi,2,Alasan pelepasan (sesuai instruksi dokter)
+Dokumentasi,3,Kondisi umum pasien setelah tindakan
+Dokumentasi,4,Komplikasi (jika ada)
+Etika dan Keselamatan,1,Jaga privasi dan kenyamanan pasien selama prosedur
+Etika dan Keselamatan,2,Gunakan alat pelindung diri sesuai protokol
+Etika dan Keselamatan,3,Cuci tangan sebelum dan sesudah prosedur
+Etika dan Keselamatan,4,Pastikan semua limbah dibuang sesuai standar infeksius

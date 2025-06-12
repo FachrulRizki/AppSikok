@@ -1,0 +1,39 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Mesin EKG
+Persiapan Alat,2,Elektroda dada (prekordial) dan ekstremitas
+Persiapan Alat,3,Alchol Swab
+Persiapan Alat,4,Jelly
+Persiapan Alat,5,Tisu
+Persiapan Alat,6,Sampiran/tirai
+Persiapan Alat,7,Bengkok
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir dan/ atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Atur posisi senyaman mungkin
+Prosedur,5,Jaga privasi pasien
+Prosedur,6,Bersihkan permukaan kulit di pergelangan tangan dan kaki serta dada
+Prosedur,7,Berikan jelly secukupnya pada area yang akan dipasangi elektroda
+Prosedur,8,Sambungkan kabel dengan manset elektroda ekstremitas
+Prosedur,9,Pasang manset elektroda ekstremitas pada pergelangan tangan kanan
+Prosedur,10,Kabel RA dengan elektroda di pergelangan tangan kanan
+Prosedur,11,Kabel LA dengan elektroda di pergelangan tangan kiri
+Prosedur,12,Kabel LF/LL dengan elektroda di pergelangan kaki kiri
+Prosedur,13,Kabel RF/LF/N dengan elektroda di pergelangan kaki kanan
+Prosedur,14,Sambungkan kabel dengan elektroda dada
+Prosedur,15,Pasang balon elektroda pada dada :
+Prosedur,16,C1 : Ruang intercosta IV tepi sternal kanan
+Prosedur,17,C2 : Ruang intercosta IV tepi sternal kiri
+Prosedur,18,C3 : Pertengahan C2 dan C4
+Prosedur,19,C4 : Ruang intercosta V kiri di garis midklavikula
+Prosedur,20,C5 : Ruang intercosta V kiri di garis aksila anterior
+Prosedur,21,C6 : Ruang intercosta V kiri di garis mid-aksila
+Prosedur,22,Nyalakan mesin EKG dan operasikan mesin EKG sesuai petunjuk penggunaan mesin
+Prosedur,23,Anjurkan bernapas normal dan tidak bergerak serta tidak berbicara saat perekaman
+Prosedur,24,Lakukan perekaman jantung
+Prosedur,25,Matikan mesin EKG
+Prosedur,26,Lepaskan elektroda pada dada dan ekstremitas
+Prosedur,27,Bersihkan dada dan ektremitas
+Prosedur,28,Tuliskan identitas atau tempelkan label identitas pasien pada kertas EKG
+Prosedur,29,Rapikan pasien dan alat-alat yang telah digunakan
+Prosedur,30,Lakukan kebersihan tangan 6 langkah
+Prosedur,31,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

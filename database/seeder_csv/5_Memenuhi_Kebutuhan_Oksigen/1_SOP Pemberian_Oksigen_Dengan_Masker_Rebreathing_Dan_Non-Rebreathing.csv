@@ -1,0 +1,25 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sumber oksigen (tabung oksigen atau oksigen sentral)
+Persiapan Alat,2,Selang masker wajah (simple mask)
+Persiapan Alat,3,Flowmeter oksigen
+Persiapan Alat,4,Humidifier
+Persiapan Alat,5,Cairan steril
+Persiapan Alat,6,Stetoskop
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Tuangkan cairan steril ke humidifier sesuai batas
+Prosedur,5,Pasang flowmeter dan humidifier ke sumber oksigen
+Prosedur,6,Sambungkan selang masker rebreathing atau non rebreathing ke humidifier
+Prosedur,7,Atur aliran oksigen 8-12 L/menit (untuk masker rebreathing) atau 10-15 L/menit (untuk masker non rebreathing)
+Prosedur,8,Pastikan oksigen mengalir melalui selang 
+Prosedur,9,Pastikan oksigen mengisi kantung reservoir hingga tampak mengembang
+Prosedur,10,Pasang masker menutupi hidung dan mulut
+Prosedur,11,Lingkarkan dan eratkan tali karet melingkari kepala
+Prosedur,12,Bersihkan kulit area mulut dan hitung serta masker setiap 2-3 jam, jika pemberian oksigen dilakukan secara kontinu
+Prosedur,13,Monitor cuping, suptum dan hidung luar terhadap adanya gangguan integritas mukosa/kulit hidung setiap 8 jam
+Prosedur,14,Monitor kecepatan oksigen dan status pernapasan (frekuensi napas, upaya napas, bunyi paru, saturasi oksigen) setiap 8 jam atau sesuai indikasi
+Prosedur,15,Pasang tanda “Oksigen sedang digunakan” di dinding di belakang tempat tidur dan pintu masuk kamar, jika perlu
+Prosedur,16,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,17,Lakukan kebersihan tangan 6 langkah
+Prosedur,18,Dokumentasikan prosedur yang telah dilakukan dan repons pasien, Metode pemberian oksigen, Kecepatan oksigen, Respons pasien, Efek samping / merugikan yang terjadi

@@ -1,0 +1,32 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Gelang identitas pasien (warna sesuai standar rumah sakit)
+Persiapan Alat,2,Printer label atau pulpen permanen
+Persiapan Alat,3,Data lengkap pasien (nama, tanggal lahir, NRM, jenis kelamin)
+Persiapan Alat,4,Gunting (jika diperlukan)
+Persiapan,1,Verifikasi data pasien dari sumber resmi: KTP, Kartu BPJS, atau dokumen identitas lain dan Data dari sistem pendaftaran (SIMRS)
+Persiapan,2,Cuci tangan sesuai prosedur sebelum menyentuh pasien atau alat medis.
+Persiapan,3,Siapkan gelang identitas sesuai kebutuhan pasien (anak-anak, dewasa, risiko tinggi).
+Pemasangan,1,Cetak label identitas pasien atau tulis manual dengan jelas: Nama lengkap sesuai KTP, Tanggal lahir (dd-mm-yyyy), Jenis kelamin, Nomor Rekam Medis (NRM), (Tambahan opsional: kode QR, barcode, nama penanggung jawab)
+Pemasangan,2,Verifikasi kembali identitas pasien secara verbal (jika sadar), atau melalui penanggung jawab jika pasien tidak sadar.
+Pemasangan,3,Pasang gelang di pergelangan tangan kanan pasien (atau kiri jika ada tindakan di tangan kanan).
+Pemasangan,4,Pastikan gelang terpasang tidak terlalu longgar atau terlalu ketat, dan tidak mengganggu sirkulasi darah.
+Pemasangan,5,Untuk bayi baru lahir, pasang di pergelangan kaki jika diperlukan.
+Verifikasi dan Dokumentasi,1,Catat bahwa gelang telah terpasang pada formulir asuhan keperawatan atau sistem digital.
+Verifikasi dan Dokumentasi,2,Lakukan verifikasi identitas pasien menggunakan gelang sebelum: Memberikan obat, Melakukan tindakan, Mengambil spesimen, Memindahkan pasien antar unit
+Verifikasi dan Dokumentasi,3,Jika gelang rusak atau lepas, segera ganti dan dokumentasikan pergantiannya.
+Kode Warna Gelang (Opsional Sesuai RS),1,Putih: Pasien umum
+Kode Warna Gelang (Opsional Sesuai RS),2,Merah: Alergi obat
+Kode Warna Gelang (Opsional Sesuai RS),3,Kuning: Risiko jatuh
+Kode Warna Gelang (Opsional Sesuai RS),4,Ungu: Dilarang resusitasi (DNR)
+Kode Warna Gelang (Opsional Sesuai RS),5,Pink: Bayi perempuan
+Kode Warna Gelang (Opsional Sesuai RS),6,Biru: Bayi laki-laki
+Kewaspadaan,1,Jangan memasang gelang pada anggota tubuh yang terdapat infus, luka, atau edema berat.
+Kewaspadaan,2,Jangan menuliskan informasi dengan tinta yang mudah luntur.
+Kewaspadaan,3,Jangan menggunakan singkatan atau inisial yang dapat menimbulkan salah tafsir.
+Kewaspadaan,4,Gelang identitas adalah alat utama identifikasi – tidak boleh diabaikan.
+Evaluasi,1,Kepala ruang melakukan pengecekan rutin ketersediaan dan kondisi gelang.
+Evaluasi,2,Petugas keamanan pasien melakukan audit berkala terhadap kepatuhan pemasangan gelang.
+Dokumentasi,1,Formulir penerimaan pasien
+Dokumentasi,2,Catatan keperawatan awal
+Dokumentasi,3,Formulir pergantian gelang (jika terjadi)
+Dokumentasi,4,Checklist keselamatan pasien
