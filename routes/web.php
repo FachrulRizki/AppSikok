@@ -13,6 +13,7 @@ use App\Http\Controllers\InsidenController;
 use App\Http\Controllers\RefleksiController;
 use App\Http\Controllers\SentinelController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CuciTanganController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\KuisonerKepuasanController;
@@ -67,4 +68,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('kepuasan-pasien/print', [KuisonerKepuasanController::class, 'printPDF'])->name('kuesioner.print');
     Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
+
+    Route::resource('cuci-tangan', CuciTanganController::class)->names('cuci_tangan');
 });
