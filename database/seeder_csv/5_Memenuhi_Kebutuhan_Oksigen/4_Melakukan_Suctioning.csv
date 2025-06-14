@@ -1,0 +1,34 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Mesin suction (penghisap)
+Persiapan Alat,2,Kateter suction steril ukuran sesuai pasien
+Persiapan Alat,3,Sarung tangan bersih/steril
+Persiapan Alat,4,Masker dan apron
+Persiapan Alat,5,Wadah cairan steril (NaCl 0,9%) untuk irigasi
+Persiapan Alat,6,Gelas bersih untuk membilas kateter
+Persiapan Alat,7,Oksigen (jika dibutuhkan)
+Persiapan Alat,8,Tisu/perlak
+Persiapan Alat,9,Tempat sampah medis
+Persiapan,1,Cuci tangan dan gunakan APD (sarung tangan, masker, apron).
+Persiapan,2,Jelaskan prosedur kepada pasien atau keluarga.
+Persiapan,3,Siapkan semua alat dan pastikan mesin suction berfungsi dengan baik.
+Persiapan,4,Posisikan pasien semi-Fowler atau sesuai kondisi (kepala agak dimiringkan untuk orofaring).
+Persiapan,5,Berikan oksigen tambahan sebelum dan sesudah suction jika diperlukan.
+Pelaksanaan Suction,1,Buka kateter suction dengan teknik steril.
+Pelaksanaan Suction,2,Hubungkan kateter ke selang mesin suction.
+Pelaksanaan Suction,3,Masukkan kateter ke hidung/mulut atau trakeostomi secara perlahan (tanpa menghisap saat masuk).
+Pelaksanaan Suction,4,Setelah mencapai kedalaman yang diinginkan (biasanya 10–15 cm untuk dewasa), aktifkan suction sambil menarik kateter secara memutar dan perlahan selama ±10–15 detik.
+Pelaksanaan Suction,5,Jangan lakukan suction lebih dari 15 detik per sesi untuk mencegah hipoksia.
+Pelaksanaan Suction,6,Istirahatkan pasien dan beri oksigen selama 30–60 detik sebelum mengulangi jika perlu.
+Pelaksanaan Suction,7,Bersihkan kateter dengan NaCl 0,9% bila masih akan digunakan kembali dalam sesi yang sama.
+Setelah Tindakan,1,Buang kateter jika selesai digunakan.
+Setelah Tindakan,2,Bersihkan area sekitar mulut/hidung pasien.
+Setelah Tindakan,3,Lepas sarung tangan dan APD, cuci tangan.
+Setelah Tindakan,4,Dokumentasikan hasil suction, jumlah dan jenis sekret, serta respons pasien.
+Dokumentasi,1,Waktu pelaksanaan
+Dokumentasi,2,Jumlah dan karakter sekret (jernih, kuning, kental, berdarah)
+Dokumentasi,3,Respon pasien terhadap suction (misalnya: lega, batuk, mual)
+Dokumentasi,4,Tindakan lanjutan jika ada (misal pemberian oksigen)
+Etika dan Keselamatan,1,Jaga privasi pasien selama prosedur.
+Etika dan Keselamatan,2,Gunakan alat steril untuk menghindari infeksi silang.
+Etika dan Keselamatan,3,Jangan lakukan suction terlalu sering atau lama untuk mencegah trauma mukosa dan hipoksia.
+Etika dan Keselamatan,4,Monitor saturasi oksigen jika tersedia.

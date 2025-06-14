@@ -1,0 +1,39 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Sarung tangan bersih dan steril
+Alat dan Bahan,2,Kasa steril
+Alat dan Bahan,3,Plester
+Alat dan Bahan,4,Cairan antiseptik (povidone iodine / chlorhexidine)
+Alat dan Bahan,5,Pengganti botol WSD (jika perlu)
+Alat dan Bahan,6,Gunting perban
+Alat dan Bahan,7,Alat dokumentasi
+Alat dan Bahan,8,Penampung limbah medis
+Persiapan,1,Cuci tangan dengan benar.
+Persiapan,2,Jelaskan prosedur kepada pasien.
+Persiapan,3,Siapkan alat yang diperlukan di dekat pasien.
+Pelaksanaan,1,Observasi sistem WSD - Pastikan botol WSD berada di bawah level dada.
+Pelaksanaan,2,Observasi sistem WSD - Periksa adanya gelembung udara (indikasi kebocoran) dan osilasi (fluktuasi cairan saat napas).
+Pelaksanaan,3,Observasi sistem WSD - Pastikan selang tidak tertekuk atau tertarik.
+Pelaksanaan,4,Perawatan luka dan selang - Pakai sarung tangan.
+Pelaksanaan,5,Perawatan luka dan selang - Lepaskan balutan lama secara hati-hati.
+Pelaksanaan,6,Perawatan luka dan selang - Bersihkan area insersi selang dengan antiseptik dari dalam ke luar.
+Pelaksanaan,7,Perawatan luka dan selang - Ganti kasa steril dan perbaiki posisi selang agar tidak tertarik.
+Pelaksanaan,8,Pemeriksaan cairan WSD - Catat jumlah, warna, dan karakter cairan.
+Pelaksanaan,9,Pemeriksaan cairan WSD - Kosongkan botol jika penuh (jika sistem memungkinkan).
+Pelaksanaan,10,Penggantian botol WSD (jika perlu) - Jepit selang thoraks sementara.
+Pelaksanaan,11,Penggantian botol WSD (jika perlu) - Ganti dengan botol baru yang berisi air steril sesuai petunjuk.
+Pelaksanaan,12,Penggantian botol WSD (jika perlu) - Lepaskan penjepit dan pastikan tidak ada kebocoran udara.
+Setelah Tindakan,1,Buang limbah sesuai prosedur limbah B3.
+Setelah Tindakan,2,Cuci tangan kembali.
+Setelah Tindakan,3,Dokumentasikan Kondisi luka dan selang
+Setelah Tindakan,4,Dokumentasikan Warna dan jumlah cairan
+Setelah Tindakan,5,Dokumentasikan Gelembung udara/osilasi
+Setelah Tindakan,6,Dokumentasikan Tindakan yang dilakukan dan respon pasien
+Kewaspadaan,1,Jangan mengangkat botol WSD di atas dada pasien.
+Kewaspadaan,2,Jangan menjepit selang terlalu lama kecuali atas instruksi dokter.
+Kewaspadaan,3,Segera laporkan jika:
+Kewaspadaan,4,Tidak ada osilasi
+Kewaspadaan,5,Ada peningkatan perdarahan tiba-tiba
+Kewaspadaan,6,Pasien sesak napas atau nyeri hebat
+Dokumentasi,1,Lembar monitoring drainase toraks harian
+Dokumentasi,2,Catatan kondisi luka dan selang
+Dokumentasi,3,Jumlah cairan WSD setiap shift

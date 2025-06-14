@@ -1,0 +1,34 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Obat vaginal sesuai resep dokter (ovula, tablet, krim, gel, atau suppositoria)
+Alat dan Bahan,2,Aplikator (jika diperlukan)
+Alat dan Bahan,3,Sarung tangan bersih
+Alat dan Bahan,4,Tisu bersih atau kassa
+Alat dan Bahan,5,Pembalut (jika dibutuhkan pasca pemberian)
+Alat dan Bahan,6,Perlak atau alas
+Persiapan,1,Cuci tangan dan kenakan sarung tangan bersih.
+Persiapan,2,Verifikasi identitas pasien dan resep obat (periksa 6 benar).
+Persiapan,3,Jelaskan prosedur pada pasien dengan sopan dan menjaga privasi.
+Persiapan,4,Minta pasien berkemih sebelum tindakan.
+Persiapan,5,Baringkan pasien dalam posisi litotomi atau supinasi dengan lutut ditekuk dan kaki terbuka. Gunakan perlak untuk kenyamanan.
+Pemberian Obat,1,Buka kemasan obat dengan aseptik.
+Pemberian Obat,2,Bila menggunakan aplikator, masukkan obat ke dalam aplikator terlebih dahulu.
+Pemberian Obat,3,Pisahkan labia luar dengan lembut.
+Pemberian Obat,4,Masukkan obat atau aplikator ke dalam vagina secara perlahan dan hati-hati ± 5–7 cm ke dalam vagina.
+Pemberian Obat,5,Bila menggunakan aplikator, tekan plunger hingga obat masuk, lalu tarik keluar aplikator dengan hati-hati.
+Pemberian Obat,6,Bila memakai jari (bersarung tangan), dorong obat masuk secara perlahan.
+Pemberian Obat,7,Bersihkan sisa obat yang mungkin keluar di sekitar vulva dengan tisu bersih/kassa.
+Pemberian Obat,8,Berikan pembalut tipis jika diperlukan untuk menyerap sisa obat.
+Pemberian Obat,9,Bantu pasien untuk kembali ke posisi nyaman.
+Setelah Tindakan,1,Lepas dan buang sarung tangan ke tempat sampah medis.
+Setelah Tindakan,2,Cuci tangan dengan sabun dan air mengalir.
+Setelah Tindakan,3,Edukasi pasien agar Berbaring ±15–30 menit setelah pemberian
+Setelah Tindakan,4,Edukasi pasien agar Menghindari aktivitas berat atau hubungan seksual selama terapi (sesuai instruksi dokter)
+Setelah Tindakan,5,Edukasi pasien agar Menggunakan pantyliner jika terjadi keluarnya sisa obat
+Dokumentasi,1,Nama obat, bentuk sediaan, dan dosis
+Dokumentasi,2,Tanggal dan jam pemberian
+Dokumentasi,3,Tanda-tanda iritasi atau efek samping (jika ada)
+Dokumentasi,4,Nama dan tanda tangan petugas pemberi
+Etika dan Keselamatan,1,Jaga privasi dan kenyamanan pasien selama prosedur
+Etika dan Keselamatan,2,Pastikan prosedur dilakukan oleh petugas wanita
+Etika dan Keselamatan,3,Hindari tindakan jika pasien dalam keadaan menstruasi kecuali atas instruksi dokter
+Etika dan Keselamatan,4,Lakukan komunikasi terapeutik dengan sopan dan profesional

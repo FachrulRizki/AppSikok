@@ -1,0 +1,32 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Obat supositoria sesuai resep
+Alat dan Bahan,2,Sarung tangan bersih
+Alat dan Bahan,3,Pelumas (misalnya gel lidokain atau vaselin)
+Alat dan Bahan,4,Tisu/kassa
+Alat dan Bahan,5,Perlak atau alas
+Alat dan Bahan,6,Bengkok/tempat limbah medis
+Persiapan,1,Cuci tangan, siapkan alat dan obat
+Persiapan,2,Verifikasi identitas pasien dan resep obat (periksa 6 benar)
+Persiapan,3,Jelaskan prosedur kepada pasien (atau keluarga jika pasien tidak sadar)
+Persiapan,4,Pasang perlak pada tempat tidur, minta pasien dalam posisi Sims kiri atau miring ke kiri dengan lutut kanan ditekuk
+Persiapan,5,Gunakan sarung tangan bersih
+Pemberian Obat,1,Keluarkan supositoria dari bungkusnya
+Pemberian Obat,2,Olesi ujung runcing supositoria dengan pelumas
+Pemberian Obat,3,Pisahkan pantat pasien dengan lembut
+Pemberian Obat,4,Masukkan supositoria perlahan ke dalam rektum ± 2,5–4 cm untuk anak-anak, atau ± 5–7 cm untuk dewasa, dengan ujung runcing terlebih dahulu
+Pemberian Obat,5,Tahan bokong pasien selama ±5 menit untuk mencegah keluarnya obat
+Pemberian Obat,6,Bersihkan area anus dengan tisu bersih bila perlu
+Pemberian Obat,7,Bantu pasien ke posisi nyaman
+Setelah Tindakan,1,Buang sarung tangan dan tisu ke tempat sampah medis
+Setelah Tindakan,2,Cuci tangan kembali
+Setelah Tindakan,3,Instruksikan pasien (atau keluarga) untuk tetap berbaring ±15–30 menit agar obat tidak keluar
+Setelah Tindakan,4,Observasi efek obat, misalnya: penurunan demam, BAB, dll
+Dokumentasi,1,Nama dan dosis obat
+Dokumentasi,2,Waktu pemberian
+Dokumentasi,3,Respon pasien
+Dokumentasi,4,Tanda tangan petugas pemberi obat
+Etika dan Keselamatan,1,Jaga privasi pasien dengan menutup tirai/gorden
+Etika dan Keselamatan,2,Gunakan komunikasi terapeutik untuk mengurangi rasa malu/tidak nyaman
+Etika dan Keselamatan,3,Jangan memaksa jika ada kontraindikasi (misalnya: wasir berdarah, luka rektal, diare berat)
+Catatan,1,Untuk anak-anak, perhatikan ketenangan anak dan gunakan pendekatan yang lembut
+Catatan,2,Jangan potong supositoria menjadi bagian-bagian kecil jika tidak direkomendasikan oleh pabrik atau dokter

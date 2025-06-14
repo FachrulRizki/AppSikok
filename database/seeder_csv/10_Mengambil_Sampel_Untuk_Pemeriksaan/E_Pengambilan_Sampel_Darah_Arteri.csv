@@ -1,0 +1,32 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Spuit AGD atau spuit 3 cc
+Persiapan Alat,3,Heparin, jika tidak menggunakan spuit AGD
+Persiapan Alat,4,Karet
+Persiapan Alat,5,Alcohol swab
+Persiapan Alat,6,Plester
+Persiapan Alat,7,Bantalan
+Persiapan Alat,8,Pengalas
+Persiapan Alat,9,Bengkok
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang sarung tangan bersih
+Prosedur,5,Lakukan Allen test sebelum menusuk nadi radialis
+Prosedur,6,Bilas spuit dengan heparin, jika tidak menggunakan spuit AGD
+Prosedur,7,Tentukan area penusukan dengan merasakan denyut nadi
+Prosedur,8,Pasang alas di bawah area penusukan
+Prosedur,9,Pasang bantalan di bawah area pergelangan tangan, jika perlu
+Prosedur,10,Bersihkan area penusukan dengan alcohol swab
+Prosedur,11,Stabilisasi arteri dengan meregangkan kulit
+Prosedur,12,Tusukkan jarum dengan sudut 45–90° dengan bevel menghadap ke atas
+Prosedur,13,Aspirasi sampel darah 1–3 cc
+Prosedur,14,Cabut jarum dari arteri secara perlahan
+Prosedur,15,Tusukkan jarum spuit pada karet
+Prosedur,16,Berikan penekanan pada area penusukan selama 5–15 menit
+Prosedur,17,Pasang plester pada area penusukan jika darah telah berhenti
+Prosedur,18,Berikan label pada sampel darah dan kirim segera ke laboratorium
+Prosedur,19,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,20,Lepaskan sarung tangan
+Prosedur,21,Lakukan kebersihan tangan 6 langkah
+Prosedur,22,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

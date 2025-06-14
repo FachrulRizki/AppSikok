@@ -1,0 +1,27 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Selang orogastrik sesuai ukuran
+Persiapan Alat,3,Catheter tip atau spuit sesuai kebutuhan
+Persiapan Alat,4,Stetoskop
+Persiapan Alat,5,Plester
+Persiapan Alat,6,Tisu
+Persiapan Alat,7,Bengkok
+Persiapan Alat,8,Pengalas
+Persiapan Alat,9,Kertas Ph, Jika Perlu
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identifikasi (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang sarung tangan bersih
+Prosedur,5,Posisikan semi-fowler
+Prosedur,6,Letakan pengalas didada pasien
+Prosedur,7,Tentukan panjang selang orogastrik dengan mengukur dari ujung mulut ke telinga lalu ke prosesus xiphoideus
+Prosedur,8,Tandai panjang selang yang telah diukur
+Prosedur,9,Lumasi ujung selang orogastrik sekitar 10 cm dengan air
+Prosedur,10,Masukan selang perlahan tapi tegas melalui mulut sampai batas yang telah diukur
+Prosedur,11,Anjurkan menelan saat selang orogastrik dimasukan
+Prosedur,12,Periksa posisi ujung selang dengan cara Memasukan sekitar 10 ml udara ke selang dan auskultasi bunyi udara pada lambung, Aspirasi cairan lambung, Cek keasaman cairan lambung dengan kertas pH
+Prosedur,13,Fiksasi selang pada salah satu sisi mulut dengan plester
+Prosedur,14,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,15,Lepaskan sarung tangan
+Prosedur,16,Lakukan kebersihan tangan 6 langkah
+Prosedur,17,Dokumentasikan ukuran OGT, panjang OGT yang dimasukkan, pengecekan posisi OGT yang dilakukan dan respon pasien

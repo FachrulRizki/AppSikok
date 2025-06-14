@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
     <title>{{ config('app.name') }} - @yield('title')</title>
+
+    @stack('style')
 </head>
 
 <body class="link-sidebar">

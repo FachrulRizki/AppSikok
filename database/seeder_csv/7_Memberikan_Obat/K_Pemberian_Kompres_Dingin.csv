@@ -1,0 +1,30 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Handuk bersih atau kain lembut
+Alat dan Bahan,2,Wadah berisi air dingin/es (10–15°C)
+Alat dan Bahan,3,Kompres dingin instan / ice pack (jika tersedia)
+Alat dan Bahan,4,Sarung tangan bersih (jika diperlukan)
+Alat dan Bahan,5,Termometer (jika digunakan untuk menurunkan demam)
+Alat dan Bahan,6,Perlak dan alas handuk
+Persiapan,1,Cuci tangan dan siapkan alat
+Persiapan,2,Verifikasi identitas pasien dan indikasi tindakan
+Persiapan,3,Jelaskan prosedur kepada pasien dan keluarga
+Persiapan,4,Siapkan area yang akan dikompres (misal: dahi, ketiak, leher, luka memar, dll)
+Persiapan,5,Basahi handuk dengan air es/dingin, peras secukupnya, atau siapkan ice pack dalam pelapis kain
+Pemberian Kompres,1,Tempelkan kompres ke area yang diinginkan
+Pemberian Kompres,2,Pastikan kompres tidak langsung menyentuh kulit (gunakan lapisan kain untuk mencegah frostbite)
+Pemberian Kompres,3,Lakukan kompres selama 15–20 menit
+Pemberian Kompres,4,Periksa kondisi kulit secara berkala (setiap 5–10 menit) untuk melihat tanda iritasi atau perubahan warna
+Pemberian Kompres,5,Bila kompres menghangat, ganti dengan yang baru atau dinginkan kembali
+Setelah Tindakan,1,Keringkan area yang telah dikompres
+Setelah Tindakan,2,Bantu pasien kembali ke posisi nyaman
+Setelah Tindakan,3,Bersihkan dan rapikan alat
+Setelah Tindakan,4,Cuci tangan kembali
+Dokumentasi,1,Tanggal dan jam pemberian
+Dokumentasi,2,Lokasi area yang dikompres
+Dokumentasi,3,Lama waktu kompres
+Dokumentasi,4,Respon pasien (misal: nyeri berkurang, suhu menurun)
+Dokumentasi,5,Tanda tangan petugas
+Etika dan Keselamatan,1,Jaga privasi pasien
+Etika dan Keselamatan,2,Hindari menempelkan es langsung ke kulit
+Etika dan Keselamatan,3,Observasi tanda vital (jika ditujukan untuk menurunkan demam)
+Etika dan Keselamatan,4,Berhenti jika pasien merasa tidak nyaman, menggigil, atau kulit memucat

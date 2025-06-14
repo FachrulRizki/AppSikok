@@ -1,0 +1,20 @@
+﻿Tipe,Urutan,Nama
+Prosedur,1,Periksa respons pasien dengan memanggil, menepuk bahu dan/atau memberikan rangsangan nyeri
+Prosedur,2,Aktifkan Emergency Medical System atau berteriak meminta tolong
+Prosedur,3,Pasang sarung tangan bersih, jika memungkinkan
+Prosedur,4,Posisikan pasien di tempat datar dan keras
+Prosedur,5,Atur posisi penolong berlutut di samping dada pasien (jika pasien di lantai) atau berdiri di samping dada pasien (jika pasien di tempat tidur)
+Prosedur,6,Periksa nadi karotis dan napas secara bersamaan dalam waktu <10 detik
+Prosedur,7,Lakukan rescue breathing jika nadi karotis teraba tapi tidak ada napas
+Prosedur,8,Lakukan kompresi dada jika nadi karotis tidak teraba: Posisikan tumit telapak tangan menumpuk di atas telapak tangan yang lain tegak lurus pada pertengahan dada atau seperdua bawah sternum
+Prosedur,9,Lakukan kompresi dada dengan kecepatan 100–120 kali/menit dan kedalaman 5–6 cm
+Prosedur,10,Buka dan bersihkan jalan napas dengan teknik head tilt–chin lift atau jaw thrust (jika curiga cedera servikal)
+Prosedur,11,Berikan bantuan napas (ventilasi) 2 kali dengan menggunakan BVM
+Prosedur,12,Lakukan kompresi dan ventilasi dengan kombinasi 30:2 sebanyak 5 siklus atau sekitar 2 menit
+Prosedur,13,Periksa nadi karotis dan napas setiap 2 menit atau 5 siklus:
+Prosedur,14,Lakukan RJP kembali jika nadi karotis belum teraba
+Prosedur,15,Lakukan rescue breathing 10–12 kali/menit jika nadi karotis teraba dan napas tidak ada
+Prosedur,16,Berikan posisi pemulihan (recovery position) jika nadi karotis teraba dan napas ada tetapi belum sadar (jika pasien di lantai) atau berikan posisi semi Fowler (jika pasien di tempat tidur)
+Prosedur,17,Lepaskan sarung tangan
+Prosedur,18,Lakukan kebersihan tangan 6 langkah
+Prosedur,19,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

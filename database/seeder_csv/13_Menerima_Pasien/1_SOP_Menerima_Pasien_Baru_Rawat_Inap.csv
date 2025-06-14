@@ -1,0 +1,38 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Formulir asesmen awal/rawat inap
+Persiapan Alat,2,Rekam medis pasien
+Persiapan Alat,3,Alat ukur vital sign (tensi, termometer, dsb)
+Persiapan Alat,4,Peralatan kebersihan tempat tidur
+Persiapan Alat,5,Gelang identitas pasien
+Persiapan Alat,6,Formulir informed consent
+Persiapan Alat,7,Brosur hak & kewajiban pasien (opsional)
+Persiapan,1,Petugas menerima informasi rujukan pasien dari IGD/poliklinik/admission
+Persiapan,2,Siapkan ruangan, tempat tidur, dan lingkungan perawatan dalam keadaan bersih dan siap pakai
+Persiapan,3,Siapkan dokumen administrasi dan formulir asesmen awal
+Penerimaan Pasien,1,Sambut pasien dan keluarga secara ramah dan profesional
+Penerimaan Pasien,2,Verifikasi identitas pasien (nama, tanggal lahir, alamat, nomor rekam medis)
+Penerimaan Pasien,3,Pasang gelang identitas pasien di pergelangan tangan kanan atau sesuai kebijakan
+Penerimaan Pasien,4,Bantu pasien masuk ke tempat tidur dengan hati-hati
+Penerimaan Pasien,5,Lakukan pengkajian awal keperawatan (tanda vital, kesadaran, keluhan utama, status gizi, alergi, dll)
+Penerimaan Pasien,6,Berikan penjelasan singkat mengenai Tata tertib rawat inap
+Penerimaan Pasien,7,Berikan penjelasan singkat mengenai Jam kunjungan
+Penerimaan Pasien,8,Berikan penjelasan singkat mengenai Hak dan kewajiban pasien
+Penerimaan Pasien,9,Berikan penjelasan singkat mengenai Cara memanggil perawat (nurse call)
+Penerimaan Pasien,10,Berikan penjelasan singkat mengenai Prosedur medis awal
+Penerimaan Pasien,11,Serah terima pasien secara lisan dan tertulis jika dari IGD/ruangan lain
+Dokumentasi,1,Catat hasil pengkajian awal pada formulir asesmen
+Dokumentasi,2,Lengkapi dokumen Rekam medis
+Dokumentasi,3,Lengkapi dokumen Informed consent (jika ada tindakan segera)
+Dokumentasi,4,Lengkapi dokumen Formulir alergi/skrining risiko jatuh (jika berlaku)
+Dokumentasi,5,Lakukan input data pasien pada sistem informasi rumah sakit (SIMRS), bila tersedia
+Kewaspadaan,1,Pastikan pasien dikenali dengan benar (nama & tanggal lahir) sebelum pemberian obat atau tindakan
+Kewaspadaan,2,Lakukan skrining risiko jatuh, nyeri, atau depresi sesuai standar akreditasi rumah sakit
+Kewaspadaan,3,Perhatikan kondisi khusus pasien (isolasi, penyakit menular, disabilitas)
+Kewaspadaan,4,Hormati privasi dan budaya pasien selama proses penerimaan
+Evaluasi,1,Lakukan evaluasi rutin terhadap penerapan SOP ini oleh kepala ruangan
+Evaluasi,2,Tinjau efektivitas penerimaan pasien melalui audit keperawatan atau kepuasan pasien
+Dokumentasi,6,Lembar asesmen awal
+Dokumentasi,7,Catatan harian keperawatan
+Dokumentasi,8,Lembar tanda vital
+Dokumentasi,9,Form identitas pasien
+Dokumentasi,10,Form persetujuan tindakan

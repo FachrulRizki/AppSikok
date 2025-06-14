@@ -1,0 +1,32 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Tempat tidur atau meja pemeriksaan dengan permukaan datar
+Alat dan Bahan,2,Bantal (jika diperlukan)
+Alat dan Bahan,3,Seprai atau alas periksa
+Alat dan Bahan,4,Kain penutup untuk menjaga privasi pasien
+Alat dan Bahan,5,Sarung tangan medis
+Alat dan Bahan,6,Alat bantu sesuai prosedur (rektoskop, kasa, lubrikan, dll)
+Persiapan,1,Cuci tangan sesuai standar WHO.
+Persiapan,2,Jelaskan prosedur dan alasan penggunaan posisi genu-postural kepada pasien secara sopan dan jelas.
+Persiapan,3,Siapkan ruangan dengan privasi optimal (gunakan tirai atau sekat).
+Persiapan,4,Pastikan tempat tidur/periksa aman dan tidak licin.
+Persiapan,5,Siapkan semua alat untuk prosedur yang akan dilakukan.
+Pelaksanaan,1,Bantu pasien untuk berlutut di atas tempat tidur/meja periksa.
+Pelaksanaan,2,Minta pasien menurunkan dada hingga menyentuh tempat tidur, dan posisikan lengan pasien terlipat di bawah kepala atau di samping sebagai penopang.
+Pelaksanaan,3,Bokong pasien akan lebih tinggi dari dada (membentuk sudut antara paha dan batang tubuh ±90°).
+Pelaksanaan,4,Pastikan posisi stabil dan aman, dengan permukaan datar dan tidak licin.
+Pelaksanaan,5,Tutupi tubuh pasien yang tidak diperiksa dengan kain untuk menjaga privasi.
+Pelaksanaan,6,Lakukan prosedur yang direncanakan sesuai standar (misalnya pemeriksaan rektal).
+Setelah Tindakan,1,Bantu pasien untuk kembali ke posisi nyaman atau terlentang secara perlahan untuk mencegah pusing atau jatuh.
+Setelah Tindakan,2,Rapikan tempat tidur/periksa dan buang bahan habis pakai sesuai prosedur limbah medis.
+Setelah Tindakan,3,Cuci tangan kembali.
+Setelah Tindakan,4,Dokumentasikan Posisi yang digunakan
+Setelah Tindakan,5,Dokumentasikan Prosedur yang dilakukan
+Setelah Tindakan,6,Dokumentasikan Respon dan toleransi pasien terhadap posisi
+Setelah Tindakan,7,Dokumentasikan Komplikasi atau keluhan (jika ada)
+Kewaspadaan,1,Jangan biarkan pasien terlalu lama dalam posisi ini karena dapat menyebabkan hipotensi postural.
+Kewaspadaan,2,Hati-hati pada pasien lansia, obesitas, atau dengan gangguan keseimbangan.
+Kewaspadaan,3,Gunakan alas atau bantal pada lutut untuk mencegah nyeri atau tekanan berlebih.
+Kewaspadaan,4,Pastikan bokong tidak terlalu tinggi agar tidak memperberat beban sirkulasi.
+Dokumentasi,1,Lembar asuhan keperawatan
+Dokumentasi,2,Catatan tindakan medis
+Dokumentasi,3,Evaluasi kenyamanan dan keamanan pasien

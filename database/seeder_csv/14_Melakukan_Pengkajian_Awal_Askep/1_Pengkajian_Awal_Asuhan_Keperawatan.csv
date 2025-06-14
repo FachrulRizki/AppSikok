@@ -1,0 +1,42 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Formulir pengkajian awal keperawatan
+Persiapan Alat,2,Alat ukur tanda vital (tensi, termometer, pulse oximeter)
+Persiapan Alat,3,Skala nyeri, risiko jatuh, risiko dekubitus (Braden Scale)
+Persiapan Alat,4,Formulir skrining gizi dan status mental
+Persiapan Alat,5,Rekam medis pasien
+Persiapan Alat,6,SIMRS (jika tersedia)
+Persiapan,1,Cuci tangan sesuai protokol
+Persiapan,2,Siapkan alat dan formulir pengkajian
+Persiapan,3,Verifikasi identitas pasien sesuai standar (dua identitas: nama & tanggal lahir)
+Persiapan,4,Jelaskan tujuan pengkajian kepada pasien/keluarga
+Kaji Data Subjektif,1,Keluhan utama
+Kaji Data Subjektif,2,Riwayat penyakit sekarang & dahulu
+Kaji Data Subjektif,3,Riwayat pengobatan dan alergi
+Kaji Data Subjektif,4,Riwayat psiko-sosial, spiritual, ekonomi
+Kaji Data Subjektif,5,Pola eliminasi, nutrisi, istirahat, aktivitas
+Kaji Data Objektif,1,Tanda vital (TD, nadi, suhu, RR, SpO2)
+Kaji Data Objektif,2,Pemeriksaan fisik sistem tubuh (kepala-sampai kaki)
+Kaji Data Objektif,3,Status kesadaran (GCS)
+Kaji Data Objektif,4,Kondisi kulit, luka, alat medis yang terpasang
+Kaji Data Objektif,5,Hasil laboratorium atau penunjang awal
+Gunakan Instrumen Penilaian,1,Skala nyeri (VAS/NRS)
+Gunakan Instrumen Penilaian,2,Skala risiko jatuh (Morse/BMRC)
+Gunakan Instrumen Penilaian,3,Skala gizi (Malnutrition Screening Tool)
+Gunakan Instrumen Penilaian,4,Skala dekubitus (Braden Scale)
+Gunakan Instrumen Penilaian,5,Identifikasi masalah keperawatan berdasarkan temuan
+Dokumentasi,1,Catat seluruh hasil pengkajian secara lengkap dan akurat di formulir pengkajian awal atau SIMRS
+Dokumentasi,2,Tulis tanggal, jam, dan tanda tangan perawat pelaksana
+Dokumentasi,3,Laporkan kondisi pasien kepada perawat kepala ruang atau shift berikutnya
+Tindak Lanjut,1,Buat diagnosis keperawatan awal berdasarkan data pengkajian
+Tindak Lanjut,2,Susun rencana keperawatan (intervensi) sesuai prioritas masalah
+Tindak Lanjut,3,Komunikasikan dengan tim medis bila ditemukan kondisi gawat/darurat
+Kewaspadaan,1,Gunakan komunikasi terapeutik untuk mendapatkan informasi valid
+Kewaspadaan,2,Hindari asumsi tanpa pemeriksaan langsung
+Kewaspadaan,3,Pastikan privasi pasien selama pengkajian (gunakan tirai/penghalang)
+Kewaspadaan,4,Lakukan dengan empati, terutama pada pasien lansia, anak, atau disabilitas
+Evaluasi,1,Evaluasi kelengkapan pengkajian awal dilakukan oleh kepala ruang setiap hari
+Evaluasi,2,Audit pengkajian awal dilakukan minimal 1 bulan sekali oleh Tim Mutu Keperawatan
+Dokumentasi,4,Form pengkajian awal keperawatan
+Dokumentasi,5,Skala risiko (jatuh, nyeri, gizi, dekubitus)
+Dokumentasi,6,Diagnosa dan intervensi awal keperawatan
+Dokumentasi,7,Laporan harian ruangan

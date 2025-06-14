@@ -1,0 +1,37 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Kasa steril
+Alat dan Bahan,2,Pinset dan gunting steril
+Alat dan Bahan,3,Cairan kompres (NaCl 0,9%, antiseptik ringan seperti Rivanol jika diresepkan)
+Alat dan Bahan,4,Wadah bersih untuk cairan
+Alat dan Bahan,5,Sarung tangan bersih/steril
+Alat dan Bahan,6,Plastik alas atau duk
+Alat dan Bahan,7,Plester dan balutan
+Alat dan Bahan,8,Kantong limbah medis
+Persiapan,1,Cuci tangan dan pakai sarung tangan.
+Persiapan,2,Verifikasi identitas pasien dan jelaskan prosedur.
+Persiapan,3,Siapkan peralatan di dekat pasien dalam kondisi bersih/steril.
+Persiapan,4,Bantu pasien ke posisi nyaman dan buka area luka.
+Persiapan,5,Lindungi area sekitar luka dengan duk plastik atau alas.
+Tindakan Kompres,1,Celupkan kasa steril ke dalam cairan kompres hangat/dingin sesuai indikasi.
+Tindakan Kompres,2,Peras kasa hingga lembap (tidak menetes).
+Tindakan Kompres,3,Letakkan kasa pada luka secara perlahan, tanpa menekan kuat.
+Tindakan Kompres,4,Biarkan kompres menempel selama 10–15 menit atau sesuai instruksi medis.
+Tindakan Kompres,5,Ganti kasa jika mengering atau terlalu kotor.
+Tindakan Kompres,6,Setelah selesai, lepaskan kompres, keringkan area sekitarnya jika perlu.
+Tindakan Kompres,7,Tutup luka dengan balutan steril jika diindikasikan.
+Setelah Tindakan,1,Buang limbah medis ke tempat sampah B3.
+Setelah Tindakan,2,Cuci tangan setelah melepas sarung tangan.
+Setelah Tindakan,3,Evaluasi kondisi luka dan catat hasil pengamatan.
+Setelah Tindakan,4,Beri edukasi pada pasien atau keluarga tentang perawatan lanjutan jika dibutuhkan.
+Dokumentasi,1,Tanggal dan waktu tindakan
+Dokumentasi,2,Jenis luka dan lokasi
+Dokumentasi,3,Jenis kompres (hangat/dingin, cairan yang digunakan)
+Dokumentasi,4,Reaksi pasien (nyeri, kenyamanan, alergi)
+Dokumentasi,5,Tanda tangan dan nama petugas
+Etika dan Keselamatan,1,Gunakan teknik bersih/aseptik sesuai jenis luka.
+Etika dan Keselamatan,2,Jangan gunakan kembali bahan kompres yang sudah digunakan.
+Etika dan Keselamatan,3,Hindari kompres pada pasien dengan gangguan sensibilitas kulit tanpa pengawasan.
+Etika dan Keselamatan,4,Gunakan APD bila luka bersifat infeksius atau berbau menyengat.
+Catatan Tambahan,1,Kompres dingin digunakan dalam 24–48 jam pertama pasca trauma.
+Catatan Tambahan,2,Kompres hangat lebih baik digunakan setelah fase akut, untuk meningkatkan aliran darah dan mempercepat penyembuhan.
+Catatan Tambahan,3,Bila terdapat tanda-tanda infeksi berat (bau busuk, nanah kental, jaringan nekrotik), rujuk ke penanganan lanjutan.

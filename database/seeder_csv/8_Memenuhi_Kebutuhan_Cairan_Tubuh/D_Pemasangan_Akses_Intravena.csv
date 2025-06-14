@@ -1,0 +1,35 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Torniket
+Persiapan Alat,3,Kateter intravena sesuai ukuran (bayi/anak no. 24, dewasa no. 20 atau 22, geriatri no. 22 atau 24)
+Persiapan Alat,4,Alcohol swab
+Persiapan Alat,5,Balutan transparan (transparent dressing) atau kasa
+Persiapan Alat,6,Plester
+Persiapan Alat,7,Set infus atau injection plug
+Persiapan Alat,8,Cairan infus, jika perlu
+Persiapan Alat,9,Pengalas
+Persiapan Alat,10,Bengkok
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Siapkan cairan infus (jika akan diberikan terapi cairan) : Sambungkan set infus dengan wadah cairan, Pastikan rol klem terkunci dan isi setengah bilik (chamber) infus dengan cairan infus, Alirkan cairan infus hingga seluruh selang terisi cairan infus, Pastikan tidak ada gelembung udara di sepanjang selang infus
+Prosedur,5,Atur posisi senyaman mungkin
+Prosedur,6,Pilih vena yang akan diinsersi : Vena pada ekstremitas non-dominan, kecuali kontraindikasi (seperti terdapat luka, fistula, untuk dialisis, riwayat mastektomi)
+Prosedur,7,Pilih Vena yang lurus, cukup besar, dapat di palpasi, dan jauh dari persendian
+Prosedur,8,Letakkan pengalas di bawah lengan pasien
+Prosedur,9,Pasang sarung tangan bersih
+Prosedur,10,Dilatasikan vena dengan memasang torniket 15-20 cm di atas vena yang akan di insersi, dan/atau beberapa metode ini: Posisikan area insersi lebih rendah dari jantung, Kepalkan telapak tangan, Ketuk-ketuk dengan lembut menggunakan ujung jari, Masase dari arah distal ke proksimal di bawah vena yang akan diinsersi, Kompres hangat pada area insersi
+Prosedur,11,Bersihkan daerah yang akan diinsersi dengan menggunakan alcohol swab
+Prosedur,12,Regangkan kulit di bawah vena yang akan diinsersi dengan menggunakan tangan yang tidak dominan
+Prosedur,13,Insersikan kateter pada vena dengan sudut 10-30 derajat dengan tangan dominan
+Prosedur,14,Rendahkan sudut insersi saat terlihat darah pada ruang kateter dan tarik sedikit stilet
+Prosedur,15,Dorong kateter hingga mencapai pangkalnya
+Prosedur,16,Lepaskan torniket
+Prosedur,17,Tekan ujung kateter yang berada di dalam vena dan lepaskan stilet dari kateter
+Prosedur,18,Sambungkan kateter intravena dengan set infus atau injection plug
+Prosedur,19,Pasang balutan transparan (transparent dressing) pada area insersi
+Prosedur,20,Berikan label pada dressing dan tuliskan tanggal dan waktu pemasangan
+Prosedur,21,Rapikan pasien dan peralatan yang telah digunakan
+Prosedur,22,Lepaskan sarung tangan
+Prosedur,23,Lakukan kebersihan tangan 6 langkah
+Prosedur,24,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

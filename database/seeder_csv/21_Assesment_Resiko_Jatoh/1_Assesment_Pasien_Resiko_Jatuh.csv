@@ -1,0 +1,18 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Formulir/skala asesmen risiko jatuh (misal: Morse Fall Scale, Hendrich II Fall Risk Model, atau skala lain sesuai standar RS)
+Persiapan Alat,2,Alat tulis atau sistem rekam medis elektronik
+Persiapan Alat,3,Perlengkapan pendukung pengkajian (alat bantu jalan, sepatu anti-slip, dsb.)
+Persiapan,1,Cuci tangan sesuai prosedur.
+Persiapan,2,Verifikasi identitas pasien (nama dan tanggal lahir).
+Pengkajian Risiko Jatuh,1,Gunakan skala risiko jatuh yang berlaku di fasilitas (contoh Morse Fall Scale), dengan mengkaji aspek-aspek berikut: Riwayat jatuh sebelumnya, Diagnosa saat ini, Penggunaan alat bantu jalan, Gangguan berjalan atau keseimbangan, Penggunaan obat-obatan yang berisiko (misalnya sedatif, diuretik), Status mental dan kesadaran pasien, Kondisi lingkungan sekitar pasien
+Pengkajian Risiko Jatuh,2,Catat skor hasil asesmen dan tentukan level risiko (rendah, sedang, tinggi).
+Dokumentasi,1,Catat hasil asesmen risiko jatuh lengkap pada rekam medis pasien.
+Dokumentasi,2,Berikan tanda atau gelang risiko jatuh sesuai kebijakan rumah sakit.
+Tindak Lanjut,1,Pasien dengan risiko jatuh sedang/tinggi harus mendapatkan tindakan pencegahan: Edukasi pasien dan keluarga, Pengawasan ketat dan pendampingan saat bergerak, Pengaturan lingkungan aman (pencahayaan, perabotan tidak menghalangi), Pemakaian alat bantu yang tepat, Penggunaan alat pengaman seperti pagar tempat tidur bila perlu, Koordinasi dengan dokter dan tim rehabilitasi bila dibutuhkan.
+Evaluasi,1,Lakukan asesmen ulang risiko jatuh setiap 24 jam atau bila ada perubahan kondisi pasien.
+Evaluasi,2,Monitoring dan evaluasi tindakan pencegahan secara rutin.
+Kewaspadaan,1,Jangan abaikan hasil asesmen risiko jatuh.
+Kewaspadaan,2,Pastikan semua staf memahami dan melaksanakan tindakan pencegahan.
+Kewaspadaan,3,Laporkan segera kejadian jatuh sesuai prosedur kejadian insiden.
+Lampiran,1,Contoh formulir Morse Fall Scale atau skala lain yang digunakan.
+Lampiran,2,Panduan tindakan pencegahan risiko jatuh.

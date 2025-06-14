@@ -1,0 +1,29 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Obat topikal (salep, krim, atau gel) sesuai resep
+Alat dan Bahan,2,Sarung tangan bersih
+Alat dan Bahan,3,Kassa steril (jika perlu)
+Alat dan Bahan,4,Spatula kecil (opsional)
+Alat dan Bahan,5,Air hangat & sabun/tisu basah
+Alat dan Bahan,6,Plester (jika perlu penutupan)
+Persiapan,1,Cuci tangan dan kenakan sarung tangan bersih.
+Persiapan,2,Verifikasi identitas pasien dan resep obat (periksa 6 benar: benar pasien, obat, dosis, waktu, rute, dokumentasi).
+Persiapan,3,Jelaskan prosedur kepada pasien.
+Persiapan,4,Bersihkan area kulit yang akan diobati dengan air bersih atau tisu basah. Keringkan dengan lembut.
+Pemberian Salep,1,Ambil salep secukupnya menggunakan spatula atau jari bersarung tangan.
+Pemberian Salep,2,Oleskan tipis dan merata di atas area kulit yang sakit/seperti instruksi dokter.
+Pemberian Salep,3,Hindari menggosok terlalu keras.
+Pemberian Salep,4,Bila perlu, tutup area dengan kassa steril dan plester.
+Pemberian Salep,5,Buang sisa salep bekas dan alat pakai sekali pakai ke tempat sampah medis.
+Pemberian Salep,6,Lepaskan sarung tangan, cuci tangan kembali.
+Dokumentasi,1,Tanggal dan jam pemberian
+Dokumentasi,2,Jenis dan dosis salep
+Dokumentasi,3,Lokasi area aplikasi
+Dokumentasi,4,Respon pasien (kemerahan, nyeri, dll jika ada)
+Dokumentasi,5,Tanda tangan/petugas pemberi obat
+Etika dan Keselamatan,1,Jaga privasi pasien, terutama jika salep diberikan di area sensitif
+Etika dan Keselamatan,2,Jangan menggunakan salep untuk pasien lain
+Etika dan Keselamatan,3,Jangan menyentuh salep langsung tanpa sarung tangan
+Etika dan Keselamatan,4,Edukasi pasien/keluarga tentang cara pemberian jika dilakukan di rumah
+Catatan Tambahan,1,Salep steroid harus diberikan sesuai durasi dan frekuensi dokter.
+Catatan Tambahan,2,Hindari pemakaian berlebihan pada kulit tipis (wajah, lipatan).
+Catatan Tambahan,3,Catat bila ada tanda infeksi sekunder atau reaksi alergi.

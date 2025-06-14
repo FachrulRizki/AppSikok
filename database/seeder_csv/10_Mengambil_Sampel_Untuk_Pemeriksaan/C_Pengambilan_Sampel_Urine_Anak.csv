@@ -1,0 +1,36 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Urin bag (kantong penampung urin khusus bayi)
+Persiapan Alat,2,Wadah urin steril (untuk anak yang sudah bisa BAK mandiri)
+Persiapan Alat,3,Sarung tangan bersih
+Persiapan Alat,4,Kapas dan alkohol swab 70%
+Persiapan Alat,5,Label identitas pasien
+Persiapan Alat,6,Popok atau alas pengganti
+Persiapan Alat,7,Alat dokumentasi (formulir laboratorium)
+Persiapan,1,Cuci tangan dan gunakan sarung tangan
+Persiapan,2,Verifikasi identitas pasien dan jenis pemeriksaan
+Persiapan,3,Jelaskan prosedur kepada orang tua untuk meningkatkan kerja sama
+Persiapan,4,Siapkan alat dan tempat yang bersih dan tenang
+Persiapan,5,Cuci area genital anak dengan air hangat dan sabun, kemudian keringkan
+Persiapan,6,Pasang urin bag pada bayi
+Persiapan,7,Gunakan urin bag khusus anak laki-laki/perempuan sesuai jenis kelamin
+Persiapan,8,Tempelkan pada area genital dengan posisi benar untuk mencegah kebocoran
+Persiapan,9,Ganti popok longgar atau beri alas agar bayi tetap nyaman
+Pengambilan Sampel,1,Tunggu anak BAK secara spontan (pantau 30–60 menit setelah pemasangan urin bag)
+Pengambilan Sampel,2,Bila anak cukup besar dan bisa BAK sendiri, minta buang air kecil ke wadah steril
+Pengambilan Sampel,3,Jika menggunakan urin bag: Setelah terisi ±10–20 mL, lepaskan dengan hati-hati
+Pengambilan Sampel,4,Tuang urin ke dalam wadah steril (jika diperlukan), lalu tutup rapat
+Pengambilan Sampel,5,Tempelkan label identitas pada wadah sampel
+Setelah Tindakan,1,Bersihkan kembali area genital anak
+Setelah Tindakan,2,Buang urin bag dan alat bekas ke tempat sampah medis
+Setelah Tindakan,3,Cuci tangan kembali
+Setelah Tindakan,4,Kirim sampel ke laboratorium dalam waktu maksimal 1 jam setelah pengambilan (jika tidak segera dikirim, simpan dalam suhu dingin 2–8°C maksimal 2 jam)
+Dokumentasi,1,Waktu pengambilan urin
+Dokumentasi,2,Metode pengambilan (urin bag/spontan)
+Dokumentasi,3,Volume dan kondisi sampel
+Dokumentasi,4,Tanda tangan petugas
+Etika dan Keselamatan,1,Lakukan tindakan dengan lembut dan menghargai kenyamanan anak
+Etika dan Keselamatan,2,Jangan menyentuh bagian dalam wadah atau urin bag saat transfer urin
+Etika dan Keselamatan,3,Jangan menggunakan urin dari popok sebagai sampel
+Etika dan Keselamatan,4,Gunakan alat sekali pakai dan bersihkan area sesuai standar
+Catatan Khusus,1,Untuk kultur urin, pengambilan harus steril dan tidak terkontaminasi
+Catatan Khusus,2,Bila urin tidak keluar dalam 1–2 jam, konsultasikan dengan dokter (bisa dipertimbangkan stimulasi atau kateterisasi)

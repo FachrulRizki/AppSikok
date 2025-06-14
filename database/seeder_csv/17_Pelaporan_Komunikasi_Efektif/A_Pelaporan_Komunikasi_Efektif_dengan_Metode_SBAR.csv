@@ -1,0 +1,27 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Formulir komunikasi SBAR (jika tertulis)
+Alat dan Bahan,2,Rekam medis pasien / SIMRS
+Alat dan Bahan,3,Alat tulis atau komputer
+Alat dan Bahan,4,Identitas pasien (gelang, data RM)
+Persiapan,1,Siapkan informasi lengkap dan akurat terkait pasien.
+Persiapan,2,Pastikan data yang dilaporkan benar dan terbaru (vital sign, hasil lab, pengkajian, dll).
+Persiapan,3,Gunakan komunikasi profesional, jaga kerahasiaan pasien.
+S - Situation (Situasi),1,Identifikasi diri dan pasien. Contoh: Saya Siti, perawat jaga di ruang 3. Saya ingin melaporkan kondisi pasien atas nama Bapak Andi, usia 65 tahun.
+S - Situation (Situasi),2,Jelaskan situasi saat ini. Pasien mengalami sesak napas tiba-tiba dengan SpO₂ turun menjadi 88%.
+B - Background (Latar Belakang),1,Sampaikan data penting terkait riwayat medis pasien. Pasien memiliki riwayat PPOK, baru saja menjalani nebulizer 1 jam yang lalu.
+A - Assessment (Penilaian),1,Paparkan hasil observasi atau analisis Anda. Napas 30x/menit, penggunaan otot bantu napas, dan suara napas wheezing.
+R - Recommendation (Rekomendasi),1,Sampaikan permintaan atau tindakan yang dibutuhkan. Mohon dokter segera menilai pasien. Saya menyarankan pemberian oksigen dan pertimbangan terapi bronkodilator tambahan.
+Dokumentasi,1,Catat hasil komunikasi SBAR di buku laporan, SIMRS, atau form khusus SBAR.
+Dokumentasi,2,Cantumkan tanggal, jam, nama lengkap, dan tanda tangan petugas pelapor.
+Dokumentasi,3,Pastikan ada konfirmasi dari pihak yang menerima informasi.
+Tindak Lanjut,1,Tindak lanjuti rekomendasi yang telah disepakati.
+Tindak Lanjut,2,Evaluasi respons pasien terhadap tindakan yang diberikan.
+Tindak Lanjut,3,Laporkan perubahan signifikan ke dokter atau shift berikutnya.
+Kewaspadaan,1,Komunikasi SBAR bukan hanya saat kondisi darurat, tapi juga saat serah terima, rujukan, konsultasi, dan antar shift.
+Kewaspadaan,2,Gunakan bahasa yang sopan, lugas, dan bebas asumsi.
+Kewaspadaan,3,Jaga kerahasiaan informasi pasien sesuai etika profesi.
+Evaluasi,1,Kepala ruang melakukan supervisi penggunaan metode SBAR.
+Evaluasi,2,Tim mutu rumah sakit mengevaluasi efektivitas komunikasi antar petugas secara berkala.
+Dokumentasi Wajib,1,Form atau catatan SBAR (manual atau digital)
+Dokumentasi Wajib,2,Laporan pelaksanaan tindak lanjut
+Dokumentasi Wajib,3,Bukti komunikasi interprofesional

@@ -20,6 +20,7 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Home</span>
                 </li>
+                
                 <li class="sidebar-item">
                     <a class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
                         href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
@@ -139,15 +140,15 @@
                         <span class="d-flex">
                             <i class="ti ti-school"></i>
                         </span>
-                        <span class="hide-menu">Mikrolearning (Dev)</span>
+                        <span class="hide-menu">Mikrolearning</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
+                            <a href="{{ route('materi.index') }}" class="sidebar-link">
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
-                                <span class="hide-menu">Materi Video/PDF</span>
+                                <span class="hide-menu">Materi</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

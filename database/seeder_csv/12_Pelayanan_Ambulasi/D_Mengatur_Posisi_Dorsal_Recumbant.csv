@@ -1,0 +1,30 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Tempat tidur atau meja pemeriksaan
+Alat dan Bahan,2,Seprai bersih / alas periksa
+Alat dan Bahan,3,Bantal kecil untuk kepala (opsional)
+Alat dan Bahan,4,Sarung tangan
+Alat dan Bahan,5,Selimut atau kain penutup untuk menjaga privasi pasien
+Persiapan,1,Cuci tangan sesuai protokol WHO.
+Persiapan,2,Jelaskan prosedur dan tujuannya kepada pasien secara tenang dan jelas.
+Persiapan,3,Siapkan lingkungan yang tertutup dan privasi terjaga.
+Persiapan,4,Siapkan peralatan sesuai prosedur yang akan dilakukan (misalnya: kateterisasi, pemeriksaan, dll).
+Pelaksanaan,1,Bantu pasien untuk berbaring terlentang di atas tempat tidur/periksa.
+Pelaksanaan,2,Tekuk kedua lutut pasien dan minta pasien untuk membuka kakinya selebar bahu, dengan telapak kaki tetap menapak di permukaan.
+Pelaksanaan,3,Gunakan bantal kecil di bawah kepala jika dibutuhkan.
+Pelaksanaan,4,Tutupi area tubuh yang tidak diperiksa/tidak dibutuhkan dengan selimut atau kain.
+Pelaksanaan,5,Pastikan pasien dalam posisi stabil, nyaman, dan rileks.
+Pelaksanaan,6,Lanjutkan dengan prosedur medis/keperawatan yang direncanakan (misalnya: pemeriksaan, pembersihan, pemasangan alat, dll).
+Setelah Tindakan,1,Bantu pasien kembali ke posisi nyaman atau posisi tidur biasa.
+Setelah Tindakan,2,Rapikan tempat tidur dan buang bahan habis pakai ke tempat limbah medis.
+Setelah Tindakan,3,Cuci tangan kembali.
+Setelah Tindakan,4,Dokumentasikan Jenis tindakan
+Setelah Tindakan,5,Dokumentasikan Posisi yang digunakan
+Setelah Tindakan,6,Dokumentasikan Respon pasien
+Setelah Tindakan,7,Dokumentasikan Komplikasi bila ada
+Kewaspadaan,1,Jaga privasi dan kenyamanan pasien selama prosedur.
+Kewaspadaan,2,Hindari penekanan berlebihan di area punggung bawah dan lutut.
+Kewaspadaan,3,Gunakan tirai atau penghalang visual jika di ruang terbuka.
+Kewaspadaan,4,Hindari paparan suhu dingin berlebihan saat pasien terbuka.
+Dokumentasi,1,Catatan asuhan keperawatan
+Dokumentasi,2,Laporan pelaksanaan prosedur (misalnya: pemasangan kateter, perawatan luka)
+Dokumentasi,3,Observasi kondisi dan kenyamanan pasien

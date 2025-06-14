@@ -1,0 +1,24 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Skala nyeri: Skala Numerik (0-10), Wong-Baker Faces, FLACC, atau skala lain sesuai kebutuhan.
+Alat dan Bahan,2,Formulir pengkajian nyeri atau sistem rekam medis elektronik.
+Alat dan Bahan,3,Alat tulis.
+Persiapan,1,Cuci tangan sesuai standar.
+Persiapan,2,Verifikasi identitas pasien (minimal dua identitas: nama dan tanggal lahir).
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,1,P (Provokasi/Paliatif): Apa yang menyebabkan nyeri atau mengurangi nyeri?
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,2,Q (Kualitas): Bagaimana rasa nyeri (tajam, tumpul, terbakar)?
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,3,R (Region): Di mana lokasi nyeri? Apakah menjalar?
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,4,S (Skala): Seberapa berat nyeri menggunakan skala yang sesuai?
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,5,T (Time): Kapan nyeri mulai, berapa lama, dan frekuensinya?
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,6,Perhatikan tanda non-verbal nyeri, terutama pada pasien yang tidak mampu berbicara.
+Tanyakan keluhan nyeri pasien dan gunakan metode PQRST,7,Tanyakan dampak nyeri terhadap aktivitas harian dan tidur.
+Dokumentasi,1,Catat hasil pengkajian secara lengkap pada rekam medis.
+Dokumentasi,2,Catat intervensi yang diberikan dan respons pasien.
+Evaluasi dan Tindak Lanjut,1,Lakukan asesmen ulang secara berkala sesuai kebutuhan atau setelah tindakan nyeri.
+Evaluasi dan Tindak Lanjut,2,Laporkan nyeri yang berat atau tidak terkontrol ke dokter.
+Evaluasi dan Tindak Lanjut,3,Kolaborasi dalam pemberian terapi nyeri sesuai instruksi dokter.
+Indikasi Penilaian Ulang,1,Setelah pemberian analgesik.
+Indikasi Penilaian Ulang,2,Setiap pergantian shift.
+Indikasi Penilaian Ulang,3,Bila ada perubahan kondisi pasien.
+Kewaspadaan,1,Jangan mengabaikan keluhan nyeri pasien.
+Kewaspadaan,2,Gunakan skala nyeri yang sesuai dengan usia dan kemampuan komunikasi pasien.
+Kewaspadaan,3,Pastikan komunikasi jelas dan sensitif terhadap keluhan pasien.

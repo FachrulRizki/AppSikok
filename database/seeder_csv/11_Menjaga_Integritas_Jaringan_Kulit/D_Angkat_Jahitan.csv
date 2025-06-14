@@ -1,0 +1,33 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Sarung tangan bersih dan steril
+Alat dan Bahan,2,Pinset
+Alat dan Bahan,3,Gunting jahit atau suture cutter
+Alat dan Bahan,4,Kasa steril
+Alat dan Bahan,5,Cairan antiseptik (povidone iodine/chlorhexidine)
+Alat dan Bahan,6,Plester/kasa penutup
+Alat dan Bahan,7,Tempat limbah medis
+Alat dan Bahan,8,Dokumentasi keperawatan
+Persiapan,1,Cuci tangan sesuai 7 langkah WHO.
+Persiapan,2,Jelaskan prosedur kepada pasien.
+Persiapan,3,Siapkan semua peralatan secara aseptik.
+Persiapan,4,Posisikan pasien dengan nyaman dan buka area luka jahitan.
+Pelaksanaan,1,Pakai sarung tangan bersih.
+Pelaksanaan,2,Bersihkan luka dengan antiseptik.
+Pelaksanaan,3,Pakai sarung tangan steril.
+Pelaksanaan,4,Pegang simpul benang menggunakan pinset.
+Pelaksanaan,5,Potong benang di bawah simpul dekat kulit, hindari menarik bagian benang luar masuk ke dalam luka.
+Pelaksanaan,6,Tarik benang secara perlahan dan stabil dengan pinset.
+Pelaksanaan,7,Ulangi langkah pada semua jahitan, observasi reaksi pasien.
+Pelaksanaan,8,Bersihkan kembali luka setelah semua jahitan dilepas.
+Pelaksanaan,9,Tutup luka dengan kasa steril jika perlu.
+Setelah Tindakan,1,Rapikan dan buang alat bekas pakai ke dalam limbah medis.
+Setelah Tindakan,2,Cuci tangan kembali.
+Setelah Tindakan,3,Dokumentasikan jumlah jahitan yang dilepas
+Setelah Tindakan,4,Dokumentasikan Kondisi luka setelah pelepasan
+Setelah Tindakan,5,Dokumentasikan Respon pasien
+Kewaspadaan,1,Jangan angkat jahitan jika luka belum sepenuhnya sembuh.
+Kewaspadaan,2,Hentikan prosedur bila ada tanda nyeri hebat, perdarahan, atau dehisensi.
+Kewaspadaan,3,Gunakan teknik steril untuk mencegah infeksi.
+Dokumentasi,1,Catatan perkembangan luka
+Dokumentasi,2,Tanggal pelepasan dan jumlah jahitan
+Dokumentasi,3,Evaluasi hasil tindakan

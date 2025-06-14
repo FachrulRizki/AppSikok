@@ -1,0 +1,26 @@
+﻿Tipe,Urutan,Nama
+Persiapan alat,1,Sarung tangan bersih
+Persiapan alat,2,Spuit 50 cc atau sesuai kebutuhan
+Persiapan alat,3,Baskom
+Persiapan alat,4,Handuk
+Persiapan alat,5,Bola kapas atau kasa
+Persiapan alat,6,Cairan irigasi
+Persiapan alat,7,Bengkok
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Pasang sarung tangan
+Prosedur,5,Jaga privasi dengan memasang tirai atau menutup pintu kamar
+Prosedur,6,Posisikan duduk atau berbaring dengan kepala miring ke arah telinga yang akan diirigasi
+Prosedur,7,Tempatkan handuk di bawah kepala dan bahu pasien
+Prosedur,8,Tuangkan larutan irigasi ke dalam baskom
+Prosedur,9,Bersihkan daun telinga dan saluran telinga luar dengan kain kasa atau bola kapas
+Prosedur,10,Isi spuit dengan cairan irigasi 50 cc atau sesuai kebutuhan
+Prosedur,11,Tarik daun telinga ke atas dan belakang (dewasa dan anak >3 tahun) atau ke bawah dan belakang (anak <3 tahun)
+Prosedur,12,Irigasi telinga dengan memasukkan cairan secara perlahan-lahan
+Prosedur,13,Lanjutkan irigasi sampai semua serumen atau debris hilang
+Prosedur,14,Keringkan aurikel dan berikan bola kapas pada meatus auditori selama 5–10 menit
+Prosedur,15,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,16,Lepaskan sarung tangan
+Prosedur,17,Lakukan kebersihan tangan 6 langkah
+Prosedur,18,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

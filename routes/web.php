@@ -17,7 +17,11 @@ use App\Http\Controllers\CuciTanganController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\KuisonerKepuasanController;
+<<<<<<< HEAD
 use App\Http\Controllers\AktivitasKeperawatanController;
+=======
+use App\Http\Controllers\MaterialController;
+>>>>>>> dev_prayogi
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
 
     Route::resource('cuci-tangan', CuciTanganController::class)->names('cuci_tangan');
+
+    // Materi
+    Route::resource('materi', MaterialController::class)->names('materi');
 });

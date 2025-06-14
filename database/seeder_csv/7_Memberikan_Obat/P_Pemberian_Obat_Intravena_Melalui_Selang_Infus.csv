@@ -1,0 +1,28 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sarung tangan bersih
+Persiapan Alat,2,Obat IV sesuai program
+Persiapan Alat,3,Alkohol swab
+Persiapan Alat,4,Spuit sesuai kebutuhan
+Persiapan Alat,5,Cairan pelarut, jika perlu
+Persiapan Alat,6,Safety box
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Campurkan obat dengan cairan pelarut, sesuai kebutuhan
+Prosedur,4,Lakukan prinsip 6 benar (pasien, obat, dosis, waktu, rute, dokumentasi)
+Prosedur,5,Lakukan kebersihan tangan 6 langkah
+Prosedur,6,Pasang sarung tangan bersih
+Prosedur,7,Pastikan ketepatan dan kepatenan akses IV
+Prosedur,8,Lakukan double check, terutama untuk obat high alert
+Prosedur,9,Bersihkan akses IV dengan menggunakan alcohol swab
+Prosedur,10,Sambungkan spuit dengan injection site selang infus
+Prosedur,11,Hentikan aliran infus dengan mengunci roller clamp pada selang infus
+Prosedur,12,Tarik sedikit plunger spuit sampai terlihat darah pada selang infus
+Prosedur,13,Injeksikan obat dengan kecepatan yang direkomendasikan
+Prosedur,14,Monitor respons pasien selama injeksi obat
+Prosedur,15,Lepas spuit dari injection site selang infus
+Prosedur,16,Buang jarum dan spuit ke dalam safety box tanpa recapping (menutup kembali jarum)
+Prosedur,17,Atur kecepatan tetesan infus seperti semula atau sesuai kebutuhan
+Prosedur,18,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,19,Lepaskan sarung tangan
+Prosedur,20,Lakukan kebersihan tangan 6 langkah
+Prosedur,21,Dokumentasikan prosedur yang telah dilakukan dan respons pasien

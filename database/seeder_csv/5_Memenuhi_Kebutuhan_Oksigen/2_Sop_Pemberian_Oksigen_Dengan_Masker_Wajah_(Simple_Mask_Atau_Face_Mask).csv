@@ -1,0 +1,24 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Sumber oksigen (tabung oksigen atau oksigen sentral)
+Persiapan Alat,2,Selang masker wajah (simple mask)
+Persiapan Alat,3,Flowmeter oksigen
+Persiapan Alat,4,Humidifier
+Persiapan Alat,5,Cairan steril
+Persiapan Alat,6,Stetoskop
+Prosedur,1,Identifikasi pasien menggunakan minimal dua identitas (nama lengkap, tanggal lahir, dan/atau nomor rekam medis)
+Prosedur,2,Jelaskan tujuan dan langkah-langkah prosedur
+Prosedur,3,Lakukan kebersihan tangan 6 langkah
+Prosedur,4,Tuangkan cairan steril ke humidifier sesuai batas
+Prosedur,5,Pasang flowmeter dan humidifier ke sumber oksigen
+Prosedur,6,Sambungkan selang masker wajah ke humidifier
+Prosedur,7,Atur aliran oksigen 5-10 L/menit sesuai kebutuhan
+Prosedur,8,Pastikan oksigen mengalir melalui selang sungkup sederhana
+Prosedur,9,Pasang masker wajah menutupi hidung dan mulut
+Prosedur,10,Lingkarkan dan eratkan tali karet melingkari kepala
+Prosedur,11,Bersihkan kulit dan masker setiap 2-3 jam, jika pemberian oksigen dilakukan secara kontinu
+Prosedur,12,Monitor cuping, suptum dan hidung luar terhadap adanya gangguan integritas mukosa/kulit hidung setiap 8 jam
+Prosedur,13,Monitor kecepatan oksigen dan status pernapasan (frekuensi napas, upaya napas, bunyi paru, saturasi oksigen) setiap 8 jam atau sesuai indikasi
+Prosedur,14,Pasang tanda “Oksigen sedang digunakan” di dinding di belakang tempat tidur dan pintu masuk kamar, jika perlu
+Prosedur,15,Rapikan pasien dan alat-alat yang digunakan
+Prosedur,16,Lakukan kebersihan tangan 6 langkah
+Prosedur,17,Dokumentasikan prosedur yang telah dilakukan dan repons pasien,Metode pemberian oksigen,Kecepatan oksigen,Respons pasien,Efek samping / merugikan yang terjadi

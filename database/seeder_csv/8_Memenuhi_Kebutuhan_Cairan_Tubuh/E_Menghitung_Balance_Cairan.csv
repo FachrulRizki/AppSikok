@@ -1,0 +1,45 @@
+﻿Tipe,Urutan,Nama
+Persiapan Alat,1,Formulir catatan balance cairan / grafik cairan
+Persiapan Alat,2,Gelas ukur atau kantong urin dengan skala
+Persiapan Alat,3,Spidol/tinta
+Persiapan Alat,4,Alat bantu pengukuran (urinal, pispot, botol susu, dll)
+Persiapan Alat,5,Sarung tangan bersih
+Persiapan Alat,6,Kalkulator (jika perlu)
+Jenis Asupan dan Output Cairan,1,Asupan (Intake) Cairan infus (jumlah dalam mL)
+Jenis Asupan dan Output Cairan,2,Asupan (Intake) Oral (air minum, susu, sup, bubur encer)
+Jenis Asupan dan Output Cairan,3,Asupan (Intake) Cairan dari makanan enteral/parenteral
+Jenis Asupan dan Output Cairan,4,Asupan (Intake) Obat-obatan cair IV/PO
+Jenis Asupan dan Output Cairan,5,Asupan (Intake) Darah/transfusi
+Jenis Asupan dan Output Cairan,6,Output Urine (dalam kantong urin atau dicatat manual)
+Jenis Asupan dan Output Cairan,7,Output Feses cair
+Jenis Asupan dan Output Cairan,8,Output Muntah
+Jenis Asupan dan Output Cairan,9,Output Drainase luka atau pipa nasogastrik (NGT)
+Jenis Asupan dan Output Cairan,10,Output Keringat berlebih (perkiraan)
+Jenis Asupan dan Output Cairan,11,Output Evaporasi (digunakan dalam perhitungan dokter: ± insensible loss 500–1000 mL/hari)
+Persiapan,1,Cuci tangan dan gunakan sarung tangan bila perlu.
+Persiapan,2,Siapkan formulir balance cairan.
+Persiapan,3,Instruksikan pasien/keluarga untuk mencatat setiap minum/makan cair.
+Pencatatan Asupan,1,Catat semua jenis cairan masuk secara akurat dan berkala (per jam atau per shift).
+Pencatatan Asupan,2,Hitung volume cairan infus dari botol atau flow meter.
+Pencatatan Asupan,3,Ukur dan catat minuman/oral intake menggunakan gelas ukur standar.
+Pencatatan Asupan,4,Dokumentasikan total intake setiap shift dan 24 jam.
+Pencatatan Output,1,Gunakan kantong urin ukur atau ukur dengan gelas ukur.
+Pencatatan Output,2,Catat setiap pengeluaran cairan (urine, muntah, drainase) dengan jelas.
+Pencatatan Output,3,Jika pasien BAB cair atau diare, ukur secara perkiraan dengan pengamatan.
+Pencatatan Output,4,Jumlahkan seluruh output setiap shift dan 24 jam.
+Perhitungan Balance Cairan,1,Balance = Total Intake sampai Total Output
+Perhitungan Balance Cairan,2,Jika hasil positif (+) maka cairan lebih banyak masuk
+Perhitungan Balance Cairan,3,Jika hasil negatif (−) maka cairan lebih banyak keluar
+Perhitungan Balance Cairan,4,Catat total dan selisih pada grafik atau formulir.
+Dokumentasi,1,Waktu pencatatan (per jam/per shift)
+Dokumentasi,2,Jenis dan jumlah cairan masuk/keluar
+Dokumentasi,3,Total intake dan output harian
+Dokumentasi,4,Selisih balance cairan
+Dokumentasi,5,Nama dan tanda tangan petugas
+Evaluasi dan Tindak Lanjut,1,Laporkan segera kepada dokter jika terdapat Balance positif > +1500 mL (risiko overload)
+Evaluasi dan Tindak Lanjut,2,Laporkan segera kepada dokter jika terdapat Balance negatif > -1000 mL (risiko dehidrasi)
+Evaluasi dan Tindak Lanjut,3,Evaluasi kondisi klinis pasien (bengkak, tekanan darah, produksi urin, kesadaran)
+Keselamatan dan Etika,1,Pastikan validasi angka dan jenis cairan
+Keselamatan dan Etika,2,Jangan mengira-ngira volume
+Keselamatan dan Etika,3,Gunakan alat ukur standar
+Keselamatan dan Etika,4,Jaga privasi pasien saat memantau output

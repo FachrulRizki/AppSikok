@@ -1,0 +1,34 @@
+﻿Tipe,Urutan,Nama
+Alat dan Bahan,1,Cairan irigasi steril (NaCl 0,9% atau larutan mata khusus)
+Alat dan Bahan,2,Spuit 10–20 mL atau alat irigasi mata
+Alat dan Bahan,3,Sarung tangan bersih
+Alat dan Bahan,4,Tisu atau kassa steril
+Alat dan Bahan,5,Penahan kelopak (opsional)
+Alat dan Bahan,6,Bengkok/tempat sampah medis
+Alat dan Bahan,7,Perlak dan handuk alas
+Persiapan,1,Cuci tangan, kenakan sarung tangan bersih
+Persiapan,2,Verifikasi identitas pasien dan indikasi irigasi
+Persiapan,3,Jelaskan prosedur kepada pasien untuk mengurangi kecemasan
+Persiapan,4,Dudukkan atau baringkan pasien dengan posisi kepala miring ke sisi mata yang akan diirigasi
+Persiapan,5,Letakkan perlak dan handuk untuk mencegah pakaian basah
+Persiapan,6,Minta pasien menatap ke atas atau ke arah berlawanan dari arah penyemprotan
+Tindakan Irigasi,1,Isi spuit dengan cairan steril
+Tindakan Irigasi,2,Pegang kelopak mata terbuka dengan tangan non-dominan
+Tindakan Irigasi,3,Arahkan semprotan dari arah dalam (kanthus medial) ke luar (kanthus lateral)
+Tindakan Irigasi,4,Irigasi secara perlahan dan hati-hati, ulangi bila perlu
+Tindakan Irigasi,5,Keringkan area sekitar mata dengan tisu atau kassa steril setelah selesai
+Setelah Tindakan,1,Kembalikan pasien ke posisi nyaman
+Setelah Tindakan,2,Evaluasi reaksi pasien (rasa lega, penglihatan membaik atau memburuk)
+Setelah Tindakan,3,Instruksikan pasien untuk tidak mengucek mata
+Setelah Tindakan,4,Cuci tangan kembali
+Dokumentasi,1,Tanggal dan jam irigasi
+Dokumentasi,2,Alasan dan indikasi irigasi
+Dokumentasi,3,Jenis cairan yang digunakan
+Dokumentasi,4,Mata yang diirigasi (kiri, kanan, atau keduanya)
+Dokumentasi,5,Jumlah cairan yang digunakan
+Dokumentasi,6,Respon pasien dan hasil tindakan
+Dokumentasi,7,Tanda tangan petugas
+Etika dan Keselamatan,1,Jaga kebersihan dan sterilisasi alat
+Etika dan Keselamatan,2,Jangan menggunakan air keran biasa
+Etika dan Keselamatan,3,Lakukan dengan tekanan rendah untuk mencegah cedera
+Etika dan Keselamatan,4,Jangan melakukan irigasi berlebihan
