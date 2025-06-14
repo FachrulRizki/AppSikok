@@ -105,10 +105,20 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Insiden</span>
+                                    <span class="hide-menu">Insiden Keselamatan Pasien</span>
                                 </a>
                             </li>
                         @endcan
+
+                        <li class="sidebar-item">
+                            <a href="{{ route('cuci_tangan.create') }}"
+                                class="sidebar-link {{ request()->routeIs('cuci_tangan.*') ? 'active' : '' }}">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Cuci Tangan</span>
+                            </a>
+                        </li>
 
                         @canany(['kuesioner.list', 'kuesioner.buat'])
                             <li class="sidebar-item">
@@ -121,64 +131,6 @@
                                 </a>
                             </li>
                         @endcanany
-                    </ul>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex"><i class="ti ti-gauge"></i></span>
-                        <span class="hide-menu">Data PPI (Dev)</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('cuci_tangan.create') }}"
-                                class="sidebar-link {{ request()->routeIs('cuci_tangan.*') ? 'active' : '' }}">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Cuci Tangan</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Penggunaan APD</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Form Pemeriksaan</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Limbah Infeksius</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Edukasi Pasien/Keluarga</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Pelaporan Kejadian HAIs</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
 
