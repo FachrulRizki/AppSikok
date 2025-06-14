@@ -6,16 +6,18 @@ use App\Http\Controllers\KpcController;
 use App\Http\Controllers\KtcController;
 use App\Http\Controllers\KtdController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\LimaRController;
 use App\Http\Controllers\InsidenController;
 use App\Http\Controllers\RefleksiController;
-use App\Http\Controllers\AktivitasKeperawatanController;
+use App\Http\Controllers\SentinelController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GroupController;
+use App\Http\Controllers\CuciTanganController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SupervisiKepruController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\SentinelController;
 use App\Http\Controllers\KuisonerKepuasanController;
+use App\Http\Controllers\AktivitasKeperawatanController;
 use App\Http\Controllers\MaterialController;
 
 /*
@@ -63,8 +65,12 @@ Route::middleware('auth')->group(function () {
         Route::resource('sentinel', SentinelController::class)->except(['insiden.sentinel.show']);
     });
 
+    Route::resource('LimaR', LimaRController::class)->names('lima_r');
+
     Route::get('kepuasan-pasien/print', [KuisonerKepuasanController::class, 'printPDF'])->name('kuesioner.print');
     Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
+
+    Route::resource('cuci-tangan', CuciTanganController::class)->names('cuci_tangan');
 
     // Materi
     Route::resource('materi', MaterialController::class)->names('materi');

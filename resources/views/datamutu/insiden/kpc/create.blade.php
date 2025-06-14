@@ -90,9 +90,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Temuan Kejadian/Insiden<span class="text-danger">*</span></label>
-                        <textarea name="temuan" class="form-control @error('temuan') is-invalid @enderror" rows="3">
-                            {{ old('temuan', $kpc->temuan ?? '') }}
-                        </textarea>
+                        <textarea name="temuan" class="form-control @error('temuan') is-invalid @enderror" rows="3">{{ old('temuan', $kpc->temuan ?? '') }}</textarea>
                         @error('temuan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -102,9 +100,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Kronologis Insiden<span class="text-danger">*</span></label>
-                        <textarea name="kronologis" class="form-control @error('kronologis') is-invalid @enderror" rows="4">
-                            {{ old('kronologis', $kpc->kronologis ?? '') }}
-                        </textarea>
+                        <textarea name="kronologis" class="form-control @error('kronologis') is-invalid @enderror" rows="4">{{ old('kronologis', $kpc->kronologis ?? '') }}</textarea>
                         @error('kronologis')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
