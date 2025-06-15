@@ -33,7 +33,7 @@ class CreateKtcsTable extends Migration
             $table->string('pelaksana');
             $table->string('nama_inisial');
             $table->string('ruangan_pelapor');
-            $table->json('foto')->nullable();
+            $table->text('foto')->nullable();
             $table->timestamps();
         });
     }

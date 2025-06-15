@@ -27,7 +27,7 @@ class CreateKncsTable extends Migration
             $table->string('pelaksana');
             $table->string('nama_inisial');
             $table->string('ruangan_pelapor');
-            $table->json('foto')->nullable(); // menyimpan array path foto
+            $table->text('foto')->nullable(); // menyimpan array path foto
             $table->timestamps();
         });
     }

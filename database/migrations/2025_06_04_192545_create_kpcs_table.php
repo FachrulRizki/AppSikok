@@ -19,7 +19,7 @@ class CreateKpcsTable extends Migration
             $table->text('tindakan');
             $table->string('pelaksana');
             $table->string('nama_inisial');
-            $table->json('foto')->nullable(); // menyimpan array path foto
+            $table->text('foto')->nullable(); // menyimpan array path foto
             $table->timestamps();
         });
     }

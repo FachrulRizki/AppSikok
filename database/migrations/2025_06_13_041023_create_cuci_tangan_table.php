@@ -18,9 +18,9 @@ class CreateCuciTanganTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('shift');
             $table->dateTime('waktu');
-            $table->json('details')->nullable();
-            $table->json('tasks')->nullable();
-            $table->json('notes')->nullable();
+            $table->text('details')->nullable();
+            $table->text('tasks')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

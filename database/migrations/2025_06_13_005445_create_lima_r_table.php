@@ -17,9 +17,9 @@ class CreateLimaRTable extends Migration
             $table->id();
             $table->timestamp('waktu');
             $table->string('shift');
-            $table->json('dilaksanakan');
-            $table->json('catatan')->nullable();
-            $table->json('foto')->nullable();
+            $table->text('dilaksanakan');
+            $table->text('catatan')->nullable();
+            $table->text('foto')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
