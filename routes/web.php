@@ -10,19 +10,24 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LimaRController;
 use App\Http\Controllers\InsidenController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RefleksiController;
 use App\Http\Controllers\SentinelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CuciTanganController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\KuisonerKepuasanController;
 use App\Http\Controllers\AktivitasKeperawatanController;
+<<<<<<< HEAD
 use App\Http\Controllers\MaterialCommentController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\Quiz\AttemptController;
 use App\Http\Controllers\Quiz\QuestionController;
 use App\Http\Controllers\Quiz\QuizController;
+=======
+>>>>>>> origin/dev_fachrul
 
 /*
 |--------------------------------------------------------------------------
@@ -79,10 +84,17 @@ Route::middleware('auth')->group(function () {
     // Materi
     Route::get('materi/{materi}/komentar', [MaterialController::class, 'loadKomentar'])->name('materi.load_komentar');
     Route::resource('materi', MaterialController::class)->names('materi');
+<<<<<<< HEAD
     Route::resource('comments', MaterialCommentController::class)->names('comments');
 
     // Quiz
     Route::resource('quiz', QuizController::class)->names('quiz');
     Route::resource('question', QuestionController::class)->names('question');
     Route::resource('attempt', AttemptController::class)->names('attempt');
+=======
+
+    //sertifikat
+    Route::resource('unduh-sertifikat', SertifikatController::class)->names('sertifikat');
+    Route::get('/unduh-sertifikat/{sertifikat}/download', [SertifikatController::class, 'download'])->name('sertifikat.download');
+>>>>>>> origin/dev_fachrul
 });
