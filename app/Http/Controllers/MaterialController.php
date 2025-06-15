@@ -19,6 +19,8 @@ class MaterialController extends Controller
 
     public function index(Request $request)
     {
+        if (!auth()->user()->can('materi.list')) return abort(403);
+        
         $data = $this->service->listMaterial($request);
 
         return view('materials.index', [

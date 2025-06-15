@@ -33,7 +33,8 @@
     {{-- Menyisipkan form --}}
     @include('cuci_tangan.form', [
         'route' => route('cuci_tangan.store'),
-        'method' => 'POST'
+        'method' => 'POST',
+        'activities' => $activities
     ])
 </div>
 @endsection

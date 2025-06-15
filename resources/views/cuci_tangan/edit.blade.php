@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Edit Supervisi')
+@section('title', 'Edit Cuci Tangan')
 
 @section('content')
 <div class="container-fluid">
@@ -8,16 +8,16 @@
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8">Edit Supervisi</h4>
+                    <h4 class="fw-semibold mb-8">Edit Cuci Tangan</h4>
                     <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a class="text-muted text-decoration-none" href="{{ route('spv_kepru.index') }}">Supervisi Kepala Ruang</a>
+                                <a class="text-muted text-decoration-none" href="{{ route('cuci_tangan.index') }}">Cuci Tangan</a>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Edit Supervisi</li>
+                            <li class="breadcrumb-item" aria-current="page">Edit Cuci Tangan</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,10 +30,11 @@
         </div>
     </div>
 
-    @include('spv_kepru.form', [
-        'route' => route('spv_kepru.update', $spv_kepru->id),
+    @include('cuci_tangan.form', [
+        'route' => route('cuci_tangan.update', $cuci_tangan->id),
         'method' => 'PUT',
-        'spv_kepru' => $spv_kepru
+        'activitie' => $activities,
+        'cuci_tangan' => $cuci_tangan
     ])
 </div>
 @endsection

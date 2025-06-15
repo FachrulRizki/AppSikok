@@ -31,19 +31,19 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <div class="mb-4">
-                                    <a href="/"
-                                        class="text-nowrap logo-img text-center d-block w-100 mb-2">
+                                    <a href="/" class="text-nowrap logo-img text-center d-block w-100 mb-2">
                                         <img src="{{ asset('assets/images/logos/dark-logo.png') }}" width="180"
                                             class="dark-logo" alt="Logo-Dark" />
                                         <img src="{{ asset('assets/images/logos/light-logo.png') }}" width="180"
                                             class="light-logo" alt="Logo-light" />
                                     </a>
-                                    <p class="text-center mb-0">Sistem Integratif Kompetensi dan Kolaborasi Keperawatan Holistik</p>
+                                    <p class="text-center mb-0">Sistem Integratif Kompetensi dan Kolaborasi Keperawatan
+                                        Holistik</p>
                                 </div>
 
-                                @if ($message = Session::get('error'))
+                                @if (session('error'))
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ session('error') }}</strong>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"
                                             aria-label="Close"></button>
                                     </div>
@@ -53,7 +53,9 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label class="form-label">Username</label>
-                                        <input type="text" class="form-control @error('username') is-invalid @enderror" name="username">
+                                        <input type="text"
+                                            class="form-control @error('username') is-invalid @enderror"
+                                            name="username">
                                         @error('username')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -62,7 +64,9 @@
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Password</label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                                        <input type="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            name="password">
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -71,10 +75,10 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="form-check">
-                                            <input class="form-check-input primary" type="checkbox" value=""
-                                                id="flexCheckChecked" checked>
+                                            <input class="form-check-input primary" type="checkbox"
+                                                id="flexCheckChecked" name="remember">
                                             <label class="form-check-label text-dark" for="flexCheckChecked">
-                                                Remember me
+                                                Ingat saya
                                             </label>
                                         </div>
                                     </div>

@@ -15,12 +15,12 @@ class CreateCuciTanganTable extends Migration
     {
         Schema::create('cuci_tangan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Kepala Ruangan
-            $table->string('ruangan');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('shift');
             $table->dateTime('waktu');
-            $table->json('dilaksanakan')->nullable();
-            $table->json('catatan')->nullable();
+            $table->json('details')->nullable();
+            $table->json('tasks')->nullable();
+            $table->json('notes')->nullable();
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class CreateSertifikatTable extends Migration
     {
         Schema::create('sertifikat', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_file');      // nama yang disimpan di storage
-            $table->string('nama_sertifikat');   // nama saat diupload
+            $table->string('nama_file');
+            $table->string('nama_sertifikat');
             $table->timestamps();
         });
     }

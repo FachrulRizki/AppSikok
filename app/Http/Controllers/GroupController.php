@@ -19,6 +19,8 @@ class GroupController extends Controller
 
     public function index()
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $data = $this->service->listGroup();
 
         return view('group.index', compact('data'));
@@ -26,6 +28,8 @@ class GroupController extends Controller
 
     public function store(GroupRequest $request)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $request->validated();
         $this->service->simpanGroup($request);
 
@@ -34,6 +38,8 @@ class GroupController extends Controller
 
     public function show($id)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $data = $this->service->getGroup($id);
         $permissions = Permission::all();
         return view('group.show', compact('data', 'permissions'));
@@ -41,6 +47,8 @@ class GroupController extends Controller
 
     public function update(Request $request, $id)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $data = $this->service->getGroup($id);
         $this->service->updateGroup($data, $request);
 
@@ -49,6 +57,8 @@ class GroupController extends Controller
 
     public function destroy($id)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+        
         $this->service->hapusGroup($id);
         return redirect()->route('groups.index')->with('success', 'Grup berhasil dihapus');
     }

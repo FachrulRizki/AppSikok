@@ -10,34 +10,23 @@ class AuthController extends Controller
 {
     public function login()
     {
-        if (Auth::check()) {
-            return redirect('/');
-        } else {
-            return view('layouts.login', [
-                'title' => 'Login Page'
-            ]);
-        }
+        return view('layouts.login');
     }
 
     public function authenticate(Request $request)
     {
-
-        // dd($request->all());
-
         $credentials = $request->validate([
-            'username' => ['required', 'string'],
-            'password' => ['required', 'string']
+            'username' => 'required|string',
+            'password' => 'required|string',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->route('dashboard');
         };
 
-        session()->flash('error', 'Gagal Login.');
-
-        return back();
+        return redirect()->back()->with('error', 'Username atau password salah');
     }
 
     public function logout(Request $request)

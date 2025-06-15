@@ -57,23 +57,83 @@ class PermissionSeeder extends Seeder
             Permission::create(['name' => $permission]);
         }
 
-        $insiden = [
+        $insidenPermissions = [
             'insiden.list',
             'insiden.buat',
             'insiden.hapus',
         ];
 
-        foreach ($insiden as $permission) {
+        foreach ($insidenPermissions as $permission) {
             Permission::create(['name' => $permission]);
         }
 
-        $kuesioner = [
+        $kuesionerPermissions = [
             'kuesioner.list',
             'kuesioner.buat',
             'kuesioner.hapus',
         ];
 
-        foreach ($kuesioner as $permission) {
+        foreach ($kuesionerPermissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        $materiPermissions = [
+            'materi.list',
+            'materi.buat',
+        ];
+
+        foreach ($materiPermissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        $kuisPermissions = [
+            'kuis.list',
+            'kuis.buat',
+            'kuis.detail',
+            'kuis.edit',
+            'kuis.hapus',
+            'kuis.mengerjakan',
+        ];
+
+        foreach ($kuisPermissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        $limaRPermissions = [
+            'lima_r.list',
+            'lima_r.buat',
+            'lima_r.edit',
+            'lima_r.hapus',
+            'lima_r.lihat.sendiri',
+            'lima_r.lihat.semua',
+        ];
+
+        foreach ($limaRPermissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        $cuciTanganPermissions = [
+            'cuci_tangan.list',
+            'cuci_tangan.buat',
+            'cuci_tangan.edit',
+            'cuci_tangan.hapus',
+            'cuci_tangan.lihat.sendiri',
+            'cuci_tangan.lihat.semua',
+        ];
+
+        foreach ($cuciTanganPermissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        $unduhSertifikatPermissions = [
+            'unduh_sertifikat.list',
+            'unduh_sertifikat.buat',
+            'unduh_sertifikat.edit',
+            'unduh_sertifikat.hapus',
+            'unduh_sertifikat.download',
+        ];
+
+        foreach ($unduhSertifikatPermissions as $permission) {
             Permission::create(['name' => $permission]);
         }
     }

@@ -9,7 +9,7 @@
                 <div class="row align-items-center">
                     <div class="col-9">
                         <h4 class="fw-semibold mb-8">Data Pengguna</h4>
-                        <nav aria-label="breadcrumb">
+                        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>

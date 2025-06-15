@@ -13,17 +13,18 @@ class CuciTangan extends Model
 
     protected $fillable = [
         'user_id',
-        'ruangan',
         'shift',
         'waktu',
-        'dilaksanakan',
-        'catatan',
+        'details',
+        'tasks',
+        'notes'
     ];
 
     protected $casts = [
         'waktu' => 'datetime',
-        'dilaksanakan' => 'array',
-        'catatan' => 'array',
+        'details' => 'array',
+        'tasks' => 'array',
+        'notes' => 'array',
     ];
 
     public function user()

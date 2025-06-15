@@ -40,47 +40,84 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-3">Detail Cuci Tangan</h4>
-
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <label class="form-label">Tanggal & Waktu</label>
-                                <div class="form-control bg-light">{{ $cuci_tangan->waktu->format('d-m-Y H:i') }} WIB</div>
+                        <div class="row mb-2">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Petugas</label>
+                                <p class="mb-0">{{ $cuci_tangan->user->name }}</p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Unit Kerja</label>
+                                <p class="mb-0">{{ $cuci_tangan->user->unit }}</p>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Tanggal & Waktu</label>
+                                <p class="mb-0">{{ $cuci_tangan->waktu->format('d-m-Y H:i') }} WIB</p>
+                            </div>
+                            <div class="col-md-3 mb-3">
                                 <label class="form-label">Shift</label>
-                                <div class="form-control bg-light">{{ $cuci_tangan->shift }}</div>
+                                <p class="mb-0">{{ $cuci_tangan->shift }}</p>
                             </div>
                         </div>
 
-                        <div class="table-responsive border-top pt-3">
+                        <div class="table-responsive border-top">
                             <table class="table w-100">
                                 <thead>
                                     <tr class="text-nowrap">
-                                        <th>Momen Cuci Tangan</th>
-                                        <th>Sudah Dilaksanakan</th>
+                                        <th>Aktivitas</th>
+                                        <th>Detail Aktivitas</th>
                                         <th>Catatan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php
-                                        $cuciTangan = [
-                                            'Sebelum Menyentuh Pasien',
-                                            'Sebelum Tindakan Aseptik',
-                                            'Setelah Terpapar Cairan Tubuh Pasien',
-                                            'Setelah Menyentuh Pasien',
-                                            'Setelah Menyentuh Lingkungan Sekitar Pasien',
-                                        ];
+                                        $details = is_string($cuci_tangan->details)
+                                            ? json_decode($cuci_tangan->details, true)
+                                            : $cuci_tangan->details ?? [];
+                                        $tasks = is_string($cuci_tangan->tasks)
+                                            ? json_decode($cuci_tangan->tasks, true)
+                                            : $cuci_tangan->tasks ?? [];
+                                        $notes = is_string($cuci_tangan->notes)
+                                            ? json_decode($cuci_tangan->notes, true)
+                                            : $cuci_tangan->notes ?? [];
+
+                                        foreach ($tasks as $detailId => $taskIds) {
+                                            if (!in_array($detailId, $details)) {
+                                                $details[] = $detailId;
+                                            }
+                                        }
                                     @endphp
 
-                                    @foreach ($cuciTangan as $i => $momen)
+                                    @foreach ($activities as $activity)
                                         <tr>
-                                            <td>{{ $momen }}</td>
-                                            <td>
-                                                {{ $cuci_tangan->dilaksanakan[$i] ?? '-' }}
+                                            <td class="align-top">
+                                                {{ $activity['id'] }}. {{ $activity['nama'] }}
                                             </td>
                                             <td>
-                                                {{ $cuci_tangan->catatan[$i] ?? '-' }}
+                                                @foreach ($activity['details'] ?? [] as $detail)
+                                                    @if (in_array($detail['id'], $details))
+                                                        <div class="mb-1">
+                                                            <span>{{ $detail['id'] }}. {{ $detail['nama'] }}</span>
+                                                            <ul class="ms-4 mt-1">
+                                                                @foreach (collect($detail['tasks'] ?? [])->groupBy('tipe') as $tipe => $taskGroup)
+                                                                    <li>
+                                                                        <ul>
+                                                                            @foreach ($taskGroup as $task)
+                                                                                @if (in_array($task['id'], $tasks[$detail['id']] ?? []))
+                                                                                    <li class="mb-1">{{ $task['id'] }}. {{ $task['nama'] }}</li>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td class="align-top">
+                                                <div class="mb-3">
+                                                    <p class="mb-0">{{ $notes[$activity['id']] ?? '-' }}</p>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

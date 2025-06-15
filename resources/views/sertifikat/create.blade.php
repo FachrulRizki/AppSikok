@@ -31,17 +31,21 @@
                 </div>
             </div>
         </div>
-
-        <h1>Unggah Sertifikat</h1>
-
-        <form action="{{ route('sertifikat.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="file_pdf" required>
-            <button type="submit">Unggah</button>
-        </form>
-
-        @error('file_pdf')
-            <p>{{ $message }}</p>
-        @enderror
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ route('sertifikat.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <input type="file" name="file_pdf" class="form-control @error('file_pdf') is-invalid @enderror">
+                        @error('file_pdf')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">Unggah</button>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

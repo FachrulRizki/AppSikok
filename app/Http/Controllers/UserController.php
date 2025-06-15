@@ -19,6 +19,8 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+        
         $data = $this->service->listUser($request);
 
         return view('users.index', compact('data'));
@@ -26,6 +28,8 @@ class UserController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $route = route('users.store');
         $method = 'POST';
         $roles = Role::all();
@@ -35,6 +39,8 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $request->validated();
         $this->service->simpanUser($request);
 
@@ -43,12 +49,16 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $roles = Role::all();
         return view('users.edit', compact('roles', 'user'));
     }
 
     public function update(UserRequest $request, User $user)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $request->validated();
         
         $this->service->updateUser($user, $request);
@@ -58,6 +68,8 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+        
         $this->service->hapusUser($user);
         return redirect()->route('users.index')->with('success', 'Pengguna berhasil dihapus');
     }

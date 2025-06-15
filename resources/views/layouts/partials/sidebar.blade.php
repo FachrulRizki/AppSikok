@@ -83,57 +83,60 @@
                     </li>
                 @endcanany
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex"><i class="ti ti-gauge"></i></span>
-                        <span class="hide-menu">Data Mutu</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('lima_r.index') }}"
-                                class="sidebar-link {{ request()->routeIs('lima_r.*') ? 'active' : '' }}">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Data 5R</span>
-                            </a>
-                        </li>
-
-                        @can('insiden.list')
-                            <li class="sidebar-item">
-                                <a href="{{ route('insiden') }}"
-                                    class="sidebar-link {{ request()->routeIs('insiden.*') ? 'active' : '' }}">
-                                    <div class="round-16 d-flex align-items-center justify-content-center">
-                                        <i class="ti ti-circle"></i>
-                                    </div>
-                                    <span class="hide-menu">Insiden Keselamatan Pasien</span>
-                                </a>
-                            </li>
-                        @endcan
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('cuci_tangan.create') }}"
-                                class="sidebar-link {{ request()->routeIs('cuci_tangan.*') ? 'active' : '' }}">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Cuci Tangan</span>
-                            </a>
-                        </li>
-
-                        @canany(['kuesioner.list', 'kuesioner.buat'])
-                            <li class="sidebar-item">
-                                <a href="{{ auth()->user()->can('kuesioner.list') ? route('kuesioner.index') : route('kuesioner.create') }}"
-                                    class="sidebar-link {{ request()->routeIs('kuesioner.*') ? 'active' : '' }}">
-                                    <div class="round-16 d-flex align-items-center justify-content-center">
-                                        <i class="ti ti-circle"></i>
-                                    </div>
-                                    <span class="hide-menu">Kepuasan Pasien</span>
-                                </a>
-                            </li>
-                        @endcanany
-                    </ul>
-                </li>
+                @canany(['lima_r.list', 'kuesioner.list', 'cuci_tangan.list', 'insiden.list'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <span class="d-flex"><i class="ti ti-gauge"></i></span>
+                            <span class="hide-menu">Data Mutu</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('lima_r.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('lima_r.index') }}"
+                                        class="sidebar-link {{ request()->routeIs('lima_r.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Data 5R</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('insiden.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('insiden') }}"
+                                        class="sidebar-link {{ request()->routeIs('insiden.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Insiden Keselamatan Pasien</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('cuci_tangan.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('cuci_tangan.index') }}"
+                                        class="sidebar-link {{ request()->routeIs('cuci_tangan.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Cuci Tangan</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @canany(['kuesioner.list', 'kuesioner.buat'])
+                                <li class="sidebar-item">
+                                    <a href="{{ auth()->user()->can('kuesioner.list') ? route('kuesioner.index') : route('kuesioner.create') }}"
+                                        class="sidebar-link {{ request()->routeIs('kuesioner.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Kepuasan Pasien</span>
+                                    </a>
+                                </li>
+                            @endcanany
+                        </ul>
+                    </li>
+                @endcanany
 
                 @canany(['kuis.list', 'materi.list'])
                     <li class="sidebar-item">
@@ -144,44 +147,52 @@
                             <span class="hide-menu">Mikrolearning</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
-                            <li class="sidebar-item">
-                                <a href="{{ route('materi.index') }}" class="sidebar-link {{ request()->routeIs('materi.*') ? 'active' : '' }}">
-                                    <div class="round-16 d-flex align-items-center justify-content-center">
-                                        <i class="ti ti-circle"></i>
-                                    </div>
-                                    <span class="hide-menu">Materi</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('quiz.index') }}" class="sidebar-link {{ request()->routeIs('quiz.*') || request()->routeIs('attempt.*') ? 'active' : '' }}">
-                                    <div class="round-16 d-flex align-items-center justify-content-center">
-                                        <i class="ti ti-circle"></i>
-                                    </div>
-                                    <span class="hide-menu">Kuis</span>
-                                </a>
-                            </li>
+                            @can('materi.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('materi.index') }}" class="sidebar-link {{ request()->routeIs('materi.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Materi</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('kuis.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('quiz.index') }}" class="sidebar-link {{ request()->routeIs('quiz.*') || request()->routeIs('attempt.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Kuis</span>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcanany
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-chart-bar"></i>
-                        </span>
-                        <span class="hide-menu">Sertifikat</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('sertifikat.index') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Unduh Sertifikat</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @canany(['unduh_sertifikat.list'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <span class="d-flex">
+                                <i class="ti ti-trophy"></i>
+                            </span>
+                            <span class="hide-menu">Sertifikat</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('unduh_sertifikat.list')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('sertifikat.index') }}" class="sidebar-link {{ request()->routeIs('sertifikat.*') ? 'active' : '' }}">
+                                        <div class="round-16 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-circle"></i>
+                                        </div>
+                                        <span class="hide-menu">Unduh Sertifikat</span>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcanany
 
                 @role('Super Admin')
                     <li class="sidebar-item">
@@ -225,7 +236,7 @@
             </ul>
         </nav>
 
-        <div class="fixed-profile p-3 mx-4 mb-2 bg-secondary-subtle rounded mt-3">
+        <div class="fixed-profile p-3 mx-4 mb-2 bg-primary-subtle rounded mt-3">
             <div class="hstack gap-3">
                 <div class="john-img">
                     <img src="{{ asset('assets/images/profile/user-1.jpg') }}" class="rounded-circle" width="40"

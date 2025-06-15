@@ -18,6 +18,8 @@ class PermissionController extends Controller
 
     public function index(Request $request)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $data = $this->service->listPermission($request);
 
         return view('permission.index', compact('data'));
@@ -25,6 +27,8 @@ class PermissionController extends Controller
 
     public function store(PermissionRequest $request)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $request->validated();
         $this->service->simpanPermission($request);
 
@@ -33,6 +37,8 @@ class PermissionController extends Controller
 
     public function update(PermissionRequest $request, Permission $permission)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+
         $request->validated();
         $this->service->updatePermission($permission, $request);
 
@@ -41,6 +47,8 @@ class PermissionController extends Controller
 
     public function destroy(Permission $permission)
     {
+        if (!auth()->user()->hasRole('Super Admin')) return abort(403);
+        
         $this->service->hapusPermission($permission);
         return redirect()->route('permissions.index')->with('success', 'Permission berhasil dihapus');
     }

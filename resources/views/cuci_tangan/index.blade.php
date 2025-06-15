@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        @can('supervisi_kepru.buat')
+        @can('cuci_tangan.buat')
             <a href="{{ route('cuci_tangan.create') }}" class="btn btn-primary mb-4">Tambah Cuci Tangan</a>
         @endcan
 
@@ -57,10 +57,8 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                @can('supervisi_kepru.lihat.semua')
-                                <th>Nama Perawat</th>
-                                @endcan
-                                <th>Ruangan</th>
+                                <th>Petugas</th>
+                                <th>Unit Kerja</th>
                                 <th>Shift</th>
                                 <th>Tanggal & Waktu</th>
                                 <th class="text-center">Aksi</th>
@@ -70,10 +68,8 @@
                             @forelse ($data as $item)
                                 <tr>
                                     <td class="text-center">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
-                                    @can('supervisi_kepru.lihat.semua')
                                     <td>{{ $item->user->name }}</td>
-                                    @endcan
-                                    <td>{{ $item->ruangan }}</td>
+                                    <td>{{ $item->user->unit }}</td>
                                     <td>{{ $item->shift }}</td>
                                     <td>{{ $item->waktu->format('d-m-Y, H:i') }} WIB</td>
                                     <td>
@@ -82,12 +78,12 @@
                                                 class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                 <i class="ti ti-eye"></i>
                                             </a>
-                                            @can('supervisi_kepru.edit')
+                                            @can('cuci_tangan.edit')
                                                 <a href="{{ route('cuci_tangan.edit', $item->id) }}" class="btn btn-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                     <i class="ti ti-edit"></i>
                                                 </a>
                                             @endcan
-                                            @can('supervisi_kepru.hapus')
+                                            @can('cuci_tangan.hapus')
                                                 <form action="{{ route('cuci_tangan.destroy', $item->id) }}" method="POST"
                                                     onsubmit="return confirm('Yakin hapus?')">
                                                     @csrf

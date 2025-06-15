@@ -20,27 +20,11 @@ use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\KuisonerKepuasanController;
 use App\Http\Controllers\AktivitasKeperawatanController;
-<<<<<<< HEAD
 use App\Http\Controllers\MaterialCommentController;
-use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\Quiz\AttemptController;
 use App\Http\Controllers\Quiz\QuestionController;
 use App\Http\Controllers\Quiz\QuizController;
-=======
->>>>>>> origin/dev_fachrul
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Public route for login
 Route::controller(AuthController::class)->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('/login', 'login')->name('login');
@@ -84,17 +68,14 @@ Route::middleware('auth')->group(function () {
     // Materi
     Route::get('materi/{materi}/komentar', [MaterialController::class, 'loadKomentar'])->name('materi.load_komentar');
     Route::resource('materi', MaterialController::class)->names('materi');
-<<<<<<< HEAD
     Route::resource('comments', MaterialCommentController::class)->names('comments');
 
     // Quiz
     Route::resource('quiz', QuizController::class)->names('quiz');
     Route::resource('question', QuestionController::class)->names('question');
     Route::resource('attempt', AttemptController::class)->names('attempt');
-=======
 
     //sertifikat
     Route::resource('unduh-sertifikat', SertifikatController::class)->names('sertifikat');
     Route::get('/unduh-sertifikat/{sertifikat}/download', [SertifikatController::class, 'download'])->name('sertifikat.download');
->>>>>>> origin/dev_fachrul
 });

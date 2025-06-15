@@ -28,54 +28,86 @@
             </div>
         </div>
 
+        @can('unduh_sertifikat.buat')
+            <a href="{{ route('sertifikat.create') }}" class="btn btn-primary mb-4">Unggah Sertifikat</a>
+        @endcan
+
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
         <div class="card">
             <div class="card-body">
-                <h1>Daftar Sertifikat</h1>
-
-                <form action="{{ route('sertifikat.index') }}" method="GET">
-                    <input type="text" name="search" value="{{ $search ?? '' }}"
-                        placeholder="Cari berdasarkan nama sertifikat">
-                    <button type="submit">Cari</button>
+                <form action="" method="get">
+                    <div class="row border-bottom">
+                        <div class="col-md-4 mb-4">
+                            <div class="form-group">
+                                <label class="form-label">Pencarian</label>
+                                <div class="input-group">
+                                    <input type="search" value="{{ request('search') }}" name="search"
+                                        class="form-control" placeholder="Masukkan kata kunci pencarian">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
-
-                <a href="{{ route('sertifikat.create') }}">Unggah Sertifikat Baru</a>
-
-                <table border="1" cellpadding="10">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama File</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($sertifikat as $item)
+                <div class="table-responsive">
+                    <table class="table w-100 text-nowrap">
+                        <thead>
                             <tr>
-                                <td>{{ $loop->iteration + ($sertifikat->currentPage() - 1) * $sertifikat->perPage() }}</td>
-                                <td>{{ $item->nama_sertifikat }}</td>
-                                <td>
-                                    <a href="{{ route('sertifikat.edit', $item) }}">Edit</a> |
-                                    <a href="{{ route('sertifikat.download', $item) }}">Download</a> |
-                                    <form action="{{ route('sertifikat.destroy', $item) }}" method="POST"
-                                        style="display:inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button onclick="return confirm('Yakin akan dihapus?')">Hapus</button>
-                                    </form>
-                                </td>
+                                <th class="text-center">#</th>
+                                <th>Nama File</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
-                {{ $sertifikat->links() }}
-
-                @if (session('status'))
-                    <p>{{ session('status') }}</p>
+                        </thead>
+                        <tbody>
+                            @forelse ($data as $item)
+                                <tr>
+                                    <td class="text-center">
+                                        {{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}
+                                    </td>
+                                    <td>{{ $item->nama_sertifikat }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            @can('unduh_sertifikat.download')
+                                                <a href="{{ route('sertifikat.download', $item->id) }}" class="btn btn-primary btn-sm"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Download">
+                                                    <i class="ti ti-download"></i>
+                                                </a>
+                                            @endcan
+                                            @can('unduh_sertifikat.edit')
+                                                <a href="{{ route('sertifikat.edit', $item->id) }}" class="btn btn-warning btn-sm"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                    <i class="ti ti-edit"></i>
+                                                </a>
+                                            @endcan
+                                            @can('unduh_sertifikat.hapus')
+                                                <form action="{{ route('sertifikat.destroy', $item->id) }}" method="POST"
+                                                    onsubmit="return confirm('Yakin hapus?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+                                                        <i class="ti ti-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endcan
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td class="text-center" colspan="3">Tidak ada data</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                @if ($data->hasPages())
+                    <div class="mt-2 d-flex justify-content-center">
+                        {{ $data->appends(['search' => request('search')])->links('vendor.pagination.bootstrap-4') }}
+                    </div>
                 @endif
             </div>
         </div>
