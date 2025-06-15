@@ -18,7 +18,11 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\KuisonerKepuasanController;
 use App\Http\Controllers\AktivitasKeperawatanController;
+use App\Http\Controllers\MaterialCommentController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\Quiz\AttemptController;
+use App\Http\Controllers\Quiz\QuestionController;
+use App\Http\Controllers\Quiz\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,5 +77,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('cuci-tangan', CuciTanganController::class)->names('cuci_tangan');
 
     // Materi
+    Route::get('materi/{materi}/komentar', [MaterialController::class, 'loadKomentar'])->name('materi.load_komentar');
     Route::resource('materi', MaterialController::class)->names('materi');
+    Route::resource('comments', MaterialCommentController::class)->names('comments');
+
+    // Quiz
+    Route::resource('quiz', QuizController::class)->names('quiz');
+    Route::resource('question', QuestionController::class)->names('question');
+    Route::resource('attempt', AttemptController::class)->names('attempt');
 });

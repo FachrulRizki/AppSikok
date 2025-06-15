@@ -90,12 +90,12 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="{{ route('lima_r.create') }}"
+                            <a href="{{ route('lima_r.index') }}"
                                 class="sidebar-link {{ request()->routeIs('lima_r.*') ? 'active' : '' }}">
                                 <div class="round-16 d-flex align-items-center justify-content-center">
                                     <i class="ti ti-circle"></i>
                                 </div>
-                                <span class="hide-menu">5R</span>
+                                <span class="hide-menu">Data 5R</span>
                             </a>
                         </li>
 
@@ -135,32 +135,34 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-school"></i>
-                        </span>
-                        <span class="hide-menu">Mikrolearning</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="{{ route('materi.index') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Materi</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="../dark/frontend-landingpage.html" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Kuis</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @canany(['kuis.list', 'materi.list'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <span class="d-flex">
+                                <i class="ti ti-school"></i>
+                            </span>
+                            <span class="hide-menu">Mikrolearning</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{ route('materi.index') }}" class="sidebar-link {{ request()->routeIs('materi.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Materi</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('quiz.index') }}" class="sidebar-link {{ request()->routeIs('quiz.*') || request()->routeIs('attempt.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Kuis</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcanany
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">

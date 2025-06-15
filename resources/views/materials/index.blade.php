@@ -52,66 +52,66 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('materi.create') }}" class="btn btn-primary float-end">Tambah Materi</a>
+                            @can('materi.buat')
+                                <a href="{{ route('materi.create') }}" class="btn btn-primary float-end">Tambah Materi</a>
+                            @endcan
                         </div>
                     </div>
                 </form>
             </div>
         </div>
 
-        {{-- <div class="card">
-            <div class="card-body"> --}}
-                <div class="row">
-                    @forelse ($data as $item)
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card overflow-hidden hover-img">
-                                <div class="position-relative">
-                                    <a href="{{ route('materi.show', $item->id) }}">
-                                        @if ($item->type == 'youtube')
-                                            <img src="{{ asset('assets/images/thumbnail-youtube.jpg') }}" class="card-img-top" alt="materi">
-                                        @else
-                                            <img src="{{ asset('assets/images/thumbnail-pdf.jpg') }}" class="card-img-top" alt="materi">
-                                        @endif
-                                    </a>
-                                    <div class="d-flex gap-2 mt-9 me-9 position-absolute top-0 end-0">
-                                        <a href="{{ route('materi.edit', $item->id) }}" class="btn btn-warning btn-sm"><ti class="ti ti-edit"></ti></a>
-                                        <form action="{{ route('materi.destroy', $item->id) }}" method="post" onsubmit="return confirm('Yakin hapus?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" href="{{ route('materi.destroy', $item->id) }}" class="btn btn-danger btn-sm"><ti class="ti ti-trash"></ti></button>
-                                        </form>
-                                    </div>
-                                    <img src="https://ui-avatars.com/api/?name={{ $item->user->name }}" alt="materi"
-                                        class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-                                        width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-title="{{ $item->user->name }}">
+        <div class="row">
+            @forelse ($data as $item)
+                <div class="col-md-6 col-lg-3">
+                    <div class="card overflow-hidden hover-img">
+                        <div class="position-relative">
+                            <a href="{{ route('materi.show', $item->id) }}">
+                                @if ($item->type == 'youtube')
+                                    <img src="{{ asset('assets/images/thumbnail-youtube.jpg') }}" class="card-img-top" alt="materi">
+                                @else
+                                    <img src="{{ asset('assets/images/thumbnail-pdf.jpg') }}" class="card-img-top" alt="materi">
+                                @endif
+                            </a>
+                            @if (auth()->user()->id == $item->user->id)
+                                <div class="d-flex gap-2 mt-9 me-9 position-absolute top-0 end-0">
+                                    <a href="{{ route('materi.edit', $item->id) }}" class="btn btn-warning btn-sm"><ti class="ti ti-edit"></ti></a>
+                                    <form action="{{ route('materi.destroy', $item->id) }}" method="post" onsubmit="return confirm('Yakin hapus?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" href="{{ route('materi.destroy', $item->id) }}" class="btn btn-danger btn-sm"><ti class="ti ti-trash"></ti></button>
+                                    </form>
                                 </div>
-                                <div class="card-body p-4">
-                                    <a class="d-block my-3 fs-4 text-dark fw-semibold link-primary text-justify"
-                                        href="{{ route('materi.show', $item->id) }}">{{ $item->title }}</a>
-                                    <div class="d-flex align-items-center gap-4">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="ti ti-message-2 text-dark fs-5"></i>{{ $item->comments->count() }}
-                                        </div>
-                                        <div class="d-flex align-items-center fs-2 ms-auto">
-                                            <i class="ti ti-point text-dark"></i>{{ $item->created_at->diffForHumans() }}
-                                        </div>
-                                    </div>
+                            @endif
+                            <img src="https://ui-avatars.com/api/?name={{ $item->user->name }}&background=59A5AA&color=fff" alt="materi"
+                                class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
+                                width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="{{ $item->user->name }}">
+                        </div>
+                        <div class="card-body p-4">
+                            <a class="d-block my-3 fs-4 text-dark fw-semibold link-primary text-justify"
+                                href="{{ route('materi.show', $item->id) }}">{{ $item->title }}</a>
+                            <div class="d-flex align-items-center gap-4">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="ti ti-message-2 text-dark fs-5"></i>{{ $item->comments->count() }}
+                                </div>
+                                <div class="d-flex align-items-center fs-2 ms-auto">
+                                    <i class="ti ti-point text-dark"></i>{{ $item->created_at->diffForHumans() }}
                                 </div>
                             </div>
                         </div>
-                    @empty
-                        <div class="col-md-12">
-                            <div class="alert alert-primary border-0 text-primary mb-0 text-center">Belum ada materi</div>
-                        </div>
-                    @endforelse
-                </div>
-                @if ($data->hasPages())
-                    <div class="mt-2 d-flex justify-content-center">
-                        {{ $data->appends(['search' => request('search'), 'type' => request('type')])->links('vendor.pagination.bootstrap-4') }}
                     </div>
-                @endif
-            {{-- </div>
-        </div> --}}
+                </div>
+            @empty
+                <div class="col-md-12">
+                    <div class="alert alert-primary border-0 text-primary mb-0 text-center">Belum ada materi</div>
+                </div>
+            @endforelse
+        </div>
+        @if ($data->hasPages())
+            <div class="mt-2 d-flex justify-content-center">
+                {{ $data->appends(['search' => request('search'), 'type' => request('type')])->links('vendor.pagination.bootstrap-4') }}
+            </div>
+        @endif
     </div>
 @endsection

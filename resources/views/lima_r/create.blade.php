@@ -15,7 +15,7 @@
                                 <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a class="text-muted text-decoration-none" href="{{ route('lima_r.index') }}">5R</a>
+                                <a class="text-muted text-decoration-none" href="{{ route('lima_r.index') }}">Data 5R</a>
                             </li>
                             <li class="breadcrumb-item" aria-current="page">Tambah 5R</li>
                         </ol>
@@ -30,14 +30,9 @@
         </div>
     </div>
 
-    {{-- Menyisipkan form --}}
-    {{-- @include('spv_kepru.form', [
-        'route' => route('spv_kepru.store'),
+    @include('lima_r.form', [
+        'route' => route('lima_r.store'),
         'method' => 'POST'
-    ]) --}}
-    <form action="{{ route('lima_r.store') }}" method="POST">
-        @csrf
-        @include('lima_r.form')
-    </form>
+    ])
 </div>
 @endsection

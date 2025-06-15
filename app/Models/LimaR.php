@@ -39,7 +39,6 @@ class LimaR extends Model
         });
     }
 
-    // Relasi ke User (jika dibutuhkan)
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -84,7 +84,10 @@
         }
 
         function syncQuillContent() {
-            const quillHtml = quill.root.innerHTML;
+            const quillHtml = quill.root.innerHTML.trim();
+            if (quillHtml === '<p><br></p>' || quillHtml === '<p></p>') {
+                quillHtml = '';
+            }
             document.getElementById('quill-content').value = quillHtml;
             return true;
         }

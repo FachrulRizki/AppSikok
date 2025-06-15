@@ -9,24 +9,32 @@ use Illuminate\Support\Facades\Storage;
 
 class LimaRController extends Controller
 {
-    protected $service;
-
-    public function __construct(LimaRService $service)
+    public function index(Request $request)
     {
-        $this->service = $service;
-    }
+        if (!auth()->user()->can('lima_r.list')) return abort(403);
+        
+        $search = $request->get('search');
 
-    public function index()
-    {
-        // if (!auth()->user()->can('lima_r.list')) return abort(403);
+        $data = LimaR::query();
 
-        $data = LimaR::latest()->paginate(10);
+        if (auth()->user()->can('lima_r.lihat.sendiri')) {
+            $data = $data->where('user_id', auth()->user()->id);
+        }
+
+        if ($search) {
+            $data->whereHas('user', function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            });
+        }
+
+        $data = $data->latest()->paginate(10);
+
         return view('lima_r.index', compact('data'));
     }
 
     public function create()
     {
-        // if (!auth()->user()->can('lima_r.buat')) return abort(403);
+        if (!auth()->user()->can('lima_r.buat')) return abort(403);
 
         return view('lima_r.create', [
             'route' => route('lima_r.store'),
@@ -36,7 +44,7 @@ class LimaRController extends Controller
 
     public function store(Request $request)
     {
-        // if (!auth()->user()->can('lima_r.buat')) return abort(403);
+        if (!auth()->user()->can('lima_r.buat')) return abort(403);
 
         $validated = $request->validate([
             'waktu' => 'required|date',
@@ -61,7 +69,7 @@ class LimaRController extends Controller
             'dilaksanakan' => json_encode($validated['dilaksanakan']),
             'catatan' => json_encode($validated['catatan']),
             'foto' => $fotoPaths,
-            'user_id' => auth()->id(), // jika ingin melacak siapa yang input
+            'user_id' => auth()->id(),
         ]);
 
         return redirect()->route('lima_r.index')->with('success', 'Data 5R berhasil disimpan.');
@@ -73,18 +81,17 @@ class LimaRController extends Controller
         return view('lima_r.show', compact('lima_r'));
     }
 
-    public function destroy(LimaR $lima_r)
+    public function destroy(LimaR $LimaR)
     {
-        // if (!auth()->user()->can('lima_r.hapus')) return abort(403);
+        if (!auth()->user()->can('lima_r.hapus')) return abort(403);
 
-        // Hapus file jika ada
-        if ($lima_r->foto) {
-            foreach ($lima_r->foto as $foto) {
+        if ($LimaR->foto) {
+            foreach ($LimaR->foto as $foto) {
                 Storage::disk('public')->delete($foto);
             }
         }
 
-        $lima_r->delete();
+        $LimaR->delete();
         return redirect()->route('lima_r.index')->with('success', 'Data 5R berhasil dihapus.');
     }
 }

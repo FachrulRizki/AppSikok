@@ -37,6 +37,8 @@ class CuciTanganController extends Controller
             'catatan' => 'nullable|array'
         ]);
 
+        dd($request->all());
+
         $this->service->store($request);
 
         return redirect()->route('cuci_tangan.index')->with('success', 'Data berhasil disimpan.');

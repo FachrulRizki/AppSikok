@@ -16,7 +16,7 @@
                                 </li>
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none"
-                                        href="{{ route('lima_r.index') }}">5R</a>
+                                        href="{{ route('lima_r.index') }}">Data 5R</a>
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">Detail 5R</li>
                             </ol>
@@ -38,25 +38,27 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col">
+                <div class="row mb-2">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Petugas</label>
+                        <p class="mb-0">{{ $lima_r->user->name }}</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Tanggal & Waktu</label>
-                        <input type="datetime-local" class="form-control" value="{{ $lima_r->waktu->format('Y-m-d\TH:i') }}"
-                            readonly>
+                        <p class="mb-0">{{ $lima_r->waktu->format('d-m-Y, H:i') }} WIB</p>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Shift</label>
-                        <input type="text" class="form-control" value="{{ $lima_r->shift }}" readonly>
+                        <p class="mb-0">{{ $lima_r->shift }}</p>
                     </div>
-                </div><br>
-
+                </div>
                 <div class="table-responsive border-top">
-                    <table class="table w-100">
+                    <table class="table w-100 text-nowrap">
                         <thead>
                             <tr class="text-nowrap">
                                 <th>Prinsip 5R</th>
                                 <th>Kegiatan</th>
-                                <th>Sudah Dilaksanakan</th>
+                                <th class="text-center">Sudah Dilaksanakan</th>
                                 <th>Catatan</th>
                             </tr>
                         </thead>
@@ -78,35 +80,32 @@
                                 <tr>
                                     <td>{{ $prinsip }}</td>
                                     <td>{{ $kegiatan[$i] ?? '' }}</td>
-                                    <td>{{ $dilaksanakan[$i] ?? '-' }}</td>
+                                    <td class="text-center">{{ $dilaksanakan[$i] ?? '-' }}</td>
                                     <td>{{ $catatan[$i] ?? '-' }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-
-               <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Lampiran Foto</h4>
-                        <div class="row">
-                            @forelse ($lima_r->foto as $img)
-                                <div class="col-md-3 mb-3">
-                                    <a href="{{ asset('storage/' . $img) }}" target="_blank"
-                                        class="ratio ratio-1x1 overflow-hidden">
-                                        <img src="{{ asset('storage/' . $img) }}" alt="Foto"
-                                            style="cursor: pointer; object-fit: cover;" class="rounded">
-                                    </a>
-                                </div>
-                            @empty
-                                <p class="text-center mb-0">Tidak ada lampiran foto</p>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Lampiran Foto</h4>
+                <div class="row">
+                    @forelse ($lima_r->foto as $img)
+                        <div class="col-md-3 mb-3">
+                            <a href="{{ asset('storage/' . $img) }}" target="_blank"
+                                class="ratio ratio-1x1 overflow-hidden">
+                                <img src="{{ asset('storage/' . $img) }}" alt="Foto"
+                                    style="cursor: pointer; object-fit: cover;" class="rounded">
+                            </a>
+                        </div>
+                    @empty
+                        <p class="text-center mb-0">Tidak ada lampiran foto</p>
+                    @endforelse
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

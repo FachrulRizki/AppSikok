@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLimaRTable extends Migration
+class CreateQuizAttemptsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateLimaRTable extends Migration
      */
     public function up()
     {
-        Schema::create('lima_r', function (Blueprint $table) {
+        Schema::create('quiz_attempts', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('waktu');
-            $table->string('shift');
-            $table->json('dilaksanakan');
-            $table->json('catatan')->nullable();
-            $table->json('foto')->nullable();
+            $table->foreignId('quiz_id')->constrained('quizzes')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('score')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateLimaRTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lima_r');
+        Schema::dropIfExists('quiz_attempts');
     }
 }

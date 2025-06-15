@@ -1,4 +1,4 @@
-<form action="{{ $route }}" method="POST">
+<form action="{{ $route }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if ($method === 'PUT')
         @method('PUT')
@@ -6,8 +6,8 @@
 
     <div class="card">
         <div class="card-body">
-            <div class="row mb-3">
-                <div class="col">
+            <div class="row">
+                <div class="col-md-6 mb-3">
                     <label class="form-label">Tanggal & Waktu</label>
                     <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
                         value="{{ old('waktu', isset($lima_r) ? $lima_r->waktu->format('Y-m-d\TH:i') : '') }}">
@@ -17,7 +17,7 @@
                         </span>
                     @enderror
                 </div>
-                <div class="col">
+                <div class="col-md-6 mb-3">
                     <label class="form-label">Shift</label>
                     <select name="shift" class="form-select @error('shift') is-invalid @enderror">
                         <option value="">Pilih Shift</option>
@@ -36,7 +36,7 @@
             </div><br>
 
             <div class="table-responsive border-top">
-                <table class="table w-100">
+                <table class="table w-100 text-nowrap">
                     <thead>
                         <tr class="text-nowrap">
                             <th>Prinsip 5R</th>
@@ -76,7 +76,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <textarea name="catatan[{{ $i }}]" rows="3" class="form-control" placeholder="Tulis catatan..."></textarea>
+                                    <textarea style="min-width: 200px" name="catatan[{{ $i }}]" rows="3" class="form-control" placeholder="Tulis catatan..."></textarea>
                                 </td>
                             </tr>
                         @endforeach

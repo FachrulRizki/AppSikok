@@ -42,9 +42,9 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
+                            <th>Petugas</th>
                             <th>Shift</th>
                             <th>Tanggal & Waktu</th>
-                            <th>Petugas</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -52,9 +52,9 @@
                         @forelse ($data as $item)
                             <tr>
                                 <td class="text-center">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
-                                <td>{{ $item->shift }}</td>
-                                <td>{{ \Carbon\Carbon::parse($item->waktu)->format('d-m-Y, H:i') }} WIB</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
+                                <td>{{ $item->shift }}</td>
+                                <td>{{ $item->waktu->format('d-m-Y, H:i') }} WIB</td>
                                 <td>
                                     <div class="d-flex gap-2 justify-content-center">
                                         <a href="{{ route('lima_r.show', $item->id) }}"
