@@ -27,6 +27,10 @@
             </div>
         </div>
 
+         @can('kuesioner.buat')
+            <a href="{{ route('kuesioner.create') }}" class="btn btn-primary mb-4">Tambah Kuisoner</a>
+        @endcan
+
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
