@@ -20,7 +20,7 @@ class RefleksiService
         }
         
         if ($search) {
-            $data->where('jdl_kegiatan', 'like', '%' . $search . '%');
+            $data->where('user_id', 'like', '%' . $search . '%');
         }
 
         return $data->latest()->paginate(10);
