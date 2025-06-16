@@ -18,9 +18,14 @@ class RefleksiService
         if (auth()->user()->can('refleksi.lihat.sendiri')) {
             $data = $data->where('user_id', auth()->user()->id);
         }
-        
+
         if ($search) {
-            $data->where('user_id', 'like', '%' . $search . '%');
+            $data->where(function ($query) use ($search) {
+                $query->where('jdl_kegiatan', 'like', '%' . $search . '%')
+                    ->orWhereHas('user', function ($q) use ($search) {
+                        $q->where('name', 'like', '%' . $search . '%');
+                    });
+            });
         }
 
         return $data->latest()->paginate(10);
