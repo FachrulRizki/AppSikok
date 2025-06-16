@@ -15,7 +15,7 @@ class UserService
         $data = User::with('roles');
         
         if ($search) {
-            $data->where('name', 'like', '%' . $search . '%');
+            $data->where('unit', 'like', '%' . $search . '%');
         }
 
         return $data->latest()->paginate(10);;

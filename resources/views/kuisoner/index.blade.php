@@ -20,14 +20,15 @@
                     </div>
                     <div class="col-3">
                         <div class="text-center mb-n5">
-                            <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="modernize-img"
+                                class="img-fluid mb-n4" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-         @can('kuesioner.buat')
+        @can('kuesioner.buat')
             <a href="{{ route('kuesioner.create') }}" class="btn btn-primary mb-4">Tambah Kuisoner</a>
         @endcan
 
@@ -45,14 +46,19 @@
                                 <div class="input-group">
                                     <select name="bulan" class="form-select">
                                         <option value="">Pilih Bulan</option>
-                                        @foreach($availablePeriods as $p)
-                                            <option value="{{ $p->bulan }}" {{ request('bulan') == $p->bulan ? 'selected' : '' }}>{{ \Carbon\Carbon::create()->month($p->bulan)->locale('id')->monthName }}</option>
+                                        @foreach ($availablePeriods as $p)
+                                            <option value="{{ $p->bulan }}"
+                                                {{ request('bulan') == $p->bulan ? 'selected' : '' }}>
+                                                {{ \Carbon\Carbon::create()->month($p->bulan)->locale('id')->monthName }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     <select name="tahun" class="form-select">
                                         <option value="">Pilih Tahun</option>
-                                        @foreach($availablePeriods->unique('tahun') as $p)
-                                            <option value="{{ $p->tahun }}" {{ request('tahun') == $p->tahun ? 'selected' : '' }}>{{ $p->tahun }}</option>
+                                        @foreach ($availablePeriods->unique('tahun') as $p)
+                                            <option value="{{ $p->tahun }}"
+                                                {{ request('tahun') == $p->tahun ? 'selected' : '' }}>{{ $p->tahun }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
@@ -60,7 +66,8 @@
                             </div>
                         </div>
                         <div class="col-md-7 mb-4">
-                            <a href="{{ route('kuesioner.print', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}" class="btn btn-primary float-end"><i class="fa fa-print"></i></a>
+                            <a href="{{ route('kuesioner.print', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}"
+                                class="btn btn-primary float-end"><i class="fa fa-print"></i></a>
                         </div>
                     </div>
                 </form>
@@ -77,19 +84,23 @@
                         <tbody>
                             @forelse ($data as $item)
                                 <tr>
-                                    <td class="text-center">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
+                                    <td class="text-center">
+                                        {{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
                                     <td>{{ $item->waktu_survei->format('d-m-Y') }}</td>
                                     <td>{{ $item->hubungan_pasien }}</td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-center">
-                                            <a href="{{ route('kuesioner.show', $item->id) }}" class="btn btn-warning btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
+                                            <a href="{{ route('kuesioner.show', $item->id) }}"
+                                                class="btn btn-warning btn-sm btn-primary" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Detail">
                                                 <i class="ti ti-eye"></i>
                                             </a>
                                             <form action="{{ route('kuesioner.destroy', $item->id) }}" method="POST"
                                                 onsubmit="return confirm('Yakin hapus?')">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                     <i class="ti ti-trash"></i>
                                                 </button>
                                             </form>
