@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Detail Cuci Tangan')
+@section('title', 'Detail PPI')
 
 @section('content')
     <div class="container-fluid">
@@ -8,7 +8,7 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Detail Cuci Tangan</h4>
+                        <h4 class="fw-semibold mb-8">Detail PPI</h4>
                         <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -18,7 +18,7 @@
                                     <a class="text-muted text-decoration-none" href="{{ route('cuci_tangan.index') }}">Cuci
                                         Tangan</a>
                                 </li>
-                                <li class="breadcrumb-item" aria-current="page">Detail Cuci Tangan</li>
+                                <li class="breadcrumb-item" aria-current="page">Detail PPI</li>
                             </ol>
                         </nav>
                     </div>

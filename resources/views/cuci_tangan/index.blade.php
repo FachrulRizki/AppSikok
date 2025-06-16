@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Cuci Tangan')
+@section('title', 'PPI')
 
 @section('content')
     <div class="container-fluid">
@@ -8,13 +8,13 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Cuci Tangan</h4>
+                        <h4 class="fw-semibold mb-8">PPI</h4>
                         <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                                 </li>
-                                <li class="breadcrumb-item" aria-current="page">Cuci Tangan</li>
+                                <li class="breadcrumb-item" aria-current="page">PPI</li>
                             </ol>
                         </nav>
                     </div>
@@ -28,7 +28,7 @@
         </div>
 
         @can('cuci_tangan.buat')
-            <a href="{{ route('cuci_tangan.create') }}" class="btn btn-primary mb-4">Tambah Cuci Tangan</a>
+            <a href="{{ route('cuci_tangan.create') }}" class="btn btn-primary mb-4">Tambah PPI</a>
         @endcan
 
         @if (session('success'))
