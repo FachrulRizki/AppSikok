@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title', 'KPC')
-    
+
 @section('content')
     <div class="container-fluid">
         <div class="card bg-primary-subtle shadow-none position-relative overflow-hidden mb-4">
@@ -76,10 +76,12 @@
                             @can('insiden.export')
                                 @if (request('triwulan') && request('tahun'))
                                     <a href="{{ route('insiden.kpc.export', ['triwulan' => request('triwulan'), 'tahun' => request('tahun')]) }}"
-                                    class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top" title="Export Excel"><i class="fa fa-print"></i></a>
+                                        class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Export Excel"><i class="fa fa-print"></i></a>
                                 @else
-                                    <button type="button"
-                                    class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-print"></i></button>
+                                    <button type="button" class="btn float-end bg-primary-subtle text-primary"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i
+                                            class="fa fa-print"></i></button>
                                 @endif
                             @endcan
                         </div>
@@ -98,20 +100,27 @@
                         <tbody>
                             @forelse ($kpcs as $kpc)
                                 <tr>
-                                    <td class="text-center">{{ ($kpcs->currentPage() - 1) * $kpcs->perPage() + $loop->iteration }}</td>
+                                    <td class="text-center">
+                                        {{ ($kpcs->currentPage() - 1) * $kpcs->perPage() + $loop->iteration }}</td>
                                     <td>{{ $kpc->temuan }}</td>
                                     <td>{{ $kpc->waktu->format('d-m-Y, H:i') }} WIB</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
-                                            <a href="{{ route('insiden.kpc.show', $kpc->id) }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
-                                                <i class="ti ti-eye"></i>
-                                            </a>
+                                            @can('insiden.view')
+                                                <a href="{{ route('insiden.kpc.show', $kpc->id) }}"
+                                                    class="btn btn-sm btn-primary" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="Detail">
+                                                    <i class="ti ti-eye"></i>
+                                                </a>
+                                            @endcan
                                             @can('insiden.hapus')
                                                 <form action="{{ route('insiden.kpc.destroy', $kpc->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button onclick="return confirm('Yakin ingin menghapus?')"
-                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
+                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Hapus"><i
+                                                            class="ti ti-trash"></i></button>
                                                 </form>
                                             @endcan
                                         </div>
