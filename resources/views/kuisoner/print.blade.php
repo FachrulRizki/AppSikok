@@ -1,8 +1,10 @@
 <div>
     <h2 style="margin-bottom: .8rem">Rekap Bulanan Kuesioner Kepuasan Pasien</h2>
-    <h3 style="margin-top: 0">
-        {{ \Carbon\Carbon::createFromDate(request('tahun'), request('bulan'), 1)->locale('id')->translatedFormat('F Y') }}
-    </h3>
+    @if (request('bulan') && request('tahun'))
+        <h3 style="margin-top: 0">
+            {{ \Carbon\Carbon::createFromDate(request('tahun'), request('bulan'), 1)->locale('id')->translatedFormat('F Y') }}
+        </h3>
+    @endif
 </div>
 <table border="1" cellspacing="0" cellpadding="4" style="width: 100%">
     <thead bgcolor="#D9D9D9">

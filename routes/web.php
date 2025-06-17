@@ -51,10 +51,19 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/mutuinsiden', InsidenController::class)->name('insiden');
     Route::prefix('insiden')->name('insiden.')->group(function () {
+        Route::get('kpc/export', [KpcController::class, 'export'])->name('kpc.export');
         Route::resource('kpc', KpcController::class)->except(['insiden.kpc.show']);
+        
+        Route::get('knc/export', [KncController::class, 'export'])->name('knc.export');
         Route::resource('knc', KncController::class)->except(['insiden.knc.show']);
+        
+        Route::get('ktc/export', [KtcController::class, 'export'])->name('ktc.export');
         Route::resource('ktc', KtcController::class)->except(['insiden.ktc.show']);
+        
+        Route::get('ktd/export', [KtdController::class, 'export'])->name('ktd.export');
         Route::resource('ktd', KtdController::class)->except(['insiden.ktd.show']);
+        
+        Route::get('sentinel/export', [SentinelController::class, 'export'])->name('sentinel.export');
         Route::resource('sentinel', SentinelController::class)->except(['insiden.sentinel.show']);
     });
 

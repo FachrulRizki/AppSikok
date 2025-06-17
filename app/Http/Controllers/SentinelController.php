@@ -2,19 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SentinelExport;
 use App\Services\SentinelService;
 use App\Models\Sentinel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SentinelController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (!auth()->user()->can('insiden.list')) return abort(403);
 
-        $sentinels = Sentinel::latest()->paginate(10);
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
 
-        return view('datamutu.insiden.sentinel.index', compact('sentinels'));
+        $data = Sentinel::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu_insiden', '>=' , $awal)->whereDate('waktu_insiden', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->paginate(10);
+
+        $availablePeriods = DB::table('sentinels')
+            ->selectRaw('YEAR(waktu_insiden) as tahun, QUARTER(waktu_insiden) as triwulan')
+            ->groupBy('tahun', 'triwulan')
+            ->orderBy('tahun', 'desc')
+            ->orderBy('triwulan', 'desc')
+            ->get();
+
+        return view('datamutu.insiden.sentinel.index', [
+            'sentinels' => $data,
+            'availablePeriods' => $availablePeriods
+        ]);
     }
 
     public function create()
@@ -95,5 +120,25 @@ class SentinelController extends Controller
 
         $sentinel->delete();
         return redirect()->route('insiden.sentinel.index')->with('success', 'Data sentinel berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('insiden.export')) return abort(403);
+
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
+
+        $data = Sentinel::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu_insiden', '>=' , $awal)->whereDate('waktu_insiden', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->get();
+
+        return Excel::download(new SentinelExport($data), 'Sentinel-' . $triwulan . '-' . $tahun . '.xlsx');
     }
 }

@@ -15,64 +15,93 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $start = $request->get('start');
+        $end = $request->get('end');
+
+        $dates = [];
+        if ($start && $end) {
+            $dates = [$start, $end];
+        } else {
+            $dates = [date('Y-m-d'), date('Y-m-d')];
+        }
+
         $perawat = User::whereHas('roles', fn($q) => $q->where('name', 'perawat'))
             ->with(['aktivitasKeperawatan', 'refleksiHarian'])
             ->get();
 
-        // Leaderboard Perawat
-        $topPerawat = $perawat
-            ->map(function ($user) {
-                $avgAktivitas = $user->aktivitasKeperawatan->where('nilai', '>', 0)->avg('nilai') ?? 0;
-                $avgRefleksi = $user->refleksiHarian->where('nilai', '>', 0)->avg('nilai') ?? 0;
+        return view('dashboard', [
+            'topPerawat' => $this->topPerawat($perawat, $dates),
+            'avgPersenAktivitas' => $this->capaian($perawat, $dates)[0],
+            'avgPersenRefleksi' => $this->capaian($perawat, $dates)[1],
+            'chartInsidenData' => $this->chartInsiden($dates),
+            'kepuasanPelanggan' => $this->chartIKMHarian($dates)
+        ]);
+    }
+
+    private function capaian($perawat, $dates)
+    {
+        $avgPersenAktivitas = round($perawat->avg(fn($u) => $u->aktivitasKeperawatan()->
+            where('nilai', '>', 0)->
+            whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])->
+            avg('nilai') ?? 0), 2);
+        $avgPersenRefleksi  = round($perawat->avg(fn($u) => $u->refleksiHarian()->
+            where('nilai', '>', 0)->
+            whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])->
+            avg('nilai') ?? 0), 2);
+
+        return [$avgPersenAktivitas, $avgPersenRefleksi];
+    }
+
+    private function chartInsiden($dates)
+    {
+        $kncCount = Knc::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
+        $ktcCount = Ktc::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
+        $ktdCount = Ktd::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
+        $kpcCount = Kpc::whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])->count();
+        $sentinelCount = Sentinel::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
+
+        return [
+            'labels' => ['KNC', 'KTC', 'KTD', 'KPC', 'Sentinel'],
+            'data' => [$kncCount, $ktcCount, $ktdCount, $kpcCount, $sentinelCount],
+        ];
+    }
+
+    private function topPerawat($perawat, $dates)
+    {
+        return $perawat
+            ->map(function ($user) use ($dates) {
+                $avgAktivitas = $user->aktivitasKeperawatan()->
+                    where('nilai', '>', 0)->
+                    whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])->
+                    avg('nilai') ?? 0;
+                $avgRefleksi = $user->refleksiHarian()->
+                    where('nilai', '>', 0)->
+                    whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])->
+                    avg('nilai') ?? 0;
 
                 $nilai = collect([$avgAktivitas, $avgRefleksi])->filter();
                 $score = $nilai->isNotEmpty() ? $nilai->avg() : 0;
 
                 return [
                     'user' => $user,
-                    'score' => $score,
+                    'score' => round($score, 2),
                     'avgAktivitas' => round($avgAktivitas, 2),
                     'avgRefleksi' => round($avgRefleksi, 2),
                 ];
             })
             ->sortByDesc('score')
             ->take(5);
-
-        // Rata-rata persentase aktivitas dan refleksi
-        $avgPersenAktivitas = round($perawat->avg(fn($u) => $u->aktivitasKeperawatan->where('nilai', '>', 0)->avg('nilai') ?? 0), 2);
-        $avgPersenRefleksi  = round($perawat->avg(fn($u) => $u->refleksiHarian->where('nilai', '>', 0)->avg('nilai') ?? 0), 2);
-
-        // Chart Insiden
-        $kncCount = Knc::count();
-        $ktcCount = Ktc::count();
-        $ktdCount = Ktd::count();
-        $kpcCount = Kpc::count();
-        $sentinelCount = Sentinel::count();
-
-        $chartInsidenData = [
-            'labels' => ['KNC', 'KTC', 'KTD', 'KPC', 'Sentinel'],
-            'data' => [$kncCount, $ktcCount, $ktdCount, $kpcCount, $sentinelCount],
-        ];
-
-        // Chart kepuasan pasien
-        $kepuasanPelanggan = $this->chartIKMHarian();
-
-        return view('dashboard', compact(
-            'topPerawat',
-            'avgPersenAktivitas',
-            'avgPersenRefleksi',
-            'chartInsidenData',
-            'kepuasanPelanggan'
-        ));
     }
 
-    private function chartIKMHarian()
+    private function chartIKMHarian($dates)
     {
-        $today = Carbon::today();
+        $kuisionerHariIni = KuisonerKepuasan::
+            whereDate('waktu_survei', '>=', $dates[0])->
+            whereDate('waktu_survei', '<=', $dates[1])->
+            get();
 
-        $kuisionerHariIni = KuisonerKepuasan::whereDate('waktu_survei', $today)->get();
         $jumlah = $kuisionerHariIni->count();
 
         $nrr = [];
@@ -84,7 +113,7 @@ class DashboardController extends Controller
             if ($jumlah != 0) {
                 $nilaiRata = $totalNilai / $jumlah;
             } else {
-                $nilaiRata = 0; // atau null tergantung kebutuhan
+                $nilaiRata = 0;
             }
 
             $nrr[] = round($nilaiRata, 2);

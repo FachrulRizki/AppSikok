@@ -2,18 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KpcExport;
 use Illuminate\Http\Request;
 use App\Models\Kpc;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KpcController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (!auth()->user()->can('insiden.list')) return abort(403);
 
-        $kpcs = Kpc::latest()->paginate(10);
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
+
+        $data = Kpc::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu', '>=' , $awal)->whereDate('waktu', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->paginate(10);
+
+        $availablePeriods = DB::table('kpcs')
+            ->selectRaw('YEAR(waktu) as tahun, QUARTER(waktu) as triwulan')
+            ->groupBy('tahun', 'triwulan')
+            ->orderBy('tahun', 'desc')
+            ->orderBy('triwulan', 'desc')
+            ->get();
         
-        return view('datamutu.insiden.kpc.index', compact('kpcs'));
+        return view('datamutu.insiden.kpc.index', [
+            'kpcs' => $data,
+            'availablePeriods' => $availablePeriods
+        ]);
     }
 
     public function create()
@@ -78,5 +103,25 @@ class KpcController extends Controller
         $kpc = Kpc::findOrFail($id);
         $kpc->delete();
         return redirect()->route('insiden.kpc.index')->with('success', 'Data Insiden KPC berhasil dihapus');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('insiden.export')) return abort(403);
+
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
+
+        $data = Kpc::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu', '>=' , $awal)->whereDate('waktu', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->get();
+
+        return Excel::download(new KpcExport($data), 'KPC-' . $triwulan . '-' . $tahun . '.xlsx');
     }
 }

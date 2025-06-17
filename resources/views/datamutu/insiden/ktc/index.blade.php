@@ -44,6 +44,46 @@
 
         <div class="card">
             <div class="card-body">
+                <form action="" method="get">
+                    <div class="row border-bottom align-items-end">
+                        <div class="col-md-5 mb-4">
+                            <div class="form-group">
+                                <label class="form-label">Filter Triwulan</label>
+                                <div class="input-group">
+                                    <select name="triwulan" class="form-select">
+                                        <option value="">Pilih Triwulan</option>
+                                        @foreach ($availablePeriods as $p)
+                                            <option value="{{ $p->triwulan }}"
+                                                {{ request('triwulan') == $p->triwulan ? 'selected' : '' }}>
+                                                {{ $p->triwulan }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <select name="tahun" class="form-select">
+                                        <option value="">Pilih Tahun</option>
+                                        @foreach ($availablePeriods->unique('tahun') as $p)
+                                            <option value="{{ $p->tahun }}"
+                                                {{ request('tahun') == $p->tahun ? 'selected' : '' }}>{{ $p->tahun }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 mb-4">
+                            @can('insiden.export')
+                                @if (request('triwulan') && request('tahun'))
+                                    <a href="{{ route('insiden.ktc.export', ['triwulan' => request('triwulan'), 'tahun' => request('tahun')]) }}"
+                                    class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top" title="Export Excel"><i class="fa fa-print"></i></a>
+                                @else
+                                    <button type="button"
+                                    class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-print"></i></button>
+                                @endif
+                            @endcan
+                        </div>
+                    </div>
+                </form>
                 <div class="table-responsive">
                     <table class="table w-100 text-nowrap">
                         <thead>
@@ -90,7 +130,7 @@
                 </div>
                 @if ($ktcs->hasPages())
                     <div class="mt-2 d-flex justify-content-center">
-                        {{ $ktcs->appends(['search' => request('search')])->links('vendor.pagination.bootstrap-4') }}
+                        {{ $kpcs->appends(['triwulan' => request('triwulan'), 'tahun' => request('tahun')])->links('vendor.pagination.bootstrap-4') }}
                     </div>
                 @endif
             </div>

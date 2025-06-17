@@ -283,7 +283,12 @@
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Ruangan Pelapor<span class="text-danger">*</span></label>
-                            <input type="text" name="ruangan_pelapor" class="form-control @error('ruangan_pelapor') is-invalid @enderror" value="{{ old('ruangan_pelapor', $knc->ruangan_pelapor ?? '') }}">
+                            <select name="ruangan_pelapor" class="form-select @error('ruangan_pelapor') is-invalid @enderror">
+                                <option value="">Pilih Ruangan</option>
+                                @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU'] as $r)
+                                    <option value="{{ $r }}" {{ old('ruangan_pelapor', $knc->ruangan_pelapor ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
+                                @endforeach
+                            </select>
                             @error('ruangan_pelapor')
                                 <div class="invalid-feedback">
                                     {{ $message }}

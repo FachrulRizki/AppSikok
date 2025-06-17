@@ -2,18 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KncExport;
 use Illuminate\Http\Request;
 use App\Models\Knc;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KncController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (!auth()->user()->can('insiden.list')) return abort(403);
 
-        $kncs = Knc::latest()->paginate(10);
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
+
+        $data = Knc::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu_insiden', '>=' , $awal)->whereDate('waktu_insiden', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->paginate(10);
+
+        $availablePeriods = DB::table('kncs')
+            ->selectRaw('YEAR(waktu_insiden) as tahun, QUARTER(waktu_insiden) as triwulan')
+            ->groupBy('tahun', 'triwulan')
+            ->orderBy('tahun', 'desc')
+            ->orderBy('triwulan', 'desc')
+            ->get();
         
-        return view('datamutu.insiden.knc.index', compact('kncs'));
+        return view('datamutu.insiden.knc.index', [
+            'kncs' => $data,
+            'availablePeriods' => $availablePeriods
+        ]);
     }
 
     public function create()
@@ -94,5 +119,25 @@ class KncController extends Controller
         $knc = knc::findOrFail($id);
         $knc->delete();
         return redirect()->route('insiden.knc.index')->with('success', 'Data Laporan KNC berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('insiden.export')) return abort(403);
+
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
+
+        $data = Knc::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu_insiden', '>=' , $awal)->whereDate('waktu_insiden', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->get();
+
+        return Excel::download(new KncExport($data), 'KNC-' . $triwulan . '-' . $tahun . '.xlsx');
     }
 }

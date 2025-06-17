@@ -77,8 +77,12 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Ruangan Pelapor<span class="text-danger">*</span></label>
-                            <input type="text" name="ruangan" class="form-control @error('ruangan') is-invalid @enderror"
-                                value="{{ old('ruangan', $kpc->ruangan ?? '') }}">
+                            <select name="ruangan" class="form-select @error('ruangan') is-invalid @enderror">
+                                <option value="">Pilih Ruangan</option>
+                                @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU'] as $r)
+                                    <option value="{{ $r }}" {{ old('ruangan', $kpc->ruangan ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
+                                @endforeach
+                            </select>
                             @error('ruangan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

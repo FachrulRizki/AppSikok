@@ -2,19 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KtcExport;
 use App\Services\KtcService;
 use App\Models\Ktc;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KtcController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (!auth()->user()->can('insiden.list')) return abort(403);
 
-        $ktcs = Ktc::latest()->paginate(10);
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
 
-        return view('datamutu.insiden.ktc.index', compact('ktcs'));
+        $data = Ktc::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu_insiden', '>=' , $awal)->whereDate('waktu_insiden', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->paginate(10);
+
+        $availablePeriods = DB::table('ktcs')
+            ->selectRaw('YEAR(waktu_insiden) as tahun, QUARTER(waktu_insiden) as triwulan')
+            ->groupBy('tahun', 'triwulan')
+            ->orderBy('tahun', 'desc')
+            ->orderBy('triwulan', 'desc')
+            ->get();
+
+        return view('datamutu.insiden.ktc.index', [
+            'ktcs' => $data,
+            'availablePeriods' => $availablePeriods
+        ]);
     }
 
     public function create()
@@ -96,5 +121,25 @@ class KtcController extends Controller
         $ktc = ktc::findOrFail($id);
         $ktc->delete();
         return redirect()->route('insiden.ktc.index')->with('success', 'Data Laporan KTC berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('insiden.export')) return abort(403);
+
+        $triwulan = $request->get('triwulan');
+        $tahun = $request->get('tahun');
+
+        $data = Ktc::query();
+
+        if ($triwulan && $tahun) {
+            $awal = Carbon::create($tahun, $triwulan * 3 - 2, 1);
+            $akhir = Carbon::create($tahun, $triwulan * 3, 30)->endOfMonth();
+            $data = $data->whereDate('waktu_insiden', '>=' , $awal)->whereDate('waktu_insiden', '<=' , $akhir);
+        }
+
+        $data = $data->latest()->get();
+
+        return Excel::download(new KtcExport($data), 'KTC-' . $triwulan . '-' . $tahun . '.xlsx');
     }
 }

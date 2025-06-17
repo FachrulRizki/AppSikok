@@ -334,10 +334,13 @@
                             @enderror
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Ruangan Pelapor *</label>
-                            <input type="text" name="ruangan_pelapor"
-                                class="form-control @error('ruangan_pelapor') is-invalid @enderror"
-                                value="{{ old('ruangan_pelapor', $sentinel->ruangan_pelapor ?? '') }}">
+                            <label class="form-label">Ruangan Pelapor<span class="text-danger">*</span></label>
+                            <select name="ruangan_pelapor" class="form-select @error('ruangan_pelapor') is-invalid @enderror">
+                                <option value="">Pilih Ruangan</option>
+                                @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU'] as $r)
+                                    <option value="{{ $r }}" {{ old('ruangan_pelapor', $sentinel->ruangan_pelapor ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
+                                @endforeach
+                            </select>
                             @error('ruangan_pelapor')
                                 <div class="invalid-feedback">
                                     {{ $message }}

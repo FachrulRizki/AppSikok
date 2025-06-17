@@ -54,8 +54,8 @@
                             <div class="form-group">
                                 <label class="form-label">Filter Tanggal</label>
                                 <div class="input-group">
-                                    <input type="date" value="{{ request('start') }}" name="start" class="form-control">
-                                    <input type="date" value="{{ request('end') }}" name="end" class="form-control">
+                                    <input type="text" value="{{ request('start') }}" name="start" class="form-control" placeholder="Dari tanggal" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    <input type="text" value="{{ request('end') }}" name="end" class="form-control" placeholder="Sampai tanggal" onfocus="(this.type='date')" onblur="(this.type='text')">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
                                 </div>
                             </div>
