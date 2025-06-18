@@ -10,6 +10,8 @@ class RefleksiService
     public function listRefleksi($request)
     {
         $search = $request->get('search');
+        $start = $request->get('start');
+        $end = $request->get('end');
 
         $data = Refleksi::select(
             'id','waktu', 'jdl_kegiatan', 'approvement', 'nilai', 'user_id'
@@ -26,6 +28,10 @@ class RefleksiService
                         $q->where('name', 'like', '%' . $search . '%');
                     });
             });
+        }
+
+        if ($start && $end) {
+            $data = $data->whereDate('waktu', '>=', $start)->whereDate('waktu', '<=', $end);
         }
 
         return $data->latest()->paginate(10);

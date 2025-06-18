@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AktivitasKeperawatanRequest;
 use App\Models\Activity;
-use App\Models\ActivityDetail;
-use App\Models\ActivityTask;
 use Illuminate\Http\Request;
 use App\Models\AktivitasKeperawatan;
-use Illuminate\Support\Facades\Auth;
 use App\Services\AktivitasKeperawatanService;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Validation\ValidationException;
 
 class AktivitasKeperawatanController extends Controller
@@ -138,6 +137,32 @@ class AktivitasKeperawatanController extends Controller
         $this->service->updateNilai($aktivitas_keperawatan, $request);
 
         return redirect()->route('aktivitas_keperawatan.show', $aktivitas_keperawatan->id)->with('success', 'Nilai berhasil diperbarui');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('aktivitas_keperawatan.export')) return abort(403);
+
+        $start = $request->get('start');
+        $end = $request->get('end');
+
+        if ($start && $end) {
+            $data = AktivitasKeperawatan::
+                whereDate('waktu', '>=' , $start)
+                ->whereDate('waktu', '<=' , $end)
+                ->latest()
+                ->get();
+
+            $start_date = Carbon::parse($start)->locale('id')->translatedFormat('d F Y');
+            $end_date = Carbon::parse($end)->locale('id')->translatedFormat('d F Y');
+
+            // return view('aktivitas_keperawatan.export', compact('data'));
+            $pdf = Pdf::loadView('aktivitas_keperawatan.export', compact('data'))->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+            ]);
+            return $pdf->download('Aktivitas Keperawatan - '.$start_date.' - '.$end_date.'.pdf');
+        }
     }
 }
 

@@ -38,7 +38,7 @@
         <div class="card">
             <div class="card-body">
                 <form action="" method="get">
-                    <div class="row border-bottom">
+                    <div class="row border-bottom align-items-end">
                         @can('aktivitas_keperawatan.lihat.semua')
                         <div class="col-md-3 mb-4">
                             <div class="form-group">
@@ -59,6 +59,17 @@
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            @can('aktivitas_keperawatan.export')
+                                @if (request('start') && request('end'))
+                                    <a href="{{ route('aktivitas_keperawatan.export', ['start' => request('start'), 'end' => request('end')]) }}"
+                                    class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top" title="Export PDF"><i class="fa fa-download"></i></a>
+                                @else
+                                    <button type="button"
+                                    class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-download"></i></button>
+                                @endif
+                            @endcan
                         </div>
                     </div>
                 </form>

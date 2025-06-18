@@ -6,6 +6,8 @@ use App\Http\Requests\SpvKepruRequest;
 use App\Models\SpvKepru;
 use Illuminate\Http\Request;
 use App\Services\SpvKepruService;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class SupervisiKepruController extends Controller
@@ -80,5 +82,34 @@ class SupervisiKepruController extends Controller
 
         $this->service->delete($spv_kepru);
         return redirect()->route('spv_kepru.index')->with('success', 'Supervisi berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('supervisi_kepru.export')) return abort(403);
+
+        $start = $request->get('start');
+        $end = $request->get('end');
+
+        if ($start && $end) {
+            $data = SpvKepru::
+                select('waktu', 'ruangan', 'user_id', 'shift', 'aktivitas', 'observasi', 'perbaikan')
+                ->with('user')
+                ->whereDate('waktu', '>=' , $start)
+                ->whereDate('waktu', '<=' , $end)
+                ->latest()
+                ->get();
+
+            $start_date = Carbon::parse($start)->locale('id')->translatedFormat('d F Y');
+            $end_date = Carbon::parse($end)->locale('id')->translatedFormat('d F Y');
+
+            // return view('spv_kepru.export', compact('data'));
+
+            $pdf = Pdf::loadView('spv_kepru.export', compact('data'))->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+            ])->setPaper('legal', 'landscape');
+            return $pdf->download('Supervisi Kepala Ruang - '.$start_date.' - '.$end_date.'.pdf');
+        }
     }
 }
