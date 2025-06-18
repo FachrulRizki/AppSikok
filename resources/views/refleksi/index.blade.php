@@ -55,7 +55,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Judul Kegiatan</th>
+                                <th>Jenis Kegiatan</th>
                                 <th>Tanggal & Waktu</th>
                                 @can('refleksi.lihat.semua')
                                 <th>Nama Peserta</th>
