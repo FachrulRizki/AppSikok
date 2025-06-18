@@ -18,7 +18,8 @@
                                     <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a class="text-muted text-decoration-none" href="{{ route('insiden') }}">Insiden Keselamatan Pasien</a>
+                                    <a class="text-muted text-decoration-none" href="{{ route('insiden') }}">Insiden
+                                        Keselamatan Pasien</a>
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">KNC</li>
                             </ol>
@@ -75,10 +76,12 @@
                             @can('insiden.export')
                                 @if (request('triwulan') && request('tahun'))
                                     <a href="{{ route('insiden.knc.export', ['triwulan' => request('triwulan'), 'tahun' => request('tahun')]) }}"
-                                    class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top" title="Export Excel"><i class="fa fa-print"></i></a>
+                                        class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Export Excel"><i class="fa fa-print"></i></a>
                                 @else
-                                    <button type="button"
-                                    class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-print"></i></button>
+                                    <button type="button" class="btn float-end bg-primary-subtle text-primary"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i
+                                            class="fa fa-print"></i></button>
                                 @endif
                             @endcan
                         </div>
@@ -99,22 +102,31 @@
                         <tbody>
                             @forelse ($kncs as $knc)
                                 <tr>
-                                    <td class="text-center">{{ ($kncs->currentPage() - 1) * $kncs->perPage() + $loop->iteration }}</td>
+                                    <td class="text-center">
+                                        {{ ($kncs->currentPage() - 1) * $kncs->perPage() + $loop->iteration }}</td>
                                     <td>{{ $knc->nama_pasien }}</td>
                                     <td>{{ $knc->no_rm }}</td>
-                                    <td>{{ $knc->waktu_mskrs ? $knc->waktu_mskrs->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
-                                    <td>{{ $knc->waktu_insiden ? $knc->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
+                                    <td>{{ $knc->waktu_mskrs ? $knc->waktu_mskrs->format('d-m-Y, H:i') . ' WIB' : '-' }}
+                                    </td>
+                                    <td>{{ $knc->waktu_insiden ? $knc->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}
+                                    </td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
-                                            <a href="{{ route('insiden.knc.show', $knc->id) }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
-                                                <i class="ti ti-eye"></i>
-                                            </a>
+                                            @can('insiden.view')
+                                                <a href="{{ route('insiden.knc.show', $knc->id) }}"
+                                                    class="btn btn-sm btn-primary" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="Detail">
+                                                    <i class="ti ti-eye"></i>
+                                                </a>
+                                            @endcan
                                             @can('insiden.hapus')
                                                 <form action="{{ route('insiden.knc.destroy', $knc->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button onclick="return confirm('Yakin ingin menghapus?')"
-                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
+                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Hapus"><i
+                                                            class="ti ti-trash"></i></button>
                                                 </form>
                                             @endcan
                                         </div>

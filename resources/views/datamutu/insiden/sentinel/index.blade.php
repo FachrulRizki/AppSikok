@@ -76,10 +76,12 @@
                             @can('insiden.export')
                                 @if (request('triwulan') && request('tahun'))
                                     <a href="{{ route('insiden.sentinel.export', ['triwulan' => request('triwulan'), 'tahun' => request('tahun')]) }}"
-                                    class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top" title="Export Excel"><i class="fa fa-print"></i></a>
+                                        class="btn btn-primary float-end" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Export Excel"><i class="fa fa-print"></i></a>
                                 @else
-                                    <button type="button"
-                                    class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-print"></i></button>
+                                    <button type="button" class="btn float-end bg-primary-subtle text-primary"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i
+                                            class="fa fa-print"></i></button>
                                 @endif
                             @endcan
                         </div>
@@ -100,22 +102,33 @@
                         <tbody>
                             @forelse ($sentinels as $sentinel)
                                 <tr>
-                                    <td class="text-center">{{ ($sentinels->currentPage() - 1) * $sentinels->perPage() + $loop->iteration }}</td>
+                                    <td class="text-center">
+                                        {{ ($sentinels->currentPage() - 1) * $sentinels->perPage() + $loop->iteration }}
+                                    </td>
                                     <td>{{ $sentinel->nama_pasien }}</td>
                                     <td>{{ $sentinel->no_rm }}</td>
-                                    <td>{{ $sentinel->waktu_mskrs ? $sentinel->waktu_mskrs->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
-                                    <td>{{ $sentinel->waktu_insiden ? $sentinel->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
+                                    <td>{{ $sentinel->waktu_mskrs ? $sentinel->waktu_mskrs->format('d-m-Y, H:i') . ' WIB' : '-' }}
+                                    </td>
+                                    <td>{{ $sentinel->waktu_insiden ? $sentinel->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}
+                                    </td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
-                                            <a href="{{ route('insiden.sentinel.show', $sentinel->id) }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
-                                                <i class="ti ti-eye"></i>
-                                            </a>
+                                            @can('insiden.view')
+                                                <a href="{{ route('insiden.sentinel.show', $sentinel->id) }}"
+                                                    class="btn btn-sm btn-primary" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="Detail">
+                                                    <i class="ti ti-eye"></i>
+                                                </a>
+                                            @endcan
                                             @can('insiden.hapus')
-                                                <form action="{{ route('insiden.sentinel.destroy', $sentinel->id) }}" method="POST">
+                                                <form action="{{ route('insiden.sentinel.destroy', $sentinel->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button onclick="return confirm('Yakin ingin menghapus?')"
-                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="ti ti-trash"></i></button>
+                                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Hapus"><i
+                                                            class="ti ti-trash"></i></button>
                                                 </form>
                                             @endcan
                                         </div>
