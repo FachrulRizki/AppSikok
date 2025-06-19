@@ -341,7 +341,7 @@
                                     <option value="{{ $r }}" {{ old('ruangan_pelapor', $sentinel->ruangan_pelapor ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
                                 @endforeach
                             </select>
-                            @error('ruangan_pelapor')
+                        @error('ruangan_pelapor')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
