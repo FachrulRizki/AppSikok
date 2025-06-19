@@ -8,21 +8,35 @@
             <div class="row mb-3">
                 <div class="col">
                     <label class="form-label">Tanggal & Waktu</label>
-                    <input type="datetime-local" name="waktu" class="form-control"
+                    <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
                         value="{{ old('waktu', isset($spv_kepru) ? $spv_kepru->waktu->format('Y-m-d\TH:i') : '') }}">
+                    @error('waktu')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="col">
                     <label class="form-label">Ruangan</label>
-                    <input type="text" name="ruangan" class="form-control"
-                        value="{{ old('ruangan', $spv_kepru->ruangan ?? '') }}">
+                    <select name="ruangan" class="form-select @error('ruangan') is-invalid @enderror">
+                        <option value="">Pilih Ruangan</option>
+                        @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU'] as $r)
+                            <option value="{{ $r }}" {{ old('ruangan', $spv_kepru->ruangan ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
+                        @endforeach
+                    </select>
+                    @error('ruangan')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col">
                     <label class="form-label">Shift</label>
-                    <select name="shift" class="form-select">
+                    <select name="shift" class="form-select @error('shift') is-invalid @enderror">
                         <option value="">Pilih Shift</option>
                         @foreach (['Pagi', 'Sore', 'Malam'] as $s)
                             <option value="{{ $s }}"
@@ -30,6 +44,11 @@
                                 {{ $s }}</option>
                         @endforeach
                     </select>
+                    @error('shift')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
 
@@ -45,22 +64,37 @@
                 @endphp
                 @foreach ($list as $i => $label)
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="aktivitas[]" id="{{ $label }}" value="{{ $label }}"
+                        <input type="checkbox" class="form-check-input @error('aktivitas') is-invalid @enderror" name="aktivitas[]" id="{{ $label }}" value="{{ $label }}"
                             {{ in_array($label, $selected) ? 'checked' : '' }}>
                         <label class="form-check-label" for="{{ $label }}">{{ $label }}</label>
                     </div>
                 @endforeach
+                @error('aktivitas')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="row mb-3">
                 <div class="col">
                     <label class="form-label">Catatan Observasi</label>
-                    <textarea name="observasi" class="form-control" rows="3">{{ old('observasi', $spv_kepru->observasi ?? '') }}</textarea>
+                    <textarea name="observasi" class="form-control @error('observasi') is-invalid @enderror" rows="3">{{ old('observasi', $spv_kepru->observasi ?? '') }}</textarea>
+                    @error('observasi')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="col">
                     <label class="form-label">Saran Perbaikan</label>
-                    <textarea name="perbaikan" class="form-control" rows="3">{{ old('perbaikan', $spv_kepru->perbaikan ?? '') }}</textarea>
+                    <textarea name="perbaikan" class="form-control @error('perbaikan') is-invalid @enderror" rows="3">{{ old('perbaikan', $spv_kepru->perbaikan ?? '') }}</textarea>
+                    @error('perbaikan')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
 

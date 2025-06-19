@@ -6,6 +6,8 @@ use App\Http\Requests\RefleksiRequest;
 use App\Models\Refleksi;
 use Illuminate\Http\Request;
 use App\Services\RefleksiService;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class RefleksiController extends Controller
 {
@@ -92,5 +94,33 @@ class RefleksiController extends Controller
         }
 
         return redirect()->route('refleksi.show', $refleksi_harian->id)->with('success', $message);
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('refleksi.export')) return abort(403);
+
+        $start = $request->get('start');
+        $end = $request->get('end');
+
+        if ($start && $end) {
+            $data = Refleksi::
+                select('waktu', 'jdl_kegiatan', 'user_id', 'approvement', 'nilai', 'feedback')
+                ->with('user')
+                ->whereDate('waktu', '>=' , $start)
+                ->whereDate('waktu', '<=' , $end)
+                ->latest()
+                ->get();
+
+            $start_date = Carbon::parse($start)->locale('id')->translatedFormat('d F Y');
+            $end_date = Carbon::parse($end)->locale('id')->translatedFormat('d F Y');
+
+            // return view('refleksi.export', compact('data'));
+            $pdf = Pdf::loadView('refleksi.export', compact('data'))->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->download('Refleksi Harian - '.$start_date.' - '.$end_date.'.pdf');
+        }
     }
 }

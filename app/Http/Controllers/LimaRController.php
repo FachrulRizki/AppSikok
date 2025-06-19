@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\LimaR;
 use App\Services\LimaRService;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,6 +16,8 @@ class LimaRController extends Controller
         if (!auth()->user()->can('lima_r.list')) return abort(403);
         
         $search = $request->get('search');
+        $start = $request->get('start');
+        $end = $request->get('end');
 
         $data = LimaR::query();
 
@@ -25,6 +29,10 @@ class LimaRController extends Controller
             $data->whereHas('user', function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%');
             });
+        }
+
+        if ($start && $end) {
+            $data = $data->whereDate('waktu', '>=', $start)->whereDate('waktu', '<=', $end);
         }
 
         $data = $data->latest()->paginate(10);
@@ -93,5 +101,34 @@ class LimaRController extends Controller
 
         $LimaR->delete();
         return redirect()->route('lima_r.index')->with('success', 'Data 5R berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('lima_r.export')) return abort(403);
+
+        $start = $request->get('start');
+        $end = $request->get('end');
+
+        if ($start && $end) {
+            $data = LimaR::
+                select('waktu', 'user_id', 'shift', 'dilaksanakan')
+                ->with('user')
+                ->whereDate('waktu', '>=' , $start)
+                ->whereDate('waktu', '<=' , $end)
+                ->latest()
+                ->get();
+
+            $start_date = Carbon::parse($start)->locale('id')->translatedFormat('d F Y');
+            $end_date = Carbon::parse($end)->locale('id')->translatedFormat('d F Y');
+
+            // return view('lima_r.export', compact('data'));
+
+            $pdf = Pdf::loadView('lima_r.export', compact('data'))->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->download('Laporan 5R - '.$start_date.' - '.$end_date.'.pdf');
+        }
     }
 }

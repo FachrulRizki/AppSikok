@@ -37,18 +37,26 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
+    // Refleksi Harian
+    Route::get('refleksi-harian/export', [RefleksiController::class, 'export'])->name('refleksi.export');
     Route::resource('refleksi-harian', RefleksiController::class)->names('refleksi');
     Route::put('refleksi-harian/{refleksi_harian}/approve', [RefleksiController::class, 'updateApprovement'])->name('refleksi.update_approvement');
     
+    // Aktivitas Keperawatan
+    Route::get('aktivitas-keperawatan/export', [AktivitasKeperawatanController::class, 'export'])->name('aktivitas_keperawatan.export');
     Route::resource('aktivitas-keperawatan', AktivitasKeperawatanController::class)->names('aktivitas_keperawatan');
     Route::put('aktivitas-keperawatan/{aktivitas_keperawatan}/nilai', [AktivitasKeperawatanController::class, 'updateNilai'])->name('aktivitas_keperawatan.update_nilai');
 
+    // Supervisi Kepru
+    Route::get('spv-kepru/export', [SupervisiKepruController::class, 'export'])->name('spv_kepru.export');
     Route::resource('spv-kepru', SupervisiKepruController::class)->names('spv_kepru');
 
+    // Pengguna
     Route::resource('permissions', PermissionController::class)->names('permissions');
     Route::resource('groups', GroupController::class)->names('groups');
     Route::resource('users', UserController::class)->names('users');
     
+    // Data Mutu
     Route::get('/mutuinsiden', InsidenController::class)->name('insiden');
     Route::prefix('insiden')->name('insiden.')->group(function () {
         Route::get('kpc/export', [KpcController::class, 'export'])->name('kpc.export');
@@ -67,12 +75,17 @@ Route::middleware('auth')->group(function () {
         Route::resource('sentinel', SentinelController::class)->except(['insiden.sentinel.show']);
     });
 
+    // Lima R
+    Route::get('LimaR/export', [LimaRController::class, 'export'])->name('lima_r.export');
     Route::resource('LimaR', LimaRController::class)->names('lima_r');
 
-    Route::get('kepuasan-pasien/print', [KuisonerKepuasanController::class, 'printPDF'])->name('kuesioner.print');
+    // Kepuasan Pasien
+    Route::get('kepuasan-pasien/export', [KuisonerKepuasanController::class, 'export'])->name('kuesioner.export');
     Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
 
-    Route::resource('cuci-tangan', CuciTanganController::class)->names('cuci_tangan');
+    // Cuci Tangan
+    Route::get('ppi/export', [CuciTanganController::class, 'export'])->name('cuci_tangan.export');
+    Route::resource('ppi', CuciTanganController::class)->names('cuci_tangan');
 
     // Materi
     Route::get('materi/{materi}/komentar', [MaterialController::class, 'loadKomentar'])->name('materi.load_komentar');

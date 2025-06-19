@@ -24,6 +24,7 @@ class PermissionSeeder extends Seeder
             'refleksi.beri.approvement',
             'refleksi.beri.nilai',
             'refleksi.hapus',
+            'refleksi.export',
         ];
 
         foreach ($refleksiPermissions as $permission) {
@@ -38,6 +39,7 @@ class PermissionSeeder extends Seeder
             'aktivitas_keperawatan.lihat.sendiri',
             'aktivitas_keperawatan.lihat.semua',
             'aktivitas_keperawatan.beri.nilai',
+            'aktivitas_keperawatan.export',
         ];
 
         foreach ($aktivitasKeperawatanPermissions as $permission) {
@@ -51,6 +53,7 @@ class PermissionSeeder extends Seeder
             'supervisi_kepru.hapus',
             'supervisi_kepru.lihat.sendiri',
             'supervisi_kepru.lihat.semua',
+            'supervisi_kepru.export',
         ];
 
         foreach ($supervisiKepalaRuangPermissions as $permission) {
@@ -61,6 +64,7 @@ class PermissionSeeder extends Seeder
             'insiden.list',
             'insiden.buat',
             'insiden.hapus',
+            'insiden.export',
         ];
 
         foreach ($insidenPermissions as $permission) {
@@ -71,6 +75,7 @@ class PermissionSeeder extends Seeder
             'kuesioner.list',
             'kuesioner.buat',
             'kuesioner.hapus',
+            'kuesioner.export',
         ];
 
         foreach ($kuesionerPermissions as $permission) {
@@ -106,6 +111,7 @@ class PermissionSeeder extends Seeder
             'lima_r.hapus',
             'lima_r.lihat.sendiri',
             'lima_r.lihat.semua',
+            'lima_r.export',
         ];
 
         foreach ($limaRPermissions as $permission) {
@@ -119,6 +125,7 @@ class PermissionSeeder extends Seeder
             'cuci_tangan.hapus',
             'cuci_tangan.lihat.sendiri',
             'cuci_tangan.lihat.semua',
+            'cuci_tangan.export',
         ];
 
         foreach ($cuciTanganPermissions as $permission) {

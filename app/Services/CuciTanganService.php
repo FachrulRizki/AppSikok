@@ -97,6 +97,8 @@ class CuciTanganService
     public function getAll($request)
     {
         $search = $request->get('search');
+        $start = $request->get('start');
+        $end = $request->get('end');
 
         $data = CuciTangan::select(
             'id',
@@ -113,6 +115,10 @@ class CuciTanganService
             $data->whereHas('user', function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%');
             });
+        }
+
+        if ($start && $end) {
+            $data = $data->whereDate('waktu', '>=', $start)->whereDate('waktu', '<=', $end);
         }
 
         return $data->latest()->paginate(10);
