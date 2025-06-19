@@ -6,8 +6,8 @@
     <div class="card">
         <div class="card-body">
             <div class="mb-3">
-                <label class="form-label">Judul Kegiatan</label>
-                <input type="text" name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror" value="{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}">
+                <label class="form-label">Jenis Kegiatan</label>
+                    <textarea name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror" rows="3">{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}</textarea>
                 @error('jdl_kegiatan')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Poin Materi</label>
+                <label class="form-label">Poin Kegiatan</label>
                 <textarea name="poin_materi" class="form-control @error('poin_materi') is-invalid @enderror" rows="3">{{ old('poin_materi', $refleksi->poin_materi ?? '') }}</textarea>
                 @error('poin_materi')
                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
 
             <div class="row mb-3">
                 <div class="col">
-                    <label class="form-label">Refleksi Pribadi</label>
+                    <label class="form-label">Evaluasi Pribadi</label>
                     <textarea name="pribadi" class="form-control @error('pribadi') is-invalid @enderror" rows="3">{{ old('pribadi', $refleksi->pribadi ?? '') }}</textarea>
                     @error('pribadi')
                         <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col">
-                    <label class="form-label">Rencana Tindakan</label>
+                    <label class="form-label">Rencana Evaluasi</label>
                     <textarea name="tindakan" class="form-control @error('tindakan') is-invalid @enderror" rows="3">{{ old('tindakan', $refleksi->tindakan ?? '') }}</textarea>
                     @error('tindakan')
                         <span class="invalid-feedback" role="alert">

@@ -50,8 +50,8 @@
                             <table class="w-100 text-nowrap">
                                 <tbody>
                                     <tr>
-                                        <th class="pb-2 text-start align-text-top">Judul Kegiatan</th>
-                                        <td class="pb-2 text-end text-wrap">{{ $refleksi->jdl_kegiatan }}</td>
+                                        <th class="pb-2 text-start align-text-top">Jenis Kegiatan</th>
+                                        <td class="pb-2 text-end text-wrap">{!! nl2br(e($refleksi->jdl_kegiatan)) !!}</td>
                                     </tr>
                                     <tr>
                                         <th class="py-2 text-start">Tanggal</th>
@@ -137,17 +137,17 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-3">Materi Refleksi</h4>
+                        <h4 class="card-title mb-3">Evaluasi Refleksi</h4>
                         <div class="pb-3 border-bottom">
-                            <label class="form-label">Poin Materi</label>
+                            <label class="form-label">Poin Kegiatan</label>
                             <div>{!! nl2br(e($refleksi->poin_materi)) !!}</div>
                         </div>
                         <div class="pb-3 mt-3 border-bottom">
-                            <label class="form-label">Refleksi Pribadi</label>
+                            <label class="form-label">Evaluasi Pribadi</label>
                             <div>{!! nl2br(e($refleksi->pribadi)) !!}</div>
                         </div>
                         <div class="mt-3">
-                            <label class="form-label">Rencana Tindakan</label>
+                            <label class="form-label">Rencana Evaluasi</label>
                             <div>{!! nl2br(e($refleksi->tindakan)) !!}</div>
                         </div>
                     </div>
