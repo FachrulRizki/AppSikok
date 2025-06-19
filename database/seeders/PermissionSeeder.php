@@ -75,6 +75,7 @@ class PermissionSeeder extends Seeder
             'kuesioner.list',
             'kuesioner.buat',
             'kuesioner.hapus',
+            'kuesioner.export',
         ];
 
         foreach ($kuesionerPermissions as $permission) {
@@ -124,6 +125,7 @@ class PermissionSeeder extends Seeder
             'cuci_tangan.hapus',
             'cuci_tangan.lihat.sendiri',
             'cuci_tangan.lihat.semua',
+            'cuci_tangan.export',
         ];
 
         foreach ($cuciTanganPermissions as $permission) {

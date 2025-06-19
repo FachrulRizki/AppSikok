@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KuisonerKepuasan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -86,7 +87,7 @@ class KuisonerKepuasanController extends Controller
         return redirect()->route('kuesioner.index')->with('success', 'Kuesioner berhasil dihapus.');
     }
 
-    public function printPDF(Request $request)
+    public function export(Request $request)
     {
         $bulan = $request->get('bulan');
         $tahun = $request->get('tahun');
@@ -116,11 +117,22 @@ class KuisonerKepuasanController extends Controller
 
         $ikm = round(array_sum($nrrTertimbang) * 25, 2);
 
-        return view('kuisoner.print', compact(
+        // return view('kuisoner.export', compact(
+        //     'data',
+        //     'jumlahPerUnsur',
+        //     'nrrTertimbang',
+        //     'ikm'
+        // ));
+
+        $pdf = Pdf::loadView('kuisoner.export', compact(
             'data',
             'jumlahPerUnsur',
             'nrrTertimbang',
             'ikm'
-        ));
+        ))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ])->setPaper('legal', 'landscape');
+        return $pdf->download('Laporan Kuesioner - '.$bulan.' - '.$tahun.'.pdf');
     }
 }

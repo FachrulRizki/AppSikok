@@ -79,10 +79,13 @@ Route::middleware('auth')->group(function () {
     Route::get('LimaR/export', [LimaRController::class, 'export'])->name('lima_r.export');
     Route::resource('LimaR', LimaRController::class)->names('lima_r');
 
-    Route::get('kepuasan-pasien/print', [KuisonerKepuasanController::class, 'printPDF'])->name('kuesioner.print');
+    // Kepuasan Pasien
+    Route::get('kepuasan-pasien/export', [KuisonerKepuasanController::class, 'export'])->name('kuesioner.export');
     Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
 
-    Route::resource('cuci-tangan', CuciTanganController::class)->names('cuci_tangan');
+    // Cuci Tangan
+    Route::get('ppi/export', [CuciTanganController::class, 'export'])->name('cuci_tangan.export');
+    Route::resource('ppi', CuciTanganController::class)->names('cuci_tangan');
 
     // Materi
     Route::get('materi/{materi}/komentar', [MaterialController::class, 'loadKomentar'])->name('materi.load_komentar');
