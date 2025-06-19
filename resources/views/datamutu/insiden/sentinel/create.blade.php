@@ -337,7 +337,7 @@
                             <label class="form-label">Ruangan Pelapor<span class="text-danger">*</span></label>
                             <select name="ruangan_pelapor" class="form-select @error('ruangan_pelapor') is-invalid @enderror">
                                 <option value="">Pilih Ruangan</option>
-                                @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU'] as $r)
+                                @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU', 'FARMASI', 'LABORATORIUM', 'RADIOLOGI', 'GUDANG OBAT'] as $r)
                                     <option value="{{ $r }}" {{ old('ruangan_pelapor', $sentinel->ruangan_pelapor ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
                                 @endforeach
                             </select>
