@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-body">
             <div class="mb-3">
-                <label class="form-label">Judul Kegiatan</label>
+                <label class="form-label">Jenis Kegiatan</label>
                 <input type="text" name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror"
                     value="{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}" placeholder="contoh:Dinas Malam, 19 Juni 2025 (Sesuaikan Jadwal Dinas)">
                 @error('jdl_kegiatan')
