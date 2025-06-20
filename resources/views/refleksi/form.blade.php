@@ -6,8 +6,9 @@
     <div class="card">
         <div class="card-body">
             <div class="mb-3">
-                <label class="form-label">Jenis Kegiatan</label>
-                    <textarea name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror" rows="3">{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}</textarea>
+                <label class="form-label">Judul Kegiatan</label>
+                <input type="text" name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror"
+                    value="{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}" placeholder="contoh:Dinas Malam, 19 Juni 2025">
                 @error('jdl_kegiatan')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -16,7 +17,8 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Tanggal & Waktu</label>
-                <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror" value="{{ old('waktu', isset($refleksi) ? $refleksi->waktu->format('Y-m-d\TH:i') : '') }}">
+                <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
+                    value="{{ old('waktu', isset($refleksi) ? $refleksi->waktu->format('Y-m-d\TH:i') : '') }}">
                 @error('waktu')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
