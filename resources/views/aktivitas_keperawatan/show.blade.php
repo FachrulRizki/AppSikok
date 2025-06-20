@@ -120,6 +120,10 @@
                                         <td class="py-2 text-end">{{ $aktivitas_keperawatan->waktu->format('H:i') }} WIB</td>
                                     </tr>
                                     <tr>
+                                        <th class="py-2 text-start">Shift Kerja</th>
+                                        <td class="py-2 text-end">{{ $aktivitas_keperawatan->shift }}</td>
+                                    </tr>
+                                    <tr>
                                         <th class="pt-2 text-start">Nilai</th>
                                         <td class="pt-2 text-end">{{ $aktivitas_keperawatan->nilai != 0 ? $aktivitas_keperawatan->nilai : '-' }}</td>
                                     </tr>
