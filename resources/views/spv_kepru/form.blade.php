@@ -6,10 +6,21 @@
     <div class="card">
         <div class="card-body">
             <div class="row mb-3">
+                @php
+                    use Carbon\Carbon;
+
+                    $defaultWaktu = old(
+                        'waktu',
+                        isset($spv_kepru) && $spv_kepru->waktu
+                            ? $spv_kepru->waktu->format('Y-m-d\TH:i')
+                            : Carbon::now()->format('Y-m-d\TH:i'),
+                    );
+                @endphp
+
                 <div class="col">
                     <label class="form-label">Tanggal & Waktu</label>
                     <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
-                        value="{{ old('waktu', isset($spv_kepru) ? $spv_kepru->waktu->format('Y-m-d\TH:i') : '') }}">
+                        value="{{ $defaultWaktu }}" readonly>
                     @error('waktu')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -21,8 +32,10 @@
                     <label class="form-label">Ruangan</label>
                     <select name="ruangan" class="form-select @error('ruangan') is-invalid @enderror">
                         <option value="">Pilih Ruangan</option>
-                        @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU'] as $r)
-                            <option value="{{ $r }}" {{ old('ruangan', $spv_kepru->ruangan ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
+                        @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU', 'FARMASI', 'LABORATORIUM', 'RADIOLOGI', 'GUDANG OBAT'] as $r)
+                            <option value="{{ $r }}"
+                                {{ old('ruangan', $spv_kepru->ruangan ?? '') == $r ? 'selected' : '' }}>
+                                {{ $r }}</option>
                         @endforeach
                     </select>
                     @error('ruangan')
@@ -55,16 +68,13 @@
             <div class="mb-3">
                 <label class="form-label">Fokus Supervisi</label>
                 @php
-                    $list = [
-                        'Komunikasi',
-                        'Prosedur klinis',
-                        'Kepatuhan mutu',
-                    ];
+                    $list = ['Komunikasi', 'Prosedur klinis', 'Kepatuhan mutu'];
                     $selected = old('aktivitas', $spv_kepru->aktivitas ?? []);
                 @endphp
                 @foreach ($list as $i => $label)
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input @error('aktivitas') is-invalid @enderror" name="aktivitas[]" id="{{ $label }}" value="{{ $label }}"
+                        <input type="checkbox" class="form-check-input @error('aktivitas') is-invalid @enderror"
+                            name="aktivitas[]" id="{{ $label }}" value="{{ $label }}"
                             {{ in_array($label, $selected) ? 'checked' : '' }}>
                         <label class="form-check-label" for="{{ $label }}">{{ $label }}</label>
                     </div>

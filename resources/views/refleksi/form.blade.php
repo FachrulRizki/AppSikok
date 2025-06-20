@@ -5,21 +5,31 @@
     @endif
     <div class="card">
         <div class="card-body">
+            @php
+                use Carbon\Carbon;
+
+                $defaultWaktu = old(
+                    'waktu',
+                    isset($refleksi) ? $refleksi->waktu->format('Y-m-d\TH:i') : Carbon::now()->format('Y-m-d\TH:i'),
+                );
+            @endphp
+
             <div class="mb-3">
-                <label class="form-label">Jenis Kegiatan</label>
-                <input type="text" name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror"
-                    value="{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}" placeholder="contoh:Dinas Malam, 19 Juni 2025 (Sesuaikan Jadwal Dinas)">
-                @error('jdl_kegiatan')
+                <label class="form-label">Tanggal & Waktu</label>
+                <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
+                    value="{{ $defaultWaktu }}" readonly>
+                @error('waktu')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label">Tanggal & Waktu</label>
-                <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
-                    value="{{ old('waktu', isset($refleksi) ? $refleksi->waktu->format('Y-m-d\TH:i') : '') }}">
-                @error('waktu')
+                <label class="form-label">Jenis Kegiatan</label>
+                <input type="text" name="jdl_kegiatan" class="form-control @error('jdl_kegiatan') is-invalid @enderror"
+                    value="{{ old('jdl_kegiatan', $refleksi->jdl_kegiatan ?? '') }}"
+                    placeholder="contoh:Dinas Malam, 19 Juni 2025 (Sesuaikan Jadwal Dinas)">
+                @error('jdl_kegiatan')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
