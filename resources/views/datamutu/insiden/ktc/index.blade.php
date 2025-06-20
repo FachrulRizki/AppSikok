@@ -92,9 +92,6 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Nama Pasien</th>
-                                <th>No. RM</th>
-                                <th>Tanggal & Waktu Masuk RS</th>
                                 <th>Tanggal & Waktu Insiden</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -104,12 +101,7 @@
                                 <tr>
                                     <td class="text-center">
                                         {{ ($ktcs->currentPage() - 1) * $ktcs->perPage() + $loop->iteration }}</td>
-                                    <td>{{ $ktc->nama_pasien }}</td>
-                                    <td>{{ $ktc->no_rm }}</td>
-                                    <td>{{ $ktc->waktu_mskrs ? $ktc->waktu_mskrs->format('d-m-Y, H:i') . ' WIB' : '-' }}
-                                    </td>
-                                    <td>{{ $ktc->waktu_insiden ? $ktc->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}
-                                    </td>
+                                    <td>{{ $ktc->waktu_insiden ? $ktc->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @can('insiden.view')

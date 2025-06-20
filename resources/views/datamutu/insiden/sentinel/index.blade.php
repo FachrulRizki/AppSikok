@@ -92,9 +92,6 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Nama Pasien</th>
-                                <th>No. RM</th>
-                                <th>Tanggal & Waktu Masuk RS</th>
                                 <th>Tanggal & Waktu Insiden</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -105,12 +102,7 @@
                                     <td class="text-center">
                                         {{ ($sentinels->currentPage() - 1) * $sentinels->perPage() + $loop->iteration }}
                                     </td>
-                                    <td>{{ $sentinel->nama_pasien }}</td>
-                                    <td>{{ $sentinel->no_rm }}</td>
-                                    <td>{{ $sentinel->waktu_mskrs ? $sentinel->waktu_mskrs->format('d-m-Y, H:i') . ' WIB' : '-' }}
-                                    </td>
-                                    <td>{{ $sentinel->waktu_insiden ? $sentinel->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}
-                                    </td>
+                                    <td>{{ $sentinel->waktu_insiden ? $sentinel->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @can('insiden.view')

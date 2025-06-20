@@ -92,8 +92,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Temuan Kejadian/Insiden</th>
-                                <th>Tanggal & Waktu</th>
+                                <th>Tanggal & Waktu Insiden</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -102,7 +101,6 @@
                                 <tr>
                                     <td class="text-center">
                                         {{ ($kpcs->currentPage() - 1) * $kpcs->perPage() + $loop->iteration }}</td>
-                                    <td>{{ $kpc->temuan }}</td>
                                     <td>{{ $kpc->waktu->format('d-m-Y, H:i') }} WIB</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
