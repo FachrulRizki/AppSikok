@@ -61,8 +61,12 @@
                                         <td class="py-2 text-end">{{ $kuesioner->pekerjaan }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="pt-2 text-start">Hubungan dengan Pasien</th>
-                                        <td class="pt-2 text-end">{{ $kuesioner->hubungan_pasien }}</td>
+                                        <th class="py-2 text-start">Hubungan dengan Pasien</th>
+                                        <td class="py-2 text-end">{{ $kuesioner->hubungan_pasien }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 text-start">Ruangan dinilai</th>
+                                        <td class="pt-2 text-end">{{ $kuesioner->ruangan }}</td>
                                     </tr>
                                 </tbody>
                             </table>

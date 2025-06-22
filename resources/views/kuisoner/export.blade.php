@@ -15,7 +15,7 @@
     <h2 style="margin-bottom: .8rem">Rekap Bulanan Kuesioner Kepuasan Pasien</h2>
     @if (request('bulan') && request('tahun'))
         <h3 style="margin-top: 0">
-            {{ \Carbon\Carbon::createFromDate(request('tahun'), request('bulan'), 1)->locale('id')->translatedFormat('F Y') }}
+            {{ \Carbon\Carbon::createFromDate(request('tahun'), request('bulan'), 1)->locale('id')->translatedFormat('F Y') }} - {{ request('ruangan') ? 'Ruang ' . request('ruangan') : 'Semua Ruangan' }}
         </h3>
     @endif
 </div>
@@ -24,6 +24,7 @@
         <tr>
             <th rowspan="2" style="width: 50px">No</th>
             <th rowspan="2">Tanggal</th>
+            <th rowspan="2">Ruangan</th>
             <th colspan="9">Nilai Per Unsur Pelayanan</th>
         </tr>
         <tr>
@@ -37,6 +38,7 @@
             <tr style="text-align: center">
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->waktu_survei->format('d-m-Y') }}</td>
+                <td>{{ $item->ruangan }}</td>
                 <td>{{ $item->p1 }}</td>
                 <td>{{ $item->p2 }}</td>
                 <td>{{ $item->p3 }}</td>
@@ -55,19 +57,19 @@
     </tbody>
     <tfoot>
         <tr style="text-align: center">
-            <th colspan="2">Jumlah Nilai Perunsur</th>
+            <th colspan="3">Jumlah Nilai Perunsur</th>
             @for ($i = 1; $i <= 9; $i++)
                 <th><strong>{{ $jumlahPerUnsur[$i] }}</strong></th>
             @endfor
         </tr>
         <tr style="text-align: center">
-            <th colspan="2">NRR Tertimbang Unsur</th>
+            <th colspan="3">NRR Tertimbang Unsur</th>
             @for ($i = 1; $i <= 9; $i++)
                 <th><strong>{{ $nrrTertimbang[$i] }}</strong></th>
             @endfor
         </tr>
         <tr style="text-align: center">
-            <th colspan="2">IKM</th>
+            <th colspan="3">IKM</th>
             <th colspan="9"><strong>{{ $ikm }}</strong></th>
         </tr>
     </tfoot>

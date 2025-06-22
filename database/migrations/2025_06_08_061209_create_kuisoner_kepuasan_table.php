@@ -33,6 +33,7 @@ class CreateKuisonerKepuasanTable extends Migration
             $table->tinyInteger('p9');
 
             $table->text('saran')->nullable();
+            $table->string('ruangan');
             $table->timestamps();
         });
     }

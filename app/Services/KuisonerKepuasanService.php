@@ -8,13 +8,6 @@ use Illuminate\Validation\ValidationException;
 
 class KuisonerKepuasanService
 {
-    /**
-     * Simpan data kuesioner kepuasan.
-     *
-     * @param array $data
-     * @return KuisonerKepuasan
-     * @throws ValidationException
-     */
     public function simpan(array $data): KuisonerKepuasan
     {
         $validator = Validator::make($data, [
@@ -34,6 +27,7 @@ class KuisonerKepuasanService
             'p8' => 'required|integer|between:1,4',
             'p9' => 'required|integer|between:1,4',
             'saran' => 'nullable|string|max:1000',
+            'ruangan' => 'required|string|max:100',
         ]);
 
         if ($validator->fails()) {
@@ -43,22 +37,11 @@ class KuisonerKepuasanService
         return KuisonerKepuasan::create($validator->validated());
     }
 
-    /**
-     * Ambil semua data kuesioner
-     *
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
     public function semua()
     {
         return KuisonerKepuasan::orderByDesc('waktu_survei')->get();
     }
 
-    /**
-     * Hapus data berdasarkan ID.
-     *
-     * @param int $id
-     * @return bool
-     */
     public function hapus(int $id): bool
     {
         $kuesioner = KuisonerKepuasan::findOrFail($id);

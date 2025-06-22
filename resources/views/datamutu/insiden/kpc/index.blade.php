@@ -93,6 +93,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Tanggal & Waktu Insiden</th>
+                                <th>Ruangan Pelapor</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -102,6 +103,7 @@
                                     <td class="text-center">
                                         {{ ($kpcs->currentPage() - 1) * $kpcs->perPage() + $loop->iteration }}</td>
                                     <td>{{ $kpc->waktu->format('d-m-Y, H:i') }} WIB</td>
+                                    <td>{{ $kpc->ruangan }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @can('insiden.view')

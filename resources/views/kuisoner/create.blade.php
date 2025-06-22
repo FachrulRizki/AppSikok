@@ -119,6 +119,20 @@
                     <h4 class="fw-semibold mb-4 fs-6">Penilaian Kepuasan</h4>
 
                     <div class="row">
+                        <div class="mb-3">
+                            <label class="form-label">Ruangan dinilai<span class="text-danger">*</span></label>
+                            <select name="ruangan" class="form-control form-select @error('ruangan') is-invalid @enderror">
+                                <option value="">Pilih ruangan</option>
+                                @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU', 'FARMASI', 'LABORATORIUM', 'RADIOLOGI', 'GUDANG OBAT'] as $r)
+                                    <option value="{{ $r }}">{{ $r }}</option>
+                                @endforeach
+                            </select>
+                            @error('ruangan')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya<span class="text-danger">*</span></label>
                             <select name="p1" class="form-control form-select @error('p1') is-invalid @enderror">

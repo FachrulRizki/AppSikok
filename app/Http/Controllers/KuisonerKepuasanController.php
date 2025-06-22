@@ -16,6 +16,7 @@ class KuisonerKepuasanController extends Controller
 
         $bulan = $request->get('bulan');
         $tahun = $request->get('tahun');
+        $ruangan = $request->get('ruangan');
 
         $data = KuisonerKepuasan::query();
 
@@ -23,11 +24,15 @@ class KuisonerKepuasanController extends Controller
             $data = $data->whereMonth('waktu_survei', $bulan)->whereYear('waktu_survei', $tahun);
         }
 
+        if ($ruangan) {
+            $data = $data->where('ruangan', $ruangan);
+        }
+
         $data = $data->latest()->paginate(10);
 
         $availablePeriods = DB::table('kuisoner_kepuasan')
-            ->selectRaw('MONTH(waktu_survei) as bulan, YEAR(waktu_survei) as tahun')
-            ->groupBy('bulan', 'tahun')
+            ->selectRaw('MONTH(waktu_survei) as bulan, YEAR(waktu_survei) as tahun, ruangan')
+            ->groupBy('tahun', 'bulan', 'ruangan')
             ->orderBy('tahun', 'desc')
             ->orderBy('bulan', 'desc')
             ->get();
@@ -63,6 +68,7 @@ class KuisonerKepuasanController extends Controller
             'p8' => 'required',
             'p9' => 'required',
             'saran' => 'nullable|string',
+            'ruangan' => 'required|string',
         ]);
 
         $data = KuisonerKepuasan::create($request->all());
@@ -91,11 +97,16 @@ class KuisonerKepuasanController extends Controller
     {
         $bulan = $request->get('bulan');
         $tahun = $request->get('tahun');
+        $ruangan = $request->get('ruangan');
 
         $data = KuisonerKepuasan::query();
 
-        if ($bulan) {
+        if ($bulan && $tahun) {
             $data = $data->whereMonth('waktu_survei', $bulan)->whereYear('waktu_survei', $tahun);   
+        }
+
+        if ($ruangan) {
+            $data = $data->where('ruangan', $ruangan);
         }
 
         $data = $data->latest()->get();
@@ -133,6 +144,6 @@ class KuisonerKepuasanController extends Controller
             'isHtml5ParserEnabled' => true,
             'isRemoteEnabled' => true,
         ])->setPaper('legal', 'landscape');
-        return $pdf->download('Laporan Kuesioner - '.$bulan.' - '.$tahun.'.pdf');
+        return $pdf->download('Laporan Kuesioner - '.$bulan.' - '.$tahun.' - '. ($ruangan ?? 'Semua Ruangan').'.pdf');
     }
 }

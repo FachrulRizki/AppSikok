@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="col-lg-7 d-flex align-items-stretch">
                 <div class="card w-100">
                     <div class="card-body">
                         <form action="" method="get">
@@ -70,6 +70,12 @@
                                     <input type="date" value="{{ request('start') ?? date('Y-m-d') }}" name="start" class="form-control" placeholder="Dari tanggal">
                                     <span class="input-group-text">Sampai</span>
                                     <input type="date" value="{{ request('end') ?? date('Y-m-d') }}" name="end" class="form-control" placeholder="Sampai tanggal">
+                                    <select name="ruangan" class="form-control form-select" data-bs-toggle="tooltip" data-bs-placement="top" title="Untuk IKP dan Kepuasan Pasien">
+                                        <option value="">Pilih ruangan</option>
+                                        @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU', 'FARMASI', 'LABORATORIUM', 'RADIOLOGI', 'GUDANG OBAT'] as $r)
+                                            <option {{ request('ruangan') == $r ? 'selected' : '' }} value="{{ $r }}">{{ $r }}</option>
+                                        @endforeach
+                                    </select>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
                                 </div>
                             </div>
@@ -77,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="col-lg-5 d-flex align-items-stretch">
                 <div class="card border border-primary w-100">
                     <div class="card-body text-center p-4">
                         <p class="mb-1">Data Menurut Tanggal</p>
@@ -130,7 +136,7 @@
             <div class="col-md-6 col-lg-5 d-flex align-items-stretch">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h4 class="card-title fw-semibold">Data Mutu Insiden Keselamatan Pasien</h4>
+                        <h4 class="card-title fw-semibold">Insiden Keselamatan Pasien <span class="text-primary">{{ request('ruangan') ? 'Ruang '.request('ruangan') : '' }}</span></h4>
                         <p class="card-subtitle">Jumlah masing-masing kategori insiden</p>
                         <div id="data-mutu" class="revenue-chart mx-n3 mt-4"></div>
                     </div>
@@ -141,7 +147,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="card-title fw-semibold">Tren Kepuasan Pasien</h4>
+                        <h4 class="card-title fw-semibold">Tren Kepuasan Pasien <span class="text-primary">{{ request('ruangan') ? 'Ruang '.request('ruangan') : '' }}</span></h4>
                         <p class="card-subtitle">Indeks kepuasan masyarakan per unsur pertanyaan</p>
                     </div>
                     <div class="d-flex">
@@ -298,5 +304,9 @@
 
         var chart = new ApexCharts(document.querySelector("#kepuasan-pasien"), options);
         chart.render();
+
+        // setInterval(function() {
+        //     location.reload();
+        // }, 10000);
     </script>
 @endpush

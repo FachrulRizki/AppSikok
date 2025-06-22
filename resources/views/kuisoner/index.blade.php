@@ -40,13 +40,13 @@
             <div class="card-body">
                 <form action="" method="get">
                     <div class="row border-bottom align-items-end">
-                        <div class="col-md-5 mb-4">
+                        <div class="col-md-6 mb-4">
                             <div class="form-group">
-                                <label class="form-label">Filter Bulan</label>
+                                <label class="form-label">Filter</label>
                                 <div class="input-group">
                                     <select name="bulan" class="form-select">
                                         <option value="">Pilih Bulan</option>
-                                        @foreach ($availablePeriods as $p)
+                                        @foreach ($availablePeriods->unique('bulan') as $p)
                                             <option value="{{ $p->bulan }}"
                                                 {{ request('bulan') == $p->bulan ? 'selected' : '' }}>
                                                 {{ \Carbon\Carbon::create()->month($p->bulan)->locale('id')->monthName }}
@@ -61,13 +61,21 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <select name="ruangan" class="form-select">
+                                        <option value="">Pilih Ruangan</option>
+                                        @foreach ($availablePeriods->unique('ruangan') as $p)
+                                            <option value="{{ $p->ruangan }}"
+                                                {{ request('ruangan') == $p->ruangan ? 'selected' : '' }}>{{ $p->ruangan }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-7 mb-4">
+                        <div class="col-md-6 mb-4">
                             @if (request('bulan') && request('tahun'))
-                                <a href="{{ route('kuesioner.export', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}"
+                                <a href="{{ route('kuesioner.export', ['bulan' => request('bulan'), 'tahun' => request('tahun'), 'ruangan' => request('ruangan')]) }}"
                                 class="btn btn-primary float-end"><i class="fa fa-download"></i></a>
                             @else
                                 <button type="button"
@@ -82,6 +90,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Tanggal</th>
+                                <th>Ruangan dinilai</th>
                                 <th>Hubungan dengan Pasien</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -92,6 +101,7 @@
                                     <td class="text-center">
                                         {{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</td>
                                     <td>{{ $item->waktu_survei->format('d-m-Y') }}</td>
+                                    <td>{{ $item->ruangan }}</td>
                                     <td>{{ $item->hubungan_pasien }}</td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-center">

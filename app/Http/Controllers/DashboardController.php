@@ -19,6 +19,7 @@ class DashboardController extends Controller
     {
         $start = $request->get('start');
         $end = $request->get('end');
+        $ruangan = $request->get('ruangan');
 
         $dates = [];
         if ($start && $end) {
@@ -35,8 +36,8 @@ class DashboardController extends Controller
             'topPerawat' => $this->topPerawat($perawat, $dates),
             'avgPersenAktivitas' => $this->capaian($perawat, $dates)[0],
             'avgPersenRefleksi' => $this->capaian($perawat, $dates)[1],
-            'chartInsidenData' => $this->chartInsiden($dates),
-            'kepuasanPelanggan' => $this->chartIKMHarian($dates)
+            'chartInsidenData' => $this->chartInsiden($dates, $ruangan),
+            'kepuasanPelanggan' => $this->chartIKMHarian($dates, $ruangan)
         ]);
     }
 
@@ -54,17 +55,25 @@ class DashboardController extends Controller
         return [$avgPersenAktivitas, $avgPersenRefleksi];
     }
 
-    private function chartInsiden($dates)
+    private function chartInsiden($dates, $ruangan)
     {
-        $kncCount = Knc::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
-        $ktcCount = Ktc::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
-        $ktdCount = Ktd::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
-        $kpcCount = Kpc::whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])->count();
-        $sentinelCount = Sentinel::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1])->count();
+        $kncCount = Knc::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1]);
+        $ktcCount = Ktc::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1]);
+        $ktdCount = Ktd::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1]);
+        $kpcCount = Kpc::whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1]);
+        $sentinelCount = Sentinel::whereDate('waktu_insiden', '>=', $dates[0])->whereDate('waktu_insiden', '<=', $dates[1]);
+
+        if ($ruangan) {
+            $kncCount = $kncCount->where('ruangan_pelapor', $ruangan);
+            $ktcCount = $ktcCount->where('ruangan_pelapor', $ruangan);
+            $ktdCount = $ktdCount->where('ruangan_pelapor', $ruangan);
+            $kpcCount = $kpcCount->where('ruangan', $ruangan);
+            $sentinelCount = $sentinelCount->where('ruangan_pelapor', $ruangan);
+        }
 
         return [
             'labels' => ['KNC', 'KTC', 'KTD', 'KPC', 'Sentinel'],
-            'data' => [$kncCount, $ktcCount, $ktdCount, $kpcCount, $sentinelCount],
+            'data' => [$kncCount->count(), $ktcCount->count(), $ktdCount->count(), $kpcCount->count(), $sentinelCount->count()],
         ];
     }
 
@@ -95,12 +104,16 @@ class DashboardController extends Controller
             ->take(5);
     }
 
-    private function chartIKMHarian($dates)
+    private function chartIKMHarian($dates, $ruangan)
     {
         $kuisionerHariIni = KuisonerKepuasan::
             whereDate('waktu_survei', '>=', $dates[0])->
             whereDate('waktu_survei', '<=', $dates[1])->
             get();
+        
+        if ($ruangan) {
+            $kuisionerHariIni = $kuisionerHariIni->where('ruangan', $ruangan);
+        }
 
         $jumlah = $kuisionerHariIni->count();
 
