@@ -93,7 +93,6 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Tanggal & Waktu Insiden</th>
-                                <th>Ruangan Pelapor</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -104,7 +103,6 @@
                                         {{ ($sentinels->currentPage() - 1) * $sentinels->perPage() + $loop->iteration }}
                                     </td>
                                     <td>{{ $sentinel->waktu_insiden ? $sentinel->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
-                                    <td>{{ $sentinel->ruangan_pelapor }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @can('insiden.view')

@@ -93,7 +93,6 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Tanggal & Waktu Insiden</th>
-                                <th>Ruangan Pelapor</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -103,7 +102,6 @@
                                     <td class="text-center">
                                         {{ ($ktcs->currentPage() - 1) * $ktcs->perPage() + $loop->iteration }}</td>
                                     <td>{{ $ktc->waktu_insiden ? $ktc->waktu_insiden->format('d-m-Y, H:i') . ' WIB' : '-' }}</td>
-                                    <td>{{ $ktc->ruangan_pelapor }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @can('insiden.view')
