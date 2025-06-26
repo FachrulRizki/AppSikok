@@ -104,8 +104,13 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-stretch">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h4 class="card-title fw-semibold">Leaderboard Kinerja Perawat</h4>
-                        <p class="card-subtitle">Top 5 perawat dengan skor kinerja tertinggi</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="card-title fw-semibold">Leaderboard Kinerja Perawat</h4>
+                                <p class="card-subtitle">Top 5 perawat dengan skor kinerja tertinggi</p>
+                            </div>
+                            <a href="{{ route('leaderboard.index') }}" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Semua"><i class="ti ti-chevron-right"></i></a>
+                        </div>
                         <div class="table-responsive mt-4">
                             <table class="table w-100 text-nowrap">
                                 <thead>

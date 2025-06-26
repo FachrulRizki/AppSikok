@@ -20,6 +20,7 @@ use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\SupervisiKepruController;
 use App\Http\Controllers\KuisonerKepuasanController;
 use App\Http\Controllers\AktivitasKeperawatanController;
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\MaterialCommentController;
 use App\Http\Controllers\Quiz\AttemptController;
 use App\Http\Controllers\Quiz\QuestionController;
@@ -100,4 +101,7 @@ Route::middleware('auth')->group(function () {
     //sertifikat
     Route::resource('unduh-sertifikat', SertifikatController::class)->names('sertifikat');
     Route::get('/unduh-sertifikat/{sertifikat}/download', [SertifikatController::class, 'download'])->name('sertifikat.download');
+
+    Route::get('leaderboard/export', [LeaderboardController::class, 'export'])->name('leaderboard.export');
+    Route::resource('leaderboard', LeaderboardController::class)->names('leaderboard');
 });

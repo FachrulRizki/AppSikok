@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\KpcExport;
 use Illuminate\Http\Request;
 use App\Models\Kpc;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -122,6 +123,16 @@ class KpcController extends Controller
 
         $data = $data->latest()->get();
 
-        return Excel::download(new KpcExport($data), 'KPC-' . $triwulan . '-' . $tahun . '.xlsx');
+        // return view('datamutu.insiden.kpc.export', [
+        //     'data' => $data,
+        //     'triwulan' => $triwulan,
+        //     'tahun' => $tahun
+        // ]);
+
+        $pdf = Pdf::loadView('datamutu.insiden.kpc.export', compact('data', 'triwulan', 'tahun'))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ])->setPaper('a4', 'portrait');
+        return $pdf->download('Laporan Insiden KPC - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

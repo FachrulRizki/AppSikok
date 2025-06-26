@@ -5,12 +5,14 @@ namespace App\Exports;
 use App\Models\Kpc;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
+class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles, ShouldAutoSize, WithColumnWidths
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -41,6 +43,11 @@ class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             'Temuan',
             'Kronologis',
             'Tindakan',
+            'Foto 1',
+            'Foto 2',
+            'Foto 3',
+            'Foto 4',
+            'Foto 5',
         ];
     }
 
@@ -48,7 +55,20 @@ class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
     {
         $this->index++;
 
-        return [
+        $fotoList = [];
+        if (is_array($row->foto)) {
+            foreach ($row->foto as $i => $path) {
+                $url = asset('storage/' . $path);
+                $fotoList[] = '=HYPERLINK("' . $url . '", "Link")';
+            }
+        }
+
+        $maxFoto = 5;
+        while (count($fotoList) < $maxFoto) {
+            $fotoList[] = null;
+        }
+
+        return array_merge([
             $this->index,
             $row->waktu->format('d-m-Y, H:i'),
             $row->sumber,
@@ -59,7 +79,7 @@ class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             $row->temuan,
             $row->kronologis,
             $row->tindakan,
-        ];
+        ], $fotoList);
     }
 
     public function styles(Worksheet $sheet)
@@ -69,7 +89,7 @@ class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
         return [
             1 => ['font' => ['bold' => true]],
 
-            'A1:J' . $lastRow => [
+            'A1:O' . $lastRow => [
                 'borders' => [
                     'allBorders' => [
                         'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
@@ -77,6 +97,20 @@ class KpcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
                     ],
                 ],
             ],
+        ];
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'H' => 40,
+            'I' => 50,
+            'J' => 40,
+            'K' => 20,
+            'L' => 20,
+            'M' => 20,
+            'N' => 20,
+            'O' => 20,
         ];
     }
 }

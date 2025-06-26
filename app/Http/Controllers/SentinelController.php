@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\SentinelExport;
 use App\Services\SentinelService;
 use App\Models\Sentinel;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -139,6 +140,16 @@ class SentinelController extends Controller
 
         $data = $data->latest()->get();
 
-        return Excel::download(new SentinelExport($data), 'Sentinel-' . $triwulan . '-' . $tahun . '.xlsx');
+        // return view('datamutu.insiden.sentinel.export', [
+        //     'data' => $data,
+        //     'triwulan' => $triwulan,
+        //     'tahun' => $tahun
+        // ]);
+
+        $pdf = Pdf::loadView('datamutu.insiden.sentinel.export', compact('data', 'triwulan', 'tahun'))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ])->setPaper('a4', 'portrait');
+        return $pdf->download('Laporan Insiden Sentinel - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

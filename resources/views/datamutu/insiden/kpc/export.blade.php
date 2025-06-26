@@ -37,11 +37,6 @@
     }
 
     .export-label {
-        width: 120px;
-        text-align: left;
-    }
-
-    .export-label-2 {
         width: 150px;
         text-align: left;
     }
@@ -78,18 +73,19 @@
 </style>
 @endpush
 
-@section('title', 'Rekap Laporan 5R')
+@section('title', 'Rekap Laporan Insiden KPC')
 
 @section('content')
 <center>
-    <h2 class="export-heading" style="margin-bottom: 5px;">REKAP LAPORAN DATA 5R</h2>
+    <h2 class="export-heading" style="margin-bottom: 5px;">REKAP LAPORAN INSIDEN KESELAMATAN PASIEN</h2>
+    <h2 class="export-heading" style="margin-bottom: 5px;">KEJADIAN POTENSIAL CEDERA (KPC)</h2>
     <h2 class="export-heading">RSUD BAYUNG LENCIR</h2>
 </center>
 
 <hr class="export-divider">
 
 <center>
-    <p class="export-subtext">Periode : {{ $start_date }} s/d {{ $end_date }}</p>
+    <p class="export-subtext">Triwulan ke-{{ $triwulan }} tahun {{ $tahun }}</p>
 </center>
 
 @foreach ($data as $item)
@@ -98,57 +94,48 @@
 
     <table class="export-table" style="margin-bottom: .5rem">
         <tr>
-            <th class="export-label">Petugas</th>
+            <th class="export-label">Nama Inisial Pelapor</th>
             <td class="export-separator">:</td>
-            <td>{{ $item->user->name }}</td>
+            <td>{{ $item->nama_inisial }}</td>
+            <th class="export-label">Unit Terkait</th>
+            <td class="export-separator">:</td>
+            <td>{{ $item->unit_terkait }}</td>
         </tr>
         <tr>
-            <th class="export-label">Unit Tugas</th>
+            <th class="export-label">Ruangan Pelapor</th>
             <td class="export-separator">:</td>
-            <td>{{ $item->user->unit }}</td>
-        </tr>
-        <tr>
-            <th class="export-label">Shift</th>
+            <td>{{ $item->ruangan }}</td>
+            <th class="export-label">Sumber Informasi</th>
             <td class="export-separator">:</td>
-            <td>{{ $item->shift }}</td>
+            <td>{{ $item->sumber }}</td>
         </tr>
         <tr>
             <th class="export-label">Tanggal & Waktu</th>
             <td class="export-separator">:</td>
             <td>{{ $item->waktu->format('d-m-Y, H:i') }} WIB</td>
+            <th class="export-label">Pelaksana</th>
+            <td class="export-separator">:</td>
+            <td>{{ $item->pelaksana }}</td>
         </tr>
     </table>
 
     <table class="export-table" style="margin-bottom: .5rem">
         <thead>
             <tr>
-                <th style="width: 80px;" class="text-left">Prinsip 5R</th>
-                <th style="width: 300px;" class="text-left">Kegiatan</th>
-                <th style="width: 100px">Dilaksanakan</th>
-                <th class="text-left">Catatan</th>
+                <th colspan="3" class="text-left">Isi Laporan</th>
+            </tr>
+            <tr>
+                <th class="w-1-3 text-left">Temuan Kejadian/Insiden</th>
+                <th class="w-1-3 text-left">Kronologis</th>
+                <th class="w-1-3 text-left">Tindakan yang dilakukan</th>
             </tr>
         </thead>
         <tbody>
-            @php
-                $prinsip5R = ['Ringkas', 'Rapi', 'Resik', 'Rawat', 'Rajin'];
-                $kegiatan = [
-                    'Memilih barang yang diperlukan dan tidak',
-                    'Menata alat dan perlengkapan dengan teratur',
-                    'Menjaga kebersihan lingkungan kerja',
-                    'Merawat dan memelihara peralatan dengan baik',
-                    'Melakukan kegiatan secara konsisten dan rutin',
-                ];
-                $dilaksanakan = json_decode($item->dilaksanakan, true);
-                $catatan = json_decode($item->catatan, true);
-            @endphp
-            @foreach ($prinsip5R as $i => $prinsip)
-                <tr>
-                    <td>{{ $prinsip }}</td>
-                    <td>{{ $kegiatan[$i] ?? '' }}</td>
-                    <td style="text-align: center">{{ $dilaksanakan[$i] ?? '-' }}</td>
-                    <td>{{ $catatan[$i] ?? '-' }}</td>
-                </tr>
-            @endforeach
+            <tr>
+                <td>{{ $item->temuan }}</td>
+                <td>{{ $item->kronologis }}</td>
+                <td>{{ $item->tindakan }}</td>
+            </tr>
         </tbody>
     </table>
 

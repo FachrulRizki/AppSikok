@@ -112,7 +112,7 @@ class LimaRController extends Controller
 
         if ($start && $end) {
             $data = LimaR::
-                select('waktu', 'user_id', 'shift', 'dilaksanakan')
+                select('waktu', 'user_id', 'shift', 'dilaksanakan', 'foto', 'catatan')
                 ->with('user')
                 ->whereDate('waktu', '>=' , $start)
                 ->whereDate('waktu', '<=' , $end)
@@ -122,12 +122,12 @@ class LimaRController extends Controller
             $start_date = Carbon::parse($start)->locale('id')->translatedFormat('d F Y');
             $end_date = Carbon::parse($end)->locale('id')->translatedFormat('d F Y');
 
-            // return view('lima_r.export', compact('data'));
+            // return view('lima_r.export', compact('data', 'start_date', 'end_date'));
 
-            $pdf = Pdf::loadView('lima_r.export', compact('data'))->setOptions([
+            $pdf = Pdf::loadView('lima_r.export', compact('data', 'start_date', 'end_date'))->setOptions([
                 'isHtml5ParserEnabled' => true,
                 'isRemoteEnabled' => true,
-            ])->setPaper('a4', 'landscape');
+            ])->setPaper('a4', 'portrait');
             return $pdf->download('Laporan 5R - '.$start_date.' - '.$end_date.'.pdf');
         }
     }

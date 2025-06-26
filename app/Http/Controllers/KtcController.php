@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\KtcExport;
 use App\Services\KtcService;
 use App\Models\Ktc;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -140,6 +141,16 @@ class KtcController extends Controller
 
         $data = $data->latest()->get();
 
-        return Excel::download(new KtcExport($data), 'KTC-' . $triwulan . '-' . $tahun . '.xlsx');
+        // return view('datamutu.insiden.ktc.export', [
+        //     'data' => $data,
+        //     'triwulan' => $triwulan,
+        //     'tahun' => $tahun
+        // ]);
+
+        $pdf = Pdf::loadView('datamutu.insiden.ktc.export', compact('data', 'triwulan', 'tahun'))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ])->setPaper('a4', 'portrait');
+        return $pdf->download('Laporan Insiden KTC - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

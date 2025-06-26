@@ -5,12 +5,14 @@ namespace App\Exports;
 use App\Models\Knc;
 use Illuminate\Database\Eloquent\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
+class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles, ShouldAutoSize, WithColumnWidths
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -40,7 +42,7 @@ class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             'Waktu Insiden',
             'Temuan',
             'Kronologis',
-            'Tindakan Seger',
+            'Tindakan Segera',
             'Insiden Pada',
             'Unit Terkait',
             'Sumber Informasi',
@@ -49,6 +51,11 @@ class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             'Pelaksana',
             'Nama Inisial Pelapor',
             'Ruangan Pelapor',
+            'Foto 1',
+            'Foto 2',
+            'Foto 3',
+            'Foto 4',
+            'Foto 5',
         ];
     }
 
@@ -56,7 +63,20 @@ class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
     {
         $this->index++;
 
-        return [
+        $fotoList = [];
+        if (is_array($row->foto)) {
+            foreach ($row->foto as $i => $path) {
+                $url = asset('storage/' . $path);
+                $fotoList[] = '=HYPERLINK("' . $url . '", "Link")';
+            }
+        }
+
+        $maxFoto = 5;
+        while (count($fotoList) < $maxFoto) {
+            $fotoList[] = null;
+        }
+
+        return array_merge([
             $this->index,
             $row->no_rm,
             $row->nama_pasien,
@@ -75,7 +95,7 @@ class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             $row->pelaksana,
             $row->nama_inisial,
             $row->ruangan_pelapor
-        ];
+        ], $fotoList);
     }
 
     public function styles(Worksheet $sheet)
@@ -85,7 +105,7 @@ class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
         return [
             1 => ['font' => ['bold' => true]],
 
-            'A1:R' . $lastRow => [
+            'A1:W' . $lastRow => [
                 'borders' => [
                     'allBorders' => [
                         'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
@@ -93,6 +113,16 @@ class KncExport implements FromCollection, WithHeadings, WithMapping, WithStyles
                     ],
                 ],
             ],
+        ];
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'H' => 40,
+            'I' => 40,
+            'J' => 40,
+            'L' => 40,
         ];
     }
 }

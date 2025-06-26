@@ -143,5 +143,7 @@ class PermissionSeeder extends Seeder
         foreach ($unduhSertifikatPermissions as $permission) {
             Permission::create(['name' => $permission]);
         }
+
+        Permission::create(['name' => 'leaderboard.export']);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\KncExport;
 use Illuminate\Http\Request;
 use App\Models\Knc;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -138,6 +139,16 @@ class KncController extends Controller
 
         $data = $data->latest()->get();
 
-        return Excel::download(new KncExport($data), 'KNC-' . $triwulan . '-' . $tahun . '.xlsx');
+        // return view('datamutu.insiden.knc.export', [
+        //     'data' => $data,
+        //     'triwulan' => $triwulan,
+        //     'tahun' => $tahun
+        // ]);
+
+        $pdf = Pdf::loadView('datamutu.insiden.knc.export', compact('data', 'triwulan', 'tahun'))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ])->setPaper('a4', 'portrait');
+        return $pdf->download('Laporan Insiden KNC - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

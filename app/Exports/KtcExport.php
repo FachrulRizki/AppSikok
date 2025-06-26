@@ -5,12 +5,14 @@ namespace App\Exports;
 use App\Models\Ktc;
 use Illuminate\Database\Eloquent\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
+class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles, ShouldAutoSize, WithColumnWidths
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -49,7 +51,12 @@ class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             'Tindakan Segera',
             'Pelaksana',
             'Nama Inisial Pelapor',
-            'Ruangan Pelapor'
+            'Ruangan Pelapor',
+            'Foto 1',
+            'Foto 2',
+            'Foto 3',
+            'Foto 4',
+            'Foto 5',
         ];
     }
 
@@ -57,7 +64,20 @@ class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
     {
         $this->index++;
 
-        return [
+        $fotoList = [];
+        if (is_array($row->foto)) {
+            foreach ($row->foto as $i => $path) {
+                $url = asset('storage/' . $path);
+                $fotoList[] = '=HYPERLINK("' . $url . '", "Link")';
+            }
+        }
+
+        $maxFoto = 5;
+        while (count($fotoList) < $maxFoto) {
+            $fotoList[] = null;
+        }
+
+        return array_merge([
             $this->index,
             $row->no_rm,
             $row->nama_pasien,
@@ -77,7 +97,7 @@ class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
             $row->pelaksana,
             $row->nama_inisial,
             $row->ruangan_pelapor
-        ];
+        ], $fotoList);
     }
 
     public function styles(Worksheet $sheet)
@@ -87,7 +107,7 @@ class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
         return [
             1 => ['font' => ['bold' => true]],
 
-            'A1:S' . $lastRow => [
+            'A1:X' . $lastRow => [
                 'borders' => [
                     'allBorders' => [
                         'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
@@ -95,6 +115,16 @@ class KtcExport implements FromCollection, WithHeadings, WithMapping, WithStyles
                     ],
                 ],
             ],
+        ];
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'H' => 40,
+            'I' => 40,
+            'O' => 40,
+            'P' => 40,
         ];
     }
 }

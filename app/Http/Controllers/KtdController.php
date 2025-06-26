@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\KtdExport;
 use App\Services\KtdService;
 use App\Models\Ktd;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -139,6 +140,16 @@ class KtdController extends Controller
 
         $data = $data->latest()->get();
 
-        return Excel::download(new KtdExport($data), 'KTD-' . $triwulan . '-' . $tahun . '.xlsx');
+        // return view('datamutu.insiden.ktd.export', [
+        //     'data' => $data,
+        //     'triwulan' => $triwulan,
+        //     'tahun' => $tahun
+        // ]);
+
+        $pdf = Pdf::loadView('datamutu.insiden.ktd.export', compact('data', 'triwulan', 'tahun'))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ])->setPaper('a4', 'portrait');
+        return $pdf->download('Laporan Insiden KTD - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }
