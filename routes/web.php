@@ -22,6 +22,7 @@ use App\Http\Controllers\KuisonerKepuasanController;
 use App\Http\Controllers\AktivitasKeperawatanController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\MaterialCommentController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Quiz\AttemptController;
 use App\Http\Controllers\Quiz\QuestionController;
 use App\Http\Controllers\Quiz\QuizController;
@@ -53,36 +54,36 @@ Route::middleware('auth')->group(function () {
     Route::resource('spv-kepru', SupervisiKepruController::class)->names('spv_kepru');
 
     // Pengguna
-    Route::resource('permissions', PermissionController::class)->names('permissions');
-    Route::resource('groups', GroupController::class)->names('groups');
-    Route::resource('users', UserController::class)->names('users');
+    Route::resource('permissions', PermissionController::class)->names('permissions')->except(['create', 'edit', 'show']);
+    Route::resource('groups', GroupController::class)->names('groups')->except(['create', 'edit']);
+    Route::resource('users', UserController::class)->names('users')->except(['show']);
     
     // Data Mutu
     Route::get('/mutuinsiden', InsidenController::class)->name('insiden');
     Route::prefix('insiden')->name('insiden.')->group(function () {
         Route::get('kpc/export', [KpcController::class, 'export'])->name('kpc.export');
-        Route::resource('kpc', KpcController::class)->except(['insiden.kpc.show']);
+        Route::resource('kpc', KpcController::class)->except(['edit', 'update']);
         
         Route::get('knc/export', [KncController::class, 'export'])->name('knc.export');
-        Route::resource('knc', KncController::class)->except(['insiden.knc.show']);
+        Route::resource('knc', KncController::class)->except(['edit', 'update']);
         
         Route::get('ktc/export', [KtcController::class, 'export'])->name('ktc.export');
-        Route::resource('ktc', KtcController::class)->except(['insiden.ktc.show']);
+        Route::resource('ktc', KtcController::class)->except(['edit', 'update']);
         
         Route::get('ktd/export', [KtdController::class, 'export'])->name('ktd.export');
-        Route::resource('ktd', KtdController::class)->except(['insiden.ktd.show']);
+        Route::resource('ktd', KtdController::class)->except(['edit', 'update']);
         
         Route::get('sentinel/export', [SentinelController::class, 'export'])->name('sentinel.export');
-        Route::resource('sentinel', SentinelController::class)->except(['insiden.sentinel.show']);
+        Route::resource('sentinel', SentinelController::class)->except(['edit', 'update']);
     });
 
     // Lima R
     Route::get('LimaR/export', [LimaRController::class, 'export'])->name('lima_r.export');
-    Route::resource('LimaR', LimaRController::class)->names('lima_r');
+    Route::resource('LimaR', LimaRController::class)->names('lima_r')->except(['edit', 'update']);;
 
     // Kepuasan Pasien
     Route::get('kepuasan-pasien/export', [KuisonerKepuasanController::class, 'export'])->name('kuesioner.export');
-    Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner');
+    Route::resource('kepuasan-pasien', KuisonerKepuasanController::class)->names('kuesioner')->except(['edit', 'update']);;
 
     // Cuci Tangan
     Route::get('ppi/export', [CuciTanganController::class, 'export'])->name('cuci_tangan.export');
@@ -91,17 +92,19 @@ Route::middleware('auth')->group(function () {
     // Materi
     Route::get('materi/{materi}/komentar', [MaterialController::class, 'loadKomentar'])->name('materi.load_komentar');
     Route::resource('materi', MaterialController::class)->names('materi');
-    Route::resource('comments', MaterialCommentController::class)->names('comments');
+    Route::resource('comments', MaterialCommentController::class)->names('comments')->only('store');
 
     // Quiz
-    Route::resource('quiz', QuizController::class)->names('quiz');
-    Route::resource('question', QuestionController::class)->names('question');
-    Route::resource('attempt', AttemptController::class)->names('attempt');
+    Route::resource('quiz', QuizController::class)->names('quiz')->except(['create']);
+    Route::resource('question', QuestionController::class)->names('question')->only('store', 'update', 'destroy');
+    Route::resource('attempt', AttemptController::class)->names('attempt')->except(['edit', 'update']);
 
     //sertifikat
-    Route::resource('unduh-sertifikat', SertifikatController::class)->names('sertifikat');
+    Route::resource('unduh-sertifikat', SertifikatController::class)->names('sertifikat')->except(['show']);
     Route::get('/unduh-sertifikat/{sertifikat}/download', [SertifikatController::class, 'download'])->name('sertifikat.download');
 
     Route::get('leaderboard/export', [LeaderboardController::class, 'export'])->name('leaderboard.export');
-    Route::resource('leaderboard', LeaderboardController::class)->names('leaderboard');
+    Route::resource('leaderboard', LeaderboardController::class)->names('leaderboard')->only('index');
+
+    Route::resource('profile', ProfilController::class)->names('profile')->only('index', 'store');
 });
