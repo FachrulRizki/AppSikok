@@ -40,7 +40,7 @@
         </div>
 
         <div class="d-flex gap-2 mb-4">
-            <a href="{{ route('insiden.ktd.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
+            <a href="{{ route('insiden.sentinel.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
         </div>
 
         <div class="row">

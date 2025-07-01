@@ -328,7 +328,7 @@
                     <div class="mb-3">
                         <label class="form-label">Lampiran Foto (opsional)</label>
                         <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
-                        <div class="form-text">Maksimal 5 file. Ukuran maks 100 MB per file.</div>
+                        <samll class="form-text">Maksimal 5 file. Ukuran maks 2 MB per file.</samll>
                         @error('foto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

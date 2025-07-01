@@ -195,9 +195,9 @@
         <tbody>
             <tr>
                 <td class="{{ count($item->foto) > 0 ? 'pt-2rem' : '' }}">
-                    @forelse ($item->foto as $f)
+                    @forelse ($item->gambar_base64 as $f)
                         <div class="export-img">
-                            <img src="{{ asset('storage/'.$f) }}" alt="">
+                            <img src="{{ $f }}" alt="">
                         </div>
                     @empty
                         -

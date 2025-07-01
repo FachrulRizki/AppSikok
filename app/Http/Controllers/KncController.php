@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\KncExport;
 use Illuminate\Http\Request;
 use App\Models\Knc;
+use App\Services\ImageCompressorService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -49,7 +50,7 @@ class KncController extends Controller
         return view('datamutu.insiden.knc.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, ImageCompressorService $compressor)
     {
         if (!auth()->user()->can('insiden.buat')) return abort(403);
 
@@ -71,15 +72,13 @@ class KncController extends Controller
             'pelaksana' => 'required|string',
             'nama_inisial' => 'required|string',
             'ruangan_pelapor' => 'required|string',
-            'foto.*' => 'nullable|image|max:102400|mimetypes:image/jpeg,image/png',
+            'foto' => 'nullable|array|max:5',
+            'foto.*' => 'image|max:2048|mimetypes:image/jpeg,image/png,image/webp',
         ]);
 
         $fotoPaths = [];
         if ($request->hasFile('foto')) {
-            foreach ($request->file('foto') as $file) {
-                $path = $file->store('foto_knc', 'public');
-                $fotoPaths[] = $path;
-            }
+            $fotoPaths = $compressor->compressAndUpload($request->file('foto'), 'foto_knc');
         }
 
         Knc::create([
@@ -138,6 +137,25 @@ class KncController extends Controller
         }
 
         $data = $data->latest()->get();
+
+        foreach ($data as $item) {
+            $gambar_base64 = [];
+
+            $gambarArray = $item->foto;
+
+            if (is_array($gambarArray)) {
+                foreach ($gambarArray as $namaFile) {
+                    $path = public_path('storage/' . $namaFile);
+                    if (file_exists($path)) {
+                        $ext = pathinfo($path, PATHINFO_EXTENSION);
+                        $content = file_get_contents($path);
+                        $gambar_base64[] = 'data:image/' . $ext . ';base64,' . base64_encode($content);
+                    }
+                }
+            }
+
+            $item->setAttribute('gambar_base64', $gambar_base64);
+        }
 
         // return view('datamutu.insiden.knc.export', [
         //     'data' => $data,

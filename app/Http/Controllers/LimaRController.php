@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LimaR;
+use App\Services\ImageCompressorService;
 use App\Services\LimaRService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -50,7 +51,7 @@ class LimaRController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, ImageCompressorService $compressor)
     {
         if (!auth()->user()->can('lima_r.buat')) return abort(403);
 
@@ -59,16 +60,14 @@ class LimaRController extends Controller
             'shift' => 'required|string',
             'dilaksanakan' => 'required|array|size:5',
             'catatan' => 'nullable|array|size:5',
-            'foto.*' => 'nullable|image|max:102400|mimetypes:image/jpeg,image/png',
+            'foto' => 'nullable|array|max:5',
+            'foto.*' => 'image|max:2048|mimetypes:image/jpeg,image/png,image/webp',
         ]);
 
         // Simpan foto
         $fotoPaths = [];
         if ($request->hasFile('foto')) {
-            foreach ($request->file('foto') as $file) {
-                $path = $file->store('foto_lima_r', 'public');
-                $fotoPaths[] = $path;
-            }
+            $fotoPaths = $compressor->compressAndUpload($request->file('foto'), 'foto_lima_r');
         }
 
         LimaR::create([
@@ -121,6 +120,25 @@ class LimaRController extends Controller
 
             $start_date = Carbon::parse($start)->locale('id')->translatedFormat('d F Y');
             $end_date = Carbon::parse($end)->locale('id')->translatedFormat('d F Y');
+
+            foreach ($data as $item) {
+                $gambar_base64 = [];
+
+                $gambarArray = $item->foto;
+
+                if (is_array($gambarArray)) {
+                    foreach ($gambarArray as $namaFile) {
+                        $path = public_path('storage/' . $namaFile);
+                        if (file_exists($path)) {
+                            $ext = pathinfo($path, PATHINFO_EXTENSION);
+                            $content = file_get_contents($path);
+                            $gambar_base64[] = 'data:image/' . $ext . ';base64,' . base64_encode($content);
+                        }
+                    }
+                }
+
+                $item->setAttribute('gambar_base64', $gambar_base64);
+            }
 
             // return view('lima_r.export', compact('data', 'start_date', 'end_date'));
 
