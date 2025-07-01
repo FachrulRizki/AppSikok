@@ -41,10 +41,14 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" aria-expanded="false">
                                 <div class="d-flex align-items-center">
-                                    <div class="user-profile-img">
-                                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=01C0C8&color=fff"
-                                            class="rounded-circle" width="35" height="35"
-                                            alt="modernize-img" />
+                                    <div class="overflow-hidden rounded-circle">
+                                        <div class="ratio ratio-1x1" style="height: 35px; width: 35px">
+                                            @if (Auth::user()->foto_profil)
+                                                <img src="{{ asset('storage/' . Auth::user()->foto_profil) }}" class="object-fit-cover w-100 h-100" alt="Profil" />
+                                            @else
+                                                <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=01C0C8&color=fff" class="rounded-circle" width="35" height="35" alt="Profil" />
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -55,9 +59,15 @@
                                         <h5 class="mb-0 fs-5 fw-semibold">Profil Pengguna</h5>
                                     </div>
                                     <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=01C0C8&color=fff"
-                                            class="rounded-circle" width="80" height="80"
-                                            alt="modernize-img" />
+                                        <div class="overflow-hidden rounded-circle">
+                                            <div class="ratio ratio-1x1" style="width: 80px; height: 80px">
+                                                @if (Auth::user()->foto_profil)
+                                                    <img src="{{ asset('storage/' . Auth::user()->foto_profil) }}" class="object-fit-cover w-100 h-100" alt="Profil" />
+                                                @else
+                                                    <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=01C0C8&color=fff" class="rounded-circle" width="80" height="80" alt="Profil" />
+                                                @endif
+                                            </div>
+                                        </div>
                                         <div class="ms-3">
                                             <h5 class="mb-1 fs-4 fw-semibold">{{ Auth::user()->name }}</h5>
                                             <span class="mb-1 d-block">{{ Auth::user()->getRoleNames()->first() }}</span>

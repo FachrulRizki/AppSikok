@@ -42,11 +42,13 @@
                     <div class="card-body">
                         <div class="mt-n5">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <div class="d-flex align-items-center justify-content-center round-110">
-                                    <div
-                                        class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden round-100">
-                                        <img src="https://ui-avatars.com/api/?name={{ $user->name }}&background=01C0C8&color=fff" alt="modernize-img"
-                                            class="w-100 h-100">
+                                <div class="rounded-circle overflow-hidden border border-4 border-primary round-110" data-bs-toggle="modal" data-bs-target="#modalProfil">
+                                    <div class="ratio ratio-1x1">
+                                        @if ($user->foto_profil)
+                                            <img src="{{ asset('storage/' . $user->foto_profil) }}" alt="Foto Profil" class="object-fit-cover w-100 h-100">
+                                        @else
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&background=01C0C8&color=fff" alt="Avatar" class="object-fit-cover w-100 h-100">
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +85,8 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Password Sekarang<span class="text-danger">*</span></label>
-                                <input type="password" class="form-control @error('password_sekarang') is-invalid @enderror" name="password_sekarang" placeholder="********">
+                                <input type="password" class="form-control @error('password_sekarang') is-invalid @enderror"
+                                    name="password_sekarang" placeholder="********">
                                 @error('password_sekarang')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -93,7 +96,8 @@
                             <div class="row">
                                 <div class="mb-3 col-lg-6">
                                     <label class="form-label">Password Baru<span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="********">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                        name="password" placeholder="********">
                                     @error('password')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -102,11 +106,42 @@
                                 </div>
                                 <div class="mb-3 col-lg-6">
                                     <label class="form-label">Konfirmasi Password<span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="********">
+                                    <input type="password" class="form-control" name="password_confirmation"
+                                        placeholder="********">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalProfil" tabindex="-1" aria-labelledby="modalProfilLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalProfilLabel">Ubah Foto Profil</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('profile.foto_profil') }}" method="post" id="formFotoProfil" enctype="multipart/form-data">
+                            @csrf
+                            <div>
+                                <label class="form-label">Pilih Foto Profil</label>
+                                <input type="file" class="form-control @error('foto_profil') is-invalid @enderror" name="foto_profil" accept="image/*">
+                                <small class="form-text">Ukuran maks 2 MB</small>
+                                @error('foto_profil')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-primary-subtle text-primary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" form="formFotoProfil" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>
             </div>

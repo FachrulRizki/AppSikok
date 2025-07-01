@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ImageCompressorService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
@@ -30,5 +32,26 @@ class ProfilController extends Controller
         } else {
             return redirect()->route('profile.index')->with('error', 'Password sekarang salah!');
         }
+    }
+
+    public function fotoProfil(Request $request, ImageCompressorService $compressor)
+    {
+        $request->validate([
+            'foto_profil' => 'required|image|max:2048|mimetypes:image/jpeg,image/png,image/webp',
+        ]);
+
+        $user = auth()->user();
+
+        if ($user->foto_profil && Storage::disk('public')->exists($user->foto_profil)) {
+            Storage::disk('public')->delete($user->foto_profil);
+        }
+
+        $path = $compressor->compressAndUpload($request->file('foto_profil'), 'foto_profil')[0];
+
+        $user->update([
+            'foto_profil' => $path,
+        ]);
+
+        return redirect()->back()->with('success', 'Foto profil berhasil diperbarui.');
     }
 }

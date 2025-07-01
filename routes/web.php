@@ -107,4 +107,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('leaderboard', LeaderboardController::class)->names('leaderboard')->only('index');
 
     Route::resource('profile', ProfilController::class)->names('profile')->only('index', 'store');
+    Route::post('profile/foto-profil', [ProfilController::class, 'fotoProfil'])->name('profile.foto_profil');
 });
