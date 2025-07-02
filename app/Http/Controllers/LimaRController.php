@@ -104,6 +104,9 @@ class LimaRController extends Controller
 
     public function export(Request $request)
     {
+        ini_set('memory_limit', '1G'); // hanya berlaku untuk export
+        ini_set('max_execution_time', '300'); // kalau proses lama
+
         if (!auth()->user()->can('lima_r.export')) return abort(403);
 
         $start = $request->get('start');
