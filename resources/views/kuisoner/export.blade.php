@@ -1,24 +1,18 @@
 @extends('layouts.export')
 
-@push('style')
-<style>
-    th {
-        background-color: #D9D9D9
-    }
-</style>
-@endpush
-
-@section('title', 'Export Laporan Kuesioner')
+@section('title')
+    {{ $bulan }}-{{ $tahun }}
+@endsection
 
 @section('content')
-<div>
-    <h2 style="margin-bottom: .8rem">Rekap Bulanan Kuesioner Kepuasan Pasien</h2>
-    @if (request('bulan') && request('tahun'))
-        <h3 style="margin-top: 0">
+<table style="width: 100%">
+    <tr><th colspan="12"><strong>Rekap Bulanan Kuesioner Kepuasan Pasien</strong></th></tr>
+    <tr><th colspan="12">
+        @if (request('bulan') && request('tahun'))
             {{ \Carbon\Carbon::createFromDate(request('tahun'), request('bulan'), 1)->locale('id')->translatedFormat('F Y') }} - {{ request('ruangan') ? 'Ruang ' . request('ruangan') : 'Semua Ruangan' }}
-        </h3>
-    @endif
-</div>
+        @endif
+    </th></tr>
+</table>
 <table border="1" cellspacing="0" cellpadding="4" style="width: 100%">
     <thead>
         <tr>
@@ -57,19 +51,19 @@
     </tbody>
     <tfoot>
         <tr style="text-align: center">
-            <th colspan="3">Jumlah Nilai Perunsur</th>
+            <th colspan="3"><strong>Jumlah Nilai Perunsur</strong></th>
             @for ($i = 1; $i <= 9; $i++)
                 <th><strong>{{ $jumlahPerUnsur[$i] }}</strong></th>
             @endfor
         </tr>
         <tr style="text-align: center">
-            <th colspan="3">NRR Tertimbang Unsur</th>
+            <th colspan="3"><strong>NRR Tertimbang Unsur</strong></th>
             @for ($i = 1; $i <= 9; $i++)
                 <th><strong>{{ $nrrTertimbang[$i] }}</strong></th>
             @endfor
         </tr>
         <tr style="text-align: center">
-            <th colspan="3">IKM</th>
+            <th colspan="3"><strong>IKM</strong></th>
             <th colspan="9"><strong>{{ $ikm }}</strong></th>
         </tr>
     </tfoot>

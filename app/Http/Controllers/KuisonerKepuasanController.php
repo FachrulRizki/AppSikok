@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KuesionerExport;
 use Illuminate\Http\Request;
 use App\Models\KuisonerKepuasan;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KuisonerKepuasanController extends Controller
 {
@@ -132,18 +132,11 @@ class KuisonerKepuasanController extends Controller
         //     'data',
         //     'jumlahPerUnsur',
         //     'nrrTertimbang',
-        //     'ikm'
+        //     'ikm',
+        //     'bulan',
+        //     'tahun'
         // ));
 
-        $pdf = Pdf::loadView('kuisoner.export', compact(
-            'data',
-            'jumlahPerUnsur',
-            'nrrTertimbang',
-            'ikm'
-        ))->setOptions([
-            'isHtml5ParserEnabled' => true,
-            'isRemoteEnabled' => true,
-        ])->setPaper('legal', 'landscape');
-        return $pdf->download('Laporan Kuesioner - '.$bulan.' - '.$tahun.' - '. ($ruangan ?? 'Semua Ruangan').'.pdf');
+        return Excel::download(new KuesionerExport($data, $jumlahPerUnsur, $nrrTertimbang, $ikm, $bulan, $tahun), 'Laporan Kuesioner-'.$bulan.'-'.$tahun.'-'. ($ruangan ?? 'Semua Ruangan').'.xlsx');
     }
 }
