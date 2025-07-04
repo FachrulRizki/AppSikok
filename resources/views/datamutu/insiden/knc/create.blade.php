@@ -89,7 +89,7 @@
                             @enderror
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label">Tanggal & Waktu Masuk RS</label>
+                            <label class="form-label">Tanggal & Waktu Masuk RS<span class="text-danger">*</span></label>
                             <input type="datetime-local" name="waktu_mskrs" class="form-control @error('waktu_mskrs') is-invalid @enderror" value="{{ old('waktu_mskrs', isset($knc) ? $knc->waktu_mskrs->format('Y-m-d\TH:i') : '') }}">
                             @error('waktu_mskrs')
                                 <div class="invalid-feedback">
@@ -103,10 +103,10 @@
 
                     <h4 class="fs-6 fw-semibold mb-4">Rincian Kejadian</h4>
                     <div class="mb-3">
-                        <label class="form-label">Tanggal & Waktu Insiden</label>
+                        <label class="form-label">Tanggal & Waktu Insiden<span class="text-danger">*</span></label>
                         <input type="datetime-local" name="waktu_insiden" class="form-control @error('waktu_insiden') is-invalid @enderror" value="{{ old('waktu_insiden', isset($knc) ? $knc->waktu_insiden->format('Y-m-d\TH:i') : '') }}">
                         @error('waktu_insiden')
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback" role="alert">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -186,7 +186,9 @@
                             @enderror
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label">Insiden Terjadi Pada Pasien<span class="text-danger">*</span></label>
+                            <label class="form-label">Insiden Terjadi Pada Pasien 
+                            <small class="form-text text-danger">( Sesuai kasus penyakit )</small>
+                                <span class="text-danger">*</span></label>
                             <select name="poli" class="form-control @error('poli') is-invalid @enderror">
                                 <option value="">-- Pilih --</option>
                                 <option value="Penyakit Dalam"
@@ -220,7 +222,6 @@
                                 <option value="MCU" {{ old('poli', $knc->poli ?? '') == 'MCU' ? 'selected' : '' }}>
                                     MCU</option>
                             </select>
-                            <small class="form-text">Sesuai kasus penyakit</small>
                             @error('poli')
                                 <div class="invalid-feedback">
                                     {{ $message }}

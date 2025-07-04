@@ -97,7 +97,7 @@
                             @enderror
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label">Tanggal & Waktu Masuk RS</label>
+                            <label class="form-label">Tanggal & Waktu Masuk RS<span class="text-danger">*</span></label>
                             <input type="datetime-local" name="waktu_mskrs"
                                 class="form-control @error('waktu_mskrs') is-invalid @enderror"
                                 value="{{ old('waktu_mskrs', isset($sentinel) ? $sentinel->waktu_mskrs->format('Y-m-d\TH:i') : '') }}">
@@ -113,7 +113,7 @@
 
                     <h4 class="fw-semibold mb-4 fs-6">Rincian Kejadian</h4>
                     <div class="mb-3">
-                        <label class="form-label">Tanggal dan Waktu Insiden</label>
+                        <label class="form-label">Tanggal dan Waktu Insiden<span class="text-danger">*</span></label>
                         <input type="datetime-local" name="waktu_insiden"
                             class="form-control @error('waktu_insiden') is-invalid @enderror"
                             value="{{ old('waktu_insiden', isset($sentinel) ? $sentinel->waktu_insiden->format('Y-m-d\TH:i') : '') }}">
