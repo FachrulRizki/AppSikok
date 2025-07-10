@@ -135,10 +135,12 @@ class CuciTanganController extends Controller
 
                 foreach ($activities as $activity) {
                     $activityRows = [];
+                    $activityDetails = $detailsByActivity[$activity['id']] ?? [];
+                    $activityTasks = $tasksByDetail ?? [];
 
                     foreach ($activity['details'] as $detail) {
                         $hasDetail = in_array($detail['id'], $details);
-                        $hasTask = isset($tasks[$detail['id']]) && count($tasks[$detail['id']]) > 0;
+                        $hasTask = isset($tasks[$detail['id']]) && is_array($tasks[$detail['id']]) && count($tasks[$detail['id']]) > 0;
 
                         if ($hasDetail || $hasTask) {
                             $detailTasks = [];
