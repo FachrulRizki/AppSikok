@@ -134,7 +134,7 @@
                 </div>
                 @if ($ktcs->hasPages())
                     <div class="mt-2 d-flex justify-content-center">
-                        {{ $kpcs->appends(['triwulan' => request('triwulan'), 'tahun' => request('tahun')])->links('vendor.pagination.bootstrap-4') }}
+                        {{ $ktcs->appends(['triwulan' => request('triwulan'), 'tahun' => request('tahun')])->links('vendor.pagination.bootstrap-4') }}
                     </div>
                 @endif
             </div>
