@@ -67,7 +67,8 @@ class KuisonerKepuasanController extends Controller
             'p7' => 'required',
             'p8' => 'required',
             'p9' => 'required',
-            'saran' => 'nullable|string',
+            'saran' => 'required|string',
+            'tingkat_kepuasan' => 'required|string',
             'ruangan' => 'required|string',
         ]);
 
