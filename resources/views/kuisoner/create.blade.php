@@ -76,6 +76,7 @@
                                 <option value="S1">S1</option>
                                 <option value="S2">S2</option>
                                 <option value="S3">S3</option>
+                                <option value="Lainnya">Lainnya</option>
                             </select>
                             @error('pendidikan')
                                 <div class="invalid-feedback">
@@ -87,10 +88,13 @@
                             <label class="form-label">Pekerjaan<span class="text-danger">*</span></label>
                             <select name="pekerjaan" class="form-control form-select @error('pekerjaan') is-invalid @enderror">
                                 <option value="">-- Pilih --</option>
+                                <option value="IRT">IRT</option>
                                 <option value="PNS">PNS</option>
+                                <option value="TNI">TNI</option>
                                 <option value="POLRI">POLRI</option>
                                 <option value="SWASTA">KARYAWAN SWASTA</option>
                                 <option value="WIRAUSAHA">WIRAUSAHA</option>
+                                <option value="Lainnya">Lainnya</option>
                             </select>
                             @error('pekerjaan')
                                 <div class="invalid-feedback">
