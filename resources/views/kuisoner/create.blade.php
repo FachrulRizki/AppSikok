@@ -319,14 +319,14 @@
                                 <input type="radio" class="btn-check" name="tingkat_kepuasan" id="sangat_puas"
                                     value="sangat_puas" required>
                                 <label class="btn btn-outline-success" for="sangat_puas">
-                                    <div style="font-size: 2.5rem;">😊</div>
+                                    <div style="font-size: 7rem;">😊</div>
                                     Sangat Puas
                                 </label>
                             </div>
                             <div class="col">
                                 <input type="radio" class="btn-check" name="tingkat_kepuasan" id="puas" value="puas">
                                 <label class="btn btn-outline-warning" for="puas">
-                                    <div style="font-size: 2.5rem;">😐</div>
+                                    <div style="font-size: 7rem;">😐</div>
                                     Puas
                                 </label>
                             </div>
@@ -334,7 +334,7 @@
                                 <input type="radio" class="btn-check" name="tingkat_kepuasan" id="tidak_puas"
                                     value="tidak_puas">
                                 <label class="btn btn-outline-danger" for="tidak_puas">
-                                    <div style="font-size: 2.5rem;">😞</div>
+                                    <div style="font-size: 7rem;">😞</div>
                                     Tidak Puas
                                 </label>
                             </div>
