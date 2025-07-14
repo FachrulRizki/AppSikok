@@ -109,7 +109,7 @@
             </div>
         </div>
         <div class="row">
-            @hasrole('Super Admin')
+            @hasrole(['Super Admin','Menajemen'])
                 <div class="col-md-6 col-lg-7 d-flex align-items-stretch">
                     <div class="card w-100">
                         <div class="card-body">
