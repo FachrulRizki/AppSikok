@@ -21,6 +21,12 @@ class RefleksiService
             $data = $data->where('user_id', auth()->user()->id);
         }
 
+        if (auth()->user()->hasRole('Kepala Ruang')) {
+            $data = $data->whereHas('user', function ($query) {
+                $query->where('unit', auth()->user()->unit);
+            });
+        }
+
         if ($search) {
             $data->where(function ($query) use ($search) {
                 $query->where('jdl_kegiatan', 'like', '%' . $search . '%')
