@@ -44,7 +44,8 @@
                                         value="{{ request('search') }}" placeholder="Masukkan judul materi">
                                     <select name="type" class="form-select" style="max-width: 180px">
                                         <option value="">Pilih Tipe</option>
-                                        <option value="youtube" {{ request('type') == 'youtube' ? 'selected' : '' }}>Video YouTube</option>
+                                        <option value="youtube" {{ request('type') == 'youtube' ? 'selected' : '' }}>Video
+                                            YouTube</option>
                                         <option value="pdf" {{ request('type') == 'pdf' ? 'selected' : '' }}>PDF</option>
                                     </select>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
@@ -68,22 +69,31 @@
                         <div class="position-relative">
                             <a href="{{ route('materi.show', $item->id) }}">
                                 @if ($item->type == 'youtube')
-                                    <img src="{{ asset('assets/images/thumbnail-youtube.jpg') }}" class="card-img-top" alt="materi">
+                                    <img src="{{ asset('assets/images/thumbnail-youtube.jpg') }}" class="card-img-top"
+                                        alt="materi">
                                 @else
-                                    <img src="{{ asset('assets/images/thumbnail-pdf.jpg') }}" class="card-img-top" alt="materi">
+                                    <img src="{{ asset('assets/images/thumbnail-pdf.jpg') }}" class="card-img-top"
+                                        alt="materi">
                                 @endif
                             </a>
                             @if (auth()->user()->id == $item->user->id)
                                 <div class="d-flex gap-2 mt-9 me-9 position-absolute top-0 end-0">
-                                    <a href="{{ route('materi.edit', $item->id) }}" class="btn btn-warning btn-sm"><ti class="ti ti-edit"></ti></a>
-                                    <form action="{{ route('materi.destroy', $item->id) }}" method="post" onsubmit="return confirm('Yakin hapus?')">
+                                    <a href="{{ route('materi.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                                        <ti class="ti ti-edit"></ti>
+                                    </a>
+                                    <form action="{{ route('materi.destroy', $item->id) }}" method="post"
+                                        onsubmit="return confirm('Yakin hapus?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" href="{{ route('materi.destroy', $item->id) }}" class="btn btn-danger btn-sm"><ti class="ti ti-trash"></ti></button>
+                                        <button type="submit" href="{{ route('materi.destroy', $item->id) }}"
+                                            class="btn btn-danger btn-sm">
+                                            <ti class="ti ti-trash"></ti>
+                                        </button>
                                     </form>
                                 </div>
                             @endif
-                            <img src="https://ui-avatars.com/api/?name={{ $item->user->name }}&background=59A5AA&color=fff" alt="materi"
+                            <img src="https://ui-avatars.com/api/?name={{ $item->user->name }}&background=59A5AA&color=fff"
+                                alt="materi"
                                 class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
                                 width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="{{ $item->user->name }}">
