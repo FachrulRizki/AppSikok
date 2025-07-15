@@ -86,13 +86,29 @@ class RefleksiService
 
     public function updateApprovement(Refleksi $refleksi, Request $request)
     {
+        $nilai = $request->filled('nilai') ? ($request->nilai ?? 0) : $refleksi->nilai;
+
+        if (in_array($request->approvement, ['waiting', 'rejected'])) {
+            $nilai = 0;
+        }
+
+        $dirty = [
+            'feedback' => $request->filled('feedback') ? $request->feedback : $refleksi->feedback
+        ];
+
         if ($request->approvement !== $refleksi->approvement) {
+            $dirty['approvement'] = $request->approvement;
+
             activity()
                 ->event('Update Persetujuan')
                 ->causedBy(auth()->user())
                 ->withProperties(['ip' => request()->ip()])
                 ->log('Mengupdate persetujuan atau feedback refleksi');
-        } else if ($request->nilai !== $refleksi->nilai) {
+        }
+        
+        if ($nilai !== $refleksi->nilai) {
+            $dirty['nilai'] = $nilai;
+
             activity()
                 ->event('Update Nilai')
                 ->causedBy(auth()->user())
@@ -100,11 +116,9 @@ class RefleksiService
                 ->log('Mengupdate nilai refleksi');
         }
 
-        return $refleksi->update($request->only([
-            'approvement',
-            'nilai',
-            'feedback'
-        ]));
+        if (!empty($dirty)) {
+            $refleksi->update($dirty);
+        }
     }
 
     public function hapusRefleksi(Refleksi $refleksi)

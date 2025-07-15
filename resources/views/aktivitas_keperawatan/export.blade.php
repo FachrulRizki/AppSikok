@@ -19,6 +19,7 @@
             <th>Unit Kerja</th>
             <th>Shift</th>
             <th>Tanggal</th>
+            <th>Persetujuan</th>
             <th>Nilai</th>
         </tr>
     </thead>
@@ -30,6 +31,14 @@
                 <td>{{ $item->user->unit }}</td>
                 <td>{{ $item->shift }}</td>
                 <td>{{ $item->waktu->format('d-m-Y') }}</td>
+                @php
+                    $persetujuan = [
+                        'waiting' => ['label' => 'Menunggu'],
+                        'approved' => ['label' => 'Disetujui'],
+                        'rejected' => ['label' => 'Ditolak'],
+                    ][$item->approvement];
+                @endphp
+                <td>{{ $persetujuan['label'] }}</td>
                 <td>{{ $item->nilai != 0 ? $item->nilai : '-' }}</td>
             </tr>
         @empty

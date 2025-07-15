@@ -84,6 +84,7 @@
                                 @endcan
                                 <th>Tanggal & Waktu</th>
                                 <th>Shift</th>
+                                <th>Persetujuan</th>
                                 <th class="text-center">Nilai</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -98,6 +99,19 @@
                                     @endcan
                                     <td>{{ $item->waktu->format('d-m-Y, H:i') }} WIB</td>
                                     <td>{{ $item->shift }}</td>
+                                    <td>
+                                        @php
+                                            $persetujuan = [
+                                                'waiting' => ['label' => 'Menunggu', 'color' => 'warning', 'icon' => 'clock'],
+                                                'approved' => ['label' => 'Disetujui', 'color' => 'primary', 'icon' => 'circle-check'],
+                                                'rejected' => ['label' => 'Ditolak', 'color' => 'danger', 'icon' => 'circle-x'],
+                                            ][$item->approvement];
+                                        @endphp
+                                        <span class="badge fs-2 bg-{{ $persetujuan['color'] }}-subtle text-{{ $persetujuan['color'] }}">
+                                            <i class="ti ti-{{ $persetujuan['icon'] }} me-1"></i>
+                                            {{ $persetujuan['label'] }}
+                                        </span>
+                                    </td>
                                     <td class="text-center">{{ $item->nilai != 0 ? $item->nilai : '-' }}</td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-center">

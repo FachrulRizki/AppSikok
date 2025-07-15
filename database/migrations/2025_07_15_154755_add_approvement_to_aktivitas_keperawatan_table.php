@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnTingkatKepuasanToKuisonerKepuasanTable extends Migration
+class AddApprovementToAktivitasKeperawatanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnTingkatKepuasanToKuisonerKepuasanTable extends Migration
      */
     public function up()
     {
-        Schema::table('kuisoner_kepuasan', function (Blueprint $table) {
-            $table->string('tingkat_kepuasan')->nullable()->after('saran');
+        Schema::table('aktivitas_keperawatan', function (Blueprint $table) {
+            $table->enum('approvement', ['waiting', 'approved', 'rejected'])->default('waiting')->after('nilai');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnTingkatKepuasanToKuisonerKepuasanTable extends Migration
      */
     public function down()
     {
-        Schema::table('kuisoner_kepuasan', function (Blueprint $table) {
-            $table->dropColumn('tingkat_kepuasan');
+        Schema::table('aktivitas_keperawatan', function (Blueprint $table) {
+            $table->dropColumn('approvement');
         });
     }
 }

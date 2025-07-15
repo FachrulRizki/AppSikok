@@ -14,7 +14,8 @@ class AktivitasKeperawatan extends Model
         'shift',
         'user_id',
         'catatan',
-        'nilai'
+        'nilai',
+        'approvement'
     ];
 
     protected $casts = [

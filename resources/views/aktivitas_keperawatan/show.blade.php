@@ -124,6 +124,22 @@
                                         <td class="py-2 text-end">{{ $aktivitas_keperawatan->shift }}</td>
                                     </tr>
                                     <tr>
+                                        <th class="py-2 text-start">Persetujuan</th>
+                                        <td class="py-2 text-end">
+                                            @php
+                                                $persetujuan = [
+                                                    'waiting' => ['label' => 'Menunggu', 'color' => 'warning', 'icon' => 'clock'],
+                                                    'approved' => ['label' => 'Disetujui', 'color' => 'primary', 'icon' => 'circle-check'],
+                                                    'rejected' => ['label' => 'Ditolak', 'color' => 'danger', 'icon' => 'circle-x'],
+                                                ][$aktivitas_keperawatan->approvement];
+                                            @endphp
+                                            <span class="badge fs-2 bg-{{ $persetujuan['color'] }}-subtle text-{{ $persetujuan['color'] }}">
+                                                <i class="ti ti-{{ $persetujuan['icon'] }} me-1"></i>
+                                                {{ $persetujuan['label'] }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th class="pt-2 text-start">Nilai</th>
                                         <td class="pt-2 text-end">{{ $aktivitas_keperawatan->nilai != 0 ? $aktivitas_keperawatan->nilai : '-' }}</td>
                                     </tr>
@@ -135,15 +151,29 @@
                             <label class="form-label">Catatan Tambahan</label>
                             <p class="mb-0">{{ $aktivitas_keperawatan->catatan }}</p>
                         </div>
-                        @can(['aktivitas_keperawatan.beri.nilai'])
+                        @canany(['aktivitas_keperawatan.beri.nilai', 'aktivitas_keperawatan.beri.approvement'])
                             <hr>
                             <form action="{{ route('aktivitas_keperawatan.update_nilai', $aktivitas_keperawatan->id) }}" method="post" id="formApprovement">
                                 @csrf
                                 @method('PUT')
-                                <div class="col">
-                                    <label class="form-label">Nilai<span class="ms-2 text-muted fs-2">(0-100)</span></label>
-                                    <input type="number" class="form-control" min="0" max="100" name="nilai" value="{{ $aktivitas_keperawatan->nilai }}">
-                                </div>
+                                @can('aktivitas_keperawatan.beri.approvement')
+                                    <div class="col">
+                                        <label class="form-label">Persetujuan</label>
+                                        <select name="approvement" class="form-select">
+                                            <option value="waiting" {{ $aktivitas_keperawatan->approvement == 'waiting' ? 'selected' : '' }}>Menunggu</option>
+                                            <option value="approved" {{ $aktivitas_keperawatan->approvement == 'approved' ? 'selected' : '' }}>Disetujui</option>
+                                            <option value="rejected" {{ $aktivitas_keperawatan->approvement == 'rejected' ? 'selected' : '' }}>Ditolak</option>
+                                        </select>
+                                    </div>
+                                @endcan
+                                @can('aktivitas_keperawatan.beri.nilai')
+                                    @if ($aktivitas_keperawatan->approvement == 'approved')
+                                        <div class="col mt-3">
+                                            <label class="form-label">Nilai<span class="ms-2 text-muted fs-2">(0-100)</span></label>
+                                            <input type="number" class="form-control" min="0" max="100" name="nilai" value="{{ $aktivitas_keperawatan->nilai }}">
+                                        </div>
+                                    @endif
+                                @endcan
                             </form>
                         @endcan
                     </div>

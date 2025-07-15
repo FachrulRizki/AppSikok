@@ -39,6 +39,7 @@ class PermissionSeeder extends Seeder
             'aktivitas_keperawatan.lihat.sendiri',
             'aktivitas_keperawatan.lihat.semua',
             'aktivitas_keperawatan.beri.nilai',
+            'aktivitas_keperawatan.beri.approvement',
             'aktivitas_keperawatan.export',
         ];
 

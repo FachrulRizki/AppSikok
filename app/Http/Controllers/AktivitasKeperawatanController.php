@@ -143,15 +143,22 @@ class AktivitasKeperawatanController extends Controller
 
     public function updateNilai(Request $request, AktivitasKeperawatan $aktivitas_keperawatan)
     {
-        if (!auth()->user()->can('aktivitas_keperawatan.beri.nilai')) return abort(403);
+        if (!auth()->user()->hasAnyPermission('aktivitas_keperawatan.beri.nilai', 'aktivitas_keperawatan.beri.approvement')) return abort(403);
 
         $request->validate([
             'nilai' => 'nullable|numeric|min:0|max:100',
+            'approvement' => 'in:waiting,approved,rejected',
         ]);
 
         $this->service->updateNilai($aktivitas_keperawatan, $request);
 
-        return redirect()->route('aktivitas_keperawatan.show', $aktivitas_keperawatan->id)->with('success', 'Nilai berhasil diperbarui');
+        if ($request->exists('nilai')) {
+            $message = 'Nilai berhasil diperbarui';
+        } else {
+            $message = 'Status persetujuan berhasil diperbarui';
+        }
+
+        return redirect()->route('aktivitas_keperawatan.show', $aktivitas_keperawatan->id)->with('success', $message);
     }
 
     public function export(Request $request)

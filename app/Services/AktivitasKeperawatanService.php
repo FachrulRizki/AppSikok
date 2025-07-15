@@ -17,7 +17,7 @@ class AktivitasKeperawatanService
         $end = $request->get('end');
 
         $data = AktivitasKeperawatan::select(
-            'id', 'waktu', 'shift', 'catatan', 'user_id', 'nilai'
+            'id', 'waktu', 'shift', 'catatan', 'user_id', 'nilai', 'approvement'
         )->with(['user', 'logs']);
 
         if (auth()->user()->can('aktivitas_keperawatan.lihat.sendiri')) {
@@ -134,12 +134,36 @@ class AktivitasKeperawatanService
 
     public function updateNilai(AktivitasKeperawatan $aktivitas_keperawatan, Request $request)
     {
-        $aktivitas_keperawatan->update($request->only('nilai'));
+        $nilai = $request->filled('nilai') ? ($request->nilai ?? 0) : $aktivitas_keperawatan->nilai;
 
-        return activity()
-            ->event('Update Nilai')
-            ->causedBy(auth()->user())
-            ->withProperties(['ip' => request()->ip()])
-            ->log('Mengupdate nilai aktivitas keperawatan');
+        if (in_array($request->approvement, ['waiting', 'rejected'])) {
+            $nilai = 0;
+        }
+
+        $dirty = [];
+
+        if ($request->approvement !== $aktivitas_keperawatan->approvement) {
+            $dirty['approvement'] = $request->approvement;
+
+            activity()
+                ->event('Update Persetujuan')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengupdate persetujuan aktivitas keperawatan');
+        }
+
+        if ($nilai !== $aktivitas_keperawatan->nilai) {
+            $dirty['nilai'] = $nilai;
+
+            activity()
+                ->event('Update Nilai')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengupdate nilai refleksi');
+        }
+
+        if (!empty($dirty)) {
+            $aktivitas_keperawatan->update($dirty);
+        }
     }
 }
