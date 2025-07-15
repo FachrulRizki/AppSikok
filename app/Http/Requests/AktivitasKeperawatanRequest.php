@@ -33,4 +33,19 @@ class AktivitasKeperawatanRequest extends FormRequest
             'catatan' => 'nullable|string',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'waktu.required' => 'Tanggal & waktu harus diisi',
+            'waktu.date' => 'Tanggal & waktu harus diisi dengan format yang benar',
+            'shift.required' => 'Shift harus diisi',
+            'shift.in' => 'Shift harus diisi dengan Pagi, Sore, atau Malam',
+            'selectedActivities.required' => 'Aktivitas harus diisi',
+            'selectedDetails.required' => 'Detail aktivitas harus diisi',
+            'selectedTasks.required' => 'Tugas harus diisi',
+            'notes.string' => 'Catatan harus diisi dengan format string',
+            'catatan.string' => 'Catatan harus diisi dengan format string',
+        ];
+    }
 }

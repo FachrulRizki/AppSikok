@@ -28,6 +28,13 @@ class ProfilController extends Controller
         if (Hash::check($request->password_sekarang, $user->password)) {
             $user->password = bcrypt(($request->password));
             $user->save();
+
+            activity()
+                ->event('Update Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengupdate Password');
+
             return redirect()->route('profile.index')->with('success', 'Password berhasil diperbarui');
         } else {
             return redirect()->route('profile.index')->with('error', 'Password sekarang salah!');
@@ -51,6 +58,12 @@ class ProfilController extends Controller
         $user->update([
             'foto_profil' => $path,
         ]);
+
+        activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Foto Profil');
 
         return redirect()->back()->with('success', 'Foto profil berhasil diperbarui.');
     }

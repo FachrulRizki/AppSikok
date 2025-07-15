@@ -230,6 +230,15 @@
                                     <span class="hide-menu">Grup Pengguna</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('logs.index') }}"
+                                    class="sidebar-link {{ request()->routeIs('logs.*') ? 'active' : '' }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Log Aktivitas</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 @endrole

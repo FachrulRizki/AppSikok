@@ -34,6 +34,12 @@ class QuizController extends Controller
 
         $quiz = Quiz::create($request->all());
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Kuis');
+
         return redirect()->route('quiz.edit', $quiz->id)->with('success', 'Kuis berhasil dibuat');
     }
 
@@ -72,6 +78,12 @@ class QuizController extends Controller
 
         $quiz->update($request->all());
 
+        activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Kuis');
+
         return redirect()->back()->with('success', 'Kuis berhasil diperbarui');
     }
 
@@ -80,6 +92,12 @@ class QuizController extends Controller
         if (!auth()->user()->can('kuis.hapus')) return abort(403);
 
         $quiz->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Kuis');
 
         return redirect()->route('quiz.index')->with('success', 'Kuis berhasil dihapus');   
     }

@@ -46,6 +46,13 @@ class AktivitasKeperawatanController extends Controller
 
         try {
             $this->service->simpanAktivitas($request);
+
+            activity()
+                ->event('Buat Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Membuat aktivitas keperawatan');
+
             return redirect()->route('aktivitas_keperawatan.index')->with('success', 'Aktivitas Keperawatan berhasil diperbarui');
         } catch (ValidationException $e) {
             return redirect()->back()
@@ -65,7 +72,7 @@ class AktivitasKeperawatanController extends Controller
     {
         if (!auth()->user()->can('aktivitas_keperawatan.edit')) return abort(403);
 
-        $activities = Activity::with('activity_details.activity_tasks')->get();
+        $activities = Activity::with('activity_details.activity_tasks')->orderByRaw('CAST(kode AS UNSIGNED) ASC')->get();
 
         $logs = $aktivitas_keperawatan->logs()->get();
 
@@ -110,6 +117,13 @@ class AktivitasKeperawatanController extends Controller
 
         try {
             $this->service->updateAktivitas($aktivitas_keperawatan, $request);
+
+            activity()
+                ->event('Update Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengupdate aktivitas keperawatan');
+
             return redirect()->route('aktivitas_keperawatan.index')->with('success', 'Aktivitas Keperawatan berhasil diperbarui');
         } catch (ValidationException $e) {
             return redirect()->back()
@@ -123,6 +137,7 @@ class AktivitasKeperawatanController extends Controller
         if (!auth()->user()->can('aktivitas_keperawatan.hapus')) return abort(403);
 
         $this->service->hapusAktivitas($aktivitas_keperawatan);
+
         return redirect()->route('aktivitas_keperawatan.index')->with('success', 'Data berhasil dihapus');
     }
 
@@ -161,6 +176,13 @@ class AktivitasKeperawatanController extends Controller
                 'isHtml5ParserEnabled' => true,
                 'isRemoteEnabled' => true,
             ]);
+
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport aktivitas keperawatan');
+
             return $pdf->download('Aktivitas Keperawatan - '.$start_date.' - '.$end_date.'.pdf');
         }
     }

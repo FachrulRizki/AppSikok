@@ -86,6 +86,13 @@ class LeaderboardController extends Controller
                 'isHtml5ParserEnabled' => true,
                 'isRemoteEnabled' => true,
             ])->setPaper('a4', 'portrait');
+
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport Leaderboard Perawat');
+
             return $pdf->download('Leaderboard Kinerja Perawat - '.$start_date.' - '.$end_date.'.pdf');
         }
     }

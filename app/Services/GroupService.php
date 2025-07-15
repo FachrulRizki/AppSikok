@@ -14,13 +14,25 @@ class GroupService
 
     public function simpanGroup(Request $request)
     {
-        return Role::create($request->all());
+        Role::create($request->all());
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Group');
     }
 
     public function hapusGroup($id)
     {   
         $role = $this->getGroup($id);
-        return $role->delete();
+        $role->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Group');
     }
 
     public function getGroup($id)
@@ -32,6 +44,12 @@ class GroupService
     {
         $permissionsIds = $request->input('permissions', []);
 
-        return $role->syncPermissions($permissionsIds);
+        $role->syncPermissions($permissionsIds);
+
+        return activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Group');
     }
 }

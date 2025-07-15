@@ -20,6 +20,12 @@ class MaterialCommentController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
+        activity()
+            ->event('Buat Komentar')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Komentar Materi');
+
         return redirect()->back()->with('success', 'Berhasil kirim komentar');
     }
 }

@@ -39,7 +39,7 @@ class RefleksiService
 
     public function simpanRefleksi(Request $request)
     {
-        return Refleksi::create([
+        Refleksi::create([
             'waktu' => $request->waktu,
             'jdl_kegiatan' => $request->jdl_kegiatan,
             'user_id' => auth()->user()->id,
@@ -47,6 +47,12 @@ class RefleksiService
             'pribadi' => $request->pribadi,
             'tindakan' => $request->tindakan
         ]);
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat refleksi');
     }
 
     public function getRefleksi(Refleksi $refleksi)
@@ -64,11 +70,31 @@ class RefleksiService
         $refleksi->approvement = 'waiting';
         $refleksi->feedback = '';
         $refleksi->save();
+
+        return activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate refleksi');
     }
 
     public function updateApprovement(Refleksi $refleksi, Request $request)
     {
-        $refleksi->update($request->only([
+        if ($request->approvement !== $refleksi->approvement) {
+            activity()
+                ->event('Update Persetujuan')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengupdate persetujuan atau feedback refleksi');
+        } else if ($request->nilai !== $refleksi->nilai) {
+            activity()
+                ->event('Update Nilai')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengupdate nilai refleksi');
+        }
+
+        return $refleksi->update($request->only([
             'approvement',
             'nilai',
             'feedback'
@@ -78,5 +104,11 @@ class RefleksiService
     public function hapusRefleksi(Refleksi $refleksi)
     {
         $refleksi->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus refleksi');
     }
 }

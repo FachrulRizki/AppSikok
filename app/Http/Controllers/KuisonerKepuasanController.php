@@ -73,6 +73,12 @@ class KuisonerKepuasanController extends Controller
 
         $data = KuisonerKepuasan::create($request->all());
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Kuesioner Kepuasan');
+
         return redirect()->route('kuesioner.show', $data->id)->with('success', 'Terima kasih atas partisipasi Anda!');
     }
 
@@ -89,6 +95,12 @@ class KuisonerKepuasanController extends Controller
 
         $data = KuisonerKepuasan::findOrFail($id);
         $data->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Kuesioner Kepuasan');
 
         return redirect()->route('kuesioner.index')->with('success', 'Kuesioner berhasil dihapus.');
     }
@@ -136,6 +148,12 @@ class KuisonerKepuasanController extends Controller
         //     'bulan',
         //     'tahun'
         // ));
+
+        activity()
+            ->event('Export Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengexport Kuesioner Kepuasan');
 
         return Excel::download(new KuesionerExport($data, $jumlahPerUnsur, $nrrTertimbang, $ikm, $bulan, $tahun), 'Laporan Kuesioner-'.$bulan.'-'.$tahun.'-'. ($ruangan ?? 'Semua Ruangan').'.xlsx');
     }

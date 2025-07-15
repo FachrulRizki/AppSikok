@@ -105,6 +105,12 @@ class KtcController extends Controller
             'foto' => $fotoPaths,
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Data KTC');
+
         return redirect()->route('insiden.ktc.index')->with('success', 'Data Laporan KTC berhasil disimpan.');
     }
 
@@ -120,6 +126,13 @@ class KtcController extends Controller
 
         $ktc = ktc::findOrFail($id);
         $ktc->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data KTC');
+
         return redirect()->route('insiden.ktc.index')->with('success', 'Data Laporan KTC berhasil dihapus.');
     }
 
@@ -169,6 +182,13 @@ class KtcController extends Controller
             'isHtml5ParserEnabled' => true,
             'isRemoteEnabled' => true,
         ])->setPaper('a4', 'portrait');
+
+        activity()
+            ->event('Export Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data KTC');
+
         return $pdf->download('Laporan Insiden KTC - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

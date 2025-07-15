@@ -55,12 +55,24 @@ class MaterialService
             'user_id' => auth()->user()->id,
             'content' => $request->content,
         ]);
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Materi');
     }
 
     public function hapusMaterial($materi)
     {   
         $this->service->delete(public_path('storage/' . $materi->source));
-        return $materi->delete();
+        $materi->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Materi');
     }
 
     public function getMaterial($materi)
@@ -84,6 +96,10 @@ class MaterialService
         $materi->content = $request->content;
         $materi->save();
 
-        return $materi;
+        return activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Materi');
     }
 }

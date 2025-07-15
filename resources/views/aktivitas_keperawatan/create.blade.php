@@ -30,8 +30,16 @@
         </div>
     </div>
 
-    @if ($errors->has('aktivitas'))
-        <div class="alert alert-danger">{{ $errors->first('aktivitas') }}</div>
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Terjadi kesalahan:</strong>
+            <ul style="list-style: disc !important; padding-left: 20px" class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
     {{-- Menyisipkan form --}}

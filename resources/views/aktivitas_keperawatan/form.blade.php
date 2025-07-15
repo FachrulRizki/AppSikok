@@ -139,8 +139,8 @@
             </div>
         </div>
 
-        <input type="hidden" name="selectedActivities" :value="JSON.stringify(selectedActivities)">
-        <input type="hidden" name="selectedDetails" :value="JSON.stringify(selectedDetails)">
+        <input type="hidden" name="selectedActivities" :value="selectedActivities.length ? JSON.stringify(selectedActivities) : ''">
+        <input type="hidden" name="selectedDetails" :value="Object.keys(selectedDetails).length ? JSON.stringify(selectedDetails) : ''">
         <input type="hidden" name="selectedTasks" :value="JSON.stringify(selectedTasks)">
         <input type="hidden" name="notes" :value="JSON.stringify(notes)">
     </div>

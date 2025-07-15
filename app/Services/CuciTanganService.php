@@ -126,7 +126,7 @@ class CuciTanganService
 
     public function store($request)
     {
-        return CuciTangan::create([
+        CuciTangan::create([
             'user_id' => auth()->user()->id,
             'waktu' => $request->waktu,
             'shift' => $request->shift,
@@ -134,21 +134,39 @@ class CuciTanganService
             'tasks' => $request->has('tasks') ? json_encode($request->input('tasks')) : null,
             'notes' => $request->has('notes') ? json_encode($request->input('notes')) : null,
         ]);
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat PPI');
     }
 
     public function update($cuci_tangan, $request)
     {
-        return $cuci_tangan->update([
+        $cuci_tangan->update([
             'waktu' => $request->waktu,
             'shift' => $request->shift,
             'details' => json_encode($request->input('details', [])),
             'tasks' => json_encode($request->input('tasks', [])),
             'notes' => json_encode($request->input('notes', [])),
         ]);
+
+        return activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate PPI');
     }
 
     public function delete($cuci_tangan)
     {
-        return $cuci_tangan->delete();
+        $cuci_tangan->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus PPI');
     }
 }

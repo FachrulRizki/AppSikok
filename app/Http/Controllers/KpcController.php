@@ -87,6 +87,12 @@ class KpcController extends Controller
             'foto' => $fotoPaths,
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Data KPC');
+
         return redirect()->route('insiden.kpc.index')->with('success', 'Data insiden KPC berhasil disimpan');
     }
 
@@ -102,6 +108,13 @@ class KpcController extends Controller
 
         $kpc = Kpc::findOrFail($id);
         $kpc->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data KPC');
+
         return redirect()->route('insiden.kpc.index')->with('success', 'Data Insiden KPC berhasil dihapus');
     }
 
@@ -151,6 +164,13 @@ class KpcController extends Controller
             'isHtml5ParserEnabled' => true,
             'isRemoteEnabled' => true,
         ])->setPaper('a4', 'portrait');
+
+        activity()
+            ->event('Export Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengexport Data KPC');
+
         return $pdf->download('Laporan Insiden KPC - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

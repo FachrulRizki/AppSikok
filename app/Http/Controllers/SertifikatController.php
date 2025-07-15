@@ -49,6 +49,12 @@ class SertifikatController extends Controller
             'nama_sertifikat' => $file->getClientOriginalName()
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupload Sertifikat');
+
         return redirect()->route('sertifikat.index')->with('status', 'Sertifikat berhasil diupload');
     }
 
@@ -87,6 +93,12 @@ class SertifikatController extends Controller
             ]);
         }
 
+        activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Sertifikat');
+
         return redirect()->route('sertifikat.index')->with('status', 'Sertifikat berhasil diupdate');
     }
 
@@ -100,6 +112,12 @@ class SertifikatController extends Controller
 
         $unduh_sertifikat->delete();
 
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Sertifikat');
+
         return redirect()->route('sertifikat.index')->with('status', 'Sertifikat berhasil dihapus');
     }
 
@@ -110,6 +128,12 @@ class SertifikatController extends Controller
         $path = storage_path('app/public/sertifikat/' . $sertifikat->nama_file);
 
         if (file_exists($path)) {
+            activity()
+                ->event('Download')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mendownload Sertifikat');
+
             return response()->download($path, $sertifikat->nama_sertifikat);
         }
 

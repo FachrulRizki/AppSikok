@@ -36,7 +36,7 @@ class SpvKepruService
 
     public function store($request)
     {
-        return SpvKepru::create([
+        SpvKepru::create([
             'waktu' => $request->waktu,
             'ruangan' => $request->ruangan,
             'shift' => $request->shift,
@@ -45,15 +45,33 @@ class SpvKepruService
             'observasi' => $request->observasi,
             'perbaikan' => $request->perbaikan
         ]);
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Supervisi Kepru');
     }
 
     public function update(SpvKepru $spv, $data)
     {
-        return $spv->update($data->all());
+        $spv->update($data->all());
+
+        return activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Supervisi Kepru');
     }
 
     public function delete(SpvKepru $spv)
     {
-        return $spv->delete();
+        $spv->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Supervisi Kepru');
     }
 }

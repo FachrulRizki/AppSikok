@@ -173,6 +173,12 @@ class CuciTanganController extends Controller
 
             // return view('cuci_tangan.export', compact('data'));
 
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport PPI');
+
             return Excel::download(new CuciTanganExport($data), 'Cuci Tangan - '.$start_date.' - '.$end_date.'.xlsx');
         }
     }

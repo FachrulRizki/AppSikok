@@ -117,11 +117,23 @@ class AktivitasKeperawatanService
 
     public function hapusAktivitas(AktivitasKeperawatan $aktivitas)
     {
-        return $aktivitas->delete();
+        $aktivitas->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus aktivitas keperawatan');
     }
 
     public function updateNilai(AktivitasKeperawatan $aktivitas_keperawatan, Request $request)
     {
         $aktivitas_keperawatan->update($request->only('nilai'));
+
+        return activity()
+            ->event('Update Nilai')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate nilai aktivitas keperawatan');
     }
 }

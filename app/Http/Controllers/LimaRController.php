@@ -79,6 +79,12 @@ class LimaRController extends Controller
             'user_id' => auth()->id(),
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Data 5R');
+
         return redirect()->route('lima_r.index')->with('success', 'Data 5R berhasil disimpan.');
     }
 
@@ -99,6 +105,13 @@ class LimaRController extends Controller
         }
 
         $LimaR->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data 5R');
+
         return redirect()->route('lima_r.index')->with('success', 'Data 5R berhasil dihapus.');
     }
 
@@ -146,6 +159,13 @@ class LimaRController extends Controller
                 'isHtml5ParserEnabled' => true,
                 'isRemoteEnabled' => true,
             ])->setPaper('a4', 'portrait');
+
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport Data 5R');
+
             return $pdf->download('Laporan 5R - '.$start_date.' - '.$end_date.'.pdf');
         }
     }

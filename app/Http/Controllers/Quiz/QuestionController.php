@@ -19,6 +19,12 @@ class QuestionController extends Controller
             'quiz_id' => $request->quiz_id,
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Soal Kuis');
+
         return redirect()->route('quiz.edit', [
             'quiz' => $question->quiz_id,
             'question' => $question->id
@@ -67,6 +73,12 @@ class QuestionController extends Controller
         $labelsToKeep = array_keys($request->options);
         $question->options()->whereNotIn('option_label', $labelsToKeep)->delete();
 
+        activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Soal Kuis');
+
         return redirect()->back()->with('success', 'Pertanyaan berhasil diperbarui');
     }
 
@@ -75,6 +87,12 @@ class QuestionController extends Controller
         if (!auth()->user()->can('kuis.edit')) return abort(403);
 
         $question->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Soal Kuis');
 
         return redirect()->route('quiz.edit', $question->quiz_id)->with('success', 'Pertanyaan berhasil dihapus');
     }

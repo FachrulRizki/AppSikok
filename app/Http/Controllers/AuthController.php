@@ -23,6 +23,12 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
+            activity()
+                ->event('Autentikasi')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Melakukan login');
+
             return redirect()->route('dashboard');
         };
 
@@ -31,6 +37,12 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        activity()
+            ->event('Autentikasi')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Melakukan logout');
+
         Auth::logout();
 
         $request->session()->invalidate();

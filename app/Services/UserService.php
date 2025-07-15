@@ -30,7 +30,13 @@ class UserService
             'unit' => $request->unit
         ]);
 
-        return $user->assignRole($request->role);
+        $user->assignRole($request->role);
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Pengguna');
     }
 
     public function updateUser(User $user, $request)
@@ -45,11 +51,23 @@ class UserService
 
         $user->syncRoles([$request->role]);
 
-        return $user->save();
+        $user->save();
+
+        return activity()
+            ->event('Update Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengupdate Pengguna');
     }
 
     public function hapusUser(User $user)
     {
-        return $user->delete();
+        $user->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Pengguna');
     }
 }

@@ -109,6 +109,13 @@ class SupervisiKepruController extends Controller
                 'isHtml5ParserEnabled' => true,
                 'isRemoteEnabled' => true,
             ])->setPaper('legal', 'landscape');
+
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport Supervisi Kepru');
+
             return $pdf->download('Supervisi Kepala Ruang - '.$start_date.' - '.$end_date.'.pdf');
         }
     }

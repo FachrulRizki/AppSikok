@@ -8,7 +8,7 @@ use Illuminate\Validation\ValidationException;
 
 class KuisonerKepuasanService
 {
-    public function simpan(array $data): KuisonerKepuasan
+    public function simpan(array $data)
     {
         $validator = Validator::make($data, [
             'waktu_survei' => 'required|date',
@@ -34,7 +34,13 @@ class KuisonerKepuasanService
             throw new ValidationException($validator);
         }
 
-        return KuisonerKepuasan::create($validator->validated());
+        KuisonerKepuasan::create($validator->validated());
+
+        return activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Kuesioner Kepuasan');
     }
 
     public function semua()
@@ -42,9 +48,15 @@ class KuisonerKepuasanService
         return KuisonerKepuasan::orderByDesc('waktu_survei')->get();
     }
 
-    public function hapus(int $id): bool
+    public function hapus(int $id)
     {
         $kuesioner = KuisonerKepuasan::findOrFail($id);
-        return $kuesioner->delete();
+        $kuesioner->delete();
+
+        return activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Kuesioner Kepuasan');
     }
 }

@@ -105,6 +105,12 @@ class SentinelController extends Controller
             'foto' => $fotoPaths,
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Data Sentinel');
+
         return redirect()->route('insiden.sentinel.index')->with('success', 'Data sentinel berhasil disimpan.');
     }
 
@@ -119,6 +125,13 @@ class SentinelController extends Controller
         if (!auth()->user()->can('insiden.hapus')) return abort(403);
 
         $sentinel->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data Sentinel');
+
         return redirect()->route('insiden.sentinel.index')->with('success', 'Data sentinel berhasil dihapus.');
     }
 
@@ -168,6 +181,13 @@ class SentinelController extends Controller
             'isHtml5ParserEnabled' => true,
             'isRemoteEnabled' => true,
         ])->setPaper('a4', 'portrait');
+
+        activity()
+            ->event('Export Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengexport Data Sentinel');
+
         return $pdf->download('Laporan Insiden Sentinel - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

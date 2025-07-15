@@ -105,6 +105,12 @@ class KtdController extends Controller
             'foto' => $fotoPaths,
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Data KTD');
+
         return redirect()->route('insiden.ktd.index')->with('success', 'Data Laporan KTD berhasil disimpan.');
     }
 
@@ -119,6 +125,13 @@ class KtdController extends Controller
         if (!auth()->user()->can('insiden.hapus')) return abort(403);
 
         $ktd->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data KTD');
+
         return redirect()->route('insiden.ktd.index')->with('success', 'Data Laporan KTD berhasil dihapus.');
     }
 
@@ -168,6 +181,13 @@ class KtdController extends Controller
             'isHtml5ParserEnabled' => true,
             'isRemoteEnabled' => true,
         ])->setPaper('a4', 'portrait');
+
+        activity()
+            ->event('Export Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengexport Data KTD');
+
         return $pdf->download('Laporan Insiden KTD - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

@@ -102,6 +102,12 @@ class KncController extends Controller
             'foto' => $fotoPaths
         ]);
 
+        activity()
+            ->event('Buat Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Membuat Data KNC');
+
         return redirect()->route('insiden.knc.index')->with('success', 'Data Laporan KNC berhasil disimpan.');
     }
 
@@ -118,6 +124,13 @@ class KncController extends Controller
 
         $knc = knc::findOrFail($id);
         $knc->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Data KNC');
+
         return redirect()->route('insiden.knc.index')->with('success', 'Data Laporan KNC berhasil dihapus.');
     }
 
@@ -167,6 +180,13 @@ class KncController extends Controller
             'isHtml5ParserEnabled' => true,
             'isRemoteEnabled' => true,
         ])->setPaper('a4', 'portrait');
+
+        activity()
+            ->event('Export Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Mengexport Data KNC');
+
         return $pdf->download('Laporan Insiden KNC - '.$triwulan.' - '.$tahun.'.pdf');
     }
 }

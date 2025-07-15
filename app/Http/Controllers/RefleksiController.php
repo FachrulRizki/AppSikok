@@ -120,6 +120,13 @@ class RefleksiController extends Controller
                 'isHtml5ParserEnabled' => true,
                 'isRemoteEnabled' => true,
             ])->setPaper('a4', 'landscape');
+
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport refleksi');
+
             return $pdf->download('Refleksi Harian - '.$start_date.' - '.$end_date.'.pdf');
         }
     }

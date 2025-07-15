@@ -85,6 +85,12 @@ class AttemptController extends Controller
                 ]);
             }
 
+            activity()
+                ->event('Buat Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengerjakan Kuis');
+
             return redirect()->route('attempt.show', $attempt->id)->with('success', 'Pengerjaan kuis berhasil disimpan.');
         }
     }
@@ -101,6 +107,13 @@ class AttemptController extends Controller
         if (!auth()->user()->can('kuis.hapus')) return abort(403);
         
         $attempt->delete();
+
+        activity()
+            ->event('Hapus Data')
+            ->causedBy(auth()->user())
+            ->withProperties(['ip' => request()->ip()])
+            ->log('Menghapus Riwayat Pengerjaan Kuis');
+
         return redirect()->back()->with('success', 'Pengerjaan kuis berhasil dihapus.');
     }
 }
