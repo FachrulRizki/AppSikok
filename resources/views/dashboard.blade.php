@@ -28,7 +28,8 @@
                                                 $indikatorAktivitas = 'Sangat Baik';
                                             }
                                         @endphp
-                                        <h3 class="mb-1 fw-semibold fs-8">{{ $avgPersenAktivitas }}<sub class="fs-1">{{ $indikatorAktivitas }}</sub></h3>
+                                        <h3 class="mb-1 fw-semibold fs-8">{{ $avgPersenAktivitas }}<sub
+                                                class="fs-1">{{ $indikatorAktivitas }}</sub></h3>
                                         <p class="mb-0 text-dark fs-2">Capaian SOP Keperawatan</p>
                                     </div>
                                     <div class="ps-4">
@@ -44,7 +45,8 @@
                                                 $indikatorRefleksi = 'Sangat Baik';
                                             }
                                         @endphp
-                                        <h3 class="mb-1 fw-semibold fs-8">{{ $avgPersenRefleksi }}<sub class="fs-1">{{ $indikatorRefleksi }}</sub></h3>
+                                        <h3 class="mb-1 fw-semibold fs-8">{{ $avgPersenRefleksi }}<sub
+                                                class="fs-1">{{ $indikatorRefleksi }}</sub></h3>
                                         <p class="mb-0 text-dark fs-2">Capaian Refleksi Keperawatan</p>
                                     </div>
                                 </div>
@@ -67,13 +69,17 @@
                         <form action="" method="get">
                             <div class="input-group">
                                 <div class="input-group">
-                                    <input type="date" value="{{ request('start') ?? date('Y-m-d') }}" name="start" class="form-control" placeholder="Dari tanggal">
+                                    <input type="date" value="{{ request('start') ?? date('Y-m-d') }}" name="start"
+                                        class="form-control" placeholder="Dari tanggal">
                                     <span class="input-group-text">Sampai</span>
-                                    <input type="date" value="{{ request('end') ?? date('Y-m-d') }}" name="end" class="form-control" placeholder="Sampai tanggal">
-                                    <select name="ruangan" class="form-control form-select" data-bs-toggle="tooltip" data-bs-placement="top" title="Untuk IKP dan Kepuasan Pasien">
+                                    <input type="date" value="{{ request('end') ?? date('Y-m-d') }}" name="end"
+                                        class="form-control" placeholder="Sampai tanggal">
+                                    <select name="ruangan" class="form-control form-select" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Untuk IKP dan Kepuasan Pasien">
                                         <option value="">Pilih ruangan</option>
                                         @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU', 'FARMASI', 'LABORATORIUM', 'RADIOLOGI', 'GUDANG OBAT'] as $r)
-                                            <option {{ request('ruangan') == $r ? 'selected' : '' }} value="{{ $r }}">{{ $r }}</option>
+                                            <option {{ request('ruangan') == $r ? 'selected' : '' }}
+                                                value="{{ $r }}">{{ $r }}</option>
                                         @endforeach
                                     </select>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i></button>
@@ -94,65 +100,163 @@
                                 {{ \Carbon\Carbon::createFromDate(request('end'))->locale('id')->translatedFormat('d F Y') }}
                             </h4>
                         @else
-                            <h4 class="fw-semibold fs-5 mb-0">{{ \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') }} <span class="text-muted fs-3">(Hari ini)</span></h4>
+                            <h4 class="fw-semibold fs-5 mb-0">
+                                {{ \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') }} <span
+                                    class="text-muted fs-3">(Hari ini)</span></h4>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-7 d-flex align-items-stretch">
+            @hasrole(['Super Admin','Menajemen'])
+                <div class="col-md-6 col-lg-7 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="card-title fw-semibold">Leaderboard Kinerja Perawat</h4>
+                                    <p class="card-subtitle">Top 5 perawat dengan skor kinerja tertinggi</p>
+                                </div>
+                                <a href="{{ route('leaderboard.index') }}" class="btn btn-primary btn-sm"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Semua">
+                                    <i class="ti ti-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="table-responsive mt-4">
+                                <table class="table w-100 text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"><i class="fs-4 ti ti-trophy text-primary"></i></th>
+                                            <th>Perawat</th>
+                                            <th>Unit Kerja</th>
+                                            <th class="text-center">Skor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($topPerawat as $data)
+                                            <tr>
+                                                <td
+                                                    class="text-center @if ($loop->index < 3) fw-semibold text-primary @endif">
+                                                    {{ $loop->iteration }}</td>
+                                                <td class="@if ($loop->index < 3) fw-semibold text-primary @endif">
+                                                    {{ $data['user']->name }}</td>
+                                                <td class="@if ($loop->index < 3) fw-semibold text-primary @endif">
+                                                    {{ $data['user']->unit }}</td>
+                                                <td class="text-center">
+                                                    <span
+                                                        class="badge bg-primary-subtle text-primary">{{ $data['score'] }}</span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-5 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <h4 class="card-title fw-semibold">Insiden Keselamatan Pasien <span
+                                    class="text-primary">{{ request('ruangan') ? 'Ruang ' . request('ruangan') : '' }}</span>
+                            </h4>
+                            <p class="card-subtitle">Jumlah masing-masing kategori insiden</p>
+                            <div id="data-mutu" class="revenue-chart mx-n3 mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Tampilan versi admin: full width tanpa kolom grid --}}
                 <div class="card w-100">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h4 class="card-title fw-semibold">Leaderboard Kinerja Perawat</h4>
-                                <p class="card-subtitle">Top 5 perawat dengan skor kinerja tertinggi</p>
+                                <h4 class="card-title fw-semibold">Tren Kepuasan Pasien <span
+                                        class="text-primary">{{ request('ruangan') ? 'Ruang ' . request('ruangan') : '' }}</span>
+                                </h4>
+                                <p class="card-subtitle">Indeks kepuasan masyarakat per unsur pertanyaan</p>
                             </div>
-                            <a href="{{ route('leaderboard.index') }}" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Semua"><i class="ti ti-chevron-right"></i></a>
+                            <div class="d-flex">
+                                <span class="mt-1">IKM</span>
+                                <div class="d-flex align-items-end">
+                                    <h1 class="mb-0">{{ $kepuasanPelanggan['ikm'] }}</h1>
+                                    <p class="mb-1">/100</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="table-responsive mt-4">
-                            <table class="table w-100 text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center"><i class="fs-4 ti ti-trophy text-primary"></i></th>
-                                        <th>Perawat</th>
-                                        <th>Unit Kerja</th>
-                                        <th class="text-center">Skor</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($topPerawat as $data)
-                                        <tr>
-                                            <td class="text-center @if ($loop->index < 3) fw-semibold text-primary @endif">{{ $loop->iteration }}</td>
-                                            <td class="@if ($loop->index < 3) fw-semibold text-primary @endif">{{ $data['user']->name }}</td>
-                                            <td class="@if ($loop->index < 3) fw-semibold text-primary @endif">{{ $data['user']->unit }}</td>
-                                            <td class="text-center">
-                                                <span class="badge bg-primary-subtle text-primary">{{ $data['score'] }}</span>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div id="kepuasan-pasien" class="revenue-chart mx-n3 mt-4"></div>
+                    </div>
+                </div>
+            @else
+                <div class="col-md-6 col-lg-5 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <h4 class="card-title fw-semibold">Insiden Keselamatan Pasien <span
+                                    class="text-primary">{{ request('ruangan') ? 'Ruang ' . request('ruangan') : '' }}</span>
+                            </h4>
+                            <p class="card-subtitle">Jumlah masing-masing kategori insiden</p>
+                            <div id="data-mutu" class="revenue-chart mx-n3 mt-4"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-5 d-flex align-items-stretch">
+                {{-- Tampilan non-admin: dalam kolom grid --}}
+                <div class="col-md-6 col-lg-7 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="card-title fw-semibold">Tren Kepuasan Pasien <span
+                                            class="text-primary">{{ request('ruangan') ? 'Ruang ' . request('ruangan') : '' }}</span>
+                                    </h4>
+                                    <p class="card-subtitle">Indeks kepuasan masyarakat per unsur pertanyaan</p>
+                                </div>
+                                <div class="d-flex">
+                                    <span class="mt-1">IKM</span>
+                                    <div class="d-flex align-items-end">
+                                        <h1 class="mb-0">{{ $kepuasanPelanggan['ikm'] }}</h1>
+                                        <p class="mb-1">/100</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="kepuasan-pasien" class="revenue-chart mx-n3 mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            @endhasrole
+
+            {{-- <div class="col-md-6 col-lg-7 d-flex align-items-stretch">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h4 class="card-title fw-semibold">Insiden Keselamatan Pasien <span class="text-primary">{{ request('ruangan') ? 'Ruang '.request('ruangan') : '' }}</span></h4>
-                        <p class="card-subtitle">Jumlah masing-masing kategori insiden</p>
-                        <div id="data-mutu" class="revenue-chart mx-n3 mt-4"></div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="card-title fw-semibold">Tren Kepuasan Pasien <span
+                                        class="text-primary">{{ request('ruangan') ? 'Ruang ' . request('ruangan') : '' }}</span>
+                                </h4>
+                                <p class="card-subtitle">Indeks kepuasan masyarakan per unsur pertanyaan</p>
+                            </div>
+                            <div class="d-flex">
+                                <span class="mt-1">IKM</span>
+                                <div class="d-flex align-items-end">
+                                    <h1 class="mb-0">{{ $kepuasanPelanggan['ikm'] }}</h1>
+                                    <p class="mb-1">/100</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="kepuasan-pasien" class="revenue-chart mx-n3 mt-4"></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
-        <div class="card w-100">
+
+        {{-- <div class="card w-100">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="card-title fw-semibold">Tren Kepuasan Pasien <span class="text-primary">{{ request('ruangan') ? 'Ruang '.request('ruangan') : '' }}</span></h4>
+                        <h4 class="card-title fw-semibold">Tren Kepuasan Pasien <span
+                                class="text-primary">{{ request('ruangan') ? 'Ruang ' . request('ruangan') : '' }}</span>
+                        </h4>
                         <p class="card-subtitle">Indeks kepuasan masyarakan per unsur pertanyaan</p>
                     </div>
                     <div class="d-flex">
@@ -165,7 +269,7 @@
                 </div>
                 <div id="kepuasan-pasien" class="revenue-chart mx-n3 mt-4"></div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 
@@ -212,7 +316,7 @@
                 strokeDashArray: 3,
                 xaxis: {
                     lines: {
-                    show: false,
+                        show: false,
                     },
                 },
             },
@@ -284,7 +388,7 @@
                 strokeDashArray: 3,
                 xaxis: {
                     lines: {
-                    show: false,
+                        show: false,
                     },
                 },
             },
@@ -313,5 +417,17 @@
         // setInterval(function() {
         //     location.reload();
         // }, 10000);
+
+        @hasrole('Monitor Ruangan')
+            let isMonitor = true;
+        @else
+            let isMonitor = false;
+        @endhasrole
+
+        if (isMonitor) {
+            setInterval(function() {
+                location.reload();
+            }, 10000);
+        }
     </script>
 @endpush

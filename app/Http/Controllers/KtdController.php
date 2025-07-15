@@ -60,8 +60,8 @@ class KtdController extends Controller
             'nama_pasien' => 'required|string',
             'umur' => 'required|string',
             'jk' => 'required|string',
-            'waktu_mskrs' => 'nullable|date',
-            'waktu_insiden' => 'nullable|date',
+            'waktu_mskrs' => 'required|date',
+            'waktu_insiden' => 'required|date',
             'temuan' => 'required|string',
             'kronologis' => 'required|string',
             'unit_terkait' => 'required|string',
@@ -137,6 +137,9 @@ class KtdController extends Controller
 
     public function export(Request $request)
     {
+        ini_set('memory_limit', '1G'); // hanya berlaku untuk export
+        ini_set('max_execution_time', '300'); // kalau proses lama
+
         if (!auth()->user()->can('insiden.export')) return abort(403);
 
         $triwulan = $request->get('triwulan');

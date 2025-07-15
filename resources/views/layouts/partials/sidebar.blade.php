@@ -149,7 +149,8 @@
                         <ul aria-expanded="false" class="collapse first-level">
                             @can('materi.list')
                                 <li class="sidebar-item">
-                                    <a href="{{ route('materi.index') }}" class="sidebar-link {{ request()->routeIs('materi.*') ? 'active' : '' }}">
+                                    <a href="{{ route('materi.index') }}"
+                                        class="sidebar-link {{ request()->routeIs('materi.*') ? 'active' : '' }}">
                                         <div class="round-16 d-flex align-items-center justify-content-center">
                                             <i class="ti ti-circle"></i>
                                         </div>
@@ -159,7 +160,8 @@
                             @endcan
                             @can('kuis.list')
                                 <li class="sidebar-item">
-                                    <a href="{{ route('quiz.index') }}" class="sidebar-link {{ request()->routeIs('quiz.*') || request()->routeIs('attempt.*') ? 'active' : '' }}">
+                                    <a href="{{ route('quiz.index') }}"
+                                        class="sidebar-link {{ request()->routeIs('quiz.*') || request()->routeIs('attempt.*') ? 'active' : '' }}">
                                         <div class="round-16 d-flex align-items-center justify-content-center">
                                             <i class="ti ti-circle"></i>
                                         </div>
@@ -182,7 +184,8 @@
                         <ul aria-expanded="false" class="collapse first-level">
                             @can('unduh_sertifikat.list')
                                 <li class="sidebar-item">
-                                    <a href="{{ route('sertifikat.index') }}" class="sidebar-link {{ request()->routeIs('sertifikat.*') ? 'active' : '' }}">
+                                    <a href="{{ route('sertifikat.index') }}"
+                                        class="sidebar-link {{ request()->routeIs('sertifikat.*') ? 'active' : '' }}">
                                         <div class="round-16 d-flex align-items-center justify-content-center">
                                             <i class="ti ti-circle"></i>
                                         </div>
@@ -247,9 +250,18 @@
 
         <div class="fixed-profile p-3 mx-4 mb-2 bg-primary-subtle rounded mt-3">
             <div class="hstack gap-3">
-                <div class="john-img">
-                    <img src="{{ asset('assets/images/profile/user-1.jpg') }}" class="rounded-circle" width="40"
-                        height="40" alt="modernize-img" />
+                <div class="d-flex align-items-center">
+                    <div class="overflow-hidden rounded-circle">
+                        <div class="ratio ratio-1x1" style="height: 35px; width: 35px">
+                            @if (Auth::user()->foto_profil)
+                                <img src="{{ asset('storage/' . Auth::user()->foto_profil) }}"
+                                    class="object-fit-cover w-100 h-100" alt="Profil" />
+                            @else
+                                <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=01C0C8&color=fff"
+                                    class="rounded-circle" width="35" height="35" alt="Profil" />
+                            @endif
+                        </div>
+                    </div>
                 </div>
                 <div class="john-title text-nowrap text-truncate">
                     <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->name }}</h6>

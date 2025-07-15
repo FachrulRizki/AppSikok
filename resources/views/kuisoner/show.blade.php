@@ -79,6 +79,13 @@
                         <p class="mb-0">{{ $kuesioner->saran ?? 'Tidak ada saran/masukan' }}</p>
                     </div>
                 </div>
+
+                 <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Tingkat Kepuasan</h4>
+                        <p class="mb-0">{{ $kuesioner->tingkat_kepuasan ?? 'Tidak ada Tingkat Kepuasan' }}</p>
+                    </div>
+                </div>
             </div>
             <div class="col-md-7">
                 <div class="card">

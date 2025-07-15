@@ -23,6 +23,12 @@ class AktivitasKeperawatanService
         if (auth()->user()->can('aktivitas_keperawatan.lihat.sendiri')) {
             $data = $data->where('user_id', auth()->user()->id);
         }
+        
+        if (auth()->user()->hasRole('Kepala Ruang')) {
+            $data = $data->whereHas('user', function ($query) {
+                $query->where('unit', auth()->user()->unit);
+            });
+        }
 
         if ($search) {
             $data = $data->whereHas('user', function ($query) use ($search) {

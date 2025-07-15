@@ -28,6 +28,7 @@ class KuisonerKepuasan extends Model
         'p8',
         'p9',
         'saran',
+        'tingkat_kepuasan',
         'ruangan',
     ];
 
