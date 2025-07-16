@@ -74,13 +74,15 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
-                            @if (request('bulan') && request('tahun'))
-                                <a href="{{ route('kuesioner.export', ['bulan' => request('bulan'), 'tahun' => request('tahun'), 'ruangan' => request('ruangan')]) }}"
-                                class="btn btn-primary float-end"><i class="fa fa-download"></i></a>
-                            @else
-                                <button type="button"
-                                    class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-download"></i></button>
-                            @endif
+                            @can('kuesioner.export')
+                                @if (request('bulan') && request('tahun'))
+                                    <a href="{{ route('kuesioner.export', ['bulan' => request('bulan'), 'tahun' => request('tahun'), 'ruangan' => request('ruangan')]) }}"
+                                    class="btn btn-primary float-end"><i class="fa fa-download"></i></a>
+                                @else
+                                    <button type="button"
+                                        class="btn float-end bg-primary-subtle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter belum dipilih"><i class="fa fa-download"></i></button>
+                                @endif
+                            @endcan
                         </div>
                     </div>
                 </form>
