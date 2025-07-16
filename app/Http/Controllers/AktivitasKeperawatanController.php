@@ -148,6 +148,7 @@ class AktivitasKeperawatanController extends Controller
         $request->validate([
             'nilai' => 'nullable|numeric|min:0|max:100',
             'approvement' => 'in:waiting,approved,rejected',
+            'feedback' => 'nullable|string'
         ]);
 
         $this->service->updateNilai($aktivitas_keperawatan, $request);

@@ -15,7 +15,8 @@ class AktivitasKeperawatan extends Model
         'user_id',
         'catatan',
         'nilai',
-        'approvement'
+        'approvement',
+        'feedback'
     ];
 
     protected $casts = [

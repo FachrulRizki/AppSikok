@@ -178,32 +178,46 @@
                                 method="post" id="formApprovement">
                                 @csrf
                                 @method('PUT')
-                                @can('aktivitas_keperawatan.beri.approvement')
-                                    <div class="col">
-                                        <label class="form-label">Persetujuan</label>
-                                        <select name="approvement" class="form-select">
-                                            <option value="waiting"
-                                                {{ $aktivitas_keperawatan->approvement == 'waiting' ? 'selected' : '' }}>Menunggu
-                                            </option>
-                                            <option value="approved"
-                                                {{ $aktivitas_keperawatan->approvement == 'approved' ? 'selected' : '' }}>Disetujui
-                                            </option>
-                                            <option value="rejected"
-                                                {{ $aktivitas_keperawatan->approvement == 'rejected' ? 'selected' : '' }}>Ditolak
-                                            </option>
-                                        </select>
-                                    </div>
-                                @endcan
-                                @can('aktivitas_keperawatan.beri.nilai')
-                                    @if ($aktivitas_keperawatan->approvement == 'approved')
-                                        <div class="col mt-3">
-                                            <label class="form-label">Nilai<span class="ms-2 text-muted fs-2">(0-100)</span></label>
-                                            <input type="number" class="form-control" min="0" max="100" name="nilai"
-                                                value="{{ $aktivitas_keperawatan->nilai }}">
+                                <div class="row">
+                                    @can('aktivitas_keperawatan.beri.approvement')
+                                        <div class="col">
+                                            <label class="form-label">Persetujuan</label>
+                                            <select name="approvement" class="form-select">
+                                                <option value="waiting"
+                                                    {{ $aktivitas_keperawatan->approvement == 'waiting' ? 'selected' : '' }}>Menunggu
+                                                </option>
+                                                <option value="approved"
+                                                    {{ $aktivitas_keperawatan->approvement == 'approved' ? 'selected' : '' }}>Disetujui
+                                                </option>
+                                                <option value="rejected"
+                                                    {{ $aktivitas_keperawatan->approvement == 'rejected' ? 'selected' : '' }}>Ditolak
+                                                </option>
+                                            </select>
                                         </div>
-                                    @endif
-                                @endcan
+                                    @endcan
+                                    @can('aktivitas_keperawatan.beri.nilai')
+                                        @if ($aktivitas_keperawatan->approvement == 'approved')
+                                            <div class="col">
+                                                <label class="form-label">Nilai<span class="ms-2 text-muted fs-2">(0-100)</span></label>
+                                                <input type="number" class="form-control" min="0" max="100" name="nilai"
+                                                    value="{{ $aktivitas_keperawatan->nilai }}">
+                                            </div>
+                                        @endif
+                                    @endcan
+                                </div>
+                                <div class="mt-3">
+                                    <label class="form-label">Feedback</label>
+                                    <textarea name="feedback" class="form-control" rows="3">{{ $aktivitas_keperawatan->feedback }}</textarea>
+                                </div>
                             </form>
+                        @else
+                            @if ($aktivitas_keperawatan->approvement != 'waiting')
+                                <hr>
+                                <div>
+                                    <label class="form-label">Feedback</label>
+                                    <div>{{ $aktivitas_keperawatan->feedback ?? '-' }}</div>
+                                </div>
+                            @endif
                         @endcan
                     </div>
                 </div>

@@ -140,7 +140,9 @@ class AktivitasKeperawatanService
             $nilai = 0;
         }
 
-        $dirty = [];
+        $dirty = [
+            'feedback' => $request->filled('feedback') ? $request->feedback : $aktivitas_keperawatan->feedback
+        ];
 
         if ($request->approvement !== $aktivitas_keperawatan->approvement) {
             $dirty['approvement'] = $request->approvement;
