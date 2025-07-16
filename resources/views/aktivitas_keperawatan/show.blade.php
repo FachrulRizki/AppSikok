@@ -15,7 +15,8 @@
                                     <a class="text-muted text-decoration-none" href="{{ route('dashboard') }}">Beranda</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a class="text-muted text-decoration-none" href="{{ route('aktivitas_keperawatan.index') }}">Aktivitas Keperawatan</a>
+                                    <a class="text-muted text-decoration-none"
+                                        href="{{ route('aktivitas_keperawatan.index') }}">Aktivitas Keperawatan</a>
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">Detail Aktivitas Keperawatan</li>
                             </ol>
@@ -23,7 +24,8 @@
                     </div>
                     <div class="col-3">
                         <div class="text-center mb-n5">
-                            <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{ asset('assets/images/backgrounds/welcome-doctors.svg') }}" alt="modernize-img"
+                                class="img-fluid mb-n4" />
                         </div>
                     </div>
                 </div>
@@ -31,7 +33,7 @@
         </div>
 
         <div class="d-flex gap-2 mb-4">
-            @canany(['aktivitas_keperawatan.beri.nilai', 'refleksi.beri.nilai'])
+            @canany(['aktivitas_keperawatan.beri.approvement', 'aktivitas_keperawatan.beri.nilai'])
                 <button type="submit" form="formApprovement" class="btn btn-primary">Simpan</button>
             @endcanany
             <a href="{{ route('aktivitas_keperawatan.index') }}" class="btn bg-primary-subtle text-primary">Kembali</a>
@@ -50,9 +52,11 @@
                             $grouped = $aktivitas_keperawatan->logs
                                 ->groupBy('activity.nama')
                                 ->map(function ($logsByActivity) {
-                                    return $logsByActivity->groupBy('activity_detail.nama')->map(function ($logsByDetail) {
-                                        return $logsByDetail->groupBy(fn($log) => $log->activity_task?->tipe);
-                                    });
+                                    return $logsByActivity
+                                        ->groupBy('activity_detail.nama')
+                                        ->map(function ($logsByDetail) {
+                                            return $logsByDetail->groupBy(fn($log) => $log->activity_task?->tipe);
+                                        });
                                 });
                         @endphp
 
@@ -63,32 +67,33 @@
                                 </li>
                                 <li class="list-group-item">
                                     <ul>
-                                    @foreach ($details as $detailName => $types)
-                                        <li class="mb-3">
-                                            <strong>{{ $detailName }}</strong>
-                                            <ul class="ms-3">
-                                                @foreach ($types as $typeName => $logs)
-                                                    <li class="mb-1">
-                                                        <strong>{{ $typeName }} :</strong>
-                                                        <ol>
-                                                            @foreach ($logs as $log)
-                                                                @if ($log->activity_task)
-                                                                    <li>{{ $log->activity_task->nama }}</li>
-                                                                @endif
-                                                            @endforeach
-                                                        </ol>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
+                                        @foreach ($details as $detailName => $types)
+                                            <li class="mb-3">
+                                                <strong>{{ $detailName }}</strong>
+                                                <ul class="ms-3">
+                                                    @foreach ($types as $typeName => $logs)
+                                                        <li class="mb-1">
+                                                            <strong>{{ $typeName }} :</strong>
+                                                            <ol>
+                                                                @foreach ($logs as $log)
+                                                                    @if ($log->activity_task)
+                                                                        <li>{{ $log->activity_task->nama }}</li>
+                                                                    @endif
+                                                                @endforeach
+                                                            </ol>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
 
-                                            @php
-                                                $catatan = $types->flatten()->first()?->catatan;
-                                            @endphp
-                                            <div class="ms-3 mt-2 border border-primary py-2 px-3 rounded d-flex align-items-start gap-1" style="--bs-border-style: dashed;">
-                                                <strong>Catatan:</strong>{{ $catatan ?? '-' }}
-                                            </div>
-                                        </li>
-                                    @endforeach
+                                                @php
+                                                    $catatan = $types->flatten()->first()?->catatan;
+                                                @endphp
+                                                <div class="ms-3 mt-2 border border-primary py-2 px-3 rounded d-flex align-items-start gap-1"
+                                                    style="--bs-border-style: dashed;">
+                                                    <strong>Catatan:</strong>{{ $catatan ?? '-' }}
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </li>
                             @endforeach
@@ -117,7 +122,8 @@
                                     </tr>
                                     <tr>
                                         <th class="py-2 text-start">Waktu</th>
-                                        <td class="py-2 text-end">{{ $aktivitas_keperawatan->waktu->format('H:i') }} WIB</td>
+                                        <td class="py-2 text-end">{{ $aktivitas_keperawatan->waktu->format('H:i') }} WIB
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th class="py-2 text-start">Shift Kerja</th>
@@ -128,12 +134,25 @@
                                         <td class="py-2 text-end">
                                             @php
                                                 $persetujuan = [
-                                                    'waiting' => ['label' => 'Menunggu', 'color' => 'warning', 'icon' => 'clock'],
-                                                    'approved' => ['label' => 'Disetujui', 'color' => 'primary', 'icon' => 'circle-check'],
-                                                    'rejected' => ['label' => 'Ditolak', 'color' => 'danger', 'icon' => 'circle-x'],
+                                                    'waiting' => [
+                                                        'label' => 'Menunggu',
+                                                        'color' => 'warning',
+                                                        'icon' => 'clock',
+                                                    ],
+                                                    'approved' => [
+                                                        'label' => 'Disetujui',
+                                                        'color' => 'primary',
+                                                        'icon' => 'circle-check',
+                                                    ],
+                                                    'rejected' => [
+                                                        'label' => 'Ditolak',
+                                                        'color' => 'danger',
+                                                        'icon' => 'circle-x',
+                                                    ],
                                                 ][$aktivitas_keperawatan->approvement];
                                             @endphp
-                                            <span class="badge fs-2 bg-{{ $persetujuan['color'] }}-subtle text-{{ $persetujuan['color'] }}">
+                                            <span
+                                                class="badge fs-2 bg-{{ $persetujuan['color'] }}-subtle text-{{ $persetujuan['color'] }}">
                                                 <i class="ti ti-{{ $persetujuan['icon'] }} me-1"></i>
                                                 {{ $persetujuan['label'] }}
                                             </span>
@@ -141,7 +160,9 @@
                                     </tr>
                                     <tr>
                                         <th class="pt-2 text-start">Nilai</th>
-                                        <td class="pt-2 text-end">{{ $aktivitas_keperawatan->nilai != 0 ? $aktivitas_keperawatan->nilai : '-' }}</td>
+                                        <td class="pt-2 text-end">
+                                            {{ $aktivitas_keperawatan->nilai != 0 ? $aktivitas_keperawatan->nilai : '-' }}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -153,16 +174,23 @@
                         </div>
                         @canany(['aktivitas_keperawatan.beri.nilai', 'aktivitas_keperawatan.beri.approvement'])
                             <hr>
-                            <form action="{{ route('aktivitas_keperawatan.update_nilai', $aktivitas_keperawatan->id) }}" method="post" id="formApprovement">
+                            <form action="{{ route('aktivitas_keperawatan.update_nilai', $aktivitas_keperawatan->id) }}"
+                                method="post" id="formApprovement">
                                 @csrf
                                 @method('PUT')
                                 @can('aktivitas_keperawatan.beri.approvement')
                                     <div class="col">
                                         <label class="form-label">Persetujuan</label>
                                         <select name="approvement" class="form-select">
-                                            <option value="waiting" {{ $aktivitas_keperawatan->approvement == 'waiting' ? 'selected' : '' }}>Menunggu</option>
-                                            <option value="approved" {{ $aktivitas_keperawatan->approvement == 'approved' ? 'selected' : '' }}>Disetujui</option>
-                                            <option value="rejected" {{ $aktivitas_keperawatan->approvement == 'rejected' ? 'selected' : '' }}>Ditolak</option>
+                                            <option value="waiting"
+                                                {{ $aktivitas_keperawatan->approvement == 'waiting' ? 'selected' : '' }}>Menunggu
+                                            </option>
+                                            <option value="approved"
+                                                {{ $aktivitas_keperawatan->approvement == 'approved' ? 'selected' : '' }}>Disetujui
+                                            </option>
+                                            <option value="rejected"
+                                                {{ $aktivitas_keperawatan->approvement == 'rejected' ? 'selected' : '' }}>Ditolak
+                                            </option>
                                         </select>
                                     </div>
                                 @endcan
@@ -170,7 +198,8 @@
                                     @if ($aktivitas_keperawatan->approvement == 'approved')
                                         <div class="col mt-3">
                                             <label class="form-label">Nilai<span class="ms-2 text-muted fs-2">(0-100)</span></label>
-                                            <input type="number" class="form-control" min="0" max="100" name="nilai" value="{{ $aktivitas_keperawatan->nilai }}">
+                                            <input type="number" class="form-control" min="0" max="100" name="nilai"
+                                                value="{{ $aktivitas_keperawatan->nilai }}">
                                         </div>
                                     @endif
                                 @endcan
