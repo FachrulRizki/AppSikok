@@ -13,9 +13,11 @@ class AddColumnTingkatKepuasanToKuisonerKepuasanTable extends Migration
      */
     public function up()
     {
-        Schema::table('kuisoner_kepuasan', function (Blueprint $table) {
-            $table->string('tingkat_kepuasan')->nullable()->after('saran');
-        });
+        if (!Schema::hasColumn('kuisoner_kepuasan', 'tingkat_kepuasan')) {
+            Schema::table('kuisoner_kepuasan', function (Blueprint $table) {
+                $table->string('tingkat_kepuasan')->nullable()->after('saran');
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class AddColumnTingkatKepuasanToKuisonerKepuasanTable extends Migration
      */
     public function down()
     {
-        Schema::table('kuisoner_kepuasan', function (Blueprint $table) {
-            $table->dropColumn('tingkat_kepuasan');
-        });
+        if (Schema::hasColumn('kuisoner_kepuasan', 'tingkat_kepuasan')) {
+            Schema::table('kuisoner_kepuasan', function (Blueprint $table) {
+                $table->dropColumn('tingkat_kepuasan');
+            });
+        }
     }
 }

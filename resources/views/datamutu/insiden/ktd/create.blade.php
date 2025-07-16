@@ -326,7 +326,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Lampiran Foto (opsional)</label>
+                        <label class="form-label">Lampiran Foto<span class="text-danger">*</span></label>
                         <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
                         <samll class="form-text">Maksimal 5 file. Ukuran maks 2 MB per file.</samll>
                         @error('foto')

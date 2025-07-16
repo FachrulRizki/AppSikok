@@ -64,7 +64,7 @@ class KpcController extends Controller
             'tindakan' => 'required|string',
             'pelaksana' => 'required|string',
             'nama_inisial' => 'required|string',
-            'foto' => 'nullable|array|max:5',
+            'foto' => 'required|array|max:5',
             'foto.*' => 'image|max:2048|mimetypes:image/jpeg,image/png,image/webp',
         ]);
 
