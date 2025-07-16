@@ -112,15 +112,17 @@
                                                 data-bs-placement="top" title="Detail">
                                                 <i class="ti ti-eye"></i>
                                             </a>
-                                            <form action="{{ route('kuesioner.destroy', $item->id) }}" method="POST"
-                                                onsubmit="return confirm('Yakin hapus?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
-                                                    <i class="ti ti-trash"></i>
-                                                </button>
-                                            </form>
+                                            @can('kuesioner.hapus')
+                                                <form action="{{ route('kuesioner.destroy', $item->id) }}" method="POST"
+                                                    onsubmit="return confirm('Yakin hapus?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+                                                        <i class="ti ti-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>
