@@ -69,7 +69,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">Peserta Mengerjakan</h4>
+                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0 card-title">Peserta Mengerjakan</h4>
+                        @can('kuis.export')
+                            <a href="{{ route('attempt.export', ['quiz_id' => $quiz->id]) }}"
+                                class="btn btn-primary btn-sm float-end" data-bs-toggle="tooltip" data-bs-placement="top" title="Export PDF"><i class="fa fa-download"></i></a>
+                        @endcan
+                    </div>
                     <div class="table-responsive">
                         <table class="table w-100 text-nowrap">
                             <thead>

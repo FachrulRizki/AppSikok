@@ -98,6 +98,7 @@ Route::middleware('auth')->group(function () {
     // Quiz
     Route::resource('quiz', QuizController::class)->names('quiz')->except(['create']);
     Route::resource('question', QuestionController::class)->names('question')->only('store', 'update', 'destroy');
+    Route::get('attempt/export', [AttemptController::class, 'export'])->name('attempt.export');
     Route::resource('attempt', AttemptController::class)->names('attempt')->except(['edit', 'update']);
 
     //sertifikat

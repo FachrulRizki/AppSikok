@@ -7,6 +7,7 @@ use App\Models\AttemptAnswer;
 use App\Models\Question;
 use App\Models\Quiz;
 use App\Models\QuizAttempt;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class AttemptController extends Controller
@@ -115,5 +116,37 @@ class AttemptController extends Controller
             ->log('Menghapus Riwayat Pengerjaan Kuis');
 
         return redirect()->back()->with('success', 'Pengerjaan kuis berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        if (!auth()->user()->can('kuis.export')) return abort(403);
+
+        $quiz_id = $request->get('quiz_id');
+
+        if ($quiz_id) {
+            $data = QuizAttempt::select('quiz_id', 'user_id', 'score', 'created_at')
+                ->where('quiz_id', $quiz_id)
+                ->with('user', 'quiz')
+                ->latest()
+                ->get();
+
+            $quiz = Quiz::find($quiz_id);
+
+            // return view('quiz.export', compact('data', 'quiz'));
+
+            $pdf = Pdf::loadView('quiz.export', compact('data', 'quiz'))->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+            ])->setPaper('a4', 'portrait');
+
+            activity()
+                ->event('Export Data')
+                ->causedBy(auth()->user())
+                ->withProperties(['ip' => request()->ip()])
+                ->log('Mengexport pengerjaan kuis');
+
+            return $pdf->download('Pengerjaan Kuis - '. $quiz->title . '.pdf');
+        }
     }
 }

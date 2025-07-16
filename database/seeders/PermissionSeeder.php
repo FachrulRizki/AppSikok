@@ -99,6 +99,7 @@ class PermissionSeeder extends Seeder
             'kuis.edit',
             'kuis.hapus',
             'kuis.mengerjakan',
+            'kuis.export',
         ];
 
         foreach ($kuisPermissions as $permission) {
