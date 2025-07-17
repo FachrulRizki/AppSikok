@@ -22,7 +22,8 @@
                                         Keselamatan Pasien</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a class="text-muted text-decoration-none" href="{{ route('insiden.kpc.index') }}">KPC</a>
+                                    <a class="text-muted text-decoration-none"
+                                        href="{{ route('insiden.kpc.index') }}">KPC</a>
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">Tambah Laporan</li>
                             </ol>
@@ -44,7 +45,8 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Nama Inisial Pelapor<span class="text-danger">*</span></label>
-                            <input type="text" name="nama_inisial" class="form-control @error('nama_inisial') is-invalid @enderror"
+                            <input type="text" name="nama_inisial"
+                                class="form-control @error('nama_inisial') is-invalid @enderror"
                                 value="{{ old('nama_inisial', $kpc->nama_inisial ?? '') }}">
                             @error('nama_inisial')
                                 <span class="invalid-feedback" role="alert">
@@ -54,7 +56,8 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Tanggal & Waktu<span class="text-danger">*</span></label>
-                            <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror"
+                            <input type="datetime-local" name="waktu"
+                                class="form-control @error('waktu') is-invalid @enderror"
                                 value="{{ old('waktu', isset($kpc) ? $kpc->waktu->format('Y-m-d\TH:i') : '') }}">
                             @error('waktu')
                                 <span class="invalid-feedback" role="alert">
@@ -67,7 +70,8 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label">Unit Terkait<span class="text-danger">*</span></label>
-                            <input type="text" name="unit_terkait" class="form-control @error('unit_terkait') is-invalid @enderror"
+                            <input type="text" name="unit_terkait"
+                                class="form-control @error('unit_terkait') is-invalid @enderror"
                                 value="{{ old('unit_terkait', $kpc->unit_terkait ?? '') }}">
                             @error('unit_terkait')
                                 <span class="invalid-feedback" role="alert">
@@ -80,7 +84,9 @@
                             <select name="ruangan" class="form-select @error('ruangan') is-invalid @enderror">
                                 <option value="">Pilih Ruangan</option>
                                 @foreach (['OK', 'IGD', 'ICU', 'POLI', 'RIA', 'RID', 'PAIDA', 'VIP', 'Kebidanan', 'PONEK', 'NICU', 'FARMASI', 'LABORATORIUM', 'RADIOLOGI', 'GUDANG OBAT'] as $r)
-                                    <option value="{{ $r }}" {{ old('ruangan', $kpc->ruangan ?? '') == $r ? 'selected' : '' }}>{{ $r }}</option>
+                                    <option value="{{ $r }}"
+                                        {{ old('ruangan', $kpc->ruangan ?? '') == $r ? 'selected' : '' }}>
+                                        {{ $r }}</option>
                                 @endforeach
                             </select>
                             @error('ruangan')
@@ -90,7 +96,7 @@
                             @enderror
                         </div>
                     </div>
-                    
+
 
                     <div class="mb-3">
                         <label class="form-label">Temuan Kejadian/Insiden<span class="text-danger">*</span></label>
@@ -117,8 +123,9 @@
                             <label class="form-label">Sumber Informasi<span class="text-danger">*</span></label>
                             @foreach (['Karyawan', 'Pasien/Keluarga', 'Melihat Sendiri'] as $sumber)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sumber" value="{{ $sumber }}"
-                                        id="sumber_{{ $loop->index }}" {{ old('sumber') === $sumber ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="radio" name="sumber"
+                                        value="{{ $sumber }}" id="sumber_{{ $loop->index }}"
+                                        {{ old('sumber') === $sumber ? 'checked' : '' }}>
                                     <label class="form-check-label">{{ $sumber }}</label>
                                 </div>
                             @endforeach
@@ -132,8 +139,8 @@
                             <label class="form-label">Tindakan dilakukan oleh<span class="text-danger">*</span></label>
                             @foreach (['Tim', 'Dokter', 'Perawat'] as $pelaksana)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="pelaksana" value="{{ $pelaksana }}"
-                                        id="pelaksana_{{ $loop->index }}"
+                                    <input class="form-check-input" type="radio" name="pelaksana"
+                                        value="{{ $pelaksana }}" id="pelaksana_{{ $loop->index }}"
                                         {{ old('pelaksana') === $pelaksana ? 'checked' : '' }}>
                                     <label class="form-check-label">{{ $pelaksana }}</label>
                                 </div>
@@ -158,14 +165,36 @@
 
                     <div class="mb-3">
                         <label class="form-label">Lampiran Foto<span class="text-danger">*</span></label>
-                        <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
-                        <small class="form-text">Maksimal 5 file. Ukuran maks 2 MB per file.</small>
+                        <input type="file" name="foto[]" id="fotoInput"
+                            class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
+                        <small class="form-text text-muted">Maksimal 5 file. Ukuran maks 2 MB per file.</small>
+                        <div id="fileSizeWarning" class="text-danger mt-1" style="display: none;">
+                            Salah satu atau lebih file melebihi ukuran 2 MB.
+                        </div>
                         @error('foto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+
+                    <script>
+                        document.getElementById('fotoInput').addEventListener('change', function() {
+                            const maxFileSize = 2 * 1024 * 1024; // 2MB in bytes
+                            const files = this.files;
+                            let showWarning = false;
+
+                            for (let i = 0; i < files.length; i++) {
+                                if (files[i].size > maxFileSize) {
+                                    showWarning = true;
+                                    break;
+                                }
+                            }
+
+                            document.getElementById('fileSizeWarning').style.display = showWarning ? 'block' : 'none';
+                        });
+                    </script>
+
 
                     <div class="d-flex gap-3 mt-4">
                         <button class="btn btn-primary" type="submit">Simpan</button>

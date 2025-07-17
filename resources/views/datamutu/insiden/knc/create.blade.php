@@ -300,14 +300,35 @@
 
                     <div class="mb-3">
                         <label class="form-label">Lampiran Foto<span class="text-danger">*</span></label>
-                        <input type="file" name="foto[]" class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
-                        <samll class="form-text">Maksimal 5 file. Ukuran maks 2 MB per file.</samll>
+                        <input type="file" name="foto[]" id="fotoInput"
+                            class="form-control @error('foto') is-invalid @enderror" multiple accept="image/*">
+                        <small class="form-text text-muted">Maksimal 5 file. Ukuran maks 2 MB per file.</small>
+                        <div id="fileSizeWarning" class="text-danger mt-1" style="display: none;">
+                            Salah satu atau lebih file melebihi ukuran 2 MB.
+                        </div>
                         @error('foto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+
+                    <script>
+                        document.getElementById('fotoInput').addEventListener('change', function() {
+                            const maxFileSize = 2 * 1024 * 1024; // 2MB in bytes
+                            const files = this.files;
+                            let showWarning = false;
+
+                            for (let i = 0; i < files.length; i++) {
+                                if (files[i].size > maxFileSize) {
+                                    showWarning = true;
+                                    break;
+                                }
+                            }
+
+                            document.getElementById('fileSizeWarning').style.display = showWarning ? 'block' : 'none';
+                        });
+                    </script>
 
                     <div class="d-flex gap-3 mt-4">
                         <button class="btn btn-primary" type="submit">Simpan</button>
