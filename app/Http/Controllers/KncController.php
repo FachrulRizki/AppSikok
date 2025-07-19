@@ -72,7 +72,7 @@ class KncController extends Controller
             'pelaksana' => 'required|string',
             'nama_inisial' => 'required|string',
             'ruangan_pelapor' => 'required|string',
-            'foto' => 'nullable|array|max:5',
+            'foto' => 'required|array|max:5',
             'foto.*' => 'image|max:2048|mimetypes:image/jpeg,image/png,image/webp',
         ]);
 
