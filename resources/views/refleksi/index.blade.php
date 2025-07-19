@@ -83,7 +83,7 @@
                                 <th>Unit Kerja</th>
                                 @endcan
                                 <th>Persetujuan</th>
-                                <th class="text-center">Nilai</th>
+                                <th>Nilai</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -110,7 +110,7 @@
                                             {{ $persetujuan['label'] }}
                                         </span>
                                     </td>
-                                    <td class="text-center">{{ $item->nilai != 0 ? $item->nilai : '-' }}</td>
+                                    <td>{!! $item->humanityScore?->category ?? '-' !!}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             <a href="{{ route('refleksi.show', $item->id) }}"

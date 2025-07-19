@@ -38,7 +38,20 @@
                     ][$item->approvement];
                 @endphp
                 <td>{{ $persetujuan['label'] }}</td>
-                <td>{{ $item->nilai != 0 ? $item->nilai : '-' }}</td>
+                <td>
+                    @php
+                        $category = $item->humanityScore?->category;
+
+                        if ($category) {
+                            $emoji = Str::substr($category, 0, 2);
+                            $label = Str::after($category, ' ');
+                        } else {
+                            $emoji = '';
+                            $label = '-';
+                        }
+                    @endphp
+                    <span>{{ $label }}</span>
+                </td>
                 <td>{{ $item->feedback }}</td>
             </tr>
         @empty

@@ -19,6 +19,7 @@ class Refleksi extends Model
         'tindakan',
         'approvement',
         'nilai',
+        'humanity_score_id',
         'feedback',
     ];
 
@@ -29,5 +30,10 @@ class Refleksi extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function humanityScore()
+    {
+        return $this->belongsTo(HumanityScore::class);
     }
 }

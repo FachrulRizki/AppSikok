@@ -70,8 +70,8 @@
                                         <td class="py-2 text-end">{{ $refleksi->user->unit }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="py-2 text-start">Persetujuan</th>
-                                        <td class="py-2 text-end">
+                                        <th class="pt-2 text-start">Persetujuan</th>
+                                        <td class="pt-2 text-end">
                                             @php
                                                 $persetujuan = [
                                                     'waiting' => ['label' => 'Menunggu', 'color' => 'warning', 'icon' => 'clock'],
@@ -85,38 +85,48 @@
                                             </span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th class="pt-2 text-start">Nilai</th>
-                                        <td class="pt-2 text-end">{{ $refleksi->nilai != 0 ? $refleksi->nilai : '-' }}</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
+                        @if ($refleksi->humanityScore)
+                            <hr>
+                            <div class="mb-3">
+                                <label class="form-label">Nilai</label>
+                                <div>{!! $refleksi->humanityScore?->category ?? '-' !!}</div>
+                            </div> 
+                            <div>
+                                <label class="form-label">Deskripsi Nilai</label>
+                                <div>{{ $refleksi->humanityScore?->description ?? '-' }}</div>
+                            </div>  
+                        @endif
                         @canany(['refleksi.beri.approvement', 'refleksi.beri.nilai'])
                             <hr>
                             <form action="{{ route('refleksi.update_approvement', $refleksi->id) }}" method="post" id="formApprovement">
                                 @csrf
                                 @method('PUT')
-                                <div class="row">
-                                    @can('refleksi.beri.approvement')
-                                        <div class="col">
-                                            <label class="form-label">Persetujuan</label>
-                                            <select name="approvement" class="form-select">
-                                                <option value="waiting" {{ $refleksi->approvement == 'waiting' ? 'selected' : '' }}>Menunggu</option>
-                                                <option value="approved" {{ $refleksi->approvement == 'approved' ? 'selected' : '' }}>Disetujui</option>
-                                                <option value="rejected" {{ $refleksi->approvement == 'rejected' ? 'selected' : '' }}>Ditolak</option>
+                                @can('refleksi.beri.approvement')
+                                    <div class="mb-3">
+                                        <label class="form-label">Persetujuan</label>
+                                        <select name="approvement" class="form-select">
+                                            <option value="waiting" {{ $refleksi->approvement == 'waiting' ? 'selected' : '' }}>Menunggu</option>
+                                            <option value="approved" {{ $refleksi->approvement == 'approved' ? 'selected' : '' }}>Disetujui</option>
+                                            <option value="rejected" {{ $refleksi->approvement == 'rejected' ? 'selected' : '' }}>Ditolak</option>
+                                        </select>
+                                    </div>
+                                @endcan
+                                @can('refleksi.beri.nilai')
+                                    @if ($refleksi->approvement == 'approved')
+                                        <div class="mb-3">
+                                            <label class="form-label">Nilai</label>
+                                            <select name="nilai" class="form-select">
+                                                <option value="">Pilih penilaian</option>
+                                                @foreach ($humanityScore as $humanity)
+                                                    <option value="{{ $humanity->id }}" {{ $refleksi->humanityScore?->id == $humanity->id ? 'selected' : '' }}>{!! $humanity->category !!}</option>
+                                                @endforeach
                                             </select>
                                         </div>
-                                    @endcan
-                                    @can('refleksi.beri.nilai')
-                                        @if ($refleksi->approvement == 'approved')
-                                            <div class="col">
-                                                <label class="form-label">Nilai<span class="ms-2 text-muted fs-2">(0-100)</span></label>
-                                                <input type="number" class="form-control" min="0" max="100" name="nilai" value="{{ $refleksi->nilai }}">
-                                            </div>
-                                        @endif
-                                    @endcan
-                                </div>
+                                    @endif
+                                @endcan
                                 <div class="mt-3">
                                     <label class="form-label">Feedback</label>
                                     <textarea name="feedback" class="form-control" rows="3">{{ $refleksi->feedback }}</textarea>

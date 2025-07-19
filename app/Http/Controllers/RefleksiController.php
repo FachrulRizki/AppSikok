@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RefleksiRequest;
+use App\Models\HumanityScore;
 use App\Models\Refleksi;
 use Illuminate\Http\Request;
 use App\Services\RefleksiService;
@@ -45,6 +46,7 @@ class RefleksiController extends Controller
     public function show(Refleksi $refleksi_harian)
     {
         return view('refleksi.show', [
+            'humanityScore' => HumanityScore::all(),
             'refleksi' => $refleksi_harian
         ]);
     }
@@ -81,7 +83,7 @@ class RefleksiController extends Controller
 
         $request->validate([
             'approvement' => 'in:waiting,approved,rejected',
-            'nilai' => 'nullable|numeric|min:0|max:100',
+            'nilai' => 'nullable|exists:humanity_scores,id',
             'feedback' => 'nullable|string'
         ]);
 
@@ -105,8 +107,8 @@ class RefleksiController extends Controller
 
         if ($start && $end) {
             $data = Refleksi::
-                select('waktu', 'jdl_kegiatan', 'user_id', 'approvement', 'nilai', 'feedback')
-                ->with('user')
+                select('waktu', 'jdl_kegiatan', 'user_id', 'approvement', 'nilai', 'feedback', 'humanity_score_id')
+                ->with('user', 'humanityScore')
                 ->whereDate('waktu', '>=' , $start)
                 ->whereDate('waktu', '<=' , $end)
                 ->latest()

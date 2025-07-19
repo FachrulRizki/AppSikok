@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\HumanityScore;
 use App\Models\Refleksi;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class RefleksiService
         $end = $request->get('end');
 
         $data = Refleksi::select(
-            'id','waktu', 'jdl_kegiatan', 'approvement', 'nilai', 'user_id'
-        )->with('user');
+            'id','waktu', 'jdl_kegiatan', 'approvement', 'nilai', 'user_id', 'humanity_score_id'
+        )->with('user', 'humanityScore');
 
         if (auth()->user()->can('refleksi.lihat.sendiri')) {
             $data = $data->where('user_id', auth()->user()->id);
@@ -86,15 +87,16 @@ class RefleksiService
 
     public function updateApprovement(Refleksi $refleksi, Request $request)
     {
-        $nilai = $request->filled('nilai') ? ($request->nilai ?? 0) : $refleksi->nilai;
-
-        if (in_array($request->approvement, ['waiting', 'rejected'])) {
-            $nilai = 0;
-        }
+        $nilai = $request->filled('nilai') ? ($request->nilai ?? null) : $refleksi->humanity_score_id;
 
         $dirty = [
             'feedback' => $request->filled('feedback') ? $request->feedback : $refleksi->feedback
         ];
+
+        if (in_array($request->approvement, ['waiting', 'rejected'])) {
+            $nilai = null;
+            $dirty['nilai'] = 0;
+        }
 
         if ($request->approvement !== $refleksi->approvement) {
             $dirty['approvement'] = $request->approvement;
@@ -106,8 +108,12 @@ class RefleksiService
                 ->log('Mengupdate persetujuan atau feedback refleksi');
         }
         
-        if ($nilai !== $refleksi->nilai) {
-            $dirty['nilai'] = $nilai;
+        if ($nilai !== $refleksi->humanity_score_id) {
+            $dirty['humanity_score_id'] = $nilai;
+
+            if ($nilai != null) {
+                $dirty['nilai'] = HumanityScore::find($nilai)->score;
+            }
 
             activity()
                 ->event('Update Nilai')
