@@ -18,7 +18,7 @@ class LeaderboardController extends Controller
 
         $dates = $start && $end ? [$start, $end] : [date('Y-m-d'), date('Y-m-d')];
 
-        $perawatQuery = User::whereHas('roles', fn($q) => $q->where('name', 'Perawat'))
+        $perawatQuery = User::whereHas('roles', fn($q) => $q->where('name', 'perawat'))
             ->with(['aktivitasKeperawatan', 'refleksiHarian'])
             ->get();
 
@@ -45,12 +45,12 @@ class LeaderboardController extends Controller
         return collect($perawat)->map(function ($user) use ($dates) {
             $avgAktivitas = $user->aktivitasKeperawatan()
                 ->where('nilai', '>', 0)
-                ->whereBetween('waktu', $dates)
+                ->whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])
                 ->avg('nilai') ?? 0;
 
             $avgRefleksi = $user->refleksiHarian()
                 ->where('nilai', '>', 0)
-                ->whereBetween('waktu', $dates)
+                ->whereDate('waktu', '>=', $dates[0])->whereDate('waktu', '<=', $dates[1])
                 ->avg('nilai') ?? 0;
 
             $nilai = collect([$avgAktivitas, $avgRefleksi])->filter();
